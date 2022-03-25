@@ -1,0 +1,92 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{physics}
+\setlength{\parindent}{0pt}
+\newcommand{\incfig}[1]{%
+		\def\svgwidth{\columnwidth}
+		\import{./figures/}{#1.pdf_tex}
+
+}
+
+\pdfsuppresswarningpagegroup=1
+
+\begin{document}
+\section{Introduction}
+
+
+
+\section{Theory}
+
+
+\section{Waveguides}
+In order to understand cavities, we start off with the discussion on waveguides. An electromagnetic wave, when confined to the interior of a hollow pipe is called a waveguide. We shall closely follow the derivation from \cite{}.The generalized Maxwell equations in terms of E-field and H-field are given by:
+
+\begin{align}
+		\curl {\vb{{E}}} = - \pdv{{B}}{t} \\
+		\div{\vb{D}} = \rho \\
+		\curl {\vb{{H}}} = \vec{j} + \pdv{{D}}{t} \\
+		\div{\vb{{B}}} = 0 
+\end{align}
+
+In vacuum, these equations become: 
+\begin{align}
+		\curl {\vb{{E}}} = \mu_0 \cdot \pdv{{H}}{t} \\ 
+		\div{\vb{{E}}} = 0 \\
+		\curl {\vb{{H}}} = \epsilon_{0} \cdot \pdv{{E}}{t} \\
+		\div{\vb{{H}}} = 0
+\end{align}
+
+Upon solving these equations, we get plane wave solutions which looks like this: 
+\begin{align}
+		\Delta \vec{E}\left(\vec{r}\right) + \frac{\omega}{c^2} \vec{E}\left(\vec{r}\right) = 0 \\
+		\Delta \vec{B}\left(\vec{r}\right) + \frac{\omega}{c^2} \vec{B}\left(\vec{r}\right) = 0 
+\end{align}
+
+Now, let us look at a waveguide which is aligned along the z-direction. Taking the ansatz $\vec{E} = \vec{E}(x,y).e^{i(\omega t -kz)}$ and the separation $\Delta = \Delta_{\perp} + \pdv[2]{}{z}$, for the longitudinal fields yields: 
+
+\begin{align}
+		\Delta_{\perp}E_{z} + k_{c}^2 E_{z} = 0 \\
+		\Delta_{\perp}H_{z} + k_{c}^2 H_{z} = 0 
+\end{align}
+where 
+\[
+		k_{c}^2 = \frac{\omega^2 }{c^2 } - k^2   
+\]
+The quantity $k_{c} $ is called the critical wave number and is a characteristic property of the cavity, as we shall see. 
+Solving these equations further, we see that it is sufficient to know the longitudinal fields, $E_{z} $ and $B_{z} $ because we can easily determine the transverse components from them. 
+Now, there are two waves to classify these waves: 
+\begin{enumerate}
+		\item $k_{c}^2 = 0  $ 
+				\begin{enumerate}
+						\item $\vec{\Delta_{\perp} }E_{z}  \ne 0$ and $\vec{\Delta}_{\perp}H_{z} \ne 0  $: HE or EH hybrid waves.
+						\item $\vec{\Delta_{\perp} }E_{z}  = 0$ and $\vec{\Delta}_{\perp}H_{z} = 0  $: TEM waves.
+				\end{enumerate}
+		\item $k_{c}^2 \ne 0  $ 
+		In this case we do not get any propagation if $\omega \leq c \cdot k_{c} $. These waves are called evanescent waves or the cut off condition. The possible propagation modes are: 
+		\begin{enumerate}
+				\item $E_{z}=0 $: TE (transversal electric) or H waves.
+				\item $H_{z}=0 $: TM (transversal magnetic) or E waves.
+		\end{enumerate}
+		
+\end{enumerate}
+
+Corresponding to this critical wave, we have a critical frequency, which is $\omega_{c} = k_{c}.c $, below which there is no propagation. 
+One interesting thing to note here is that for a hollow waveguide, only TE or TM modes are possible, TEM is not, because no wave would exist in this case \cite{}. But for a coaxial cable, which consists of straight wire surrounded by a conduction sheath, we can get TEM modes.
+
+\subsection{Cylindrical waveguides}
+
+
+\end{document}
