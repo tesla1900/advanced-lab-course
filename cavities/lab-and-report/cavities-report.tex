@@ -35,25 +35,25 @@
 In order to understand cavities, we start off with the discussion on waveguides. An electromagnetic wave, when confined to the interior of a hollow pipe is called a waveguide. We shall closely follow the derivation from \cite{}.The generalized Maxwell equations in terms of E-field and H-field are given by:
 
 \begin{align}
-		\curl {\vb{{E}}} = - \pdv{{B}}{t} \\
-		\div{\vb{D}} = \rho \\
-		\curl {\vb{{H}}} = \vec{j} + \pdv{{D}}{t} \\
-		\div{\vb{{B}}} = 0 
+		\curl {\vb{{E}}} &= - \pdv{{B}}{t} \\
+		\div{\vb{D}} &= \rho \\
+		\curl {\vb{{H}}} &= \vec{j} + \pdv{{D}}{t} \\
+		\div{\vb{{B}}} &= 0 
 \end{align}
 
 In vacuum, these equations become: 
 \begin{align}
-		\curl {\vb{{E}}} = \mu_0 \cdot \pdv{{H}}{t} \\ 
-		\div{\vb{{E}}} = 0 \\
-		\curl {\vb{{H}}} = \epsilon_{0} \cdot \pdv{{E}}{t} \\
-		\div{\vb{{H}}} = 0
+		\curl {\vb{{E}}} &= \mu_0 \cdot \pdv{{H}}{t} \\ 
+		\div{\vb{{E}}} &= 0 \\
+		\curl {\vb{{H}}} &= \epsilon_{0} \cdot \pdv{{E}}{t} \\
+		\div{\vb{{H}}} &= 0
 \end{align}
 
 Upon solving these equations, we get plane wave solutions which looks like this: 
-\begin{align}
+\begin{align*}
 		\Delta \vec{E}\left(\vec{r}\right) + \frac{\omega}{c^2} \vec{E}\left(\vec{r}\right) = 0 \\
 		\Delta \vec{B}\left(\vec{r}\right) + \frac{\omega}{c^2} \vec{B}\left(\vec{r}\right) = 0 
-\end{align}
+\end{align*}
 
 Now, let us look at a waveguide which is aligned along the z-direction. Taking the ansatz $\vec{E} = \vec{E}(x,y).e^{i(\omega t -kz)}$ and the separation $\Delta = \Delta_{\perp} + \pdv[2]{}{z}$, for the longitudinal fields yields: 
 
@@ -67,6 +67,11 @@ where
 \]
 The quantity $k_{c} $ is called the critical wave number and is a characteristic property of the cavity, as we shall see. 
 Solving these equations further, we see that it is sufficient to know the longitudinal fields, $E_{z} $ and $B_{z} $ because we can easily determine the transverse components from them. 
+\begin{align} 
+		ik_{c}^2 \vec{E}_{\perp} = k \vec{\nabla}_{\perp}E_{z} + \omega \mu _{0} \vec{\nabla}_{\perp}H_{z} \times \hat{e}_{z} \label{trans1} \\
+		ik_{c}^2 \vec{H}_{\perp} = k \vec{\nabla}_{\perp}H_{z} - \omega \epsilon_{0} \vec{\nabla}_{\perp} E_{z} \times \hat{e}_{z} \label{trans2}     
+\end{align}
+
 Now, there are two waves to classify these waves: 
 \begin{enumerate}
 		\item $k_{c}^2 = 0  $ 
@@ -83,10 +88,43 @@ Now, there are two waves to classify these waves:
 		
 \end{enumerate}
 
-Corresponding to this critical wave, we have a critical frequency, which is $\omega_{c} = k_{c}.c $, below which there is no propagation. 
+Corresponding to this critical wave, we have a critical frequency, which is $\omega_{c}=k_{c}.c $, below which there is no propagation. 
 One interesting thing to note here is that for a hollow waveguide, only TE or TM modes are possible, TEM is not, because no wave would exist in this case \cite{}. But for a coaxial cable, which consists of straight wire surrounded by a conduction sheath, we can get TEM modes.
 
 \subsection{Cylindrical waveguides}
+We now consider a cylindrical waveguide with an inner radius a. This imposes the following boundary conditions to the walls of the waveguide:
+\begin{itemize}
+		\item $E_{\phi} = 0$, $E_{z} = 0 $ \text{for} $r = a$ 
+		\item $H_{r} = 0 $ \text{for} $r = a$ 
+\end{itemize}
 
+The field distrubution solution for a cylindrical waveguide can be seperated into angualar and radial parts, whose solutions are then given by the Bessel/Neumann functions. These can be then substituted in the eq.(\ref{trans1})-(\ref{trans2}) and upon imposing the constraints from the boundary condition gives us the corresponding TE- and TM-modes.
+
+\subsection{Cylindrical waveguides resonator}
+The time has now come, to talk about cavities itself. If we now insert two conducting plates perpendicular to the z-axis, the incoming wave is reflected completely, giving us standing waves. Because of this, the z-dependence changes like: 
+
+\[
+		a \cdot e^{ikz} \implies A \cdot \sin\left(kz + \phi_{0}\right)    
+\]
+The following condition is imposed so that the longitudinal boundary conditions are fulfilled: $k = p\cdot \pi /l $. The longitudinal field looks like: 
+\begin{align*}
+		\mathbf{TE_{mnp}-Modes}: H_{z} = H_{mn}\cdot J_{m} \left(k_{c}r \right) \cos\left(m \phi \right) \cdot \sin\left(p \pi / l \cdot z \right) \cdot e^{\omega_{mnp}t} \text{ where } k_{c}a=j_{mn}^{'}  \\
+		\mathbf{TM_{mnp}-Modes}: E_{z} = E_{mn}\cdot J_{m}^{'}  \left(k_{c}r \right) \cos\left(m \phi \right) \cdot \cos\left(p \pi / l \cdot z \right) \cdot e^{\omega_{mnp}t} \text{ where } k_{c}a=j_{mn} 
+\end{align*}
+For resonant frequency, we have:
+
+\[
+		\omega_{mnp} = c \cdot \sqrt{\left(j_{mn}/a\right)^2 + \left(p \pi / l\right)^2} 
+\]
+
+Here, $J_{m}$ is the $m$-th Bessel function, $J_{m}^{'} $ is its derivative. And $j_{mn}$ and $j_{mn}^{'}$ are the $n$-th zeropoints of the $m$-th Bessel function and its derivative.
+
+The resonant modes can be written in the linear form as:
+
+\begin{equation}
+		\left(d \nu \right)^2 = \left(\frac{cj_{mn}^{(')}}{\pi}\right)^2 + \left(\frac{c}{2}\right)^2 p^2 \left(\frac{d}{l}\right)^2
+\end{equation}
+
+where $d=2\cdot a$ is the diameter of the cavity.
 
 \end{document}
