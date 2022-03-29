@@ -14,7 +14,11 @@
 \usepackage{pdfpages}
 \usepackage{transparent}
 \usepackage{physics}
+\graphicspath{ {./figures/} }
 \setlength{\parindent}{0pt}
+\usepackage{chngcntr}
+\numberwithin{equation}{section}
+\counterwithin{figure}{section}
 \newcommand{\incfig}[1]{%
 		\def\svgwidth{\columnwidth}
 		\import{./figures/}{#1.pdf_tex}
@@ -98,7 +102,7 @@ We now consider a cylindrical waveguide with an inner radius a. This imposes the
 		\item $H_{r} = 0 $ \text{for} $r = a$ 
 \end{itemize}
 
-The field distrubution solution for a cylindrical waveguide can be seperated into angualar and radial parts, whose solutions are then given by the Bessel/Neumann functions. These can be then substituted in the eq.(\ref{trans1})-(\ref{trans2}) and upon imposing the constraints from the boundary condition gives us the corresponding TE- and TM-modes.
+The field distribution solution for a cylindrical waveguide can be separated into angular and radial parts, whose solutions are then given by the Bessel/Neumann functions. These can be then substituted in the eq.(\ref{trans1})-(\ref{trans2}) and upon imposing the constraints from the boundary condition gives us the corresponding TE- and TM-modes.
 
 \subsection{Cylindrical waveguides resonator}
 The time has now come, to talk about cavities itself. If we now insert two conducting plates perpendicular to the z-axis, the incoming wave is reflected completely, giving us standing waves. Because of this, the z-dependence changes like: 
@@ -125,6 +129,89 @@ The resonant modes can be written in the linear form as:
 		\left(d \nu \right)^2 = \left(\frac{cj_{mn}^{(')}}{\pi}\right)^2 + \left(\frac{c}{2}\right)^2 p^2 \left(\frac{d}{l}\right)^2
 \end{equation}
 
-where $d=2\cdot a$ is the diameter of the cavity.
+here $d$ is the diameter of the cavity.
+When we plot different modes on a graph, we get a mode map (Fig.\ref{fig:mode}). The mode map allows one to read off the resonant frequencies for different diameters and length of the cavity. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{mode_map}
+    \caption{Mode map for $p \leq 2$ \ref{} }
+    \label{fig:mode}
+\end{figure}
+
+Since the derivative of the zeroth order Bessel function and the first order Bessel function, $j^{'}_{0n}$ and $j_{1n}$, are equal, the corresponding TE- and TM-modes have the same resonant frequencies. That is, $TE_{0np}$-modes and $TM_{1np}$-modes have the same resonant frequency. 
+
+\section{Oscillating circuit}
+A cavity has a lot of characteristic quantities, which can be described by an equivalent circuit (Fig.\ref{fig:circuit}). 
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{circuit}
+    \caption{Equivalent circuit of a cavity with loop coupling}
+    \label{fig:circuit}
+\end{figure}	
+
+Coupling is a process through which electromagnetic waves can be coupled to a waveguide, or in this case, to a cavity. There are several ways to couple and in this experiment, we use loop coupling, which enables coupling to the magnetic field inside the cavity. In the figure \ref{fig:circuit}, the LCR-circuit represents the cavity. The step-down transformer represents the loop coupling, $Z_{0}$ is the characteristic impedance and $R_{s}$ is the Shunt impedance. 
+
+The characteristic quantities associated with the cavity are:
+\begin{itemize}
+		\item Quality factor 
+		\item Coupling coefficient 
+		\item Reflection coefficient 
+		\item Shunt impedance
+\end{itemize}
+
+Let us look at these quantities in a bit more detail. 
+
+\subsection{Quality factor}
+Quality factor is a dimensionless quantity which describes how underdamped an oscillator or resonator is. It is defined as: 
+\begin{equation}
+		Q_{0} = \frac{2 \cdot \pi \text{stored energy} }{\text{losses per period}} = \frac{2 \pi \cdot W }{T\cdot P} =  \frac{\omega_{0}\cdot W}{P}
+\end{equation}
+where $\omega_{0}$ is the angular resonant frequency. 
+Looking at the case of driven oscillations, the unloaded quality factor can be determined from the Full Width Half Maximum (FWHM), $\Delta \omega_{H}$
+
+\begin{equation}
+		Q_{0} = \frac{\omega_{0}}{\Delta \omega_{H}}
+\end{equation}
+
+\subsection{Coupling coefficient}
+The coupling coefficient is defined as:
+\begin{equation}
+		\kappa = \frac{Z_{a}}{Z_{0}} = \frac{R_{s}}{n^2Z_{0}} = \frac{Q_{0}}{Q_{ext}}	
+\end{equation}
+where $n$ is the transformer turn ratio, $Q_{0}$ is the unloaded quality factor and $Q_{ext}$ is the external quality factor.  
+If we know the coupling coefficient, the unloaded quality factor can be calculated using: 
+\begin{equation}
+		Q_{0} = \left(1 + \kappa\right)\cdot Q
+\end{equation}
+
+We also get 3 cases for the coupling coefficient, which are: 
+
+\begin{itemize}
+		\item $\kappa < 1$: undercritical coupling, $Q>Q_{0}/2$
+		\item $\kappa = 1$: critical coupling, $Q = Q_{0}/2$ (no reflection)
+		\item $\kappa > 1$: overcritical coupling, $Q<Q_{0}/2$ 
+\end{itemize}
+
+\subsection{Reflection coefficient}
+In the conductor, we have an incoming wave ($\hat{U}_{+}, \hat{I}_{+}$) and reflected wave ($\hat{U}_{-}, \hat{I}_{-}$). Hence we define the complex reflection coefficient as:
+
+\begin{equation}
+		\rho = \frac{\hat{U}_{-}}{\hat{U}_{+}}
+\end{equation}
+
+The coupling coefficient and the reflection coefficient are related at resonance by: 
+\begin{equation}
+		\kappa = \left|\frac{1 + \rho}{1 - \rho} \right| 
+\end{equation}
+We shall discuss more about this in the next section.
+
+\subsection{Shunt impedance}
+Shunt impedance tells us how much energy is gained by a charged particle when it crosses the cavity. It is defined by: 
+
+\begin{equation}
+		R_{s} = \frac{U^2}{2 P_{V}} = \frac{1}{P_{V}} \left|\int\limits_{L/2}^{-L/2} E_{0}\left(s \right) \cdot e^{i \omega_{0}s/c}\cdot ds \right|^2 
+\end{equation}
+
 
 \end{document}
