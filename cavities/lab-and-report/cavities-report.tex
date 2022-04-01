@@ -45,7 +45,7 @@
 \section{Waveguides}
 In order to understand cavities, we start off with the discussion on waveguides.
 An electromagnetic wave, when confined to the interior of a hollow pipe is
-called a waveguide. We shall closely follow the derivation from \cite{}.The
+called a waveguide. We shall closely follow the derivation from \cite{Switka22}.The
 generalized Maxwell equations in terms of E-field and H-field are given by:
 
 \begin{align}
@@ -113,7 +113,7 @@ Now, there are two waves to classify these waves:
 Corresponding to this critical wave, we have a critical frequency, which is
 $\omega_{c}=k_{c}.c $, below which there is no propagation. One interesting
 thing to note here is that for a hollow waveguide, only TE or TM modes are
-possible, TEM is not, because no wave would exist in this case \cite{}. But for
+possible, TEM is not, because no wave would exist in this case \cite{Switka22}. But for
 a coaxial cable, which consists of straight wire surrounded by a conduction
 sheath, we can get TEM modes.
 
@@ -166,10 +166,10 @@ here $d$ is the diameter of the cavity. When we plot different modes on a graph,
 we get a mode map (Fig.\ref{fig:mode}). The mode map allows one to read off the
 resonant frequencies for different diameters and length of the cavity. 
 
-\begin{figure}[htpb]
+\begin{figure}[hbt!]
     \centering
     \includegraphics[width=0.8\textwidth]{mode_map}
-    \caption{Mode map for $p \leq 2$ \ref{} }
+	\caption{Mode map for $p \leq 2$. \cite{Switka22}}
     \label{fig:mode}
 \end{figure}
 
@@ -181,10 +181,10 @@ $TM_{1np}$-modes have the same resonant frequency.
 \section{Oscillating circuit}
 A cavity has a lot of characteristic quantities, which can be described by an
 equivalent circuit (Fig.\ref{fig:circuit}). 
-\begin{figure}[htpb]
+\begin{figure}[hbt!]
     \centering
     \includegraphics[width=0.8\textwidth]{circuit}
-    \caption{Equivalent circuit of a cavity with loop coupling}
+	\caption{Equivalent circuit of a cavity with loop coupling. \cite{Switka22}}
     \label{fig:circuit}
 \end{figure}	
 
@@ -224,22 +224,16 @@ The coupling coefficient is defined as:
 \begin{equation} \label{eqn:coupling}
 		\kappa = \frac{Z_{a}}{Z_{0}} = \frac{R_{s}}{n^2Z_{0}} = \frac{Q_{0}}{Q_{ext}}	
 \end{equation}
-<<<<<<< HEAD
 where $n$ is the transformer turn ratio, $Q_{0}$ is the unloaded quality factor
 and $Q_{ext}$ is the external quality factor.  
 If we know the coupling coefficient, the unloaded quality factor can be
 calculated using: 
-\begin{equation}
-=======
-where $n$ is the transformer turn ratio, $Q_{0}$ is the unloaded quality factor and $Q_{ext}$ is the external quality factor. These values are related by the following relation: 
 
 \[
 		\frac{1}{Q} = \frac{1}{Q_{0}} + \frac{1}{Q_{ext}}
 \]
 
-If we know the coupling coefficient, the unloaded quality factor can be calculated using: 
 \begin{equation} \label{eqn:quality}
->>>>>>> 3e9a66e (Should be done by tonight)
 		Q_{0} = \left(1 + \kappa\right)\cdot Q
 \end{equation}
 \\
@@ -258,14 +252,10 @@ reflection coefficient as:
 \begin{equation} \label{eqn:refleccoeff}
 		\rho = \frac{\hat{U}_{-}}{\hat{U}_{+}}
 \end{equation}
-<<<<<<< HEAD
 
 The coupling coefficient and the reflection coefficient are related at resonance
 by: 
-=======
 \\
-The coupling coefficient and the reflection coefficient are related at resonance by: 
->>>>>>> 3e9a66e (Should be done by tonight)
 \begin{equation}
 		\kappa = \left|\frac{1 + \rho}{1 - \rho} \right| 
 \end{equation}
@@ -299,10 +289,10 @@ Now, we can separate the real and imaginary part and get its modulus:
 \\
 The scalar network analyzer should then look like fig. \ref{fig:scalar}.
 
-\begin{figure}[htpb]
+\begin{figure}[hbt!]
     \centering
     \includegraphics[width=0.8\textwidth]{scalar}
-	\caption{Reflection coefficient for different values of coupling coefficient and Quality factors along with FWHM ($\Delta \omega_{H}$). \cite{}}
+	\caption{Reflection coefficient for different values of coupling coefficient and Quality factors along with FWHM ($\Delta \omega_{H}$). \cite{Switka22}}
     \label{fig:scalar}
 \end{figure}
 
@@ -342,20 +332,20 @@ Neglecting the delay coefficient term, $e^{-2ikl}$, we get an equation, which wh
 
 We find that all the positions of circles are independent of quality factor and depend only on the coupling coefficient. Another interesting thing we find is that all these circles go through (-1, 0) (as shown in fig. \ref{fig:circles}). 
 
-\begin{figure}[htpb]
+\begin{figure}[hbt!]
     \centering
     \includegraphics[width=0.8\textwidth]{circles}
-	\caption{Different position and radii for different values of $\kappa$. \cite{}}
+	\caption{Different position and radii for different values of $\kappa$. \cite{Switka22}}
     \label{fig:circles}
 \end{figure}
 
 Now taking the delay coefficient into account, we see the circles rotate around the origin (fig. \ref{fig:delay}). For large values of quality factor, the distortion in the shape of the circle is negligible, but it is quite noticeable in low values of quality factor. We will be neglecting these distortions in our measurements because we such calibrations can be done only on expensive equipments. \\
 In fig. \ref{fig:delay}, we also notice that we have an outer circle which is the reflection circle. It represents complete reflection of frequencies far away from the resonance one. The smaller circle is called the resonance circle. 
 
-\begin{figure}[htpb]
+\begin{figure}[hbt!]
     \centering
     \includegraphics[width=0.8\textwidth]{delay}
-	\caption{The delay coefficient rotates the circle around the origin. We can also see the Resonance and Reflection circle. \cite{}}
+	\caption{The delay coefficient rotates the circle around the origin. We can also see the Resonance and Reflection circle. \cite{Switka22}}
     \label{fig:delay}
 \end{figure}
 
