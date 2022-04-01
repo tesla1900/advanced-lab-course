@@ -143,8 +143,8 @@ like:
 The following condition is imposed so that the longitudinal boundary conditions
 are fulfilled: $k = p\cdot \pi /l $. The longitudinal field looks like: 
 \begin{align*}
-		\mathbf{TE_{mnp}-Modes}: H_{z} = H_{mn}\cdot J_{m} \left(k_{c}r \right) \cos\left(m \phi \right) \cdot \sin\left(p \pi / l \cdot z \right) \cdot e^{\omega_{mnp}t} \text{ where } k_{c}a=j_{mn}^{'}  \\
-		\mathbf{TM_{mnp}-Modes}: E_{z} = E_{mn}\cdot J_{m}^{'}  \left(k_{c}r \right) \cos\left(m \phi \right) \cdot \cos\left(p \pi / l \cdot z \right) \cdot e^{\omega_{mnp}t} \text{ where } k_{c}a=j_{mn} 
+		\mathbf{TE_{mnp}-Modes}&: H_{z} = H_{mn}\cdot J_{m} \left(k_{c}r \right) \cos\left(m \phi \right) \cdot \sin\left(p \pi / l \cdot z \right) \cdot e^{\omega_{mnp}t}; \\  &\text{ where } k_{c}a=j_{mn}^{'}  \\
+		\mathbf{TM_{mnp}-Modes}&: E_{z} = E_{mn}\cdot J_{m}^{'}  \left(k_{c}r \right) \cos\left(m \phi \right) \cdot \cos\left(p \pi / l \cdot z \right) \cdot e^{\omega_{mnp}t}; \\  &\text{ where } k_{c}a=j_{mn} 
 \end{align*}
 For resonant frequency, we have:
 
@@ -215,25 +215,35 @@ where $\omega_{0}$ is the angular resonant frequency. Looking at the case of
 driven oscillations, the unloaded quality factor can be determined from the Full
 Width Half Maximum (FWHM), $\Delta \omega_{H}$
 
-\begin{equation}
+\begin{equation} \label{eqn:fwhm}
 		Q_{0} = \frac{\omega_{0}}{\Delta \omega_{H}}
 \end{equation}
 
 \subsection{Coupling coefficient}
 The coupling coefficient is defined as:
-\begin{equation}
+\begin{equation} \label{eqn:coupling}
 		\kappa = \frac{Z_{a}}{Z_{0}} = \frac{R_{s}}{n^2Z_{0}} = \frac{Q_{0}}{Q_{ext}}	
 \end{equation}
+<<<<<<< HEAD
 where $n$ is the transformer turn ratio, $Q_{0}$ is the unloaded quality factor
 and $Q_{ext}$ is the external quality factor.  
 If we know the coupling coefficient, the unloaded quality factor can be
 calculated using: 
 \begin{equation}
+=======
+where $n$ is the transformer turn ratio, $Q_{0}$ is the unloaded quality factor and $Q_{ext}$ is the external quality factor. These values are related by the following relation: 
+
+\[
+		\frac{1}{Q} = \frac{1}{Q_{0}} + \frac{1}{Q_{ext}}
+\]
+
+If we know the coupling coefficient, the unloaded quality factor can be calculated using: 
+\begin{equation} \label{eqn:quality}
+>>>>>>> 3e9a66e (Should be done by tonight)
 		Q_{0} = \left(1 + \kappa\right)\cdot Q
 \end{equation}
-
+\\
 We also get 3 cases for the coupling coefficient, which are: 
-
 \begin{itemize}
 		\item $\kappa < 1$: undercritical coupling, $Q>Q_{0}/2$
 		\item $\kappa = 1$: critical coupling, $Q = Q_{0}/2$ (no reflection)
@@ -245,15 +255,21 @@ In the conductor, we have an incoming wave ($\hat{U}_{+}, \hat{I}_{+}$) and
 reflected wave ($\hat{U}_{-}, \hat{I}_{-}$). Hence we define the complex
 reflection coefficient as:
 
-\begin{equation}
+\begin{equation} \label{eqn:refleccoeff}
 		\rho = \frac{\hat{U}_{-}}{\hat{U}_{+}}
 \end{equation}
+<<<<<<< HEAD
 
 The coupling coefficient and the reflection coefficient are related at resonance
 by: 
+=======
+\\
+The coupling coefficient and the reflection coefficient are related at resonance by: 
+>>>>>>> 3e9a66e (Should be done by tonight)
 \begin{equation}
 		\kappa = \left|\frac{1 + \rho}{1 - \rho} \right| 
 \end{equation}
+\\
 We shall discuss more about this in the next section.
 
 \subsection{Shunt impedance}
@@ -263,6 +279,87 @@ crosses the cavity. It is defined by:
 \begin{equation}
 		R_{s} = \frac{U^2}{2 P_{V}} = \frac{1}{P_{V}} \left|\int\limits_{L/2}^{-L/2} E_{0}\left(s \right) \cdot e^{i \omega_{0}s/c}\cdot ds \right|^2 
 \end{equation}
+\\
+The impedance of the resonator in fig.\ref{fig:circuit} is a complex quantity. This value only becomes real at resonance and when it does, it is called the Shunt impedance. This value is typically of the order of $10^{6} \  \Omega$. This is the reason we use a step down transformer in the circuit, using loop coupling, as seen in Eq.(\ref{eqn:coupling}). 
+
+\section{Scalar measurement of reflection coefficient}
+The reflection coefficient we defined in the previous section (eqn. \ref{eqn:refleccoeff}) is a complex value. It looks like:
+
+\[
+		\rho(\Delta \omega) = \rho_{0} (\Delta \omega) \cdot e^{-2ikl} = \frac{\kappa - \left(1 + 2iQ_{0}\frac{\Delta \omega}{\omega}\right)}{\kappa + \left(1 + 2iQ_{0}\frac{\Delta \omega}{\omega}\right)} \cdot e^{-2ikl}
+\]
+\\
+We get this when we investigate only take $\Delta \omega \ll \omega_{0}$. When this reflection coefficient is measured some distance $l$ away from the cavity, we get the delay factor of $e^{-2ikl}$.
+\\ \\
+Now, we can separate the real and imaginary part and get its modulus: 
+
+\begin{equation} \label{eqn:scalar}
+			\left| \rho (\Delta \omega) \right| = \left| \rho_{0}(\Delta \omega) \right| = \sqrt{\frac{(\kappa - 1)^2 + 4Q_{0}^2 \left(\Delta \omega / \omega \right)^2}{(\kappa + 1)^2 + 4Q_{0}^2 \left(\Delta \omega / \omega \right)^2}} 
+\end{equation}
+\\
+The scalar network analyzer should then look like fig. \ref{fig:scalar}.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{scalar}
+	\caption{Reflection coefficient for different values of coupling coefficient and Quality factors along with FWHM ($\Delta \omega_{H}$). \cite{}}
+    \label{fig:scalar}
+\end{figure}
+
+From the figure, we can see that the reflection is minimum at resonance. At resonance, the value of the reflection coefficient is given by:
+
+\begin{equation}
+		\left| \rho (\Delta \omega = 0) \right| = \left| \frac{\kappa - 1}{\kappa +1} \right| 
+\end{equation}
+
+The equation can be inverted to calculate the value of coupling coefficient. But one cannot distinguish between $\rho >0$ and $\rho<0$. 
+
+In order to calculate the value of reflection coefficient at FWHM, we use the following relation (which one can derive by using eqn.(\ref{eqn:fwhm}), (\ref{eqn:quality}) and (\ref{eqn:scalar}):
+
+\begin{equation}
+		\left| \rho (\Delta \omega_{H}/2) \right| = \frac{\sqrt{\kappa^2 + 1} }{\kappa +1} 
+\end{equation}
+
+It is important to note that only the case of $\kappa = 1$ do we get the FWHM at $\rho = 1 / \sqrt{2} $. This is because of the way we define dB-values, which will be discussed in another section. \\
+In all other cases, 
+
+\[
+		\left| \rho (\Delta \omega_{H}/2) \right| = \frac{\sqrt{\kappa^2 + 1} }{\kappa +1} \ne \frac{1}{\sqrt{2} } 
+\]
+
+\section{Vectorial measurement of reflection coefficient}
+The vectorial reflection coefficient is given by: 
+
+\begin{equation}
+		\rho (\Delta \omega) = \frac{(\kappa - 1)^2 - 4Q_{0}^2 \left(\Delta \omega / \omega \right)^2 - 4i \kappa Q_{0} \Delta\omega / \omega}{(\kappa + 1)^2 + 4Q_{0}^2 \left(\Delta \omega / \omega \right)^2}  \cdot e^{-2ikl}
+\end{equation}
+\\
+Neglecting the delay coefficient term, $e^{-2ikl}$, we get an equation, which when plotted on the complex plane (close to the resonance), $\rho_{0}$ describes a circle of radius r around ($x_{0}, y_{0}$).  The radius r is given by: 
+
+\[
+		r = \frac{\kappa}{1+ \kappa}
+\]
+
+We find that all the positions of circles are independent of quality factor and depend only on the coupling coefficient. Another interesting thing we find is that all these circles go through (-1, 0) (as shown in fig. \ref{fig:circles}). 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{circles}
+	\caption{Different position and radii for different values of $\kappa$. \cite{}}
+    \label{fig:circles}
+\end{figure}
+
+Now taking the delay coefficient into account, we see the circles rotate around the origin (fig. \ref{fig:delay}). For large values of quality factor, the distortion in the shape of the circle is negligible, but it is quite noticeable in low values of quality factor. We will be neglecting these distortions in our measurements because we such calibrations can be done only on expensive equipments. \\
+In fig. \ref{fig:delay}, we also notice that we have an outer circle which is the reflection circle. It represents complete reflection of frequencies far away from the resonance one. The smaller circle is called the resonance circle. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{delay}
+	\caption{The delay coefficient rotates the circle around the origin. We can also see the Resonance and Reflection circle. \cite{}}
+    \label{fig:delay}
+\end{figure}
+
+\subsection{Determining resonant frequency and coupling}
 
 \section{Experimental Setup}
 
