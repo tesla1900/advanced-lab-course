@@ -1,0 +1,37 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[marginparwidth=1.75cm]{geometry}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{graphicx}
+\newcommand{\incfig}[1]{%
+		\def\svgwidth{\columnwidth}
+		\import{./figures/}{#1.pdf_tex}
+}
+
+\pdfsuppresswarningpagegroup=1
+
+\begin{document}
+\title{A249: Laser Gyroscope}
+\maketitle 
+
+In here we will present the tasks that we have to complete before conducting the lab. 
+
+\section{Getting Started with Gyroscopes}
+
+We downloaded the \texttt{phyphox} app made by RWTH Aachen University, and we played around with the Gyroscope function. We rotated the phone in several directions 
+to observe the relationship between the orientation of the phone and the corresponding coordinates used in the application. 
+
+
+
+\end{document}
