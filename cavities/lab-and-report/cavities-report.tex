@@ -9,6 +9,7 @@
 \usepackage[]{subfig}
 \usepackage[colorlinks=true, anchorcolor=blue, linkcolor=blue, citecolor=blue, bookmarks=false,hyperfootnotes=false]{hyperref}
 \usepackage[margin=1in]{geometry}
+\usepackage{color,soul}
 
 % figure support
 \usepackage{import}
@@ -31,7 +32,7 @@
 \pdfsuppresswarningpagegroup=1
 
 % for citations / references
-\usepackage{biblatex}
+\usepackage[style=ieee]{biblatex}
 \addbibresource{cavities-report.bib}
 
 \begin{document}
@@ -158,7 +159,7 @@ function and its derivative.
 
 The resonant modes can be written in the linear form as:
 
-\begin{equation}
+\begin{equation} \label{eqn:res_freq}
 		\left(d \nu \right)^2 = \left(\frac{cj_{mn}^{(')}}{\pi}\right)^2 + \left(\frac{c}{2}\right)^2 p^2 \left(\frac{d}{l}\right)^2
 \end{equation}
 
@@ -302,12 +303,25 @@ From the figure, we can see that the reflection is minimum at resonance. At reso
 		\left| \rho (\Delta \omega = 0) \right| = \left| \frac{\kappa - 1}{\kappa +1} \right| 
 \end{equation}
 
-The equation can be inverted to calculate the value of coupling coefficient. But one cannot distinguish between $\rho >0$ and $\rho<0$. 
+The equation can be inverted to calculate the value of coupling coefficient as
+such:
+
+\begin{equation}
+	\kappa = 
+	\begin{cases}
+		\frac{1 + |\rho|}{1 - |\rho|} :& \rho > 0\\
+		\frac{1 - |\rho|}{1 + |\rho|} :& \rho < 0
+	\end{cases}
+	\label{eqn:kappa_rho}
+\end{equation}
+
+As such, one cannot distinguish between $\rho >0$ and $\rho<0$. 
 
 In order to calculate the value of reflection coefficient at FWHM, we use the following relation (which one can derive by using eqn.(\ref{eqn:fwhm}), (\ref{eqn:quality}) and (\ref{eqn:scalar}):
 
 \begin{equation}
 		\left| \rho (\Delta \omega_{H}/2) \right| = \frac{\sqrt{\kappa^2 + 1} }{\kappa +1} 
+		\label{eqn:rho_fwhm}
 \end{equation}
 
 It is important to note that only the case of $\kappa = 1$ do we get the FWHM at $\rho = 1 / \sqrt{2} $. This is because of the way we define dB-values, which will be discussed in another section. \\
@@ -316,6 +330,20 @@ In all other cases,
 \[
 		\left| \rho (\Delta \omega_{H}/2) \right| = \frac{\sqrt{\kappa^2 + 1} }{\kappa +1} \ne \frac{1}{\sqrt{2} } 
 \]
+
+The (loaded) quality factor $Q$ is then determined by following Eq.
+\ref{eqn:fwhm}:
+\begin{equation}
+	Q = \frac{\omega_0}{\Delta\omega_H}
+	\label{eqn:Q_scalar}
+\end{equation}
+
+The unloaded quality factor can easily be determined from Eq. \ref{eqn:Q_scalar}
+above:
+\begin{equation}
+	Q_0 = (1 + \kappa)Q
+	\label{eqn:Q0_scalar}
+\end{equation}
 
 \section{Vectorial measurement of reflection coefficient}
 The vectorial reflection coefficient is given by: 
@@ -359,7 +387,10 @@ $L_{cav} = \SI{20}{\milli\metre}$ with an inner diameter of $d_{cav} =
 are free to move, but differ in their coupling position to the radio frequency.
 The third cavity is open from the sides and is mounted on a rail, in which its
 position can be freely adjusted and is displayed on an external device
-digitally. The cavities used are shown in Fig. \ref*{fig:cavities_equipment}.
+digitally. A thread with a teflon bead of radius $r_{bead} = \SI{1}{\milli\metre}$ and
+relative permittivity of $\epsilon_{r, bead} = 2.1$ was placed on the same
+mount such that the bead can pass through the cavity. The cavities used are shown in Fig.
+\ref{fig:cavities_equipment}.
 
 \begin{figure*}[hbt!]
 	\centering
@@ -379,16 +410,16 @@ digitally. The cavities used are shown in Fig. \ref*{fig:cavities_equipment}.
 
 To measure the resonant frequencies, reflection coefficients, and other relevant
 quantities in our experiment, we utilize a Vector Network Analyzer (VNA) shown
-in Fig. \ref*{fig:VNA}. The VNA generates a signal from its AC source and it is
+in Fig. \ref{fig:VNA}. The VNA generates a signal from its AC source and it is
 transmitted through the coaxial cable connected to the ports of the VNA. The
 resulting transmission or reflection of the signal is then shown on the display
 as a function of the frequency of the signal (in Hz). The units displayed can be
 altered between $U$, the ratio between output and input signal, and $dB = 20
 \log_{10}(U)$. \par  
 
-\begin{figure*}
+\begin{figure*}[hbt!]
 	\centering
-	\includegraphics[width=0.8\columnwidth]{VNA.jpg}
+	\includegraphics[width=0.5\columnwidth]{VNA.jpg}
 	\caption{The Rhode \& Schwarz Vector Network Analyzer used in this experiment.}
 
 	\label{fig:VNA}
@@ -403,55 +434,189 @@ such that it does not interfere with the measurement of the cavity's response.
 To determine the optimal coaxial cable to use, we thus measured the attenuation
 and reflection of different coaxial cables at different frequency ranges. In our
 experiment, this was done for the RG-142 and ST-18 cables with a length of
-$l_{RG142}=\SI{51.02 \pm 0.10}{\centi\meter}$ and 
-$l_{ST18}=\SI{182.55 \pm 0.10}{\centi\meter}$ respectively. \par
+$l_{RG142}=\SI{51.02 \pm 0.10}{\centi\meter}$ and $l_{ST18}=\SI{182.55 \pm
+0.10}{\centi\meter}$ respectively. The uncertainty of the length was obtained
+from the width of the scale of the measuring apparatus. \par 
 
 To measure the attenuation and reflection, we first calibrated the VNA to the
-silver RG402 coaxial cable with a length of $l_{RG402} =
-\SI{30.02 \pm 0.01}{\centi\meter}$. The calibration process was performed using a
-full-two port calibration with the TOSM algorithm provided by the VNA. The open,
-short, and load (with termination impedance of $\SI{50}{\ohm}$) at the two ports
-(port 2 on the VNA and the coaxial cable) were then calibrated by utilizing the provided calibration kit
-(Fig. \ref*{fig:calibration_kit}). 
+silver RG402 coaxial cable with a length of $l_{RG402} = \SI{30.02 \pm
+0.01}{\centi\meter}$. The calibration process was performed using a full-two
+port calibration with the TOSM algorithm provided by the VNA. The open, short,
+and load (with termination impedance of $\SI{50}{\ohm}$) at the two ports (port
+2 on the VNA and the coaxial cable) were then calibrated by utilizing the
+provided calibration kit (Fig. \ref{fig:calibration_kit}). 
 
-\begin{figure*}
+\begin{figure*}[hbt!]
 	\centering
-	\includegraphics[width=0.8\columnwidth]{calibration_kit.jpg}
-	\caption{The open (left), short (middle) and load (right) used for 
+	\includegraphics[width=0.6\columnwidth]{calibration_kit.jpg}
+	\caption{The open (left), short (middle) and load (right) used for
 			calibration in this experiment.}
 
 	\label{fig:calibration_kit}
 \end{figure*}
 
 The attenuation of the signal was then measured by connecting the end of the
-coaxial cable to the input port (port 2) on the VNA. We then connect the same load from the
-calibration kit to the end of the coaxial cable to measure the reflection
-coefficient. Both measurements were performed to verify that the VNA was
-properly calibrated. \par 
+coaxial cable to the input port (port 2) on the VNA. We then connect the same
+load from the calibration kit to the end of the coaxial cable to measure the
+reflection coefficient. Both measurements were performed to verify that the VNA
+was properly calibrated. \par 
 
 After the calibration was performed with the silver cable, we connected the two
 coaxial cables to the silver cable and measured their attenuation and reflection
 coefficient by performing the same procedure as with the silver one. The raw
-measurements obtained are shown in Fig.  \ref*{fig:calib_trans} and 
-Fig. \ref*{fig:calib_refl}. The value at several frequencies were tabulated (and
-were used to determine the attenuation of the cable. The attenutation was the
-compared to those from given datasheets). 
+measurements obtained are shown in Fig.  \ref{fig:calib_raw}. The fluctuations in the signal were taken into account as the
+uncertainty in the coefficients. We neglected effects due to the connector
+between the two cables.
 
 \begin{figure*}[hbt!]
 	\centering
-	\subfloat[Attenuation for the RG142 cable. ]{{\includegraphics[width=0.48\columnwidth]{calib_brown_s21.png}}}
+	\subfloat[Attenuation for the RG142 cable.
+	]{{\includegraphics[width=0.48\columnwidth]{calib_brown_s21.png}}}
 	\quad
-	\subfloat[Attenuation for the ST18 cable.]{{\includegraphics[width=0.48\columnwidth]{calib_blue_s21.png}}}
+	\subfloat[Attenuation for the ST18
+	cable.]{{\includegraphics[width=0.48\columnwidth]{calib_blue_s21.png}}}
 	\quad
-	\subfloat[Reflection for the RG142 cable.]{{\includegraphics[width=0.48\columnwidth]{calib_brown_s11.png}}}
+	\subfloat[Reflection for the RG142
+	cable.]{{\includegraphics[width=0.48\columnwidth]{calib_brown_s11.png}}}
 	\quad
-	\subfloat[Reflection for the ST18 cable.]{{\includegraphics[width=0.48\columnwidth]{calib_blue_s11.png}}}
+	\subfloat[Reflection for the ST18
+	cable.]{{\includegraphics[width=0.48\columnwidth]{calib_blue_s11.png}}}
 
 	\caption{The attenuation and reflection for the RG142 and ST18 coaxial
 	cables. The values at several frequencies are also shown on the top right of
 	each figure. }
-	\label{fig:calib_trans}
+	\label{fig:calib_raw}
 \end{figure*}
+
+The transmission and reflection at several frequencies were then tabulated and were used to determine the attenuation
+of the cable. The attenuation $\lambda$ (in units of dB m$^{-1}$) of a coaxial cable can be determined by the ratio of the
+reflected and transmitted power $P_R$, $P_T$ as such:
+\begin{equation}
+	\lambda = 20 \log_{10}\left(\frac{P_{in}}{P_{out}}\right) = 20 \log_{10}\left(\frac{P_R}{P_T}\right)
+\end{equation} 
+
+The resulting attenuation was then compared to those provided in the datasheets
+from the manufacturers.\par 
+
+\subsection{Scalar Measurement}
+
+We then connected the brown coaxial cable to the top cavity (cavity with top
+coupling), and the resulting reflection coefficient was displayed on the VNA.
+We then pinpointed several points in frequency in which a sharp dip in the
+reflection curve was observed. Such points corresponded to 
+resonant modes in the cavity. Before taking the measurement of each resonant frequency, the VNA was calibrated
+using a full one-port procedure, calibration with the kit from Fig.
+\ref{fig:calibration_kit} as before. An example of a resonance in the
+reflection curve is shown in Fig. \ref{fig:resonance_raw}. The corresponding
+reflection coefficient and resonant frequency was then measured. The
+fluctuations and width of the scales taken into account as uncertainties in the
+reflection coefficient. The step size of the VNA was also considered as the
+uncertainty in frequency measurements.
+\par 
+
+\begin{figure*}[hbt!]
+	\centering
+	\includegraphics[width=0.6\columnwidth]{resonant1.1.png}
+	\caption{Reflection curve at a resonant frequency of $\omega_0 =
+	\SI{2.992206875}{\giga\hertz}$. }
+
+	\label{fig:resonance_raw}
+\end{figure*}
+
+To obtain the full-width half-maximum (FWHM) of the curve, the reflection
+coefficient obtained at resonance $|\rho(\omega_0)|$ was used to determine the
+coupling coefficient as shown in Eq. \ref{eqn:kappa_rho}. The reflection
+coefficient at $\frac{\Delta\omega_H}{2}$ was then evaluated by using Eq.
+\ref{eqn:rho_fwhm} and the corresponding frequency values were measured using
+the display. The loaded and unloaded quality factor was then determined using Eq. \ref{eqn:Q_scalar} and
+\ref{eqn:Q0_scalar} respectively. Gaussian error propagation techniques were
+utilized to obtain the correct uncertainties for relevant quantities. \par 
+
+
+This procedure was performed for each observed resonance peak until $\SI{8}{\giga\hertz}$, the
+maximal frequency in which the VNA can measure. The same analysis was repeated
+for the side cavity, and the resonant frequency obtained in both cases were
+compared with the analytical resonant frequencies evaluated from Eq. \ref{eqn:res_freq}.
+
+\subsection{Vectorial Measurement}
+
+We then used the top cavity to determine the resonant frequency and FWHM for the
+first fundamental eigenmode vectorially. This was done using the reflection
+curves as shown in Fig. \ref{fig:delay}, which is done by switching the display on the VNA to the complex representation. \par 
+
+The resonant frequency was first determined by using the same method as with the
+scalar analysis. We then switched to the complex representation and rotated the
+curve such that the point on the curve at resonance intersects with the real
+axis. The FWHM was then determined by first evaluating for the coupling
+coefficient, using the same equations as with the scalar analysis. The
+corresponding values of $|\rho(\frac{\Delta\omega_H}{2})|$ were then determined
+on the resonant circle, and the resulting frequency values were tabulated.
+The fluctuations of the measurement were again taken into account as uncertainties
+in our measurement. \par 
+
+The obtained values were then used to determine the loaded, unloaded and external quality
+factor $Q$, $Q_0$, $Q_{ext}$, as well as the power loss of the cavity. \hl{Need to make sure that we define these things in
+the paper somewhere (in theory maybe?)} This was first
+performed without calibrating the VNA, and the same procedure was repeated after
+calibrating the VNA. The calibration was performed as with the scalar case. 
+The results obtained from both cases were compared and discussed. A raw measurement of the resonant and reflection curves in
+both uncalibrated and calibrated cases are shown in Fig.
+\ref{fig:vectorial_raw}.   
+
+\begin{figure*}[hbt!]
+	\centering
+	\subfloat[Uncalibrated]{{\includegraphics[width=0.7\columnwidth]{vectorial1.1.png}}}
+	\quad
+	\subfloat[Calibrated]{{\includegraphics[width=0.7\columnwidth]{vectorial-smith.png}}}
+
+	\caption{Vectorial measurement of the fundamental resonant mode (a) without
+	and (b) with calibration. The curves are represented in linear polar and
+	Smith representation respectively. The resonant frequency and points at
+	half of the FWHM are indicated with markers 1, 2, 3 respectively.
+	}
+	\label{fig:vectorial_raw}
+\end{figure*}
+
+\subsection{Bead-Pull Measurement}
+ 
+\hl{Need to make sure that we define all relevant quantities in the paper somewhere (in theory maybe?)}
+
+We then connected the coaxial cable to the cavity mounted on the rail. Using the
+same method as with the scalar case, the location of the fundamental resonant
+mode was determined and the resonant frequency and FWHM was tabulated. These
+values were used to evaluate the quality factor $Q$, stored energy $W$, and the
+power loss of the cavity. \par 
+
+The cavity was then positioned such that the teflon bead was outside of the
+cavity. The position of the cavity was then adjusted, and using the scalar
+representation the change in resonant frequency $\Delta\omega_0$ and change in
+reflection coefficient at resonant frequency $|\Delta\rho(\omega_0)|$ were
+tabulated. The fluctuations and stepsize of the measurements were taken into
+account as the uncertainties in measurement. This was performed until the bead
+was completely outside of the cavity, which corresponds to a length of
+approximately $\SI{40}{\milli\metre}$. The raw data can be observed in the
+Appendix section. \par 
+
+Using Eq. \ref{eqn:E0_res} and \ref{eqn:E0_nonres}, the unperturbed electric
+field strength $E_0(z)$ was then determined for each position of the bead. Using
+the power loss obtained from above, we then evaluated the shunt impedance $R_s$ by
+utilizing cubic interpolations and Gauss-Legendre quadrature integration
+techniques. The transit time factor $\cos(\frac{\omega_0 z}{c})$ was also taken
+into account when evaluating the shunt impedance, and the electric fields when
+considering such time factor was compared to those without this factor. \par 
+
+Finally, the energy gain of an accelerating particle was determined for several
+input powers. This was used to observe if our cavity was suited for particle
+accelerator experiments.
+
+
+
+\section{Results}
+
+\subsection{Attenuation of Coaxial Cables}
+
+
+\subsection{Scalar Measurement}
 
 
 
