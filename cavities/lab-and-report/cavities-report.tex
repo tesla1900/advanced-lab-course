@@ -114,7 +114,7 @@ Now, there are two waves to classify these waves:
 Corresponding to this critical wave, we have a critical frequency, which is
 $\omega_{c}=k_{c}.c $, below which there is no propagation. One interesting
 thing to note here is that for a hollow waveguide, only TE or TM modes are
-possible, TEM is not, because no wave would exist in this case \cite{Switka22}. But for
+possible, TEM is not, because no wave would exist in this case \cite{Griffiths}. But for
 a coaxial cable, which consists of straight wire surrounded by a conduction
 sheath, we can get TEM modes.
 
@@ -267,7 +267,7 @@ We shall discuss more about this in the next section.
 Shunt impedance tells us how much energy is gained by a charged particle when it
 crosses the cavity. It is defined by: 
 
-\begin{equation}
+\begin{equation} \label{eqn:shunt}
 		R_{s} = \frac{U^2}{2 P_{V}} = \frac{1}{P_{V}} \left|\int\limits_{L/2}^{-L/2} E_{0}\left(s \right) \cdot e^{i \omega_{0}s/c}\cdot ds \right|^2 
 \end{equation}
 \\
@@ -378,6 +378,88 @@ In fig. \ref{fig:delay}, we also notice that we have an outer circle which is th
 \end{figure}
 
 \subsection{Determining resonant frequency and coupling}
+In the Vectorial Network Analyzer (VNA), we see something similar to Fig. \ref{fig:delay}. In order to determine the reflection coefficient, we rotate the circles around the origin such that the point of intersection of the resonant circle and reflection circle is on (-1, 0). Since the impedance of the resonator is real at resonance, the curve has to cross the real axis. Therefore, the point at which the resonance circle meets the real axis is the resonance frequency $\omega_{0}$. \\
+In order to determine the reflection coefficient, we simply look at the distance between the resonant point and the origin, $d$, and the radius of the reflection circle, $R$. The reflection coefficient is then defined as: 
+
+\[
+		\rho_{0} = d/ R
+\]
+
+The coupling coefficient is given by: 
+
+\[
+		\kappa = \frac{1 + \rho_{0}}{1 - \rho_{0}}
+\]
+
+
+\subsection{Determining quality factor}
+Similar to the scalar measurement, we use
+
+\[
+		\frac{\Delta \omega_{H}/2}{\omega_{0}} \approx \frac{1 + \kappa}{2Q_{0}}	
+\]
+
+and we get 
+
+\[
+		\rho_{0}(\pm \Delta \omega_{H}/2) = -\frac{1}{\kappa + 1} \mp i\frac{\kappa}{\kappa + 1}
+\]
+
+Therefore, the frequency shift $\Delta \omega$ from the resonant frequency and hence the FWHM can be determined by the intersection of the resonance circle around (0, $\pm i/2$).
+This is essentially the frequency that is $\pi / 2$ rotation away from the resonant frequency on the resonance circle. 
+
+\section{Bead pull measurement}
+In order to measure the electric and magnetic field inside the cavity, we cannot use an antenna because that would disturb the field distribution inside. Instead, we introduce a small bead inside the cavity, a small perturbation. This bead, which is usually a dielectric or a conducting object, causes a shift in the resonant frequency, which can be measured. It can also be fixed with a constant excitation with $\omega_{0}$ and the change in reflection coefficient can be observed. These two things can be used to determine the fields inside the cavity. 
+
+\subsection{Resonant bead pull measurement}
+The case in which we measure the shift in the resonant frequency is called resonant bead pull measurement. A small teflon bead ($\epsilon_{r}$ = 2.1 , $r$ = 1mm) is moved in small increments inside the cavity. For each increment, the we get a shift in the resonance frequency $\Delta \omega(z)$. The Electric field, $E_{0}(z)$ is given by:
+
+\begin{equation} \label{eqn:E0_res}
+		E_{0}(z) = \sqrt{2 \cdot \frac{W}{\alpha_{S}}\cdot \frac{\Delta \omega(z)}{\omega_{0}}}
+\end{equation}
+where $\alpha_{s}$ is the perturbing constant: 
+
+\[
+		\alpha_{S} = \frac{1}{2} \cdot (\epsilon - \epsilon_{0}) \cdot V_{S}
+\]
+$V_{S}$ is the volume of the bead. 
+
+\subsection{Non-resonant bead pull measurement}
+The case in which we measure the change in reflection coefficient without changing the excitation is called non-resonant bead pull measurement. The electric field is determined by: 
+
+\begin{equation} \label{eqn:E0_nonres}
+		E_{0}(z) = \sqrt{\frac{(1 + \kappa)^2}{2 \kappa Q_{0}}\cdot \frac{W}{\alpha_{S}}\cdot \left| \Delta \rho(z) \right| }
+\end{equation}
+
+\subsection{Shunt impedance}
+For determining the shunt impedance, it is sufficient to know the electric field. The accelerating voltage $U$ is given by: 
+
+\[
+		U = \int\limits_{0}^{L} E_{0}(z) \cdot dz
+\]
+Using this and Eqn. \ref{eqn:shunt}, we can define a delay coefficient as: 
+
+\begin{equation}
+		\Lambda = \left| \frac{\int\limits_{-L/2}^{L/2} E_{0}(s) \cdot e^{i \frac{\omega_{0}s}{c}\cdot ds}}{\int\limits_{-L/2}^{L/2} E_{0}(s) \cdot ds} \right| 
+\end{equation}
+And finally, we have for resonant method:
+
+\begin{equation}
+		R_{s} = \Lambda \cdot \frac{2Q_{0}}{\omega_{0}^2 \cdot \alpha_{S}} \cdot \left| \int\limits_{-L/2}^{L/2} \sqrt{\Delta \omega (z)} \cdot dz \right|^2
+\end{equation}
+
+And for non-resonant method we have: 
+
+\begin{equation}
+		R_{s} = \Lambda \cdot \frac{(1 + \kappa)^2}{2 \omega_{0} \kappa \alpha_{S}} \cdot \left| \int\limits_{-L/2}^{L/2} \sqrt{\Delta \rho (z)} \cdot dz \right|^2
+\end{equation}
+
+\section{What is dB?}
+
+\section{What is dBm?}
+
+\section{Exercise before the experiment}
+
 
 \section{Experimental Setup}
 
@@ -555,8 +637,7 @@ The fluctuations of the measurement were again taken into account as uncertainti
 in our measurement. \par 
 
 The obtained values were then used to determine the loaded, unloaded and external quality
-factor $Q$, $Q_0$, $Q_{ext}$, as well as the power loss of the cavity. \hl{Need to make sure that we define these things in
-the paper somewhere (in theory maybe?)} This was first
+factor $Q$, $Q_0$, $Q_{ext}$, as well as the power loss of the cavity. This was first
 performed without calibrating the VNA, and the same procedure was repeated after
 calibrating the VNA. The calibration was performed as with the scalar case. 
 The results obtained from both cases were compared and discussed. A raw measurement of the resonant and reflection curves in
@@ -579,7 +660,6 @@ both uncalibrated and calibrated cases are shown in Fig.
 
 \subsection{Bead-Pull Measurement}
  
-\hl{Need to make sure that we define all relevant quantities in the paper somewhere (in theory maybe?)}
 
 We then connected the coaxial cable to the cavity mounted on the rail. Using the
 same method as with the scalar case, the location of the fundamental resonant
