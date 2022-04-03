@@ -10,7 +10,7 @@
 \usepackage[colorlinks=true, anchorcolor=blue, linkcolor=blue, citecolor=blue, bookmarks=false,hyperfootnotes=false]{hyperref}
 \usepackage{longtable}
 
-
+\usepackage{verbatim}
 
 % figure support
 \usepackage{import}
@@ -102,6 +102,70 @@ the time series of the $x, y, z$ coordinates in the $+y$ and $-z$ directions. Pe
 \end{figure*}
 
 
+\section{Allan Deviation}
+We start off by keeping the phone flat on the ground for the duration of an hour and record the accelerometer of the phone. In Fig. \ref{fig:raw}, we see the raw data for individual axis of rotation. 
+
+\begin{figure}[hbt!]
+     \centering
+	 {{\includegraphics[width=0.4\columnwidth]{raw_x.png}}}
+	 {{\includegraphics[width=0.4\columnwidth]{raw_y.png}}}
+	 {{\includegraphics[width=0.4\columnwidth]{raw_z.png}}}
+     \caption{Raw data of all the three axes of gyroscope from phone.}
+	 \label{fig:raw}
+\end{figure}
+
+From these figures, it is difficult to come to any conclusion because all we see in random noise. To analyze it further, we will take the Fourier Transoform. For plotting the data in the frequency domain, we use the \texttt{numpy} tool from the \texttt{Python}. 
+
+\begin{figure}[hbt!]
+     \centering
+	 {{\includegraphics[width=0.4\columnwidth]{fft_x.png}}}
+	 {{\includegraphics[width=0.4\columnwidth]{fft_y.png}}}
+	 {{\includegraphics[width=0.4\columnwidth]{fft_z.png}}}
+	 \caption{Fourier Transform of all 3 axes of the raw data.}
+	 \label{fig:fft}
+\end{figure}
+
+In Fig. \ref{fig:fft}, we see that in the x-axis Fourier transform, there is a noticeable peak at approximately 0.19 Hz. This could be a small disturbance that might have been caused by some random movement. But it would have to be periodic enough to be noticeable. It also could be because of the rotation of earth but we would have to investigate this further. \\
+
+For computing the Allan deviation for all of these plots, the function \texttt{adev()} was used from the Python package, \texttt{allantools}. 
+
+\begin{figure}[hbt!]
+     \centering
+	 {{\includegraphics[width=0.4\columnwidth]{allan_x.png}}}
+	 {{\includegraphics[width=0.4\columnwidth]{allan_y.png}}}
+	 {{\includegraphics[width=0.4\columnwidth]{allan_z.png}}}
+	 \caption{Allan deviation of 3 axes of rotation.}
+	 \label{fig:fft}
+\end{figure}
+
+We notice that around 700s, the drift becomes larger than the stability. We also do a fit with a slope of -0.5 in order to see this better. Since the Allan deviation is used to quantify the stability of the system over a period of time, we use the value of 700s for doing the measurements for the next part of the homework. 
+To calculate the shot noise limited sensitivity, \mathcal{A}, we use the formula: 
+
+\begin{equation} \label{eqn:all}
+		\sigma_{ad}(\tau) = \frac{\mathacal{A}}{\tau}
+\end{equation}
+
+Using the fact that we plot the Allan deviation with log scale, we solve the Eqn. \ref{eqn:all} to find out that the exponential of the y-intercept should give us the value of \mathcal{A}. Because we do not have any readings at the y-intercept, we take the average of the errors for all values of $\tau$ and calculate the error. The results are summarized in the table \ref{tab:A}.
+
+\begin{table}
+		\centering
+\begin{tabular} {|c|c|}
+ \hline
+ $A_{x}$ & $0.001389 \pm 0.000004047$ \\
+ \hline
+ $A_{y}$  & $0.001394 \pm 0.000004203 $ \\
+ \hline
+ $A_{z}$ & $0.001238 \pm 0.000003919$ \\
+ \hline
+\end{tabular}
+\caption{Shot noise limited sensitivity for different components}
+\label{tab:A}
+\end{table}
+
+\section{Earth Rotation Rate}
+
+
+\begin{comment}
 \newpage
 \section{Appendix}
 
@@ -418,6 +482,6 @@ Time (s) & Gyroscope x \newline (rad/s) & Gyroscope y \newline (rad/s) & Gyrosco
     3.011529208E0 & -1.951966621E-2 & 8.277189732E-1 & 1.325435285E-2 & 8.280551876E-1 \\ \hline
 \end{longtable}
 % \end{table}
-
+\end{comment}
 
 \end{document}
