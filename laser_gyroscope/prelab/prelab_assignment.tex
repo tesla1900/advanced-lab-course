@@ -143,7 +143,7 @@ We notice that around 700s, the drift becomes larger than the stability, and suc
 To calculate the shot noise limited sensitivity, $\mathcal{A}$, we use the formula: 
 
 \begin{equation} \label{eqn:all}
-     \sigma_{ad}(\tau) = \frac{\mathcal{A}}{\tau}
+		\sigma_{ad}(\tau) = \frac{\mathcal{A}}{\sqrt{\tau}}
 \end{equation}
 
 Using the fact that we plot the Allan deviation with log scale, we solve the Eqn. \ref{eqn:all} to find out that the exponential of the y-intercept should give us the value of $\mathcal{A}$. Because we do not have any readings at the y-intercept, we take the average of the errors for all values of $\tau$ and calculate the error. The results are summarized in the table \ref{tab:A}.
@@ -171,7 +171,7 @@ perform this for the shot-time limited interval derived by the section above. \p
 We first measure the gyroscope $x, y, z$ coordinates for the duration of the shot-time interval of $\tau = 700$s. After the data was recorded,
 we performed the same measurement but with the phone flipped upside down. This corresponds to a flip in the $y$ direction. 
 We then performed the same process but flipping in the $z$-direction instead (i.e. rotations parallel to the surface). This was performed for a 
-shorter duration of $\tau = 300$s due to time constraints. The corresponding time series for both results are shown in Fig. \ref{fig:raw_earth_y_faceup} and \ref{fig:raw_earth_z}.
+shorter duration of $\tau = 300$s due to time constraints. The corresponding time series for both results are shown in Fig. \ref{fig:raw_earth_y_faceup}, \ref{fig:raw_earth_y_facedown}, \ref{fig:raw_earth_z_faceup} and \ref{fig:raw_earth_z_facedown}.
 
 
 \begin{figure}[hbt!]
