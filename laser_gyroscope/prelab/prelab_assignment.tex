@@ -9,6 +9,7 @@
 \usepackage{subfig}
 \usepackage[colorlinks=true, anchorcolor=blue, linkcolor=blue, citecolor=blue, bookmarks=false,hyperfootnotes=false]{hyperref}
 \usepackage{longtable}
+\usepackage{siunitx}
 
 \usepackage{verbatim}
 
@@ -138,14 +139,14 @@ For computing the Allan deviation for all of these plots, the function \texttt{a
 	 \label{fig:fft}
 \end{figure}
 
-We notice that around 700s, the drift becomes larger than the stability. We also do a fit with a slope of -0.5 in order to see this better. Since the Allan deviation is used to quantify the stability of the system over a period of time, we use the value of 700s for doing the measurements for the next part of the homework. 
-To calculate the shot noise limited sensitivity, \mathcal{A}, we use the formula: 
+We notice that around 700s, the drift becomes larger than the stability, and such indicates the shot-noise time interval. We also do a fit with a slope of -0.5 in order to see this better. Since the Allan deviation is used to quantify the stability of the system over a period of time, we use the value of 700s for doing the measurements for the next part of the homework. 
+To calculate the shot noise limited sensitivity, $\mathcal{A}$, we use the formula: 
 
 \begin{equation} \label{eqn:all}
-		\sigma_{ad}(\tau) = \frac{\mathacal{A}}{\tau}
+     \sigma_{ad}(\tau) = \frac{\mathcal{A}}{\tau}
 \end{equation}
 
-Using the fact that we plot the Allan deviation with log scale, we solve the Eqn. \ref{eqn:all} to find out that the exponential of the y-intercept should give us the value of \mathcal{A}. Because we do not have any readings at the y-intercept, we take the average of the errors for all values of $\tau$ and calculate the error. The results are summarized in the table \ref{tab:A}.
+Using the fact that we plot the Allan deviation with log scale, we solve the Eqn. \ref{eqn:all} to find out that the exponential of the y-intercept should give us the value of $\mathcal{A}$. Because we do not have any readings at the y-intercept, we take the average of the errors for all values of $\tau$ and calculate the error. The results are summarized in the table \ref{tab:A}.
 
 \begin{table}
 		\centering
@@ -163,6 +164,106 @@ Using the fact that we plot the Allan deviation with log scale, we solve the Eqn
 \end{table}
 
 \section{Earth Rotation Rate}
+
+To determine the rotation rate of the Earth, we utilize the same method as we have performed to measure the Allan deviation, but we 
+perform this for the shot-time limited interval derived by the section above. \par 
+
+We first measure the gyroscope $x, y, z$ coordinates for the duration of the shot-time interval of $\tau = 700$s. After the data was recorded,
+we performed the same measurement but with the phone flipped upside down. This corresponds to a flip in the $y$ direction. 
+We then performed the same process but flipping in the $z$-direction instead (i.e. rotations parallel to the surface). This was performed for a 
+shorter duration of $\tau = 300$s due to time constraints. The corresponding time series for both results are shown in Fig. \ref{fig:raw_earth_y_faceup} and \ref{fig:raw_earth_z}.
+
+
+\begin{figure}[hbt!]
+     \centering
+	 {{\includegraphics[width=0.4\columnwidth]{raw_ftx.png}}}
+	 {{\includegraphics[width=0.4\columnwidth]{raw_fty.png}}}
+	 {{\includegraphics[width=0.4\columnwidth]{raw_ftz.png}}}
+
+     \caption{Raw data of all the three axes of gyroscope from phone for measurement of the Earth's rotation.
+               The measurement was took with the phone face up. }
+	 \label{fig:raw_earth_y_faceup}
+\end{figure}
+
+\begin{figure}[hbt!]
+     \centering
+     {{\includegraphics[width=0.4\columnwidth]{raw_btx.png}}}
+     {{\includegraphics[width=0.4\columnwidth]{raw_bty.png}}}
+     {{\includegraphics[width=0.4\columnwidth]{raw_btz.png}}}
+     \caption{Same as Fig. \ref{fig:raw_earth_y_faceup} but for phone face down instead.}
+     \label{fig:raw_earth_y_facedown}
+\end{figure}
+
+\begin{figure}[hbt!]
+     \centering
+	 {{\includegraphics[width=0.4\columnwidth]{raw_okx.png}}}
+	 {{\includegraphics[width=0.4\columnwidth]{raw_oky.png}}}
+	 {{\includegraphics[width=0.4\columnwidth]{raw_okz.png}}}
+
+     \caption{Same as Fig. \ref{fig:raw_earth_y_faceup} but for rotations in the $z$-direction. This was performed 
+               with the phone facing towards the South Pole. }
+	 \label{fig:raw_earth_z_faceup}
+\end{figure}
+
+\begin{figure}[hbt!]
+     \centering
+     {{\includegraphics[width=0.4\columnwidth]{raw_180kx.png}}}
+     {{\includegraphics[width=0.4\columnwidth]{raw_180ky.png}}}
+     {{\includegraphics[width=0.4\columnwidth]{raw_180kz.png}}}
+     \caption{Same as Fig. \ref{fig:raw_earth_z_faceup} but for those facing towards the North Pole instead.}
+     \label{fig:raw_earth_z_facedown}
+\end{figure}
+
+
+After performing the FFT onto the resulting time series, we observed the sharp peak in the gyroscope $x$-direction.
+This shows that there is a clear bias in the $x$-direction of the phone gyroscope. 
+
+The temporal average of each measurement (both flipped and unflipped) was taken, and the difference between the unflipped and flipped
+measurements were taken (normalized by 2). For example, for the $x$ coordinate we have: 
+\begin{equation}
+     \delta \bar{\omega_x} = \frac{|\bar{x}_{noflip} - \bar{x}_{flip}|}{2}
+\end{equation}
+
+Such measurements for both rotations are tabulated on Table \ref{tab:avg_rate_xyz}. The magnitude of the values are also evaluated.
+Note that for arbitrarily small differences, the deviations may be small and thus to properly normalize this, one needs to take
+into arround the uncertainty in the measurement as well. 
+
+\begin{table}
+\centering
+\begin{tabular} {|c|c|c|}
+ \hline
+ Coordinate & $\delta \bar{\omega_i}$, face up/down (rad/s) & $\delta \bar{\omega_i}$, face North/South (rad/s) \\
+ \hline
+ $x$ & $\num{9.273e-8}$ & $\num{9.956e-6}$ \\
+ \hline
+ $y$  & $\num{4.603e-7}$ & $\num{2.814e-5}$ \\
+ \hline
+ $z$ & $\num{2.340e-6}$ & $\num{3.357e-6}$  \\
+ \hline
+ $\omega$ & $\num{2.386e-6}$ & $\num{3.004e-5}$ \\
+ \hline
+\end{tabular}
+\caption{Difference of temporal average of rotation rate for each gyroscopic coordinate and its magnitude. }
+\label{tab:avg_rate_xyz}
+\end{table}
+ 
+Furthermore, to properly account for the Earth's rotation rate, we need to transform from the local frame in which we observe the phone's orientation in.
+This can be done by a simple coordinate transformation as such: $\omega = \Omega_E \cos\phi$, where $\phi$ is the geographic latitude.
+With $\phi = \SI{39.257}{\degree}$ (defined from the North Pole), we obtain our corrected rotation rate of the Earth as 
+$\Omega_E = 3.083\mu \text{rad}s^{-1}$ and $\Omega_E = 38.80\mu \text{rad}s^{-1}$ for the up/down and North/South
+flip case respectively.  \par 
+
+When comparing the values of the rotation rate to the analytical value $\Omega_{E, thr} = 72.92\mu \text{rad}s^{-1}$, 
+both yielded values are underestimated. However, the rate where the phone was flipped upside down yielded lower values
+compared to that when we flipped the phone from South to North. This indicates a clear bias in the rotation and how it 
+impacts the measurement, which is clear due to the East-West rotation of the Earth. \par 
+
+Furthermore, the underestimation of the values are clear due to the various systematical uncertainties that need to be accounted for.
+The movement of nearby people, the wind, the temperature differences can all impact the phone gyroscope in some way. The 
+MEMS gyroscope does not have as many tools that will calibrate for such deviations as compared to our experimental setup. 
+% We also evaluated the magnitude of such values to determine the magnitude of the rotation rate, yielding $\omega = \SI{2.386e-6}{\rad\per\second}$.
+
+
 
 
 \begin{comment}
