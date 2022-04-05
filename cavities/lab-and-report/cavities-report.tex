@@ -5,11 +5,12 @@
 % \usepackage{textcomp}
 \usepackage[english]{babel}
 \usepackage{amsmath, amssymb}
-\usepackage[separate-uncertainty=true, multi-part-units=single]{siunitx}
+\usepackage[separate-uncertainty=true, scientific-notation = true, multi-part-units=single]{siunitx}
 \usepackage[]{subfig}
 \usepackage[colorlinks=true, anchorcolor=blue, linkcolor=blue, citecolor=blue, bookmarks=false,hyperfootnotes=false]{hyperref}
 \usepackage[margin=1in]{geometry}
 \usepackage{color,soul}
+\usepackage{tabularx}
 
 % figure support
 \usepackage{import}
@@ -19,7 +20,7 @@
 \usepackage{transparent}
 \usepackage{physics}
 \graphicspath{ {./figures/} }
-\setlength{\parindent}{0pt}
+% \setlength{\parindent}{0pt}
 \usepackage{chngcntr}
 \numberwithin{equation}{section}
 \counterwithin{figure}{section}
@@ -488,6 +489,25 @@ and we get
 Therefore, the frequency shift $\Delta \omega$ from the resonant frequency and hence the FWHM can be determined by the intersection of the resonance circle around (0, $\pm i/2$).
 This is essentially the frequency that is $\pi / 2$ rotation away from the resonant frequency on the resonance circle. 
 
+\subsection{Determining Power Loss}
+
+The power loss in the cavity $P$ can be determined by utilizing the Smith diagram with the reflections circles to 
+determine the standing wave ratio. The standing wave ratio (SWR) quantifies the degree of reflection of a signal. It is ranged
+from $[1, \infty)$ such that for SWR $\rightarrow 1$ the signal is totally reflected, and for
+SWR $\rightarrow \infty$, the signal is totally transmitted (i.e. no reflections are observed). The SWR can be
+described as such: 
+\begin{equation}
+	S = \frac{|\hat{U}_{max}|}{|\hat{U}_{min}|} = \frac{1 + |\rho|}{1 - |\rho|}
+\end{equation}
+
+The power dissipation in the resonator can then be described as such: 
+
+\begin{equation} \label{eqn:power_loss}
+	P = \frac{4S}{(1 + S)^2} P_0
+\end{equation}
+
+where $P_0$ is the input power of the signal. 
+
 \section{Bead pull measurement}
 In order to measure the electric and magnetic field inside the cavity, we cannot use an antenna because that would disturb the field distribution inside. Instead, we introduce a small bead inside the cavity, a small perturbation. This bead, which is usually a dielectric or a conducting object, causes a shift in the resonant frequency, which can be measured. It can also be fixed with a constant excitation with $\omega_{0}$ and the change in reflection coefficient can be observed. These two things can be used to determine the fields inside the cavity. 
 
@@ -514,25 +534,35 @@ The case in which we measure the change in reflection coefficient without changi
 \subsection{Shunt impedance}
 For determining the shunt impedance, it is sufficient to know the electric field. The accelerating voltage $U$ is given by: 
 
-\[
+\[ 
 		U = \int\limits_{0}^{L} E_{0}(z) \cdot dz
 \]
 Using this and Eqn. \ref{eqn:shunt}, we can define a delay coefficient as: 
 
 \begin{equation}
-		\Lambda = \left| \frac{\int\limits_{-L/2}^{L/2} E_{0}(s) \cdot e^{i \frac{\omega_{0}s}{c}\cdot ds}}{\int\limits_{-L/2}^{L/2} E_{0}(s) \cdot ds} \right| 
+		\Lambda = \left| \frac{\int\limits_{-L/2}^{L/2} E_{0}(s) \cdot e^{i \frac{\omega_{0}s}{c}\cdot ds}}{\int\limits_{-L/2}^{L/2} E_{0}(s) \cdot ds} \right| = 
+		\left| \frac{\int\limits_{-L/2}^{L/2} E_{0}(s) \cdot \cos\left(\frac{\omega_{0}s}{c} \right)\cdot ds }{\int\limits_{-L/2}^{L/2} E_{0}(s) \cdot ds} \right| 
 \end{equation}
+
+where the time transit factor $e^{i \frac{\omega_{0}s}{c}} = \cos\left(\frac{\omega_{0}s}{c}\right)$ as we are dealing with real values of frequencies. \par 
 And finally, we have for resonant method:
 
-\begin{equation}
+\begin{equation} \label{eqn:Rs_res}
 		R_{s} = \Lambda \cdot \frac{2Q_{0}}{\omega_{0}^2 \cdot \alpha_{S}} \cdot \left| \int\limits_{-L/2}^{L/2} \sqrt{\Delta \omega (z)} \cdot dz \right|^2
 \end{equation}
 
 And for non-resonant method we have: 
 
-\begin{equation}
+\begin{equation} \label{eqn:Rs_nonres}
 		R_{s} = \Lambda \cdot \frac{(1 + \kappa)^2}{2 \omega_{0} \kappa \alpha_{S}} \cdot \left| \int\limits_{-L/2}^{L/2} \sqrt{\Delta \rho (z)} \cdot dz \right|^2
 \end{equation}
+
+The energy gain of a particle accelerating within a cavity can then be defined using Eq. \ref{eqn:shunt}, considering that the power dissipation due to the cavity 
+can be related to the measured power $P_v = P / (1 + \kappa)$ as follows:
+\begin{equation} \label{eqn:energy_gain}
+	\delta U = \sqrt{\frac{2 R_s P}{1 + \kappa}}
+\end{equation}\
+This will be used to determine the efficiency of the cavity for particle acceleration.
 
 \section{What is dB?}
 
@@ -540,8 +570,9 @@ And for non-resonant method we have:
 
 \section{Exercise before the experiment}
 
+\chapter{Setup and Procedure}
 
-\chapter{Experimental Setup}
+\section{Experimental Setup}
 
 In our experiment, we used three cylindrical cavities, each with a length of
 $L_{cav} = \SI{20}{\milli\metre}$ with an inner diameter of $d_{cav} =
@@ -630,12 +661,12 @@ measurements obtained are shown in Fig.  \ref{fig:calib_raw}. The fluctuations i
 uncertainty in the coefficients. We neglected effects due to the connector
 between the two cables.
 
-\begin{figure*}[hbt!]
+\begin{figure*}[htb!]
 	\centering
-	\subfloat[Attenuation for the RG142 cable.
+	\subfloat[Transmission for the RG142 cable.
 	]{{\includegraphics[width=0.48\columnwidth]{calib_brown_s21.png}}}
 	\quad
-	\subfloat[Attenuation for the ST18
+	\subfloat[Transmission for the ST18
 	cable.]{{\includegraphics[width=0.48\columnwidth]{calib_blue_s21.png}}}
 	\quad
 	\subfloat[Reflection for the RG142
@@ -644,7 +675,7 @@ between the two cables.
 	\subfloat[Reflection for the ST18
 	cable.]{{\includegraphics[width=0.48\columnwidth]{calib_blue_s11.png}}}
 
-	\caption{The attenuation and reflection for the RG142 and ST18 coaxial
+	\caption{The transmission and reflection for the RG142 and ST18 coaxial
 	cables. The values at several frequencies are also shown on the top right of
 	each figure. }
 	\label{fig:calib_raw}
@@ -672,11 +703,11 @@ using a full one-port procedure, calibration with the kit from Fig.
 reflection curve is shown in Fig. \ref{fig:resonance_raw}. The corresponding
 reflection coefficient and resonant frequency was then measured. The
 fluctuations and width of the scales taken into account as uncertainties in the
-reflection coefficient. The step size of the VNA was also considered as the
+reflection coefficient. The step size of the VNA was $\SI{50}{\kilo\hertz}$, which was also considered as the
 uncertainty in frequency measurements.
 \par 
 
-\begin{figure*}[hbt!]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.6\columnwidth]{resonant1.1.png}
 	\caption{Reflection curve at a resonant frequency of $\omega_0 =
@@ -689,7 +720,7 @@ To obtain the full-width half-maximum (FWHM) of the curve, the reflection
 coefficient obtained at resonance $|\rho(\omega_0)|$ was used to determine the
 coupling coefficient as shown in Eq. \ref{eqn:kappa_rho}. The reflection
 coefficient at $\frac{\Delta\omega_H}{2}$ was then evaluated by using Eq.
-\ref{eqn:rho_fwhm} and the corresponding frequency values were measured using
+\ref{eqn:rho_fwhm} and the corresponding frequency values, that is, the half of the FWHM, were measured using
 the display. The loaded and unloaded quality factor was then determined using Eq. \ref{eqn:Q_scalar} and
 \ref{eqn:Q0_scalar} respectively. Gaussian error propagation techniques were
 utilized to obtain the correct uncertainties for relevant quantities. \par 
@@ -698,7 +729,40 @@ utilized to obtain the correct uncertainties for relevant quantities. \par
 This procedure was performed for each observed resonance peak until $\SI{8}{\giga\hertz}$, the
 maximal frequency in which the VNA can measure. The same analysis was repeated
 for the side cavity, and the resonant frequency obtained in both cases were
-compared with the analytical resonant frequencies evaluated from Eq. \ref{eqn:res_freq}.
+compared with the analytical resonant frequencies evaluated from Eq. \ref{eqn:res_freq}. The raw data
+for both cases are presented in Table \ref{tab:raw_scalar_top} and \ref{tab:raw_scalar_side}. 
+
+\begin{table}[htb!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline $\omega_0$ / GHz & $\left| \rho(\omega_0) \right|$ / dB & $\kappa$ & $\left| \rho(\Delta\omega_H / 2) \right|$ / dB & $\Delta\omega_H$ / MHz\\ 
+		\hline 2.992206875 & $-5.445 \pm 0.010$ & $-1.4499 \pm 0.0010$ & $-3.915 \pm 0.015$ & 2.1375 \\ 
+		\hline 4.53973125 & $-40.0 \pm 5.0$ & $-1.0513 \pm 0.0066$ & $-28.3 \pm 1.0$ & 0.575 \\
+		\hline 6.21559375 & $-2.37 \pm 0.05$ & $ -2.460 \pm 0.053$ & $-1.819 \pm 0.051$ & 5.5625 \\
+		\hline 6.940125 & $-9.575 \pm 0.50$ & $-1.233 \pm 0.014$ & $-6.81 \pm 0.13$ & 5.625 \\ 
+		\hline 7.75975 & $-4.13 \pm 0.080$ & $-1.639 \pm 0.016$ & $-3.005 \pm 0.061$ & 8.75 \\ 
+		\hline
+	\end{tabular}
+	
+	\caption{Raw data for relevant quantities measured at resonant modes of top cavity. $\kappa$ and $\left| \rho(\Delta\omega_H / 2) \right|$ 
+			are calculated quantities used to measure $\Delta\omega_H$. }
+	\label{tab:raw_scalar_top}
+\end{table}
+
+\begin{table}[htb!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline $\omega_0$ / GHz & $\left| \rho(\omega_0) \right|$ / dB & $\kappa$ & $\left| \rho(\Delta\omega_H / 2) \right|$ / dB & $\Delta\omega_H$ / MHz\\ 
+		\hline 2.98690625 & $-2.404 \pm 0.005$ & $-2.4245 \pm 0.0051$ & $-1.8411 \pm 0.0051$ & 4.0625 \\ 
+		\hline 4.49725 & $-1.270 \pm 0.020$ & $-8.41 \pm 0.55$ & $-1.143 \pm 0.083$ & 1.375 \\
+		\hline 6.2078875 & $-3.755 \pm 0.010$ & $ -1.7270 \pm 0.0026$ & $-2.745 \pm 0.040$ & 0.8125 \\
+		\hline 7.74540625 & $-6.625 \pm 0.030$ & $-1.3556 \pm 0.0019$ & $-4.737 \pm 0.070$ & 0.875 \\ 
+		\hline
+	\end{tabular}
+	\caption{Same as Fig. \ref{tab:raw_scalar_top} but for the side cavity. }
+	\label{tab:raw_scalar_side}
+\end{table}
+
 
 \subsection{Vectorial Measurement}
 
@@ -714,17 +778,16 @@ coefficient, using the same equations as with the scalar analysis. The
 corresponding values of $|\rho(\frac{\Delta\omega_H}{2})|$ were then determined
 on the resonant circle, and the resulting frequency values were tabulated.
 The fluctuations of the measurement were again taken into account as uncertainties
-in our measurement. \par 
+in our measurement. We also recorded the input power to be $P0 = 1.5 \pm 0.1$dB. \par 
 
 The obtained values were then used to determine the loaded, unloaded and external quality
 factor $Q$, $Q_0$, $Q_{ext}$, as well as the power loss of the cavity. This was first
 performed without calibrating the VNA, and the same procedure was repeated after
 calibrating the VNA. The calibration was performed as with the scalar case. 
 The results obtained from both cases were compared and discussed. A raw measurement of the resonant and reflection curves in
-both uncalibrated and calibrated cases are shown in Fig.
-\ref{fig:vectorial_raw}.   
+both uncalibrated and calibrated cases are shown in Fig. \ref{fig:vectorial_raw}.   
 
-\begin{figure*}[hbt!]
+\begin{figure*}[htb!]
 	\centering
 	\subfloat[Uncalibrated]{{\includegraphics[width=0.7\columnwidth]{vectorial1.1.png}}}
 	\quad
@@ -759,26 +822,153 @@ Appendix section. \par
 
 Using Eq. \ref{eqn:E0_res} and \ref{eqn:E0_nonres}, the unperturbed electric
 field strength $E_0(z)$ was then determined for each position of the bead. Using
-the power loss obtained from above, we then evaluated the shunt impedance $R_s$ by
+the power loss obtained from above, we then evaluated the shunt impedance $R_s$
+as defined by Eq. \ref{eqn:Rs_res} and \ref{eqn:Rs_nonres} by
 utilizing cubic interpolations and Gauss-Legendre quadrature integration
 techniques. The transit time factor $\cos(\frac{\omega_0 z}{c})$ was also taken
 into account when evaluating the shunt impedance, and the electric fields when
 considering such time factor was compared to those without this factor. \par 
 
-Finally, the energy gain of an accelerating particle was determined for several
-input powers. This was used to observe if our cavity was suited for particle
+Finally, the energy gain of an accelerating particle $\delta U$ was determined for several
+input powers using Eq. \ref{eqn:energy_gain}. This was used to observe if our cavity was suited for particle
 accelerator experiments.
 
+\chapter{Results and Discussion}
+
+\section{Attenuation of Coaxial Cables}
+
+Fig. \ref{fig:coax_atten} shows the attenuation of the RG142 and ST18 cables for frequency values at approximately 1, 2, 4,  and 7 $\si{\giga\hertz}$. 
+The attenuations as given by the datasheets of the corresponding cable from the manufacturers are also shown \hl{add reference here}. To match the
+amplitudes from our measurement with those from the datasheet, we had to apply a normalization factor of $N = \num{1e10}$ and $\num{1e2}$ for the 
+RG142 and ST18 cables respectively. From the comparisons between the two attenuations, it is clear that the ST18 cable induces less power losses, 
+even at higher frequencies. This implies that we should be using the ST18 cable for our measurement to prevent the signal loss in the coaxial
+cable to influence our measurements. \par 
+
+In our experiment, however, we have chosen to use the RG142 cable. This, as can be seen by Fig. \ref{fig:coax_atten}, will influence the reflection
+measurements at higher frequencies. This may have been a main cause in the larger uncertainty in measurement of higher resonant modes. In the future,
+the ST18 cable should be used instead of the RG142 cable. \par 
+
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[RG142
+	]{{\includegraphics[width=0.48\columnwidth]{coax_atten_RG142.png}}}
+	\quad
+	\subfloat[ST18]{{\includegraphics[width=0.48\columnwidth]{coax_atten_ST18.png}}}
+
+	\caption{The attenuation of the (a) RG142 and (b) ST18 cable. }
+	\label{fig:coax_atten}
+\end{figure*}
 
 
-\section{Results}
+\section{Scalar Measurement}
 
-\subsection{Attenuation of Coaxial Cables}
+Tables \ref{tab:scalar_top} and \ref{tab:scalar_side} show the relevant parameters associated to each resonant mode in the cavity, i.e. the coupling coefficient $\kappa$, 
+the FWHM $\Delta\omega_H$, the loaded and unloaded quality factor ($Q$, $Q_0$ respectively). The residual with the theoretical resonant frequency \hl{shown in some table we need to define later}
+ is also shown below. This is shown for the top and side cavity respectively. \par 
+
+From our results, we observe that the resonant frequencies obtained are close to the theoretical values that we have computed analytically with a deviation of approximately 
+$\sim 0.05 \si{\giga\hertz}$ for both cases. We observe that for all values of the coupling coefficient, they attain negative values, which is due to the fact that we have used 
+dB as our unit of the reflection coefficient when calculating for $\kappa$ using Eq. \ref{eqn:kappa_rho}. This, however, had no notable effect on the measurement of the FWHM, as 
+we attain reasonable values of the FWHM for both cases. \par 
+
+When observing the loaded and unloaded quality factor, we see that values vary around $10^2 \sim 10^3$. In general, we observe that $Q > Q_0 / 2$, which implies
+that most of the oscillatory modes that we obtain are undercritically coupled. The resonant mode with $\omega_0 = \SI{4.49725}{\giga\hertz}$, however, shown overcritical 
+coupling instead, which yields a larger deviation from the theoretical resonant frequency. We also observe that as $Q \approx Q_0 / 2$, we obtain more accurate measurements
+of the resonant frequency. \par  
 
 
-\subsection{Scalar Measurement}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline $\omega_0$ (GHz) & $\kappa$ & $\Delta\omega_H$ (MHz) & $Q$ & $Q_0$ & $\left| \omega_0 - \omega_{thr} \right|$ \\ 
+		\hline 2.992206875 & $-1.4499 \pm 0.0010$  & 2.1375 & $1399.9 \pm 9.3$ & $629.8 \pm 4.4$ & 0.0668\\ 
+		\hline 4.53973125 &  $-1.0513 \pm 0.0066$ &  0.5750 & $\num{7.90(0.19)e3}$ & $405 \pm 53$ & 0.1214\\
+		\hline 6.21559375 &  $ -2.460 \pm 0.053$  & 5.5625 & $1117.4 \pm 2.8$ & $1631 \pm 60$ & 0.0317\\
+		\hline 6.940125 &  $-1.233 \pm 0.014$  & 5.6250 & $1233.8 \pm 3.1$ & $288 \pm 17$ & 0.2251\\ 
+		\hline 7.75975 &  $-1.639 \pm 0.016$  & 8.750 & $886.8 \pm 1.4$ & $556 \pm 14$ & 0.00153\\ 
+		\hline
+	\end{tabular}
+	\caption{Calculated quantities for resonant modes for the top cavity. The residual with the analytical resonant frequency is also shown.}
+	\label{tab:scalar_top}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline $\omega_0$ (GHz) & $\kappa$ & $\Delta\omega_H$ (MHz) & $Q$ & $Q_0$ & $\left| \omega_0 - \omega_{thr} \right|$ \\ 
+		\hline 2.98690625 & $-2.4245 \pm 0.0051$ & 4.0625 & $735.2 \pm 2.6$ & $1047.3 \pm 5.2$ & 0.0615 \\ 
+		\hline 4.49725 & $-8.41 \pm 0.55$ & 1.375 & $3270 \pm 34$ & $\num{2.42(0.18)e5}$ & 0.1640 \\
+		\hline 6.2078875  & $ -1.7270 \pm 0.0026$ & 0.8125 & $\num{7.64(0.13)e3}$ & $5555 \pm 99$ & 0.0394 \\
+		\hline 7.74540625  & $-1.3556 \pm 0.0019$ & 0.875 & $\num{8.85(0.14)e3}$ & $3147 \pm 54$ & 0.0158 \\ 
+		\hline
+	\end{tabular}
+	
+	\caption{Same as Table \ref{tab:scalar_top} but for the side cavity. }
+	\label{tab:scalar_side}
+\end{table}
+
+We now compare between the results of the top and side cavity. We first notice that while we were able to observe 5 resonant modes in the top cavity, only 4 such modes
+were observed in the side cavity. This may be caused by the longitudinal-dependence of the missing resonant mode (corresponding to the $TM_{020}$), as the side coupling
+may have affected the signal going through the cavity. Fig. \ref{fig:scalar_residual} shows the difference between the resonant frequencies obtain from the top and side cavity.
+From this, we observe that deviations are on order $10^{-2}$, yielding similar results between the two couplings. We further observe that for the resonant mode at 
+$\omega \approx \SI{4.49}{\giga\hertz}$, the deviation is the largest. This may be caused by the overcritical coupling observed from the side cavity at this resonant frequency
+as mentioned previously.\par 
 
 
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.6\columnwidth]{scalar_residual_topside.png}
+	\caption{Residual between the resonance frequencies of the top and side cavity. }
+
+	\label{fig:scalar_residual}
+\end{figure*}
+
+\section{Vectorial Measurement}
+
+Table \ref{tab:vectorial} shows the measured and calculated quantities obtained from the vectorial measurement at the fundamental resonant mode. This is 
+shown both for the uncalibrated and calibrated measurements. Between the two measurements, we observe that the quality factor from the calibrated results
+is much larger, indicating a better measurement after calibration. The power lost between the two measurements do not differ, implying that the calibration
+does not largely affect the power lost in the system. \par 
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline  & Uncalibrated & Calibrated \\ 
+		\hline $\omega_0$ / GHz & 2.992362525013 & 2.9915625 \\
+		\hline $\kappa$ & $-1.0045157 \pm 0.0000051$ & $-1.0049865\pm 0.0000030$ \\
+		\hline $\Delta\omega_H$ / MHz & 3.001 & 2.219 \\
+		\hline $Q_0$  & $1998.407 \pm 0.012$  & $3368.1 \pm 2.1$  \\
+		\hline $Q_{ext}$ & $1989.435 \pm 0.015$ & $2248.3 \pm 1.4$ \\
+		\hline SWR $S$ & $1.0045157 \pm 0.0000051$ & $1.003447 \pm 0.0000030$ \\
+		\hline $P$ / mW & $1.567 \pm 0.023$ & $1.567 \pm 0.023$\\ 
+		\hline   
+	\end{tabular}
+	\caption{Calculated quantities from uncalibrated and calibrated vectorial measurement. }
+	\label{tab:vectorial}
+\end{table}
+
+Comparing our obtained data to those from the scalar measurement in Table \ref{tab:scalar_top}, we observe that the quality factor obtained is much larger, and the value of $\kappa$ is more
+closer to unity, indicating that with this measurement, the accuracy of the experiment increases. This is also observed by the standing wave ratio, as its value is close to unity. This tells
+us that the vectorial method yields a more accurate and stable result. \par
+
+% In this experiment, we were not able to realize the proper measurement method as instructed, and a direct conversion of the scalar to the vectorial representation was performed instead.
+% In this sense, it is relatively hard to compare the properties between the two results. 
+
+
+% \begin{table}[h!]
+% 	\centering
+% 	\begin{tabular}{|c|c|c|c|c|c|c|}
+% 		\hline Type & $\kappa$ & $\Delta\omega_H$ / MHz & $Q_0$ & $Q_{ext}$ & $S$ & $P$ / mW\\ 
+% 		\hline Uncalibrated & $-1.0045157 \pm 0.0000051$ & 3.001 & $1998.407 \pm 0.012$ 
+% 				& $1989.435 \pm 0.015$ & $1.0045157 \pm 0.0000051$ & $1.567 \pm 0.023$\\ 
+% 		\hline Calibrated & $-1.0049865\pm 0.0000030$ & 2.219 & $3368.1 \pm 2.1$ 
+% 				& $2248.3 \pm 1.4$ & $1.003447 \pm 0.0000030$ & $1.567 \pm 0.023$\\
+% 		\hline
+% 	\end{tabular}
+% 	\caption{Calculated quantities from uncalibrated and calibrated vectorial measurement. }
+% 	\label{tab:vectorial}
+% \end{table}
 
 
 \printbibliography
