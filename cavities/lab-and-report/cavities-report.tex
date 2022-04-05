@@ -5,7 +5,7 @@
 % \usepackage{textcomp}
 \usepackage[english]{babel}
 \usepackage{amsmath, amssymb}
-\usepackage[separate-uncertainty=true, scientific-notation = true, multi-part-units=single]{siunitx}
+\usepackage[separate-uncertainty=true, multi-part-units=single]{siunitx}
 \usepackage[]{subfig}
 \usepackage[colorlinks=true, anchorcolor=blue, linkcolor=blue, citecolor=blue, bookmarks=false,hyperfootnotes=false]{hyperref}
 \usepackage[margin=1in]{geometry}
@@ -780,6 +780,12 @@ on the resonant circle, and the resulting frequency values were tabulated.
 The fluctuations of the measurement were again taken into account as uncertainties
 in our measurement. We also recorded the input power to be $P0 = 1.5 \pm 0.1$dB. \par 
 
+In our measurement, the more accurate method that utilizes the distance between points on the reflection and resonant circle 
+to determine the coupling coefficient was not performed due to the error in the calculated $|\rho(\frac{\Delta\omega_H}{2})|$
+when using this method. This may have been resolved if we had used units of power ratios $U$ instead of dB to determine the 
+coupling coefficient. This is also the reason why $\kappa$ in the scalar measurement yielded negative values. In the future,
+units in the measurement should be set to $U$ as much as possible. \par 
+
 The obtained values were then used to determine the loaded, unloaded and external quality
 factor $Q$, $Q_0$, $Q_{ext}$, as well as the power loss of the cavity. This was first
 performed without calibrating the VNA, and the same procedure was repeated after
@@ -881,12 +887,12 @@ of the resonant frequency. \par
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|}
-		\hline $\omega_0$ (GHz) & $\kappa$ & $\Delta\omega_H$ (MHz) & $Q$ & $Q_0$ & $\left| \omega_0 - \omega_{thr} \right|$ \\ 
-		\hline 2.992206875 & $-1.4499 \pm 0.0010$  & 2.1375 & $1399.9 \pm 9.3$ & $629.8 \pm 4.4$ & 0.0668\\ 
-		\hline 4.53973125 &  $-1.0513 \pm 0.0066$ &  0.5750 & $\num{7.90(0.19)e3}$ & $405 \pm 53$ & 0.1214\\
-		\hline 6.21559375 &  $ -2.460 \pm 0.053$  & 5.5625 & $1117.4 \pm 2.8$ & $1631 \pm 60$ & 0.0317\\
-		\hline 6.940125 &  $-1.233 \pm 0.014$  & 5.6250 & $1233.8 \pm 3.1$ & $288 \pm 17$ & 0.2251\\ 
-		\hline 7.75975 &  $-1.639 \pm 0.016$  & 8.750 & $886.8 \pm 1.4$ & $556 \pm 14$ & 0.00153\\ 
+		\hline $\omega_0$/GHz & $\kappa$ & $\Delta\omega_H$/MHz & $Q (\cross 10^3) $ & $Q_0 (\cross 10^3)$ & $\left| \omega_0 - \omega_{thr} \right|$/GHz \\ 
+		\hline 2.992206875 & $-1.4499 \pm 0.0010$  & 2.1375 & $1.3999 \pm 0.0093$ & $0.6298 \pm 0.0044$ & 0.0668\\ 
+		\hline 4.53973125 &  $-1.0513 \pm 0.0066$ &  0.5750 & $7.90 \pm 0.19$ & $0.405 \pm 0.0053$ & 0.1214\\
+		\hline 6.21559375 &  $ -2.460 \pm 0.053$  & 5.5625 & $1.1174 \pm 0.0028$ & $1.631 \pm 0.060$ & 0.0317\\
+		\hline 6.940125 &  $-1.233 \pm 0.014$  & 5.6250 & $1.2338 \pm 0.0031$ & $0.288 \pm 0.017$ & 0.2251\\ 
+		\hline 7.75975 &  $-1.639 \pm 0.016$  & 8.750 & $0.8868 \pm 0.0014$ & $0.556 \pm 0.014$ & 0.00153\\ 
 		\hline
 	\end{tabular}
 	\caption{Calculated quantities for resonant modes for the top cavity. The residual with the analytical resonant frequency is also shown.}
@@ -896,11 +902,11 @@ of the resonant frequency. \par
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|}
-		\hline $\omega_0$ (GHz) & $\kappa$ & $\Delta\omega_H$ (MHz) & $Q$ & $Q_0$ & $\left| \omega_0 - \omega_{thr} \right|$ \\ 
-		\hline 2.98690625 & $-2.4245 \pm 0.0051$ & 4.0625 & $735.2 \pm 2.6$ & $1047.3 \pm 5.2$ & 0.0615 \\ 
-		\hline 4.49725 & $-8.41 \pm 0.55$ & 1.375 & $3270 \pm 34$ & $\num{2.42(0.18)e5}$ & 0.1640 \\
-		\hline 6.2078875  & $ -1.7270 \pm 0.0026$ & 0.8125 & $\num{7.64(0.13)e3}$ & $5555 \pm 99$ & 0.0394 \\
-		\hline 7.74540625  & $-1.3556 \pm 0.0019$ & 0.875 & $\num{8.85(0.14)e3}$ & $3147 \pm 54$ & 0.0158 \\ 
+		\hline $\omega_0$/GHz & $\kappa$ & $\Delta\omega_H$/MHz & $Q (\cross 10^3)$ & $Q_0 (\cross 10^3)$ & $\left| \omega_0 - \omega_{thr} \right|$/GHz \\ 
+		\hline 2.98690625 & $-2.4245 \pm 0.0051$ & 4.0625 & $0.7352 \pm 0.0026$ & $1.0473 \pm 0.0052$ & 0.0615 \\ 
+		\hline 4.49725 & $-8.41 \pm 0.55$ & 1.375 & $3.270 \pm 0.034$ & $242 \pm 18$ & 0.1640 \\
+		\hline 6.2078875  & $ -1.7270 \pm 0.0026$ & 0.8125 & $7.64 \pm 0.13$ & $5.555 \pm 0.099$ & 0.0394 \\
+		\hline 7.74540625  & $-1.3556 \pm 0.0019$ & 0.875 & $8.85 \pm 0.14$ & $3.147 \pm 0.054$ & 0.0158 \\ 
 		\hline
 	\end{tabular}
 	
@@ -970,6 +976,175 @@ us that the vectorial method yields a more accurate and stable result. \par
 % 	\label{tab:vectorial}
 % \end{table}
 
+\section{Bead-Pull Measurement}
+
+From the bead-pull measurement, we first determined the relevant quantities at the fundamental resonant mode, corresponding to 
+the TEM$_{010}$ mode. Table \ref{tab:bead_pull} shows the parameters obtained from our measurement with an input power of $P_0 = 1.189 \pm 0.01151$ mW.
+All values were calculated as with the previous section, and the stored energy $W = Q_0 P / \omega_0$. \par 
+
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline $\omega_0$ / GHz & $\kappa$ & $\Delta\omega_H$ / MHz & $Q$ & $P$ / mW & $W$ / nJ\\ 
+		\hline $2.9939375$ & $1.197230 \pm 0.000058$ & 0.712 & $4205 \pm 42$ 
+				& $1.1789 \pm 0.0114$ & $ 3.638 \pm 0.050$ \\ \hline
+	\end{tabular}
+	\caption{Calculated quantities for scalar measurement with the mounted cavity, used for the bead-pull measurement.}
+	\label{tab:bead_pull}
+\end{table}
+
+We then evaluated for the electric field $E_0$ using both resonant and non-resonant methods. Fig. \ref{fig:E0} shows the 
+electric field as a function of the position of the bead $z$ with and without including the time transit factor $\cos(\omega_0 z / c)$. \par 
+
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[Without time transit factor]{{\includegraphics[width=0.48\columnwidth]{E0_nott.png}}}
+	\quad
+	\subfloat[With time transit factor]{{\includegraphics[width=0.48\columnwidth]{E0_tt.png}}}
+
+	\caption{The electric field $E_0$ for different positions of the bead $z$ (a) not including and 
+			(b) including the time transit factor. The results from both resonant and non-resonant method are shown.}
+	\label{fig:E0}
+\end{figure*}
+
+We observe that while both behaviours yield similar oscillatory behaviours, the results from the resonant method have a 
+flatter curve with a lower maximal amplitude of $\SI{3.65 \pm 0.16}{\kilo\volt\per\metre}$ compared to the non-resonant method, which has
+a maximal amplitude of $\SI{4.390 \pm 0.040}{\kilo\volt\per\metre}$. Furthermore, the uncertainty of the results from the resonant
+method also have larger uncertainties compared to the non-resonant method. As both measurements should ideally yield the same result,
+such difference between the two methods may have been caused by imperfect calibrations before measurement. When we include the time transit factor,
+ we observe that the amplitude of the electric field decreases, yielding a maximal amplitude of  $\SI{3.56 \pm 0.18}{\kilo\volt\per\metre}$
+ and $\SI{4.27 +- 0.10}{\kilo\volt\per\metre}$ for the resonant and non-resonant method respectively. The overall structure, however,
+ does not differ with the inclusion of this factor.\par 
+
+We now evaluate the shunt impedance using the obtained electric field and the corresponding parameters determined from Table \ref{tab:vectorial}.
+This was performed for the results obtained from both the resonant and non-resonant method using Eq. \ref{eqn:Rs_nonres} and \ref{eqn:Rs_res}.
+After performing integration, we obtain the following for the shunt impedance:
+\begin{align*}
+	R_{s, res} = \SI{3.316 \pm 0.032}{\mega\ohm} \\
+	R_{s, non\text{-}res} = \SI{3.791 \pm 0.037}{\mega\ohm}
+\end{align*}
+
+Using the shunt impedence we obtained for our cavity, we can determine if our cavity is sufficient to accelerate particles. To do this,
+we first calculate the energy gain of a particle (here, an electron) after passing through our cavity with different input powers.
+Table \ref{tab:energy_gain} show the energy gain using the shunt impedance evaluated from both resonant and non-resonant methods for 
+different input radiofrequency powers $P_0$.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline $P_0$ / kW & $\delta U_{res}$ / keV & $\delta U_{non\text{-}res}$ / keV \\
+		\hline 1 & $56.52 \pm 0.27$ & $60.43 \pm 0.29$ \\ 
+		\hline 10 & $178.72 \pm 0.86$ & $191.10 \pm 0.93$ \\ 
+		\hline 100 & $565.2 \pm 2.7$ & $604.3 \pm 2.9$ \\ 
+		\hline 1000 & $1787.2 \pm 8.7$ & $1910.1 \pm 9.3$ \\ 
+		\hline
+	\end{tabular}
+	\caption{Energy gain of electron under cavity used in this experiment for several input radiofrequency powers.}
+	\label{tab:energy_gain}
+\end{table}
+
+We observe that for an input power of $\SI{100}{\kilo\watt}$, we obtain an energy gain on the order of $\SI{100}{\kilo\electronvolt}$, 
+which is a factor of 10 lower than typical values for acceleration energies for particles with this input power. This 
+shows that our cavity is not suitable to accelerate particles. \par 
+
+\chapter{Conclusion and Outlook}
+
+\section{Conclusion}
+
+In our experiment, we observed if a given cavity was suitable for particle acceleration. To this end, we had to first determine
+the reflection coefficient of the signal transmitted through the coaxial cable at different resonant modes of the cavity. This
+would yield reflection curves that dip sharply to $|\rho| \approx 0$ near resonance of the cavity. In order to determine the 
+most efficient coaxial cable to use (i.e. that with the least power loss), the attenuation of the coaxial cable was measured. 
+While we observed that the ST18 coaxial cable yield lower attenuation, we used the RG142 cable instead. In future experiments,
+the attenuation of the cable should be carefully considered before performing the rest of the measurements. \par 
+
+The resonant frequencies at dips in the reflection curve was measured using a Vector Network Analyzer (VNA), and from this the coupling coefficient $\kappa$
+and $|\rho(\Delta\omega_H / 2)|$ was computed. The FWHM of the curve was then measured from such values. The quality factor $Q$, 
+which quantifies the degree of damping in the system, was then computed. In our analysis, we compared the behaviour between\par 
+avities which differed in their location of coupling which yielded deviations of order $10^{-2}$. Deviations between the 
+analytical resonant frequencies were also as large as $10^{-2}$, which indicate that our results are in good agreement with
+expected values. The relationship between the quality factor and the comparison with theoretical values were also observed. \par 
+
+The results from the scalar measurement was also compared from those obtained by measuring the corresponding values in a vectorial representation. In this way, the corresponding quantities are much easier to 
+obtain as the coupling coefficient, resonant frequency, and FWHM can be determined pictorially using a Smith diagram. We, however,
+used the same scalar method to measure the resonant frequency and observed the corresponding data in a vectorial representation. 
+In future experiments, proper measurements in this format should be performed. \par 
+
+To directly quantify the performance of acceleration for charged particles, we performed a bead-pull measurement where the 
+perturbation of the resonant frequency and $|\rho(\omega_0)$ was measured due to a bead passing through the cavity. The 
+electric field within the cavity was computed using two different methods which showed similar structures with different 
+maximal amplitudes. After taking into account of the time transit factor, the shunt impedance was evaluated, yielding
+$R_{s, res} = \SI{3.316 \pm 0.032}{\mega\ohm}$ and $R_{s, non\text{-}res} = \SI{3.791 \pm 0.037}{\mega\ohm}$ for the 
+resonant and non-resonant method respectively. These impedances were used to quantify the energy gain of an electron in our cavity
+at different input powers. This did not yield sufficient acceleration voltages for the electron, implying that our cavity is not
+suited for particle acceleration. \par 
+
+\section{Outlook}
+
+This experiment consisted of a lot of small details that needed to be taken into account. Due to the time constraints, it is 
+vital to be able to operate the VNA smoothly. This will yield less uncertainty and confusion when performing measurements. 
+Furthermore, each step should be carefully verified and comprehended (as with the attenuation of the coaxial cable) before
+moving to the next step, as small misconceptions may allow measurements that are not as accurate as one could have done. 
+To extend such an experiment, one can observe the resonant frequencies for different cavity geometries. This can also be done 
+by considering cavities with different materials, ex copper vs iron. 
+
+
+\chapter{Appendix}
+
+In this section, we will provide with supplementary data that is not within the scope of the main report, but can nevertheless
+be useful to observe. 
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+        $z$ / mm & $\Delta\omega_0$ / kHz & $|\Delta\rho|$ / dB \\ \hline
+        41.1 & 0 & 0 \\ \hline
+        42.1 & 6.25 & 0.005 \\ \hline
+        43.1 & 3.125 & 0.007 \\ \hline
+        44.1 & 9.375 & 0.003 \\ \hline
+        45.1 & 9.375 & 0.002 \\ \hline
+        46.1 & 6.25 & 0.004 \\ \hline
+        47.1 & 3.125 & 0.002 \\ \hline
+        48.1 & 3.125 & 0.002 \\ \hline
+        49.1 & 6.25 & 0.003 \\ \hline
+        50.1 & 3.125 & 0.002 \\ \hline
+        51.1 & 15.625 & 0.013 \\ \hline
+        52.1 & 25 & 0.021 \\ \hline
+        53.1 & 28.125 & 0.035 \\ \hline
+        54.1 & 40.625 & 0.062 \\ \hline
+        55.1 & 50 & 0.103 \\ \hline
+        56.1 & 65.625 & 0.146 \\ \hline
+        57.1 & 71.875 & 0.198 \\ \hline
+        58.1 & 84.375 & 0.258 \\ \hline
+        59.1 & 93.75 & 0.329 \\ \hline
+        60.1 & 96.875 & 0.390 \\ \hline
+        61.1 & 106.2 & 0.428 \\ \hline
+        62.1 & 109.37 & 0.461 \\ \hline
+        63.1 & 106.2 & 0.484 \\ \hline
+        64.1 & 112 & 0.495 \\ \hline
+        65.1 & 112 & 0.488 \\ \hline
+        66.1 & 106.2 & 0.481 \\ \hline
+        67.1 & 112 & 0.446 \\ \hline
+        68.1 & 103.12 & 0.412 \\ \hline
+        69.1 & 96.875 & 0.365 \\ \hline
+        70.1 & 93.75 & 0.309 \\ \hline
+        71.1 & 81.25 & 0.258 \\ \hline
+        72.1 & 65.625 & 0.188 \\ \hline
+        73.1 & 53.125 & 0.130 \\ \hline
+        74.1 & 50 & 0.085 \\ \hline
+        75.1 & 34.375 & 0.055 \\ \hline
+        76.1 & 21.875 & 0.026 \\ \hline
+        77.1 & 18.75 & 0.006 \\ \hline
+        78.1 & 6.25 & 0.001 \\ \hline
+        79.1 & 3.125 & 0 \\ \hline
+        80.1 & 9.375 & 0.001 \\ \hline
+        81.1 & 6.25 & 0.003 \\ \hline
+        82.1 & 12.5 & 0.006 \\ \hline
+    \end{tabular}
+	\caption{$\Delta\omega_0$ and $|\Delta \rho|$ from the bead-pull measurement at different positions of the bead.}
+\end{table}
 
 \printbibliography
 
