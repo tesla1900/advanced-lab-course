@@ -22,6 +22,8 @@
 \graphicspath{ {./figures/} }
 % \setlength{\parindent}{0pt}
 \usepackage{chngcntr}
+\usepackage{verbatim}
+\usepackage{indentfirst}
 \numberwithin{equation}{section}
 \counterwithin{figure}{section}
 \newcommand{\incfig}[1]{%
@@ -41,21 +43,19 @@
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
-
 \begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
 	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for horizontal lines, change thickness here
 	
 	\center % Centre everything on the page
-	
 	%------------------------------------------------
 	%	Headings
 	%------------------------------------------------
 	
-	\textsc{\LARGE Rheinische Friedrich-Wilhelms-Universit\"at Bonn }\\[1.5cm] % Main heading such as the name of your university/college
+	\textsc{\LARGE Rheinische Friedrich-Wilhelms-Universit\"at Bonn }\\[4cm] % Main heading such as the name of your university/college
 	
-	%\textsc{\Large Cavities}\\[0.5cm] % Major heading such as course name
+	\textsc{\Large Advanced Laboratory Course}\\[0.5cm] % Major heading such as course name
 	
-	\textsc{\large Advanced Laboratory Course}\\[0.5cm] % Minor heading such as course title
+	\textsc{\large Performed on: March 16, 2022}\\[0.5cm] % Minor heading such as course title
 	
 	%------------------------------------------------
 	%	Title
@@ -99,7 +99,7 @@
 	%\vfill\vfill\vfill % Position the date 3/4 down the remaining page
 	\vfill\vfill
 	
-	{\large\today} % Date, change the \today to a set date if you want to be precise
+	%{\large\today} % Date, change the \today to a set date if you want to be precise
 	
 	%------------------------------------------------
 	%	Logo
@@ -114,13 +114,12 @@
 	
 \end{titlepage}
 
-
 \tableofcontents
 
 \chapter{Introduction}
-As the title might suggest, in this experiment we will be studying cavities. Before talking about cavities themselves though, it is important to understand why we are studying them. Cavity resonators are important optical and microwave system components \cite{Weng}. The main principle is that it has constructive and destructive interference pattern inside and enclosed region. They can be used as a filters, or as antennas or in lasers. They also have a wide range of application in particle accelerators \cite{accelerator}. \\
-
-
+In this experiment, we study the various characteristics of a cavity. These characteristics help quantify how good the cavity is. Before talking about cavities themselves though, it is important to understand why we are studying them. Cavity resonators are important optical and microwave system components \cite{Weng}. The main principle is that it has constructive and destructive interference pattern inside and enclosed region. They can be used as a filters, or as antennas or in lasers. They also have a wide range of application in particle accelerators \cite{accelerator}. \\
+x
+In today's report, we will first discuss the theoretical background, which gives us an insight on the working of cavities and how it works. Then we move on to the experimental setup and procedure. We end with results from our analysis and discussion. 
 
 \chapter{Theoretical Background}
 
@@ -257,9 +256,10 @@ resonant frequencies for different diameters and length of the cavity.
 
 Since the derivative of the zeroth order Bessel function and the first order
 Bessel function, $j^{'}_{0n}$ and $j_{1n}$, are equal, the corresponding TE- and
-TM-modes have the same resonant frequencies. That is, $TE_{0np}$-modes and
-$TM_{1np}$-modes have the same resonant frequency. 
+TM-modes have the same resonant frequencies. That is, TE$_{0np}$-modes and
+TM$_{1np}$-modes have the same resonant frequency. 
 
+In linear accelerators and accelerating resonators to accelerate ultra-relativistic particles, the TM$_{01}$ mode is used. 
 \section{Oscillating circuit}
 A cavity has a lot of characteristic quantities, which can be described by an
 equivalent circuit (Fig.\ref{fig:circuit}). 
@@ -564,11 +564,73 @@ can be related to the measured power $P_v = P / (1 + \kappa)$ as follows:
 \end{equation}\
 This will be used to determine the efficiency of the cavity for particle acceleration.
 
-\section{What is dB?}
+\section{dB and DBm}
+Decibel (symbol: dB), is logarithmic quantity that indicated gain or loss, with respect to a reference value. It is defined as: 
 
-\section{What is dBm?}
+\begin{equation}
+		L_{P} = 10  \log_{10}\left(\frac{P}{P_0}\right) \ dB
+\end{equation}
+where $P$ is the measured power and $P_{0}$ is the reference power. When we take this reference power $P_{0}$ = 1mW, it is known as decibel-milliwatts (dBm). It is defined as: 
 
-\section{Exercise before the experiment}
+\begin{equation}
+		L_{P} = 10 \log_{10} \left(\frac{P}{1 mW}\right) \ dBm
+\end{equation}
+
+When talking about root-power quantities (for instance voltage and current), the ratio of the squares is taken.
+
+\begin{equation} \label{eqn:db}
+		L_{F} = 10 \log_{10} \left(\frac{F^2}{F_{0}^2}\right) \ dB = 20 \log_{10} \left(\frac{F}{F_{0}}\right) \ dB
+\end{equation}
+
+Recalling our discussion from before, about the FWHM, in Eq. \ref{eqn:rho_fwhm}, we see that only in the case where $\kappa = 1$ do we get the full 3dB-FWHM, corresponding to the value $\rho = 1/\sqrt{2}$. This is because of how dB is defined in the Eq. \ref{eqn:db}.  
+
+\chapter{Exercise before the experiment}
+
+In this pre-lab exercise, we estimate the frequency for various modes of the cavity by using the mode map (Fig. \ref{fig:mode}) and using the Eq. \ref{eqn:res_freq}. The cylindrical cavity has an inner diameter of 78.5mm and length of 20mm. 
+So we have, $\left(d/l\right)^2 = 15.405625$. Therefore, from the mode map, the ten lowest eigenmodes are tabulated in the table \ref{tab:mode_freq1}. 
+
+\begin{table}[htpb]
+		\centering
+		\caption{Eigenmodes and their corresponding frequencies calculated using the mode map.}
+		\label{tab:mode_freq1}
+		\begin{tabular}{|c|c|}
+				\hline Eigenmodes &  Frequency (GHz) \\
+				\hline $TM_{010} $ & 2.848 \\
+				\hline $TM_{110} $ & 4.593 \\
+				\hline $TM_{210} $ & 6.240 \\
+				\hline $TM_{020} $ & 6.740 \\ 
+				\hline $TE_{111} $ & 7.643 \\ 
+				\hline $TM_{310} $ & 7.748 \\
+				\hline $TM_{011} $ & 7.955 \\ 
+				\hline $TE_{211} $ & 8.353 \\
+				\hline $TM_{120} $ & 8.545  \\
+				\hline $TM_{111}/TE_{011}$ & 8.733 \\
+				\hline		
+		\end{tabular}
+\end{table}
+
+The values calculated using Eq. \ref{eqn:res_freq} is shown in the table \ref{tab:mode_freq2}.
+
+\begin{table}[htpb]
+		\centering
+		\caption{Eigenmodes and their corresponding frequencies calculated using the formula.}
+		\label{tab:mode_freq2}
+		\begin{tabular}{|c|c|}
+				\hline Eigenmodes & Frequency (GHz) \\ 
+				\hline $TM_{010} $ & 2.925 \\
+				\hline $TM_{110} $ & 4.661 \\
+				\hline $TM_{210} $ & 6.247 \\
+				\hline $TM_{020} $ & 6.715 \\ 
+				\hline $TE_{111} $ & 7.827 \\ 
+				\hline $TM_{310} $ & 7.761 \\
+				\hline $TM_{011} $ & 8.050 \\ 
+				\hline $TE_{211} $ & 8.369 \\
+				\hline $TM_{120} $ & 8.534  \\
+				\hline $TM_{111}/TE_{011}$ & 8.830 \\
+				\hline	
+		\end{tabular}
+\end{table}
+
 
 \chapter{Setup and Procedure}
 
@@ -844,7 +906,7 @@ accelerator experiments.
 \section{Attenuation of Coaxial Cables}
 
 Fig. \ref{fig:coax_atten} shows the attenuation of the RG142 and ST18 cables for frequency values at approximately 1, 2, 4,  and 7 $\si{\giga\hertz}$. 
-The attenuations as given by the datasheets of the corresponding cable from the manufacturers are also shown \hl{add reference here}. To match the
+The attenuations as given by the datasheets of the corresponding cable from the manufacturers are also shown . To match the
 amplitudes from our measurement with those from the datasheet, we had to apply a normalization factor of $N = \num{1e10}$ and $\num{1e2}$ for the 
 RG142 and ST18 cables respectively. From the comparisons between the two attenuations, it is clear that the ST18 cable induces less power losses, 
 even at higher frequencies. This implies that we should be using the ST18 cable for our measurement to prevent the signal loss in the coaxial
@@ -869,7 +931,7 @@ the ST18 cable should be used instead of the RG142 cable. \par
 \section{Scalar Measurement}
 
 Tables \ref{tab:scalar_top} and \ref{tab:scalar_side} show the relevant parameters associated to each resonant mode in the cavity, i.e. the coupling coefficient $\kappa$, 
-the FWHM $\Delta\omega_H$, the loaded and unloaded quality factor ($Q$, $Q_0$ respectively). The residual with the theoretical resonant frequency \hl{shown in some table we need to define later}
+the FWHM $\Delta\omega_H$, the loaded and unloaded quality factor ($Q$, $Q_0$ respectively). The residual with the theoretical resonant frequency (table \ref{tab:mode_freq2})
  is also shown below. This is shown for the top and side cavity respectively. \par 
 
 From our results, we observe that the resonant frequencies obtained are close to the theoretical values that we have computed analytically with a deviation of approximately 
