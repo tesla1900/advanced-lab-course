@@ -309,19 +309,19 @@ TM$_{1np}$-modes have the same resonant frequency.
 
 In linear accelerators and accelerating resonators to accelerate ultra-relativistic particles, the TM$_{01}$ mode is used. 
 \section{Oscillating circuit}
-A cavity has a lot of characteristic quantities, which can be described by an
+A cavity has a lot of characteristic quantities which can be described by an
 equivalent circuit (Fig. \ref{fig:circuit}). 
 \begin{figure}[hbt!]
     \centering
     \includegraphics[width=0.8\textwidth]{circuit}
-	\caption{Equivalent circuit of a cavity with loop coupling. \cite{Hillert}}
+	\caption{Equivalent circuit of a cavity with loop coupling \cite{Hillert}.}
     \label{fig:circuit}
 \end{figure}	
 
 Coupling is a process through which electromagnetic waves can be coupled to a
 waveguide, or in this case, to a cavity. There are several ways to couple and in
 this experiment, we use loop coupling, which enables coupling to the magnetic
-field inside the cavity. In the figure \ref{fig:circuit}, the LCR-circuit
+field inside the cavity. In Fig. \ref{fig:circuit}, the LCR-circuit
 represents the cavity. The step-down transformer represents the loop coupling,
 $Z_{0}$ is the characteristic impedance and $R_{s}$ is the Shunt impedance. 
 
@@ -422,7 +422,7 @@ The scalar network analyzer should then look like Fig. \ref{fig:scalar}.
 \begin{figure}[hbt!]
     \centering
     \includegraphics[width=0.8\textwidth]{scalar}
-	\caption{Reflection coefficient for different values of coupling coefficient and Quality factors along with FWHM ($\Delta \omega_{H}$). \cite{Hillert}}
+	\caption{Reflection coefficient for different values of coupling coefficient and Quality factors along with FWHM ($\Delta \omega_{H}$) \cite{Hillert}. }
     \label{fig:scalar}
 \end{figure}
 
@@ -492,7 +492,7 @@ We find that all the positions of circles are independent of quality factor and 
 \begin{figure}[hbt!]
     \centering
     \includegraphics[width=0.8\textwidth]{circles}
-	\caption{Different position and radii for different values of $\kappa$. \cite{Hillert}}
+	\caption{Different position and radii for different values of $\kappa$ \cite{Hillert}.}
     \label{fig:circles}
 \end{figure}
 
@@ -502,7 +502,7 @@ In Fig. \ref{fig:delay}, we also notice that we have an outer circle which is th
 \begin{figure}[hbt!]
     \centering
     \includegraphics[width=0.8\textwidth]{delay}
-	\caption{The delay coefficient rotates the circle around the origin. We can also see the Resonance and Reflection circle. \cite{Hillert}}
+	\caption{The delay coefficient rotates the circle around the origin. We can also see the resonance and reflection circle \cite{Hillert}.}
     \label{fig:delay}
 \end{figure}
 
@@ -592,7 +592,7 @@ Using this and Eq. \ref{eqn:shunt}, we can define a delay coefficient as:
 		\left| \frac{\int\limits_{-L/2}^{L/2} E_{0}(s) \cdot \cos\left(\frac{\omega_{0}s}{c} \right)\cdot ds }{\int\limits_{-L/2}^{L/2} E_{0}(s) \cdot ds} \right| 
 \end{equation}
 
-where the time transit factor $e^{i \frac{\omega_{0}s}{c}} = \cos\left(\frac{\omega_{0}s}{c}\right)$ as we are dealing with real values of frequencies. \par 
+where the time transit factor $e^{i \frac{\omega_{0}s}{c}} = \cos(\omega_0 k / c)$ as we are dealing with real values of frequencies. \par 
 And finally, we have for resonant method:
 
 \begin{equation} \label{eqn:Rs_res}
@@ -642,7 +642,7 @@ So we have, $\left(d/l\right)^2 = 15.405625$. Therefore, from the mode map, the 
 		\caption{Eigenmodes and their corresponding frequencies calculated using the mode map.}
 		\label{tab:mode_freq1}
 		\begin{tabular}{|c|c|}
-				\hline Eigenmodes &  Frequency (GHz) \\
+				\hline Eigenmodes &  Frequency $\omega_{thr}$ (GHz) \\
 				\hline $TM_{010} $ & 2.848 \\
 				\hline $TM_{110} $ & 4.593 \\
 				\hline $TM_{210} $ & 6.240 \\
@@ -664,7 +664,7 @@ The values calculated using Eq. \ref{eqn:res_freq} is shown in the Table \ref{ta
 		\caption{Eigenmodes and their corresponding frequencies calculated using the formula.}
 		\label{tab:mode_freq2}
 		\begin{tabular}{|c|c|}
-				\hline Eigenmodes & Frequency (GHz) \\ 
+				\hline Eigenmodes & Frequency $\omega_{thr}$ (GHz) \\ 
 				\hline $TM_{010} $ & 2.925 \\
 				\hline $TM_{110} $ & 4.661 \\
 				\hline $TM_{210} $ & 6.247 \\
@@ -829,7 +829,7 @@ uncertainty in frequency measurements.
 To obtain the full-width half-maximum (FWHM) of the curve, the reflection
 coefficient obtained at resonance $|\rho(\omega_0)|$ was used to determine the
 coupling coefficient as shown in Eq. \ref{eqn:kappa_rho}. The reflection
-coefficient at $\frac{\Delta\omega_H}{2}$ was then evaluated by using Eq.
+coefficient at $\Delta\omega_H / 2$ was then evaluated by using Eq.
 \ref{eqn:rho_fwhm} and the corresponding frequency values, that is, the half of the FWHM, were measured using
 the display. The loaded and unloaded quality factor was then determined using Eq. \ref{eqn:Q_scalar} and
 \ref{eqn:Q0_scalar} respectively. Gaussian error propagation techniques were
@@ -885,13 +885,13 @@ scalar analysis. We then switched to the complex representation and rotated the
 curve such that the point on the curve at resonance intersects with the real
 axis. The FWHM was then determined by first evaluating for the coupling
 coefficient, using the same equations as with the scalar analysis. The
-corresponding values of $|\rho(\frac{\Delta\omega_H}{2})|$ were then determined
+corresponding values of $|\rho(\Delta\omega_H / 2)|$ were then determined
 on the resonant circle, and the resulting frequency values were tabulated.
 The fluctuations of the measurement were again taken into account as uncertainties
 in our measurement. We also recorded the input power to be $P_0 = 1.5 \pm 0.1$dB. \par 
 
 In our measurement, the more accurate method that utilizes the distance between points on the reflection and resonant circle 
-to determine the coupling coefficient was not performed due to the error in the calculated $|\rho(\frac{\Delta\omega_H}{2})|$
+to determine the coupling coefficient was not performed due to the error in the calculated $|\rho(\Delta\omega_H / 2)|$
 when using this method. This may have been resolved if we had used units of power ratios $U$ instead of dB to determine the 
 coupling coefficient. This is also the reason why $\kappa$ in the scalar measurement yielded negative values. In the future,
 units in the measurement should be set to $U$ as much as possible. \par 
@@ -941,7 +941,7 @@ field strength $E_0(z)$ was then determined for each position of the bead. Using
 the power loss obtained from above, we then evaluated the shunt impedance $R_s$
 as defined by Eq. \ref{eqn:Rs_res} and \ref{eqn:Rs_nonres} by
 utilizing cubic interpolations and Gauss-Legendre quadrature integration
-techniques. The transit time factor $\cos(\frac{\omega_0 z}	{c})$ was also taken
+techniques. The transit time factor $\cos(\omega_0 z / c)$ was also taken
 into account when evaluating the shunt impedance, and the electric fields when
 considering such time factor was compared to those without this factor. \par 
 
@@ -1050,7 +1050,7 @@ does not largely affect the power lost in the system. \par
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|}
-		\hline  & Uncalibrated & Calibrated \\ 
+		\hline  & \textbf{Uncalibrated} & \textbf{Calibrated} \\ 
 		\hline $\omega_0$ / GHz & 2.992362525013 & 2.9915625 \\
 		\hline $\kappa$ & $-1.0045157 \pm 0.0000051$ & $-1.0049865\pm 0.0000030$ \\
 		\hline $\Delta\omega_H$ / MHz & 3.001 & 2.219 \\
@@ -1146,7 +1146,7 @@ shows that our cavity is not suitable to accelerate particles. \par
 
 In our experiment, we observed if a given cavity was suitable for particle acceleration. To this end, we had to first determine
 the reflection coefficient of the signal transmitted through the coaxial cable at different resonant modes of the cavity. This
-would yield reflection curves that dip sharply to $|\rho| \approx 0$ near resonance of the cavity. In order to determine the 
+would yield reflection curves that dip sharply to $|\rho| \approx 0|$ near resonance of the cavity. In order to determine the 
 most efficient coaxial cable to use (i.e. that with the least power loss), the attenuation of the coaxial cable was measured. 
 While we observed that the ST18 coaxial cable yield lower attenuation, we used the RG142 cable instead. In future experiments,
 the attenuation of the cable should be carefully considered before performing the rest of the measurements. \par 
@@ -1164,7 +1164,7 @@ used the same scalar method to measure the resonant frequency and observed the c
 In future experiments, proper measurements in this format should be performed. \par 
 
 To directly quantify the performance of acceleration for charged particles, we performed a bead-pull measurement where the 
-perturbation of the resonant frequency and $|\rho(\omega_0)$ was measured due to a bead passing through the cavity. The 
+perturbation of the resonant frequency and $|\rho(\omega_0)|$ was measured due to a bead passing through the cavity. The 
 electric field within the cavity was computed using two different methods which showed similar structures with different 
 maximal amplitudes. After taking into account of the time transit factor, the shunt impedance was evaluated, yielding
 $R_{s, res} = \SI{3.316 \pm 0.032}{\mega\ohm}$ and $R_{s, non\text{-}res} = \SI{3.791 \pm 0.037}{\mega\ohm}$ for the 
