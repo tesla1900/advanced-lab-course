@@ -56,6 +56,8 @@
 	\textsc{\Large Advanced Laboratory Course}\\[0.5cm] % Major heading such as course name
 	
 	\textsc{\large Performed on: March 16, 2022}\\[0.5cm] % Minor heading such as course title
+
+	\textsc{\large Submitted on: April 6, 2022}\\[0.5cm] % Minor heading such as course title
 	
 	%------------------------------------------------
 	%	Title
@@ -87,6 +89,25 @@
 			Dr. Michael Switka
 		\end{flushright}
 	\end{minipage}
+
+	\vspace*{5em}
+
+	\begin{minipage}{0.8\textwidth}
+		\begin{centering}
+			% \large
+			\textbf{Abstract}\\[0.2cm]
+			The suitability of cavities for particle acceleration was investigated. The characteristic quantities such as the 
+			resonant frequency $\omega_0$, coupling coefficient $\kappa$, the full-width half-maximum $\Delta\omega$ and the quality factor $Q$ of the 
+			cavity was determined by measuring the reflection coefficient. This was performed for cavities with different
+			coupling positions, which showed deviations of $\approx 10^{-2}$ in resonant frequencies. This was also performed for scalar and vector representations 
+			in which major differences were not observed. The resonant frequencies were compared to those from an ideal cylindrical waveguide,
+			which showed deviations of at most $10^{-2}$. The performance of the cavity for particle acceleration was investigated by using the 
+			bead-pull measurement, resulting in a shunt impedance of $R_{s, res} = \SI{3.316 \pm 0.032}{\mega\ohm}$ and \
+			$R_{s, non\text{-}res} = \SI{3.791 \pm 0.037}{\mega\ohm}$ for the two methods used. The energy gain obtained was of the order of 
+			$\SI{100}{\kilo\electronvolt}$ with an input power of $\SI{100}{\kilo\watt}$, which is smaller than typical energies required
+			for such acceleration. 
+		\end{centering}
+	\end{minipage}
 	
 	% If you don't want a supervisor, uncomment the two lines below and comment the code above
 	%{\large\textit{Author}}\\
@@ -97,9 +118,9 @@
 	%------------------------------------------------
 	
 	%\vfill\vfill\vfill % Position the date 3/4 down the remaining page
-	\vfill\vfill
+	% \vfill\vfill
 	
-	%{\large\today} % Date, change the \today to a set date if you want to be precise
+	% {\large\today} % Date, change the \today to a set date if you want to be precise
 	
 	%------------------------------------------------
 	%	Logo
@@ -110,38 +131,66 @@
 	 
 	%----------------------------------------------------------------------------------------
 	
-	\vfill % Push the date up 1/4 of the remaining page
+	% \vfill % Push the date up 1/4 of the remaining page
 	
 \end{titlepage}
+
+
 
 \tableofcontents
 
 \chapter{Introduction}
-In this experiment, we study the various characteristics of a cavity. These characteristics help quantify how good the cavity is. Before talking about cavities themselves though, it is important to understand why we are studying them. Cavity resonators are important optical and microwave system components \cite{Weng}. The main principle is that it has constructive and destructive interference pattern inside and enclosed region. They can be used as a filters, or as antennas or in lasers. They also have a wide range of application in particle accelerators \cite{accelerator}. \\
-x
-In today's report, we will first discuss the theoretical background, which gives us an insight on the working of cavities and how it works. Then we move on to the experimental setup and procedure. We end with results from our analysis and discussion. 
+In this experiment, we study the various characteristics of a cavity. 
+These characteristics help quantify how good the cavity is. 
+Before talking about cavities themselves, it is important to understand why we are studying them.
+ Cavity resonators are important optical and microwave system components \cite{Weng}. 
+ The main principle is that it has constructive and destructive interference pattern inside and enclosed region. 
+ They can be used as a filters, or as antennas or in lasers. 
+They also have a wide range of application in particle accelerators \cite{accelerator}. \par 
+In today's report, we will first discuss the theoretical background, 
+which gives us an insight on the working of cavities. 
+Then we move on to the experimental setup and procedure, where we measure the reflection coefficient
+of the signal transmitted within the cavity. This is done for different measurement techniques, namely the 
+scalar and vector measurement. Finally, we perform a bead-pull
+measurement where the performance of the cavity as a particle accelerator is analyzed. Future improvements are also discussed.
 
 \chapter{Theoretical Background}
 
 \section{Waveguides}
 In order to understand cavities, we start off with the discussion on waveguides.
 An electromagnetic wave, when confined to the interior of a hollow pipe is
-called a waveguide. We shall closely follow the laboratory script \cite{Hillert} for our report.The
+called a waveguide. We shall closely follow the laboratory script \cite{Hillert} for our report. If not mentioned
+otherwise, the material is referenced from this script. The
 generalized Maxwell equations in terms of E-field and H-field are given by:
 
+% \begin{align}
+% 		\curl {\vb{{E}}} &= - \pdv{{B}}{t} \\
+% 		\div{\vb{D}} &= \rho \\
+% 		\curl {\vb{{H}}} &= \vec{j} + \pdv{{D}}{t} \\
+% 		\div{\vb{{B}}} &= 0 
+% \end{align}
+
+% In vacuum, these equations become: 
+% \begin{align}
+% 		\curl {\vb{{E}}} &= \mu_0 \cdot \pdv{{H}}{t} \\ 
+% 		\div{\vb{{E}}} &= 0 \\
+% 		\curl {\vb{{H}}} &= \epsilon_{0} \cdot \pdv{{E}}{t} \\
+% 		\div{\vb{{H}}} &= 0
+% \end{align}
+
 \begin{align}
-		\curl {\vb{{E}}} &= - \pdv{{B}}{t} \\
-		\div{\vb{D}} &= \rho \\
-		\curl {\vb{{H}}} &= \vec{j} + \pdv{{D}}{t} \\
-		\div{\vb{{B}}} &= 0 
+		\vec{\nabla} \cross \vec{E} &= - \pdv{\vec{B}}{t} \\
+		\vec{\nabla} \cdot \vec{D} &= \rho \\
+		\vec{\nabla} \cross \vec{H} &= \vec{j} + \pdv{\vec{D}}{t} \\
+		\vec{\nabla} \cdot \vec{B} &= 0 
 \end{align}
 
 In vacuum, these equations become: 
 \begin{align}
-		\curl {\vb{{E}}} &= \mu_0 \cdot \pdv{{H}}{t} \\ 
-		\div{\vb{{E}}} &= 0 \\
-		\curl {\vb{{H}}} &= \epsilon_{0} \cdot \pdv{{E}}{t} \\
-		\div{\vb{{H}}} &= 0
+		\vec{\nabla} \cross \vec{E} &= \mu_0 \cdot \pdv{\vec{H}}{t} \\ 
+		\vec{\nabla} \cdot \vec{E} &= 0 \\
+		\vec{\nabla} \cross \vec{H} &= \epsilon_{0} \cdot \pdv{\vec{E}}{t} \\
+		\vec{\nabla} \cdot \vec{H} &= 0
 \end{align}
 
 Upon solving these equations, we get plane wave solutions which looks like this: 
@@ -192,7 +241,7 @@ Now, there are two waves to classify these waves:
 \end{enumerate}
 
 Corresponding to this critical wave, we have a critical frequency, which is
-$\omega_{c}=k_{c}.c $, below which there is no propagation. One interesting
+$\omega_{c}=k_{c} c $, below which there is no propagation. One interesting
 thing to note here is that for a hollow waveguide, only TE or TM modes are
 possible, TEM is not, because no wave would exist in this case \cite{Griffiths}. But for
 a coaxial cable, which consists of straight wire surrounded by a conduction
@@ -209,12 +258,11 @@ following boundary conditions to the walls of the waveguide:
 The field distribution solution for a cylindrical waveguide can be separated
 into angular and radial parts, whose solutions are then given by the
 Bessel/Neumann functions. These can be then substituted in the
-eq.(\ref{trans1})-(\ref{trans2}) and upon imposing the constraints from the
+Eq.(\ref{trans1})-(\ref{trans2}) and upon imposing the constraints from the
 boundary condition gives us the corresponding TE- and TM-modes.
 
 \subsection{Cylindrical waveguides resonator}
-The time has now come, to talk about cavities itself. If we now insert two
-conducting plates perpendicular to the z-axis, the incoming wave is reflected
+If we now insert two conducting plates perpendicular to the z-axis, the incoming wave is reflected
 completely, giving us standing waves. Because of this, the z-dependence changes
 like: 
 
@@ -243,8 +291,8 @@ The resonant modes can be written in the linear form as:
 		\left(d \nu \right)^2 = \left(\frac{cj_{mn}^{(')}}{\pi}\right)^2 + \left(\frac{c}{2}\right)^2 p^2 \left(\frac{d}{l}\right)^2
 \end{equation}
 
-here $d$ is the diameter of the cavity. When we plot different modes on a graph,
-we get a mode map (Fig.\ref{fig:mode}). The mode map allows one to read off the
+Here $d$ is the diameter of the cavity. When we plot different modes on a graph,
+we get a mode map (Fig. \ref{fig:mode}). The mode map allows one to read off the
 resonant frequencies for different diameters and length of the cavity. 
 
 \begin{figure}[hbt!]
@@ -262,7 +310,7 @@ TM$_{1np}$-modes have the same resonant frequency.
 In linear accelerators and accelerating resonators to accelerate ultra-relativistic particles, the TM$_{01}$ mode is used. 
 \section{Oscillating circuit}
 A cavity has a lot of characteristic quantities, which can be described by an
-equivalent circuit (Fig.\ref{fig:circuit}). 
+equivalent circuit (Fig. \ref{fig:circuit}). 
 \begin{figure}[hbt!]
     \centering
     \includegraphics[width=0.8\textwidth]{circuit}
@@ -352,10 +400,10 @@ crosses the cavity. It is defined by:
 		R_{s} = \frac{U^2}{2 P_{V}} = \frac{1}{P_{V}} \left|\int\limits_{L/2}^{-L/2} E_{0}\left(s \right) \cdot e^{i \omega_{0}s/c}\cdot ds \right|^2 
 \end{equation}
 \\
-The impedance of the resonator in fig.\ref{fig:circuit} is a complex quantity. This value only becomes real at resonance and when it does, it is called the Shunt impedance. This value is typically of the order of $10^{6} \  \Omega$. This is the reason we use a step down transformer in the circuit, using loop coupling, as seen in Eq.(\ref{eqn:coupling}). 
+The impedance of the resonator in Fig. \ref{fig:circuit} is a complex quantity. This value only becomes real at resonance and when it does, it is called the Shunt impedance. This value is typically of the order of $10^{6} \  \Omega$. This is the reason we use a step down transformer in the circuit, using loop coupling, as seen in Eq.(\ref{eqn:coupling}). 
 
 \section{Scalar measurement of reflection coefficient}
-The reflection coefficient we defined in the previous section (eqn. \ref{eqn:refleccoeff}) is a complex value. It looks like:
+The reflection coefficient we defined in the previous section (Eq. \ref{eqn:refleccoeff}) is a complex value. It looks like:
 
 \[
 		\rho(\Delta \omega) = \rho_{0} (\Delta \omega) \cdot e^{-2ikl} = \frac{\kappa - \left(1 + 2iQ_{0}\frac{\Delta \omega}{\omega}\right)}{\kappa + \left(1 + 2iQ_{0}\frac{\Delta \omega}{\omega}\right)} \cdot e^{-2ikl}
@@ -369,7 +417,7 @@ Now, we can separate the real and imaginary part and get its modulus:
 			\left| \rho (\Delta \omega) \right| = \left| \rho_{0}(\Delta \omega) \right| = \sqrt{\frac{(\kappa - 1)^2 + 4Q_{0}^2 \left(\Delta \omega / \omega \right)^2}{(\kappa + 1)^2 + 4Q_{0}^2 \left(\Delta \omega / \omega \right)^2}} 
 \end{equation}
 \\
-The scalar network analyzer should then look like fig. \ref{fig:scalar}.
+The scalar network analyzer should then look like Fig. \ref{fig:scalar}.
 
 \begin{figure}[hbt!]
     \centering
@@ -398,7 +446,7 @@ such:
 
 As such, one cannot distinguish between $\rho >0$ and $\rho<0$. 
 
-In order to calculate the value of reflection coefficient at FWHM, we use the following relation (which one can derive by using eqn.(\ref{eqn:fwhm}), (\ref{eqn:quality}) and (\ref{eqn:scalar}):
+In order to calculate the value of reflection coefficient at FWHM, we use the following relation (which one can derive by using Eq.(\ref{eqn:fwhm}), (\ref{eqn:quality}) and (\ref{eqn:scalar}):
 
 \begin{equation}
 		\left| \rho (\Delta \omega_{H}/2) \right| = \frac{\sqrt{\kappa^2 + 1} }{\kappa +1} 
@@ -439,7 +487,7 @@ Neglecting the delay coefficient term, $e^{-2ikl}$, we get an equation, which wh
 		r = \frac{\kappa}{1+ \kappa}
 \]
 
-We find that all the positions of circles are independent of quality factor and depend only on the coupling coefficient. Another interesting thing we find is that all these circles go through (-1, 0) (as shown in fig. \ref{fig:circles}). 
+We find that all the positions of circles are independent of quality factor and depend only on the coupling coefficient. Another interesting thing we find is that all these circles go through (-1, 0) (as shown in Fig. \ref{fig:circles}). 
 
 \begin{figure}[hbt!]
     \centering
@@ -448,8 +496,8 @@ We find that all the positions of circles are independent of quality factor and 
     \label{fig:circles}
 \end{figure}
 
-Now taking the delay coefficient into account, we see the circles rotate around the origin (fig. \ref{fig:delay}). For large values of quality factor, the distortion in the shape of the circle is negligible, but it is quite noticeable in low values of quality factor. We will be neglecting these distortions in our measurements because we such calibrations can be done only on expensive equipments. \\
-In fig. \ref{fig:delay}, we also notice that we have an outer circle which is the reflection circle. It represents complete reflection of frequencies far away from the resonance one. The smaller circle is called the resonance circle. 
+Now taking the delay coefficient into account, we see the circles rotate around the origin (Fig. \ref{fig:delay}). For large values of quality factor, the distortion in the shape of the circle is negligible, but it is quite noticeable in low values of quality factor. We will be neglecting these distortions in our measurements because we such calibrations can be done only on expensive equipments. \\
+In Fig. \ref{fig:delay}, we also notice that we have an outer circle which is the reflection circle. It represents complete reflection of frequencies far away from the resonance one. The smaller circle is called the resonance circle. 
 
 \begin{figure}[hbt!]
     \centering
@@ -537,7 +585,7 @@ For determining the shunt impedance, it is sufficient to know the electric field
 \[ 
 		U = \int\limits_{0}^{L} E_{0}(z) \cdot dz
 \]
-Using this and Eqn. \ref{eqn:shunt}, we can define a delay coefficient as: 
+Using this and Eq. \ref{eqn:shunt}, we can define a delay coefficient as: 
 
 \begin{equation}
 		\Lambda = \left| \frac{\int\limits_{-L/2}^{L/2} E_{0}(s) \cdot e^{i \frac{\omega_{0}s}{c}\cdot ds}}{\int\limits_{-L/2}^{L/2} E_{0}(s) \cdot ds} \right| = 
@@ -587,7 +635,7 @@ Recalling our discussion from before, about the FWHM, in Eq. \ref{eqn:rho_fwhm},
 \chapter{Exercise before the experiment}
 
 In this pre-lab exercise, we estimate the frequency for various modes of the cavity by using the mode map (Fig. \ref{fig:mode}) and using the Eq. \ref{eqn:res_freq}. The cylindrical cavity has an inner diameter of 78.5mm and length of 20mm. 
-So we have, $\left(d/l\right)^2 = 15.405625$. Therefore, from the mode map, the ten lowest eigenmodes are tabulated in the table \ref{tab:mode_freq1}. 
+So we have, $\left(d/l\right)^2 = 15.405625$. Therefore, from the mode map, the ten lowest eigenmodes are tabulated in the Table \ref{tab:mode_freq1}. 
 
 \begin{table}[htpb]
 		\centering
@@ -609,7 +657,7 @@ So we have, $\left(d/l\right)^2 = 15.405625$. Therefore, from the mode map, the 
 		\end{tabular}
 \end{table}
 
-The values calculated using Eq. \ref{eqn:res_freq} is shown in the table \ref{tab:mode_freq2}.
+The values calculated using Eq. \ref{eqn:res_freq} is shown in the Table \ref{tab:mode_freq2}.
 
 \begin{table}[htpb]
 		\centering
@@ -762,7 +810,7 @@ reflection curve was observed. Such points corresponded to
 resonant modes in the cavity. Before taking the measurement of each resonant frequency, the VNA was calibrated
 using a full one-port procedure, calibration with the kit from Fig.
 \ref{fig:calibration_kit} as before. An example of a resonance in the
-reflection curve is shown in Fig. \ref{fig:resonance_raw}. The corresponding
+reflection curve is shown in Fig. \ref{fig:resonance_raw} (all other curves are shown in the Appendix). The corresponding
 reflection coefficient and resonant frequency was then measured. The
 fluctuations and width of the scales taken into account as uncertainties in the
 reflection coefficient. The step size of the VNA was $\SI{50}{\kilo\hertz}$, which was also considered as the
@@ -931,7 +979,7 @@ the ST18 cable should be used instead of the RG142 cable. \par
 \section{Scalar Measurement}
 
 Tables \ref{tab:scalar_top} and \ref{tab:scalar_side} show the relevant parameters associated to each resonant mode in the cavity, i.e. the coupling coefficient $\kappa$, 
-the FWHM $\Delta\omega_H$, the loaded and unloaded quality factor ($Q$, $Q_0$ respectively). The residual with the theoretical resonant frequency (table \ref{tab:mode_freq2})
+the FWHM $\Delta\omega_H$, the loaded and unloaded quality factor ($Q$, $Q_0$ respectively). The residual with the theoretical resonant frequency (Table \ref{tab:mode_freq2})
  is also shown below. This is shown for the top and side cavity respectively. \par 
 
 From our results, we observe that the resonant frequencies obtained are close to the theoretical values that we have computed analytically with a deviation of approximately 
@@ -1020,24 +1068,6 @@ Comparing our obtained data to those from the scalar measurement in Table \ref{t
 closer to unity, indicating that with this measurement, the accuracy of the experiment increases. This is also observed by the standing wave ratio, as its value is close to unity. This tells
 us that the vectorial method yields a more accurate and stable result. \par
 
-% In this experiment, we were not able to realize the proper measurement method as instructed, and a direct conversion of the scalar to the vectorial representation was performed instead.
-% In this sense, it is relatively hard to compare the properties between the two results. 
-
-
-% \begin{table}[h!]
-% 	\centering
-% 	\begin{tabular}{|c|c|c|c|c|c|c|}
-% 		\hline Type & $\kappa$ & $\Delta\omega_H$ / MHz & $Q_0$ & $Q_{ext}$ & $S$ & $P$ / mW\\ 
-% 		\hline Uncalibrated & $-1.0045157 \pm 0.0000051$ & 3.001 & $1998.407 \pm 0.012$ 
-% 				& $1989.435 \pm 0.015$ & $1.0045157 \pm 0.0000051$ & $1.567 \pm 0.023$\\ 
-% 		\hline Calibrated & $-1.0049865\pm 0.0000030$ & 2.219 & $3368.1 \pm 2.1$ 
-% 				& $2248.3 \pm 1.4$ & $1.003447 \pm 0.0000030$ & $1.567 \pm 0.023$\\
-% 		\hline
-% 	\end{tabular}
-% 	\caption{Calculated quantities from uncalibrated and calibrated vectorial measurement. }
-% 	\label{tab:vectorial}
-% \end{table}
-
 \section{Bead-Pull Measurement}
 
 From the bead-pull measurement, we first determined the relevant quantities at the fundamental resonant mode, corresponding to 
@@ -1070,7 +1100,7 @@ electric field as a function of the position of the bead $z$ with and without in
 	\label{fig:E0}
 \end{figure*}
 
-We observe that while both behaviours yield similar oscillatory behaviours, the results from the resonant method have a 
+We observe that while both behaviors yield similar oscillatory behaviors, the results from the resonant method have a 
 flatter curve with a lower maximal amplitude of $\SI{3.65 \pm 0.16}{\kilo\volt\per\metre}$ compared to the non-resonant method, which has
 a maximal amplitude of $\SI{4.390 \pm 0.040}{\kilo\volt\per\metre}$. Furthermore, the uncertainty of the results from the resonant
 method also have larger uncertainties compared to the non-resonant method. As both measurements should ideally yield the same result,
@@ -1087,7 +1117,7 @@ After performing integration, we obtain the following for the shunt impedance:
 	R_{s, non\text{-}res} = \SI{3.791 \pm 0.037}{\mega\ohm}
 \end{align*}
 
-Using the shunt impedence we obtained for our cavity, we can determine if our cavity is sufficient to accelerate particles. To do this,
+Using the shunt impedance we obtained for our cavity, we can determine if our cavity is sufficient to accelerate particles. To do this,
 we first calculate the energy gain of a particle (here, an electron) after passing through our cavity with different input powers.
 Table \ref{tab:energy_gain} show the energy gain using the shunt impedance evaluated from both resonant and non-resonant methods for 
 different input radiofrequency powers $P_0$.
@@ -1123,8 +1153,8 @@ the attenuation of the cable should be carefully considered before performing th
 
 The resonant frequencies at dips in the reflection curve was measured using a Vector Network Analyzer (VNA), and from this the coupling coefficient $\kappa$
 and $|\rho(\Delta\omega_H / 2)|$ was computed. The FWHM of the curve was then measured from such values. The quality factor $Q$, 
-which quantifies the degree of damping in the system, was then computed. In our analysis, we compared the behaviour between\par 
-avities which differed in their location of coupling which yielded deviations of order $10^{-2}$. Deviations between the 
+which quantifies the degree of damping in the system, was then computed. In our analysis, we compared the behaviors between  
+cavities which differed in their location of coupling which yielded deviations of order $10^{-2}$. Deviations between the 
 analytical resonant frequencies were also as large as $10^{-2}$, which indicate that our results are in good agreement with
 expected values. The relationship between the quality factor and the comparison with theoretical values were also observed. \par 
 
@@ -1149,13 +1179,38 @@ vital to be able to operate the VNA smoothly. This will yield less uncertainty a
 Furthermore, each step should be carefully verified and comprehended (as with the attenuation of the coaxial cable) before
 moving to the next step, as small misconceptions may allow measurements that are not as accurate as one could have done. 
 To extend such an experiment, one can observe the resonant frequencies for different cavity geometries. This can also be done 
-by considering cavities with different materials, ex copper vs iron. 
+by considering cavities with different materials, ex copper vs iron.
+
+\section*{Acknowledgements}
+
+We would like to thank Dr. Michael Switka for his assistance and guidance throughout the experiment, especially when
+resolving technical difficulties that arose while performing the measurements. We are also grateful for this course 
+(p601: Advanced Lab Course) for providing us with a hands-on experience with various lab equipment that allowed us to 
+learn more about cavities in particle accelerators as well as RF engineering. 
 
 
 \chapter{Appendix}
 
 In this section, we will provide with supplementary data that is not within the scope of the main report, but can nevertheless
 be useful to observe. 
+
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[$\omega_0 = 2.992206875$ GHz]{{\includegraphics[width=0.4\columnwidth]{resonant1.1.png}}}
+	\quad
+	\subfloat[$\omega_0 = 4.53973125$ GHz]{{\includegraphics[width=0.4\columnwidth]{resonant2.png}}}
+	\quad
+	\subfloat[$\omega_0 = 6.21559375$ GHz]{{\includegraphics[width=0.4\columnwidth]{resonant3.png}}}
+	\quad
+	\subfloat[$\omega_0 = 6.940125$ GHz]{{\includegraphics[width=0.4\columnwidth]{resonant4.png}}}
+	\quad
+	\subfloat[$\omega_0 = 7.75975$ GHz]{{\includegraphics[width=0.4\columnwidth]{resonant6.png}}}
+
+	\caption{Reflection curve for all resonant modes observed from the top cavity.
+}
+% 	\label{fig:vectorial_raw}
+\end{figure*}
+
 
 \begin{table}[!ht]
     \centering
