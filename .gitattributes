@@ -1,1 +1,2 @@
 *.zip filter=lfs diff=lfs merge=lfs -text
+laser_gyroscope/ring_down filter=lfs diff=lfs merge=lfs -text
