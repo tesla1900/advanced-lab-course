@@ -482,7 +482,7 @@ TSWLatexianTemp*
 # ignore our pdf
 lab-and-report/cavities-report.pdf
 
-laser_gyroscope/data**
+# laser_gyroscope/data**
 
 # ignore laser data
 laser_gyroscope/laser_gyroscope_data
