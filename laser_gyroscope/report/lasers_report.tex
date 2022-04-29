@@ -162,7 +162,7 @@ decreases (see Fig. \ref{fig:sagnac_effect}). The Sagnac effect then tells us th
 	\includegraphics[width=0.6\columnwidth]{sagnac_effect.jpg}
 	\caption{The Sagnac effect. \textit{Left}: Setup without rotation. The beam moving clockwise (blue) and counter-clockwise (orange)
 	have the same optical path length. \textit{Right}: Setup with a clockwise rotation $\Omega$. The path length of the 
-	clockwise beam is larger than that of the counter-clockwise beam \cite{Feng2020}.}
+	clockwise beam is larger than that of the counter-clockwise beam. Obtained from Ref. \cite{Feng2020}.}
 	\label{fig:sagnac_effect}
 \end{figure*}
 
@@ -203,7 +203,7 @@ systems. In our experiment, we use the passive ring laser gyroscope and thus las
 \begin{figure*}[h!]
 	\centering
 	\includegraphics[width=0.6\columnwidth]{passive_active_gyroscope.png}
-	\caption{A \textit{Left}: passive and \textit{Right}: active ring laser gyroscope system \cite{Kudelin2021}.}
+	\caption{Ring laser gyroscope systems. \textit{Left}: Passive, \textit{Right}: Active. Obtained from Ref. \cite{Kudelin2021}.}
 	\label{fig:passive_active}
 \end{figure*}
 
@@ -230,6 +230,22 @@ Fundamentalstation Wettzell with a sensitivity of around 12 prad / s / $\sqrt{\t
 
 \section{Allan Deviation} \label{sec:allan_dev}
 
+The Allan deviation is used to quantify the instability of any device that measures differences in frequencies. Assuming that the
+measurement is only limited by the photon shot-noise (amongst others), we can describe the Allan variance as the deviation
+between temporal averages of measurements $y$ over some time interval or integration time $\tau$:
+\begin{equation}
+	\sigma_{{\text{ad}}}^2 = \frac{1}{2M} \sum\limits_{n=1}^M (\bar{y}(\tau)_{n+1} - \bar{y}(\tau)_n)^2
+\end{equation}
+where $M$ is the number of samples. The Allan deviation is then the square root of the variance. \par 
+
+The Allan deviation is especially helpful to understand the sensitivity in gyroscopes. Imposing the same assumptions as above,
+we can describe the Allan deviation with typical shot noise scaling $\propto 1 / \sqrt{\tau}$ as such:
+\begin{equation}
+	\sigma_{\text{ad}} = \frac{\mathcal{A}}{\sqrt{\tau}}
+\end{equation}
+where $\mathcal{A}$ (given in $\si{\radian\per\second\per\sqrt{\hertz}}$) is known as the sensitivity of the gyroscope. This 
+value can be directly compared with the theoretical gyroscope sensitivity described in Eq. \ref{eq:gyroscope_sensitivity} \cite{Groh2021}.
+
 
 
 \chapter{Pre-Lab Exercises}
@@ -237,9 +253,21 @@ Fundamentalstation Wettzell with a sensitivity of around 12 prad / s / $\sqrt{\t
 Before conducting the experiment, we were required to determine the rotation rate of the Earth using our phone. Our phones
 contain a microelectromechanical system (MEMS), which is a portable and inexpensive inertial sensor that track the motion of
 the phone. Using the application \texttt{phyphox} constructed by RWTH Aachen University, we evaluated the capabilities
-of the MEMS gyroscope within the iPhone 13. 
+of the MEMS gyroscope within our phones. 
 
-\chapter{Set-up and Procedure}
+\subsection{Task 1: Getting Started}
+
+\subsection{Task 2: Allan Deviation}
+
+\subsection{Task 3: Rotation Rate of Earth}
+
+
+
+\chapter{Experimental Set-Up}
+
+\chapter{Procedure}
+
+
 
 \chapter{Results and Discussion}
 
