@@ -213,7 +213,7 @@ The sensitivity of the ring laser gyroscope depends on a variety of factors, nam
 of the resonator (see Sec. \ref{sec:finesse}), and the shot-noise limited detection given by the number of photons $N = P_{\text{opt}} / h \nu = P_{\text{opt}} \lambda / hc$ detected per unit time. 
 $P_{\text{opt}}$ represents the optical power given to the laser. Combining all such factors, we obtain the sensitivity of the ring laser gyroscope for an integration time $\tau$ as such: 
 \begin{equation}
-	\delta \Omega = \frac{1}{4} \frac{c}{L^2F}\sqrt{\frac{ch\lambda}{P_{\text{opt}}}} \frac{1}{\tau}
+	\delta \Omega = \frac{1}{4} \frac{c}{L^2F}\sqrt{\frac{ch\lambda}{P_{\text{opt}}}} \frac{1}{\sqrt{\tau}}
 	\label{eq:gyroscope_sensitivity}
 \end{equation}
 
@@ -222,6 +222,12 @@ a measurement for some averaged integration time $\tau$ (see Sec. \ref{sec:allan
 Fundamentalstation Wettzell with a sensitivity of around 12 prad / s / $\sqrt{\text{Hz}}$ \cite{Groh2021}. 
 
 \section{Optical Cavities}
+
+% include this somewhere
+\begin{equation}
+	\delta\nu_{\text{FSR}} = \frac{c}{P}
+	\label{eq:fsr}
+\end{equation}
 
 \subsection{Finesse} \label{sec:finesse}
 
@@ -255,18 +261,83 @@ contain a microelectromechanical system (MEMS), which is a portable and inexpens
 the phone. Using the application \texttt{phyphox} constructed by RWTH Aachen University, we evaluated the capabilities
 of the MEMS gyroscope within our phones. 
 
-\subsection{Task 1: Getting Started}
-
-\subsection{Task 2: Allan Deviation}
-
-\subsection{Task 3: Rotation Rate of Earth}
+\section{Task 1: Getting Started}
 
 
 
-\chapter{Experimental Set-Up}
+\section{Task 2: Allan Deviation} \label{sec:prelab_allan_dev}
 
-\chapter{Procedure}
+\section{Task 3: Rotation Rate of Earth}
 
+
+
+\chapter{Experimental Set-Up and Procedure}
+
+\section{Experimental Set-Up}
+
+% Here we should describe how we set-up the laser gyroscope until it works for our measurements
+% so we should mention the following in the procedure section (NOT in this section, to avoid overlap):
+% - measuring free spectral range
+% - measuring error signal
+% - measuring other things like 
+
+\section{Procedure}
+
+\subsection{Free Spectral Range}
+
+We first measured both the signal of the laser input and after the laser
+has passed through the ring cavity system. The window was adjusted until three resonance peaks and their corresponding sidebands
+were observed. See Fig. \ref{fig:threeres_raw} the observed raw signal. 
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{threeres_raw.png}
+	\caption{Raw signal input from the laser before and after passing through the ring 
+			cavity system.}
+	\label{fig:threeres_raw}
+\end{figure*}
+
+As the raw data was provided in the time domain, we converted the time axis into a frequency axis.
+In order to do so, we use the fact that the modulation frequency from the EOM was $\Omega = \SI{10}{\mega\hertz}$,
+and we determined the width in time between the peaks and the sidebands to obtain a conversion factor between 
+the two axes. From this conversion factor, we obtained the free spectral range as the peak-to-peak difference between
+the resonance peaks. We also took the average of the values to obtain a mean free spectral range.
+
+We then evaluated the cavity perimeter from Eq. \ref{eq:fsr} for each free spectral range that we have observed.
+We compared our obtained results with the measured value of the cavity perimeter
+ $P_{\text{meas}} = \SI{0.990\pm 0.005}{\meter}$ obtained from Ref. \cite{Groh2021}. 
+
+
+\subsection{PDH Error Signal}
+
+\subsection{Cavity Ring-Down}
+
+\subsection{Scale Factor} \label{sec:scale_fact}
+
+\subsection{Allan Deviation}
+
+Finally, we measured the Allan deviation of the laser gyroscope. We performed the same procedure as with the scale factor measurement. 
+Using the same PID parameters as before, we set the rotation frequency to rotate with $\SI{0.75}{\volt}$, so that the laser will 
+remain locked as long as possible. The gyroscope was rotated until the cable connecting the gyroscope did not extend or contract
+any further, then the same analysis was performed in the opposite rotation direction. The measurement was taken continuously for 
+approximately 1.5 hours. The unprocessed time series for the frequency measurement can be seen in Fig. \ref{fig:allan_ts_raw}. \par 
+
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{allan_ts_raw.png}
+	\caption{Unprocessed time series obtained from Allan deviation measurements. We observe large
+			spikes at numerous locations as well as regions with zero frequency.}
+	\label{fig:allan_ts_raw}
+\end{figure*}
+
+From the raw data, we first removed any measurements that were taken while the laser was unlocked and when the 
+rotation of the table was switched. After applying some filtering to the data (using \texttt{scipy.signal.sosfilt}), we then performed
+the same procedure as with the Pre-lab tasks in Sec. \ref{sec:prelab_allan_dev} to determine the Allan deviation.
+We also determined the shot-noise limited time $\tau$ by observing the time duration in which the instability of the 
+measurement starts. For the rotation frequency of the table, we followed the same procedure from Sec. \ref{sec:scale_fact}. \par 
+
+% $\Omega = \SI{5.95\pm 0.75}{\hertz}$
 
 
 \chapter{Results and Discussion}
