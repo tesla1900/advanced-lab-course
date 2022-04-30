@@ -5,7 +5,7 @@
 % \usepackage{textcomp}
 \usepackage[english]{babel}
 \usepackage{amsmath, amssymb}
-\usepackage[separate-uncertainty=true, multi-part-units=single]{siunitx}
+\usepackage[separate-uncertainty=true, multi-part-units=single, per-mode=power]{siunitx}
 \usepackage[]{subfig}
 \usepackage[colorlinks=true, anchorcolor=blue, linkcolor=blue, citecolor=blue, bookmarks=false,hyperfootnotes=false]{hyperref}
 \usepackage[margin=1in]{geometry}
@@ -37,7 +37,7 @@
 \pdfsuppresswarningpagegroup=1
 
 % for citations / references
-\usepackage[style=ieee]{biblatex}
+\usepackage[style=ieee, url=false]{biblatex}
 \addbibresource{lasers_report.bib}
 
 \begin{document}
@@ -135,6 +135,75 @@
 
 \chapter{Introduction}
 
+The rotation of the Earth has been investigated ever since the advent of calenders. 
+The first measurements for the rotation of the Earth has been done by observing the apparent
+position of a fixed star, allowing the Mayans to obtain measurements with relative uncertainties of around $10^{-5}$ \cite{Groh2021}.
+
+Today, the rotation of the Earth is measured using interferometry, where radio telescopes
+all around the world are linked to construct a very-long base-interferometer system (VBLI). Fig. \ref{fig:vlbi_locs}
+show the locations of all radio telescopes under the CONT17 campaign, a continuous VLBI session held for two weeks
+in 2017 \cite{Behrend2020}. The relative
+uncertainties that are obtained reach approximately $10^{-10}$. Today, the rotation of the Earth is 
+measured to be approximately $\SI{72.92}{\micro\radian\per\second}$ along its rotation axis \cite{Groh2021}. \par 
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.6\columnwidth]{cont17_legacy.jpg}
+	\caption{Radio telescopes used for CONT17. Both blue and red markers
+	indicate legacy stations used for measurements in past sessions.}
+	\label{fig:vlbi_locs}
+\end{figure*}
+
+
+Determining the rotation of the Earth allows us to understand the vast phenomena that occur on Earth,
+including tidal breaking, seasonal variations, and the Chandler wobble, the nutation that occurs with Earth's
+rotation axis. Furthermore, climate change has a strong effect on the rotation rate as the melted ice from the 
+polar ice caps gravitate towards the equator, increasing the angular momentum and thus the rotation period of Earth.
+This is shown to increase at a rate of $\SI{1.2}{\micro\second}$ per year \cite{Groh2021}. \par 
+
+While the VLBI can determine the rotation rate with high precision, due to the operation times the temporal resolution
+is low. As such, transient events such as earthquakes and tides cannot be resolved. As of such, 
+laser gyroscopes have been employed to resolve such details. While it lacks in the long-term stability of VLBI,
+they have a temporal resolution of approximately an hour or less \cite{Wettzell2005}. The G-ring at the German
+Fundamentalstation Wettzell is one of the best ring laser gyroscopes with a sensitivity of around \SI{12}{\pico\radian\per\second\per\sqrt{\hertz}} \cite{Groh2021}. 
+See Fig. \ref{fig:gring_gyro} for an image and the setup of the G-Ring gyroscope. Ring laser gyroscopes are still explored today to 
+describe other phenomena from the Earth's rotation such as the Lense-Thirring Effect, and gyroscopes such as the GINGERino have been proposed to 
+measured such quantities \cite{Beverini2016}.
+
+\begin{figure*}[h!]
+	\centering
+	\subfloat[]{{\includegraphics[width=0.4\columnwidth]{gring_gyroscope.png}}}
+	\quad
+	\centering
+	\subfloat[]{{\includegraphics[width=0.4\columnwidth]{G-ring.jpg}}}
+	\caption{The G-Ring gyroscope at the Fundamentalstation Wettzell. (a):
+	The setup of the gyroscope. (b): Image of the G-ring. Obtained from Ref. \cite{Wettzell2005}.}
+	\label{fig:gring_gyro}
+\end{figure*}
+
+% The first time that a ring laser gyroscope was employed for measurement of the rotation of the Earth was 
+% from the Michelson-Gale experiment, conducted in 1929. In such experiment, Albert A. Michelson sent counter-propagating beams thorough 
+% pipelines with a total effective area of around $\SI{0.2}{\kilo\metre\squared}$. He observed that the fringe difference measured
+% was well within the expectations of the analytical fringe shift \cite{Groh2021}. 
+
+% add something about the Michelson-Gale experiment here? maybe not needed. otherwise can also add another figure too
+
+In our experiment, we use a ring laser gyroscope to attempt to measure the rotation rate of the Earth. This is done by employing the Sagnac effect,
+which allows us to determine the rotation of an inertial system by the path length difference between two light beams. To observe
+the quality of the constructed laser gyroscope, we measure optical cavity parameters such as the free spectral range,
+PDH locking error signals, lock-in threshold, and the finesse. We further quantify the stability and sensitivity of the gyroscope by 
+determining the Allan deviation. \par 
+
+This paper is structured as follows. Chapter 1 motivates the experiment by elaborating on the usage of ring laser gyroscopes
+to determine the rotation rate of the Earth. Chapter 2 describes the theory behind the quantities measured in the experiment. Chapter 3
+describes the setup used in our experiment and the method used to determine the relevant quantities for each part of our experiment. 
+Chapter 4 shows the pre-laboratory tasks that were required before starting the experiment. Chapter 5 shows the results
+that we have obtained and discussions related to the results. Finally, we summarize our findings and address possible outlooks for our experiment
+in Chapter 6. 
+
+% should we hyperlink the chapters?
+
+
 \chapter{Theory}
 
 \section{Gyroscopes}
@@ -218,8 +287,7 @@ $P_{\text{opt}}$ represents the optical power given to the laser. Combining all 
 \end{equation}
 
 This gyroscope sensitivity can be directly compared with the Allan deviation $\sigma_{\text{ad}}$ that determines the instability of 
-a measurement for some averaged integration time $\tau$ (see Sec. \ref{sec:allan_dev}). The best gyroscope sensitivity observed was from the G-ring at the German
-Fundamentalstation Wettzell with a sensitivity of around 12 prad / s / $\sqrt{\text{Hz}}$ \cite{Groh2021}. 
+a measurement for some averaged integration time $\tau$ (see Sec. \ref{sec:allan_dev}). 
 
 \section{Optical Cavities}
 
@@ -250,7 +318,8 @@ we can describe the Allan deviation with typical shot noise scaling $\propto 1 /
 	\sigma_{\text{ad}} = \frac{\mathcal{A}}{\sqrt{\tau}}
 \end{equation}
 where $\mathcal{A}$ (given in $\si{\radian\per\second\per\sqrt{\hertz}}$) is known as the sensitivity of the gyroscope. This 
-value can be directly compared with the theoretical gyroscope sensitivity described in Eq. \ref{eq:gyroscope_sensitivity} \cite{Groh2021}.
+value can be directly compared with the theoretical gyroscope sensitivity (per integration time)
+described in Eq. \ref{eq:gyroscope_sensitivity} \cite{Groh2021}.
 
 
 
@@ -345,6 +414,8 @@ measurement starts. For the rotation frequency of the table, we followed the sam
 \chapter{Conclusion and Outlook}
 
 \chapter{Acknowledgements}
+
+\printbibliography
 
 \chapter{Appendix}
 
