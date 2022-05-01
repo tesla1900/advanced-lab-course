@@ -379,6 +379,39 @@ We compared our obtained results with the measured value of the cavity perimeter
 
 \subsection{PDH Error Signal}
 
+To observe the error signal generated from PDH locking, we observed the combined signal generated from the fast and slow PID controller. Fig. \ref{fig:errsig_raw} shows the raw signal obtained from the PDH error.  The corresponding data was then used to determine the linear fit of the error signal where the zero crossing and 
+linear slope is present (i.e. near the middle of the observed error signal). The linear fit was obtained by using \texttt{numpy.polyfit}. \par 
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{raw_err_sig.png}
+	\caption{Raw Signal from PDH locking using the fast and slow PID controller.}
+	\label{fig:errsig_raw}
+\end{figure*}
+
+
+The error signal was then used to determine the optimal PID parameters that yield the most stable and large signal. In order to 
+do this, the following parameters were modified: SLOW INT, FAST INT, DIFF GAIN, FAST DIFF / FILTER, SLOW GAIN, FAST GAIN, GAIN LIMIT, and OFFSET. The major parameters that influenced the signal were the SLOW INT, SLOW GAIN, FAST DIFF / FILTER and FAST GAIN. Modifying the SLOW INT and FAST DIFF caused the laser to be out of lock, whereas FAST GAIN decreased the noise observed in the signal. As we decreased the SLOW GAIN, we observed that the laser became more out of lock, allowing for the control of the laser locking. The OFFSET parameter adjusted the offset between the two signals. Table \ref{tab:pid_params} shows the optimal PID parameters used in the subsequent measurements which were both stable and yielded a strong signal strength. \par 
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline 
+		PID Parameter & Value \\ \hline
+		SLOW INT & 25 \\ \hline
+		FAST INT & 20K \\ \hline
+		FAST DIFF / FILTER & 10M \\ \hline
+		FAST GAIN & $\SI{6}{\decibel}$ \\ \hline
+		GAIN LIMIT & 30 \\ \hline
+	\end{tabular}
+	\caption{The optimal PID parameters used for this experiment. The SLOW GAIN and FAST GAIN parameter values are not noted
+	as specific values are not marked on the Moglabs PID controller.}
+	\label{tab:pid_params}
+\end{table}
+
+When performing laser locking, we further needed to consider the systematics due to the environment. Any small disturbance such as clapping, tapping the desk, moving the cables or even walking influenced the degree of locking for the laser. Other factors such as the temperature fluctuations in the room may have caused the laser to be out of lock as well. \par 
+
+
 \subsection{Cavity Ring-Down}
 
 \subsection{Scale Factor} \label{sec:scale_fact}
