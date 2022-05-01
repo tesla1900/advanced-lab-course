@@ -223,7 +223,7 @@ To observe the Sagnac effect, we consider an interferometer setup with light pro
  each light travels changes. For example, if the table rotates counter-clockwise, then the path of the co-rotating light increases, while that of the other light
 decreases (see Fig. \ref{fig:sagnac_effect}). The Sagnac effect then tells us the resulting phase shift between the two lights:
 \begin{equation}
-	\delta \phi = \frac{8\pi \vec{A} \cdot \vec{\Omega}}{c \lambda} \propto \vec{A} \cdot \vec{\Omega}
+	\delta \phi = \frac{8\pi \vec{A} \cdot \vec{\Omega}}{c \lambda} \propto \vec{A} \cdot \vec{\Omega}.
 \end{equation} 
 
 \begin{figure*}[h!]
@@ -248,14 +248,14 @@ transforms the ring cavity system into a cavity resonator. The corresponding bea
 Sagnac frequency, which is given as such:
 
 \begin{equation}
-	\delta \nu = \frac{4 \vec{A} \cdot \vec{\Omega}}{P \lambda}
+	\delta \nu = \frac{4 \vec{A} \cdot \vec{\Omega}}{P \lambda}.
 	\label{eq:sagnac_freq}
 \end{equation}
 
 In our experiment, we only consider square ring cavities so that $A = L^2$ and $P = 4L$, where $L$ is the path length of each arm. 
 As such, we can simplify Eq. \ref{eq:sagnac_freq} as such: 
 \begin{equation}
-	\delta \nu  = \frac{L \Omega}{\lambda} = n \Omega
+	\delta \nu  = \frac{L \Omega}{\lambda} = n \Omega,
 \end{equation}
 where $n = L / \lambda$ is the number of nodes of the light field in each arm. Thus the Sagnac frequency is proportional to the rotation rate
 of the inertial system \cite{Groh2021}.\par 
@@ -282,7 +282,7 @@ The sensitivity of the ring laser gyroscope depends on a variety of factors, nam
 of the resonator (see Sec. \ref{sec:finesse}), and the shot-noise limited detection given by the number of photons $N = P_{\text{opt}} / h \nu = P_{\text{opt}} \lambda / hc$ detected per unit time. 
 $P_{\text{opt}}$ represents the optical power given to the laser. Combining all such factors, we obtain the sensitivity of the ring laser gyroscope for an integration time $\tau$ as such: 
 \begin{equation}
-	\delta \Omega = \frac{1}{4} \frac{c}{L^2F}\sqrt{\frac{ch\lambda}{P_{\text{opt}}}} \frac{1}{\sqrt{\tau}}
+	\delta \Omega = \frac{1}{4} \frac{c}{L^2F}\sqrt{\frac{ch\lambda}{P_{\text{opt}}}} \frac{1}{\sqrt{\tau}}.
 	\label{eq:gyroscope_sensitivity}
 \end{equation}
 
@@ -295,15 +295,36 @@ A cavity is a hollow conductor which contains electromagnetic waves going in and
 
 \subsection{Cavity Modes}
 
-The solution to optical resonators with parabolic mirrors and homogeneous medium is given by the Hermite-Gaussian modes. The Hermite-Gaussian modes are the solution to the paraxial Helmholtz equation, when considering Cartesian coordinates with the beam propagating along the $z$-axis. 
+The solution to optical resonators with parabolic mirrors and homogeneous medium is given by the Hermite-Gaussian modes. The Hermite-Gaussian modes are the solution to the paraxial Helmholtz equation, when considering Cartesian coordinates with the beam propagating along the $z$-axis (Fig. \ref{fig:hermite}.
 
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{hermite-gaussian}
+	\caption{Hermite-Gaussian Transverse Electromagnetic Mode ($\mathrm{TEM}_{l, m}$) (left) and the beam's wavefront between two mirrors of radii $R_{1}$ and $R_{2}$ with a separation of length $L$, inside a cavity (right). }
+    \label{fig:hermite}
+\end{figure}	
 
+The Hermite-Gaussian modes are also called Transverse Electromagnetic Mode (TEM) and are labelled as $\mathrm{TEM}_{m,n}$, where $m, n \in \mathbb{N}^{\ge 0}$ are the integers, which represent the order of Hermite-polynomials along the $x$ and $y$ direction. The resonance frequency is given by
 
-% include this somewhere
 \begin{equation}
-	\delta\nu_{\text{FSR}} = \frac{c}{P}
+		\nu_{l, m, n} = \delta \nu_{FSR}  \left(l + \left( m + n + 1 \right) \frac{\delta \zeta}{\pi  }\right) ,
+\end{equation}
+where $l \in \mathbb{N}^{\ge 0}$ represents the different longitudinal nodes. The spacing between these longitudinal modes is given by the free spectral range, $\delta \nu_{FSR}$,
+
+\begin{equation}
+	\delta\nu_{\text{FSR}} = \frac{c}{P}.
 	\label{eq:fsr}
 \end{equation}
+
+The fundamental mode, $\mathrm{TEM}_{0, 0}$ is the Gaussian mode and is used for locking the lasers beam in our setup, as can been seen in Fig. \ref{fig:tem00-lock}. In order to achieve stability, the following condition on the radii of two mirrors, $R_{1} and R_{2}$, has to be met
+
+\begin{equation}
+		0 \leq g_{1}g_{2} = \left(1 + \frac{L}{R_{1}} \right)\left(1 + \frac{L}{R_{2}} \right) \leq 1.
+\end{equation}
+The above condition is true for a two mirror setup. In order to extend this to four mirror setup, we simply compute the magnitude of eigenvalues of ABCD transfer matrix for the roundtrip. 
+
+\subsubsection{Airy Lineshape and Optical Cavity Ringing}
+We expect the power transmitted through the cavity to have a Lorentzian like lineshape, called an Airy function, when the laser is scans through the frequencies of coupled modes. This occurs even with cavities with high Finesse cavities because the laser sweeps through different frequencies faster than the storage time of the cavity. This does not allow the cavity to recover and fill itself when resonance is approached. This leads to a beat, as the evolving field inside and the incoming field start to interfere and create an oscillatory behaviour. 
 
 \subsection{Finesse} \label{sec:finesse}
 
@@ -316,14 +337,14 @@ The Allan deviation is used to quantify the instability of any device that measu
 measurement is only limited by the photon shot-noise (amongst others), we can describe the Allan variance as the deviation
 between temporal averages of measurements $y$ over some time interval or integration time $\tau$:
 \begin{equation}
-	\sigma_{{\text{ad}}}^2 = \frac{1}{2M} \sum\limits_{n=1}^M (\bar{y}(\tau)_{n+1} - \bar{y}(\tau)_n)^2
+	\sigma_{{\text{ad}}}^2 = \frac{1}{2M} \sum\limits_{n=1}^M (\bar{y}(\tau)_{n+1} - \bar{y}(\tau)_n)^2,
 \end{equation}
 where $M$ is the number of samples. The Allan deviation is then the square root of the variance. \par 
 
 The Allan deviation is especially helpful to understand the sensitivity in gyroscopes. Imposing the same assumptions as above,
 we can describe the Allan deviation with typical shot noise scaling $\propto 1 / \sqrt{\tau}$ as such:
 \begin{equation}
-	\sigma_{\text{ad}} = \frac{\mathcal{A}}{\sqrt{\tau}}
+	\sigma_{\text{ad}} = \frac{\mathcal{A}}{\sqrt{\tau}},
 \end{equation}
 where $\mathcal{A}$ (given in $\si{\radian\per\second\per\sqrt{\hertz}}$) is known as the sensitivity of the gyroscope. This 
 value can be directly compared with the theoretical gyroscope sensitivity (per integration time)
@@ -421,6 +442,17 @@ When performing laser locking, we further needed to consider the systematics due
 
 
 \subsection{Cavity Ring-Down}
+
+\subsubsection{Locking}
+
+% need to have this figure here
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{tem00_lock}
+    \caption{The Fundamental $\mathrm{TEM}_{0, 0}$ Gaussian mode.}
+    \label{fig:tem00-lock}
+\end{figure}	
 
 \subsection{Scale Factor} \label{sec:scale_fact}
 
