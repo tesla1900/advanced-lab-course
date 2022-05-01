@@ -307,12 +307,12 @@ The solution to optical resonators with parabolic mirrors and homogeneous medium
 The Hermite-Gaussian modes are also called Transverse Electromagnetic Mode (TEM) and are labelled as $\mathrm{TEM}_{m,n}$, where $m, n \in \mathbb{N}^{\ge 0}$ are the integers, which represent the order of Hermite-polynomials along the $x$ and $y$ direction. The resonance frequency is given by
 
 \begin{equation}
-		\nu_{l, m, n} = \delta \nu_{FSR}  \left(l + \left( m + n + 1 \right) \frac{\delta \zeta}{\pi  }\right) ,
+		\nu_{l, m, n} = \delta \nu_{\mathrm{FSR}}  \left(l + \left( m + n + 1 \right) \frac{\delta \zeta}{\pi  }\right) ,
 \end{equation}
-where $l \in \mathbb{N}^{\ge 0}$ represents the different longitudinal nodes. The spacing between these longitudinal modes is given by the free spectral range, $\delta \nu_{FSR}$,
+where $l \in \mathbb{N}^{\ge 0}$ represents the different longitudinal nodes. The spacing between these longitudinal modes is given by the free spectral range, $\delta \nu_{\mathrm{FSR}}$,
 
 \begin{equation}
-	\delta\nu_{\text{FSR}} = \frac{c}{P}.
+	\delta\nu_{\text{\mathrm{FSR}}} = \frac{c}{P}.
 	\label{eq:fsr}
 \end{equation}
 
@@ -327,9 +327,69 @@ The above condition is true for a two mirror setup. In order to extend this to f
 We expect the power transmitted through the cavity to have a Lorentzian like lineshape, called an Airy function, when the laser is scans through the frequencies of coupled modes. This occurs even with cavities with high Finesse cavities because the laser sweeps through different frequencies faster than the storage time of the cavity. This does not allow the cavity to recover and fill itself when resonance is approached. This leads to a beat, as the evolving field inside and the incoming field start to interfere and create an oscillatory behaviour. 
 
 \subsection{Finesse} \label{sec:finesse}
+The Finesse of a cavity essentially quantifies the number of bounces a beam makes before leaking out or being absorbed. Mathematically, it is the ratio of the free spectral range, $\delta \nu_{\mathrm{FSR}}$, to the spectral linewidth $\delta \nu_{1/2}$, the Full Width Half Maximum (FWHM) of the transmission peak. Since it is inversely proportional to the FWHM, a high finesse equals a narrow resonance line and vice versa. A narrow resonance line is better for high precision frequency applications. The formula is given by
+
+\begin{equation}
+		\mathcal{F} = \frac{\delta \nu_{\mathrm{FSR}}}{\delta \nu_{1/2}} \approx \frac{\pi \sqrt{\mathcal{R}}}{1 - \mathcal{R}},
+\end{equation}
+where $\mathcal{R} = \sqrt{\mathcal{R}_{1} \mathcal{R}_{2} \mathcal{R}_{3} \mathcal{R}_{4}}$, where $\mathcal{R}_{i}$ is the reflectivity of the cavity mirrors. 
+
+\subsection{Cavity-Ring-Down Technique}
+To precisely compute the finesse of mirrors in the cavity, we employ ring-down technique. In this, we look at how the power in the cavity evolves temporally, when the cavity-locked laser is switched off quickly. In order to achieve the latter, we switch the RF signal driving the Acousto-Optical Modulator (AOM). 
+
+Neglecting the losses in the cavity medium, the time evolution of the laser intensity is given by
+
+\begin{equation}
+		\label{eqn:ring_down}
+		I(t) = I_{0}\mathcal{R}^{2t/\tau _{r}} = I_{0} \exp\left(-\frac{t}{\tau _{dec}}\right),
+\end{equation}
+where $\tau _{r} = P /c $ is the roundtrip time and $\tau _{dec}$ is the decay time, which is given by
+
+\begin{equation}
+		\tau _{dec} = -\frac{\tau _{r}}{\log \mathcal{R}^2} = - \frac{P}{c \log \mathcal{R}^2}.
+\end{equation}
+
+\subsection{Pound-Drever-Hall Locking}
+Pound-Drever-Hall (PDH) technique is a way to stabilize the frequency of light emitted by the laser by locking to a stable cavity. The central idea of this technique is the following - phase modulated light, typically by an Electro-Optical Modulator (EOM), consisting of carrier frequency $\omega$ and two side bands $\Omega$ is inserted into the cavity. The reflected light from the cavity is recorded with a fast photodiode, which consists of the two unaltered side bands and a phase shifted carrier. This phase shifted carrier is mixed with the local oscillator and passed through a low pass filter in order to remove high frequency components. The resulting signal shows how far off the laser carrier is from resonance. This signal is then fed into the Proportional-Integral-Derivative (PID) controller, which then applies an error signal (Fig. \ref{fig:error-signal}) and which is then fed back into the cavity, allowing the laser to remain locked.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{error-signal}
+	\caption{Pound-Drever-Hall (PDH) cavity reflection (left), which shows the ingoing carrier frequency along with two sidebands. The error signal after frequency demodulation (right) that is used for PID feedback to stabilize the laser \cite{pdhmanual}.}
+    \label{fig:error-signal}
+\end{figure}
+
+To the first order, the frequency components can be approximated to: 
+
+\begin{equation}
+		E_{\mathrm{in}} = E_{0} e^{i \left(\omega t + \beta \sin(\Omega t) \right) } \approx E_{0} \left(J_{0} (\beta) e^{i \omega t } + J_{1}(\beta) e^{i(\omega + \Omega) t} - J_{1}(\beta) e^{i (\omega - \Omega)t} \right),
+\end{equation}
+where $J_{k}$ are the Bessel functions and $\beta$ is the modulation depth. The reflection coefficient is give by $F(\omega) = E_{\mathrm{ref}} / E_{\mathrm{in}}$.
+
+The slope of the error signal is given by
+
+\begin{equation}
+		\epsilon \propto - \frac{4}{\pi} \sqrt{P_{c} P_{s}} \delta \nu _{1/2}, 
+\end{equation}
+where $P_{c}$ is the carrier power given by $P_{c} = J_{0}^2 (\beta) \left| E_{0}^2 \right| $ and $P_{s}$ is the sideband powder which is given by $P_{s} = J_{1}^2 (\beta) \left| E_{0}^2 \right| $.
+Selecting good PID parameters for correcting both fast and slow laser lock disturbances can help achieve frequency stabilization to a fraction of the cavity linewidth. 
 
 \subsection{Lock-In Effect} \label{sec:lockin_effect}
+The lock-in effect occurs when the two oscillator modes with a small delta frequency between them start oscillating at the same frequency due to weak coupling between them. This is a common occurrence in the field of physics and the best example are two oscillating pendulums hung upon the same wooden wall, oscillating with slightly different frequency eventually synchronize and start oscillating at the same frequency. In general, the frequency difference between two pendulums is, 
 
+\begin{equation}
+		\delta f = \sqrt{f_{0}^2 - f_{L}^2},
+\end{equation}
+where $f_{L}$ is the lock-in threshold below which the two pendulums synchronize. This effect can also be seen in RF electronics and optics. 
+
+In our setup, we can encounter this phenomenon due to the back scattering losses in the mirrors of the cavity, which is usually only a few ppm, but can amplified due to presence of dust. These losses lead to a delta in the frequency, which leads to the lock-in effect. The lock-in threshold is given by
+
+\begin{equation}
+		\Omega_{L} = \frac{c \lambda^2 r_{s}}{32 \pi  A d},
+\end{equation}
+where $\lambda$ is the laser wavelength, A is the enclosed area of the cavity, d is the cavity mode beam diameter and $r_{s}$ the fraction of backscattering as compared to other losses \cite{Liu}.
+
+With the present setup, the lock-in threshold is much greater than the Earth rotation, which will limit our ability to measure it accurately. In order to reduce the locking threshold, a larger ring and reduced scattering losses will be required. 
 
 \section{Allan Deviation} \label{sec:allan_dev}
 
