@@ -312,7 +312,7 @@ The Hermite-Gaussian modes are also called Transverse Electromagnetic Mode (TEM)
 where $l \in \mathbb{N}^{\ge 0}$ represents the different longitudinal nodes. The spacing between these longitudinal modes is given by the free spectral range, $\delta \nu_{\mathrm{FSR}}$,
 
 \begin{equation}
-	\delta\nu_{\text{\mathrm{FSR}}} = \frac{c}{P}.
+	\delta\nu_{\\mathrm{FSR}} = \frac{c}{P} .
 	\label{eq:fsr}
 \end{equation}
 
@@ -398,6 +398,7 @@ measurement is only limited by the photon shot-noise (amongst others), we can de
 between temporal averages of measurements $y$ over some time interval or integration time $\tau$:
 \begin{equation}
 	\sigma_{{\text{ad}}}^2 = \frac{1}{2M} \sum\limits_{n=1}^M (\bar{y}(\tau)_{n+1} - \bar{y}(\tau)_n)^2,
+	\label{eq:allan_def}
 \end{equation}
 where $M$ is the number of samples. The Allan deviation is then the square root of the variance. \par 
 
@@ -405,6 +406,7 @@ The Allan deviation is especially helpful to understand the sensitivity in gyros
 we can describe the Allan deviation with typical shot noise scaling $\propto 1 / \sqrt{\tau}$ as such:
 \begin{equation}
 	\sigma_{\text{ad}} = \frac{\mathcal{A}}{\sqrt{\tau}},
+	\label{eq:allan_shotnoise}
 \end{equation}
 where $\mathcal{A}$ (given in $\si{\radian\per\second\per\sqrt{\hertz}}$) is known as the sensitivity of the gyroscope. This 
 value can be directly compared with the theoretical gyroscope sensitivity (per integration time)
@@ -457,19 +459,27 @@ were observed. See Fig. \ref{fig:threeres_raw} the observed raw signal.
 
 As the raw data was provided in the time domain, we converted the time axis into a frequency axis.
 In order to do so, we use the fact that the modulation frequency from the EOM was $\Omega = \SI{10}{\mega\hertz}$,
-and we determined the width in time between the peaks and the sidebands to obtain a conversion factor between 
-the two axes. From this conversion factor, we obtained the free spectral range as the peak-to-peak difference between
-the resonance peaks. We also took the average of the values to obtain a mean free spectral range.
+and we determined the width in time between the peaks and the sidebands to obtain a conversion time between 
+the two axes. The error of the conversion time was obtained purely statistically by using the standard error of the mean. \par 
+
+From this conversion time, we obtained the free spectral range as the peak-to-peak difference between
+the resonance peaks.The error in the free spectral range was considered by observing the approximate 
+full-width half-maximum of each peak. We then took the weighted average of the free spectral ranges to obtain an averaged
+free spectral range. \par 
 
 We then evaluated the cavity perimeter from Eq. \ref{eq:fsr} for each free spectral range that we have observed.
 We compared our obtained results with the measured value of the cavity perimeter
  $P_{\text{meas}} = \SI{0.990\pm 0.005}{\meter}$ obtained from Ref. \cite{Groh2021}. 
 
 
-\subsection{PDH Error Signal}
+\subsection{PDH Error Signal and PID Optimization}
 
-To observe the error signal generated from PDH locking, we observed the combined signal generated from the fast and slow PID controller. Fig. \ref{fig:errsig_raw} shows the raw signal obtained from the PDH error.  The corresponding data was then used to determine the linear fit of the error signal where the zero crossing and 
-linear slope is present (i.e. near the middle of the observed error signal). The linear fit was obtained by using \texttt{numpy.polyfit}. \par 
+To observe the error signal generated from PDH locking, we observed the combined signal generated from the fast and slow PID controller. 
+Fig. \ref{fig:errsig_raw} shows the raw signal obtained from the PDH error.  
+The corresponding data was then used to determine the linear fit of the error signal where the zero crossing and 
+linear slope is present (i.e. near the middle of the observed error signal). 
+This was performed by first filtering the data using \texttt{scipy.signal.sosfilt}, then using a least-squares fit with 
+\texttt{numpy.polyfit}. \par 
 
 \begin{figure*}[h!]
 	\centering
@@ -480,7 +490,8 @@ linear slope is present (i.e. near the middle of the observed error signal). The
 
 
 The error signal was then used to determine the optimal PID parameters that yield the most stable and large signal. In order to 
-do this, the following parameters were modified: SLOW INT, FAST INT, DIFF GAIN, FAST DIFF / FILTER, SLOW GAIN, FAST GAIN, GAIN LIMIT, and OFFSET. The major parameters that influenced the signal were the SLOW INT, SLOW GAIN, FAST DIFF / FILTER and FAST GAIN. Modifying the SLOW INT and FAST DIFF caused the laser to be out of lock, whereas FAST GAIN decreased the noise observed in the signal. As we decreased the SLOW GAIN, we observed that the laser became more out of lock, allowing for the control of the laser locking. The OFFSET parameter adjusted the offset between the two signals. Table \ref{tab:pid_params} shows the optimal PID parameters used in the subsequent measurements which were both stable and yielded a strong signal strength. \par 
+do this, the following parameters were modified: SLOW INT, FAST INT, DIFF GAIN, FAST DIFF / FILTER, SLOW GAIN, FAST GAIN, GAIN LIMIT, and OFFSET. The major parameters that influenced the signal were the SLOW INT, SLOW GAIN, FAST DIFF / FILTER and FAST GAIN. Modifying the SLOW INT and FAST DIFF caused the laser to be out of lock, whereas FAST GAIN decreased the noise observed in the signal. As we decreased the SLOW GAIN, we observed that the laser became more out of lock, allowing for the control of the laser locking. The OFFSET parameter adjusted the offset between the two signals. Table \ref{tab:pid_params} 
+shows the optimal PID parameters used in the subsequent measurements which were both stable and yielded a strong signal strength. \par 
 
 \begin{table}[h!]
 	\centering
@@ -498,8 +509,20 @@ do this, the following parameters were modified: SLOW INT, FAST INT, DIFF GAIN, 
 	\label{tab:pid_params}
 \end{table}
 
-When performing laser locking, we further needed to consider the systematics due to the environment. Any small disturbance such as clapping, tapping the desk, moving the cables or even walking influenced the degree of locking for the laser. Other factors such as the temperature fluctuations in the room may have caused the laser to be out of lock as well. \par 
+When performing laser locking, we further needed to consider the systematics due to the environment. 
+Any small disturbance such as clapping, tapping the desk, moving the cables or even walking influenced the 
+degree of locking for the laser. Other factors such as the temperature fluctuations in the room may have caused the 
+laser to be out of lock as well. In order to verify that we were obtained the correct resonant mode when optimizing 
+the PID parameters (i.e. the TEM$_{\mathrm{010}}$ mode), we used a camera located on the rotation table. An image of the 
+resulting mode obtained when locking can be seen in Fig. \ref{fig:tem00-lock}. \par 
 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\columnwidth]{tem00_lock}
+    \caption{The Fundamental $\mathrm{TEM}_{0, 0}$ Gaussian mode.}
+    \label{fig:tem00-lock}
+\end{figure}	
 
 \subsection{Cavity Ring-Down}
 
@@ -507,12 +530,12 @@ When performing laser locking, we further needed to consider the systematics due
 
 % need to have this figure here
 
-\begin{figure}[htpb]
-    \centering
-    \includegraphics[width=0.6\textwidth]{tem00_lock}
-    \caption{The Fundamental $\mathrm{TEM}_{0, 0}$ Gaussian mode.}
-    \label{fig:tem00-lock}
-\end{figure}	
+% \begin{figure}[htpb]
+%     \centering
+%     \includegraphics[width=0.6\textwidth]{tem00_lock}
+%     \caption{The Fundamental $\mathrm{TEM}_{0, 0}$ Gaussian mode.}
+%     \label{fig:tem00-lock}
+% \end{figure}	
 
 \subsection{Scale Factor} \label{sec:scale_fact}
 
@@ -534,7 +557,7 @@ approximately 1.5 hours. The unprocessed time series for the frequency measureme
 \end{figure*}
 
 From the raw data, we first removed any measurements that were taken while the laser was unlocked and when the 
-rotation of the table was switched. After applying some filtering to the data (using \texttt{scipy.signal.sosfilt}), we then performed
+rotation of the table was switched. After applying some filtering to the data as before, we then performed
 the same procedure as with the Pre-lab tasks in Sec. \ref{sec:prelab_allan_dev} to determine the Allan deviation.
 We also determined the shot-noise limited time $\tau$ by observing the time duration in which the instability of the 
 measurement starts. For the rotation frequency of the table, we followed the same procedure from Sec. \ref{sec:scale_fact}. \par 
@@ -543,6 +566,113 @@ measurement starts. For the rotation frequency of the table, we followed the sam
 
 
 \chapter{Results and Discussion}
+
+\section{Free Spectral Range}
+
+Table \ref{tab:mod_times} shows the corresponding conversion time obtained from each sideband using the modulation frequency of $\SI{10}{\mega\hertz}$.
+The mean conversion time that we obtained was $\SI{2.104 \pm 0.066}{\milli\second}$ which is the conversion time
+that we used to determine the free spectral range. Fig. \ref{fig:res_peaks} shows the corresponding resonant peaks in both the time and frequency axis. \par
+
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline 
+		Sideband & Conversion time [ms] \\ \hline
+		1 & 2.385 \\ \hline
+		2 & 2.226 \\ \hline
+		3 & 2.110 \\ \hline
+		4 & 2.003 \\ \hline
+		5 & 1.998 \\ \hline
+		6 & 1.900 \\ \hline
+		\textbf{Mean} & \textbf{$2.104 \pm 0.066$} \\ \hline
+	\end{tabular}
+	\caption{The conversion time determined from each sideband with the three resonant peaks obtained from Fig. \ref{fig:threeres_raw}.
+	\hl{Fix table width}}
+	\label{tab:mod_times}
+\end{table}
+
+
+\begin{figure*}[h!]
+	\centering
+	\subfloat[]{{\includegraphics[width=0.45\columnwidth]{res_peaks_time.png}}}
+	\quad
+	\centering
+	\subfloat[]{{\includegraphics[width=0.45\columnwidth]{res_peaks_freq.png}}}
+	\caption{The observed resonant peaks from the ring cavity in the laser gyroscope. (a) and (b) show the 
+	same plot in the time and frequency domain respectively.}
+	\label{fig:res_peaks}
+\end{figure*}
+
+From the obtained conversion time, we obtained two values of the free spectral range from the peak-to-peak difference
+between each resonance peak. Correspondingly we also obtained two values for the cavity perimeter. Table \ref{tab:fsr_peri} shows the 
+obtained free spectral range and cavity perimeter for each peak-to-peak difference as well as their weighted average.
+
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline 
+		Peak & $\delta\nu_{\mathrm{FSR}}$ [$\si{\mega\hertz}$] & Cavity Perimeter [$\si{\centi\meter}$]\\ \hline
+		1-2 & $310.60 \pm 0.12$ & $96.587 \pm 0.039$ \\ \hline
+		2-3 & $291.12 \pm 0.11$ & $103.050 \pm 0.040$ \\ \hline
+		\textbf{Mean} & \textbf{$299.778 \pm 0.083$} & \textbf{$99.760 \pm 0.028$} \\ \hline
+	\end{tabular}
+	\caption{The free spectral range $\delta\nu_{\mathrm{FSR}}$ and the cavity perimeter $P$ obtained for each
+			peak-to-peak. The weighted average is also shown. \hl{Fix table width}}
+	\label{tab:fsr_peri}
+\end{table}
+
+When comparing the average cavity perimeter to the measured values given in Ref. \cite{Groh2021},
+we observed that the experimental value were $1.52\sigma$ away. This indicates that the 
+result we have obtained is in good, but not great agreement with the measured value. Such results may be caused by \par 
+
+\section{PDH Error Signal}
+
+Fig. \ref{fig:pdh_err_filt} shows the filtered data from the error signal generated by PDH locking. We observe that the shape of the signal closely
+resembles that of Fig. \ref{fig:error-signal} as desired. 
+
+ \begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{pdh_err_filt.png}
+	\caption{Filtered signal from PDH locking. The behavior of the signal closely resembles that of the signal 
+	shown in Fig. \ref{fig:error-signal}. }
+	\label{fig:pdh_err_filt}
+\end{figure*}
+
+Once applying the linear fit within the region of interest, we obtain 
+the following parameters: $a = \SI{-1168 \pm 580}{\joule\per\second\squared}, \quad b = \SI{639.82 \pm 0.13}{\milli\joule\per\second}$
+for a linear fit of $\epsilon_{\mathrm{fit}} = a t + b$. The filtered data within the region of interest
+ with the linear fit is shown on Fig. \ref{fig:pdh_err_filt_fit}. As we can see, the slope is not truly vertical, indicating that there is some broadening of the 
+ cavity linewidth, as $a \sim \sqrt{P_c P_s} \delta\nu_{\frac{1}{2}}$. 
+ This is to be expected as thermal fluctuations as well as other disturbances can cause such broadening of the spectrum.  
+
+ \begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{pdh_err_filt_fit.png}
+	\caption{The filtered signal from PDH locking in a zoomed-in region. The linear fit with associated fit parameters are 
+	also shown.}
+	\label{fig:pdh_err_filt_fit}
+\end{figure*}
+
+As we can observe from Fig. \ref{fig:pdh_err_filt}, the signal cannot truly exhibit the sharp peaks as observed in the 
+Fig. \ref{fig:error-signal}. Such behavior is caused by the noise of the signal generated by the surrounding environment, as well as the
+ oscillatory behavior of the signal, which causes the zero values to be oscillatory. Thus true peaks cannot be observed which 
+ prevents us from applying a true linear fit to the data. \par 
+
+\section{Cavity Ring-down}
+
+\section{Scale Factor}
+
+\section{Allan Deviation}
+
+Fig. shows the Allan deviation obtained for each integration time. This was evaluated using \texttt{allantools.adev} as mentioned in 
+previous sections. We observe that from performing a linear fit of the logarithm of Eq. \ref{eq:allan_shotnoise}, we obtain the 
+following parameters:  
+
+\section{Rotation Rate of the Earth}
+
+
 
 \chapter{Conclusion and Outlook}
 
