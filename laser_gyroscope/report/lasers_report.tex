@@ -300,7 +300,7 @@ The solution to optical resonators with parabolic mirrors and homogeneous medium
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.8\textwidth]{hermite-gaussian}
-	\caption{Hermite-Gaussian Transverse Electromagnetic Mode ($\mathrm{TEM}_{l, m}$) (left) and the beam's wavefront between two mirrors of radii $R_{1}$ and $R_{2}$ with a separation of length $L$, inside a cavity (right). }
+	\caption{Hermite-Gaussian Transverse Electromagnetic Mode ($\mathrm{TEM}_{l, m}$) (left) and the beam's wavefront between two mirrors of radii $R_{1}$ and $R_{2}$ with a separation of length $L$, inside a cavity (right) \cite{Groh2021}. }
     \label{fig:hermite}
 \end{figure}	
 
@@ -316,7 +316,7 @@ where $l \in \mathbb{N}^{\ge 0}$ represents the different longitudinal nodes. Th
 	\label{eq:fsr}
 \end{equation}
 
-The fundamental mode, $\mathrm{TEM}_{0, 0}$ is the Gaussian mode and is used for locking the lasers beam in our setup, as can been seen in Fig. \ref{fig:tem00-lock}. In order to achieve stability, the following condition on the radii of two mirrors, $R_{1} and R_{2}$, has to be met
+The fundamental mode, $\mathrm{TEM}_{0, 0}$ is the Gaussian mode and is used for locking the lasers beam in our setup, as can been seen in Fig. \ref{fig:tem00-lock}. In order to achieve stability, the following condition on the radii of two mirrors, $R_{1}$ and $R_{2}$, has to be met
 
 \begin{equation}
 		0 \leq g_{1}g_{2} = \left(1 + \frac{L}{R_{1}} \right)\left(1 + \frac{L}{R_{2}} \right) \leq 1.
@@ -334,7 +334,7 @@ The Finesse of a cavity essentially quantifies the number of bounces a beam make
 \end{equation}
 where $\mathcal{R} = \sqrt{\mathcal{R}_{1} \mathcal{R}_{2} \mathcal{R}_{3} \mathcal{R}_{4}}$, where $\mathcal{R}_{i}$ is the reflectivity of the cavity mirrors. 
 
-\subsection{Cavity-Ring-Down Technique}
+\subsection{Cavity-Ring-Down Technique} \label{sec:ring-down}
 To precisely compute the finesse of mirrors in the cavity, we employ ring-down technique. In this, we look at how the power in the cavity evolves temporally, when the cavity-locked laser is switched off quickly. In order to achieve the latter, we switch the RF signal driving the Acousto-Optical Modulator (AOM). 
 
 Neglecting the losses in the cavity medium, the time evolution of the laser intensity is given by
@@ -421,12 +421,172 @@ of the MEMS gyroscope within our phones.
 
 \section{Task 1: Getting Started}
 
+We downloaded the \texttt{phyphox} app made by RWTH Aachen University, and we played around with the Gyroscope function. We rotated the phone in several directions 
+to observe the relationship between the orientation of the phone and the corresponding coordinates used in the application. This is shown in Fig. \ref{fig:phone_sketch}. 
+Fig. \ref{fig:gyro_plot_z} - \ref{fig:gyro_plot_x} show the corresponding time series for the $x, y, z$ coordinates for each rotation that we performed. 
+
+\begin{figure*}[hbt!]
+	\centering
+	\includegraphics[width=0.6\columnwidth]{Phone_sketch.png}
+
+	\caption{Sketch of the phone used to measure the gyroscope with its relevant $x, y, z$ coordinates and sense of rotation. 
+            The sense of rotation is color coded with each rotation axis, and the direction of the axis is indicated by the blue arrows.}
+	\label{fig:phone_sketch}
+\end{figure*}
+
+\begin{figure*}[hbt!]
+	\centering
+	\subfloat[$+z$ direction, anti-clockwise]{{\includegraphics[width=0.3\columnwidth]{rotation_posz.PNG}}}
+	\quad
+	\subfloat[$-z$ direction, clockwise]{{\includegraphics[width=0.3\columnwidth]{rotation_negz.PNG}}}
+
+	\caption{The time series of the $x, y, z$ coordinates shown from the \texttt{phyphox} application when 
+            the phone was rotated parallel to the surface. This corresponds to rotations in the $z$-direction. Note the large amplitudes in 
+            the time series, which indicates rotations in the relevant axis. }
+	\label{fig:gyro_plot_z}
+\end{figure*}
+
+
+\begin{figure*}[hbt!]
+	\centering
+	\subfloat[$+y$ direction, into surface (anti-clockwise)]{{\includegraphics[width=0.3\columnwidth]{rotation_posy.PNG}}}
+	\quad
+	\subfloat[$-y$ direction, out of surface (clockwise)]{{\includegraphics[width=0.3\columnwidth]{rotation_negy.PNG}}}
+
+	\caption{Same as Fig. \ref{fig:gyro_plot_z} but for rotations into / out of the surface, corresponding to rotations in $y$-direction.}
+	\label{fig:gyro_plot_y}
+\end{figure*}
+
+
+\begin{figure*}[hbt!]
+	\centering
+	\subfloat[$+x$ direction, rotation towards user (anti-clockwise)]{{\includegraphics[width=0.3\columnwidth]{rotation_posx.PNG}}}
+	\quad
+	\subfloat[$-x$ direction, rotation away from user (clockwise)]{{\includegraphics[width=0.3\columnwidth]{rotation_negx.PNG}}}
+
+	\caption{Same as Fig. \ref{fig:gyro_plot_z} but for rotations towards / away the user, corresponding to rotations in $x$-direction.}
+	\label{fig:gyro_plot_x}
+\end{figure*}
+
+To save the rotation rates and import it into the computer for further analysis, the \texttt{Export Data} feature can be utilized. This will save the 
+data as a \texttt{.zip} file that contains the raw data, the software and specifics regarding the device used, and the system time in which the experiment was 
+started and finished. All such files are saved as \texttt{.csv} formats. An example for the raw data is shown in the Appendix section.\par 
+
+To obtain a faster rotation rate, we applied maximal torque on each end of the phone such that the rotation at each axis was maximal. This was done at an adequate height
+to ensure the rotation rate was properly measured. Several cushions were placed on top of a bed to ensure that the phone does not break. Fig. \ref{fig:gyro_plot_fast} show
+the time series of the $x, y, z$ coordinates in the $+y$ and $-z$ directions. Performing the measurement in such a way yields a more notable and stable measurement of the rotation rate 
+
+\begin{figure*}[hbt!]
+	\centering
+	\subfloat[$+y$ direction \label{fig:gyro_plot_fast_y}]{{\includegraphics[width=0.3\columnwidth]{rot_fast_posy.png}}}
+	\quad
+	\subfloat[$-z$ direction \label{fig:gyro_plot_fast_z}]{{\includegraphics[width=0.3\columnwidth]{rot_fast_negz.PNG}}}
+
+	\caption{Same as Fig. \ref{fig:gyro_plot_z} but for fast rotations in the (a) $+y$ and (b) $-z$ direction.}
+	\label{fig:gyro_plot_fast}
+\end{figure*}
 
 
 \section{Task 2: Allan Deviation} \label{sec:prelab_allan_dev}
 
 \section{Task 3: Rotation Rate of Earth}
 
+To determine the rotation rate of the Earth, we utilize the same method as we have performed to measure the Allan deviation, but we 
+perform this for the shot-time limited interval derived by the section above. \par 
+
+We first measure the gyroscope $x, y, z$ coordinates for the duration of the shot-time interval of $\tau = 700$s. After the data was recorded,
+we performed the same measurement but with the phone flipped upside down. This corresponds to a flip in the $y$ direction. 
+We then performed the same process but flipping in the $z$-direction instead (i.e. rotations parallel to the surface). This was performed for a 
+shorter duration of $\tau = 300$s due to time constraints. The corresponding time series for both results are shown in Fig. \ref{fig:raw_earth_y_faceup}, \ref{fig:raw_earth_y_facedown}, \ref{fig:raw_earth_z_faceup} and \ref{fig:raw_earth_z_facedown}.
+
+
+\begin{figure}[hbt!]
+     \centering
+	 {{\includegraphics[width=0.4\columnwidth]{raw_ftx.png}}}
+	 {{\includegraphics[width=0.4\columnwidth]{raw_fty.png}}}
+	 {{\includegraphics[width=0.4\columnwidth]{raw_ftz.png}}}
+
+     \caption{Raw data of all the three axes of gyroscope from phone for measurement of the Earth's rotation.
+               The measurement was took with the phone face up. }
+	 \label{fig:raw_earth_y_faceup}
+\end{figure}
+
+\begin{figure}[hbt!]
+     \centering
+     {{\includegraphics[width=0.4\columnwidth]{raw_btx.png}}}
+     {{\includegraphics[width=0.4\columnwidth]{raw_bty.png}}}
+     {{\includegraphics[width=0.4\columnwidth]{raw_btz.png}}}
+     \caption{Same as Fig. \ref{fig:raw_earth_y_faceup} but for phone face down instead.}
+     \label{fig:raw_earth_y_facedown}
+\end{figure}
+
+\begin{figure}[hbt!]
+     \centering
+	 {{\includegraphics[width=0.4\columnwidth]{raw_okx.png}}}
+	 {{\includegraphics[width=0.4\columnwidth]{raw_oky.png}}}
+	 {{\includegraphics[width=0.4\columnwidth]{raw_okz.png}}}
+
+     \caption{Same as Fig. \ref{fig:raw_earth_y_faceup} but for rotations in the $z$-direction. This was performed 
+               with the phone facing towards the South Pole. }
+	 \label{fig:raw_earth_z_faceup}
+\end{figure}
+
+\begin{figure}[hbt!]
+     \centering
+     {{\includegraphics[width=0.4\columnwidth]{raw_180kx.png}}}
+     {{\includegraphics[width=0.4\columnwidth]{raw_180ky.png}}}
+     {{\includegraphics[width=0.4\columnwidth]{raw_180kz.png}}}
+     \caption{Same as Fig. \ref{fig:raw_earth_z_faceup} but for those facing towards the North Pole instead.}
+     \label{fig:raw_earth_z_facedown}
+\end{figure}
+
+
+After performing the FFT onto the resulting time series, we observed the sharp peak in the gyroscope $x$-direction.
+This shows that there is a clear bias in the $x$-direction of the phone gyroscope. 
+
+The temporal average of each measurement (both flipped and unflipped) was taken, and the difference between the unflipped and flipped
+measurements were taken (normalized by 2). For example, for the $x$ coordinate we have: 
+\begin{equation}
+     \delta \bar{\omega_x} = \frac{|\bar{x}_{noflip} - \bar{x}_{flip}|}{2}
+\end{equation}
+
+Such measurements for both rotations are tabulated on Table \ref{tab:avg_rate_xyz}. The magnitude of the values are also evaluated.
+Note that for arbitrarily small differences, the deviations may be small and thus to properly normalize this, one needs to take
+into arround the uncertainty in the measurement as well. 
+
+\begin{table}
+\centering
+\begin{tabular} {|c|c|c|}
+ \hline
+ Coordinate & $\delta \bar{\omega_i}$, face up/down (rad/s) & $\delta \bar{\omega_i}$, face North/South (rad/s) \\
+ \hline
+ $x$ & $\num{9.273e-8}$ & $\num{9.956e-6}$ \\
+ \hline
+ $y$  & $\num{4.603e-7}$ & $\num{2.814e-5}$ \\
+ \hline
+ $z$ & $\num{2.340e-6}$ & $\num{3.357e-6}$  \\
+ \hline
+ $\omega$ & $\num{2.386e-6}$ & $\num{3.004e-5}$ \\
+ \hline
+\end{tabular}
+\caption{Difference of temporal average of rotation rate for each gyroscopic coordinate and its magnitude. }
+\label{tab:avg_rate_xyz}
+\end{table}
+ 
+Furthermore, to properly account for the Earth's rotation rate, we need to transform from the local frame in which we observe the phone's orientation in.
+This can be done by a simple coordinate transformation as such: $\omega = \Omega_E \cos\phi$, where $\phi$ is the geographic latitude.
+With $\phi = \SI{39.257}{\degree}$ (defined from the North Pole), we obtain our corrected rotation rate of the Earth as 
+$\Omega_E = 3.083\mu \text{rad}s^{-1}$ and $\Omega_E = 38.80\mu \text{rad}s^{-1}$ for the up/down and North/South
+flip case respectively.  \par 
+
+When comparing the values of the rotation rate to the analytical value $\Omega_{E, thr} = 72.92\mu \text{rad}s^{-1}$, 
+both yielded values are underestimated. However, the rate where the phone was flipped upside down yielded lower values
+compared to that when we flipped the phone from South to North. This indicates a clear bias in the rotation and how it 
+impacts the measurement, which is clear due to the East-West rotation of the Earth. \par 
+
+Furthermore, the underestimation of the values are clear due to the various systematical uncertainties that need to be accounted for.
+The movement of nearby people, the wind, the temperature differences can all impact the phone gyroscope in some way. The 
+MEMS gyroscope does not have as many tools that will calibrate for such deviations as compared to our experimental setup. 
 
 
 \chapter{Experimental Set-Up and Procedure}
@@ -503,6 +663,22 @@ When performing laser locking, we further needed to consider the systematics due
 
 \subsection{Cavity Ring-Down}
 
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{ring-down}
+    \caption{Exponential decay of power in the cavity after swithcing it off.}
+    \label{fig:ring-down}
+\end{figure}
+
+As discussed in the \ref{sec:ring-down}, here we measure the exponential decay of power within the cavity after the ``switch" is turned off. After setting the photodiode channel to the appropriate height, trigger mode was set to single. The laser beam is then switched off using the front panel control of the AOM driver. We notice an exponential decay, as seen in Fig. \ref{fig:ring-down}. Several measurements were taken out which ten were analyzed. Rest of the figures can be found in the Appendix \ref{chap:appendix}. The data was ananlysed in \texttt{Python} and curve fitting was done using the following function
+
+\begin{equation}
+		f(t) = a \exp\left(-\frac{t}{t_{dec}}\right) + c,
+\end{equation}
+where $a$ is the amplitude, $t_{dec}$ is the decay constant and $c$ is a constant. The fitting was done using the function \texttt{scipy.optimize.curve-fit}. The following results were obtained:
+
+
+
 \subsubsection{Locking}
 
 % need to have this figure here
@@ -515,6 +691,60 @@ When performing laser locking, we further needed to consider the systematics due
 \end{figure}	
 
 \subsection{Scale Factor} \label{sec:scale_fact}
+The gyroscope table was set into rotation, all the while making sure that the cavity was still locked. The oscilloscope channel was used to read the frequency. In order to get the frequency in Hz, the encoder rate of 10,000 needs to be taken into account. Since one complete rotation corresponds to 10,000 counts, the recorded values need to be divided by 10,000 over the duration. 
+
+The beat signal was recorded from another channel and evaluated for five different voltages, which correspond to five different rotation rates. Higher rotation rates lead to highly unstable cavity, with stability of the lock not lasting more than 2-3s. Hence, lower rotation rates were preferred for a much more reliable data. Nevertheless, even at low rotation rates, the cavity falls out of lock and we had to re-lock it and continue taking readings. Another interesting thing to note is that this lock could be broken with slight discturbances like banging the table or moving the chair. 
+
+As an example, the unfiltered data for beat frequency at 1.5V is shown in Fig. \ref{fig:unfiltered-sagnac}. In order to extract usable data from this, first loose upper and lower bounds were set to make sure that unreasonably high and low values do not contribute. From \texttt{scipy.signal}, the package \texttt{savgol-filter} was used to filter the data. The filtered data is shown in Fig. \ref{fig:filtered-sagnac}. 
+
+\hl{Do you know why there is a weird 0.5 next to these figures?}
+\begin{figure}
+		\centering
+		\begin{subfigure}{0.5\textwidth}
+				\centering
+				\includegraphics[width=0.8\linewidth]{unfiltered_sagnac_15}
+				\caption{Unfiltered data of sagnac beat frequency with 1.5V applied to the rotation table.}
+				\label{fig:unfiltered-sagnac}
+		\end{subfigure}
+		\begin{subfigure}{0.5\textwidth}
+				\centering
+				\includegraphics[width=0.8\linewidth]{filtered_sagnac_15}
+				\caption{Filtered data of sagnac beat frequency with 1.5V applied to the rotation table.}
+				\label{fig:filtered-sagnac}
+		\end{subfigure}
+		\caption{Unfiltered and filtered data for 1.5V.}
+\end{figure}
+
+Similarly, in order to get the rate of rotation of the table, the data was first filtered. As an example for this, we look at the data corresponding to 2V. This can be seen in Fig. \ref{fig:filter-freq}. 
+
+\begin{figure}
+		\centering
+		\begin{subfigure}{0.5\textwidth}
+				\centering
+				\includegraphics[width=0.8\linewidth]{unfiltered_freq_2}
+				\caption{Unfiltered data of rate of rotation of table  with 2V.}
+		\end{subfigure}
+		\begin{subfigure}{0.5\textwidth}
+				\centering
+				\includegraphics[width=0.8\linewidth]{filtered_freq_2}
+				\caption{Filtered data of rate of rotation of table  with 2V.}
+		\end{subfigure}
+		\caption{Unfiltered and filtered data for 2V.}
+		\label{fig:filter-freq}
+\end{figure}
+
+
+Taking the average of the entire data gives us the corresponding sagnac frequency. Blah blah blah. 
+
+The scale factor is shown in Fig. \ref{fig:scale-factor}. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{scale-factor}
+    \caption{The sagnac frequency and their linear fit, which gives the scale factor.}
+    \label{fig:scale-factor}
+\end{figure}
+
 
 \subsection{Allan Deviation}
 
@@ -550,7 +780,7 @@ measurement starts. For the rotation frequency of the table, we followed the sam
 
 \printbibliography
 
-\chapter{Appendix}
+\chapter{Appendix} \label{chap:appendix}
 
 \printbibliography
 
