@@ -386,6 +386,7 @@ In our setup, we can encounter this phenomenon due to the back scattering losses
 
 \begin{equation}
 		\Omega_{L} = \frac{c \lambda^2 r_{s}}{32 \pi  A d},
+		\label{eq:lockin_thresh}
 \end{equation}
 where $\lambda$ is the laser wavelength, A is the enclosed area of the cavity, d is the cavity mode beam diameter and $r_{s}$ the fraction of backscattering as compared to other losses \cite{Liu}.
 
@@ -898,7 +899,7 @@ measurement starts. For the rotation frequency of the table, we followed the sam
 
 \chapter{Results and Discussion}
 
-\section{Free Spectral Range}
+\section{Free Spectral Range} \label{sec:fsr}
 
 Table \ref{tab:mod_times} shows the corresponding conversion time obtained from each sideband using the modulation frequency of $\SI{10}{\mega\hertz}$.
 The mean conversion time that we obtained was $\SI{2.104 \pm 0.066}{\milli\second}$ which is the conversion time
@@ -1017,6 +1018,8 @@ When comparing with the expected power of $-0.5$, we see that the residual gives
 A possible cause for this may be due to the lack of errors that needed to be taken into account. As we can see from the errors in 
 the fit parameters, the errors are largely underestimated, indicating that we have neglected to consider other errors into account. 
 
+
+
 \begin{figure*}[h!]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{allan.png}
@@ -1025,7 +1028,7 @@ the fit parameters, the errors are largely underestimated, indicating that we ha
 	\label{fig:allan}
 \end{figure*}
 
-From Fig. \ref{fig:allan},  This is a
+% From Fig. \ref{fig:allan},  This is a
 
 
 % We observe that from performing a linear fit of the logarithm of Eq. \ref{eq:allan_shotnoise}, we obtain the 
@@ -1034,6 +1037,20 @@ From Fig. \ref{fig:allan},  This is a
 % also about small error and why
 \section{Rotation Rate of the Earth}
 
+In theory, the methods that we have performed above is sufficient to determine the rotation rate of the Earth. As we are 
+working with a ring cavity system, however, we need to consider the lock-in effect as described in Sec. \ref{sec:lockin_effect}. 
+To determine the lock-in threshold, we use our known laser wavelength of $\lambda = \SI{1064}{\nano\metre}$ and assume that the
+ beam diameter is $d = \SI{300}{\micro\metre}$ as given in Ref. \cite{Groh2021}.
+We also use the value of the cavity area from the obtained cavity perimeter from Sec. \ref{sec:fsr}, yielding
+$A = L^2 = P / 16 = \SI{622.01 \pm 0.35}{\centi\meter\squared}$. To consider the fraction of backscattering, we assume that the 
+fraction has an upper limit of $r_s \leq \sqrt{4 - sqrt{\mathcal{R}}}$, giving us $r_{s, \mathrm{max}} = 0.047377 \pm 0.0000019$. \par 
+
+Considering all such values, we evaluate the lock-in threshold using Eq. \ref{eq:lockin_thresh} to be $\Omega_L = \SI{8.5774 +- 0.0049}{\milli\radian\per\second}$. 
+Comparing this to the rotation rate of the Earth of $\SI{72.92}{\micro\radian\per\second}$, we observe that the lock-in effect will 
+prevent us to measure such value. As of such, our laser gyroscope is not capable to measure the rotation rate of the Earth. To be 
+able to measure such quantity, the lock-in threshold must be lowered. This can be done by either increasing the effective area of 
+the cavity or decreasing the laser wavelength. The mirrors should also have higher reflectivity to prevent backscattering 
+from influencing the beat frequency pattern.\par 
 
 
 \chapter{Conclusion and Outlook}
