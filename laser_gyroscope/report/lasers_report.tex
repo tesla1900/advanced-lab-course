@@ -694,7 +694,9 @@ MEMS gyroscope does not have as many tools that will calibrate for such deviatio
 
 \section{Experimental Set-Up}
 
-In this experiment, we use 
+In this experiment, we use a interference filter laser diode with $\lambda = \SI[]{1064}[]{\nano\metre}$ as our laser, placed 
+outside of the ring cavity system. The signal is then transmitted through an electro-optical phase modulator (EOM). The EOM 
+generates sidebands of $\Omega / (2\pi) = \SI{10}{\mega\hertz}$. Each beam 
 
 % Here we should describe how we set-up the laser gyroscope until it works for our measurements
 % so we should mention the following in the procedure section (NOT in this section, to avoid overlap):
@@ -1089,7 +1091,14 @@ mirrors. \par
 
 To obtain the gyroscopic sensitivity, we use the scale factor obtained from Sec. \ref{sec:scale_fact} using Eq. \ref{eq:allan_sensitivity}.
 Evaluating the Allan deviation at the shot-noise time interval, we then obtain the shot-noise limited sensitivity of our laser gyroscope as 
-$\delta\Omega_{\mathrm{ad}} = $
+$\delta\Omega_{\mathrm{ad}} = \SI[]{0.0896211 \pm 0.0000025}[]{\micro\radian\per\second}$. We compare this value to the theoretical one,
+assuming that $\SI[]{1}[]{\micro\watt}$ of optical power is available for detection. With this assumption, along with the 
+values for the finesse of the cavity, the laser wavelength, and area of the cavity, we obtain a theoretical gyroscopic sensitivity
+of $\delta_Omega = \SI{0.031357 \pm 0.000018}{\micro\radian\per\second}$. Comparing the two sensitivity values, we observe that the relative
+difference is approximately $0.650$, yielding relatively accurate results. When comparing the values, however, we did not take the values 
+of the errors into account as they are too small. This is again caused by the underestimation of the possible errors in our experiment. \par 
+
+To increase the sensitivity of our gyroscope, we should 
 
 
 
