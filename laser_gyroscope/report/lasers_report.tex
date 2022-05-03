@@ -1204,17 +1204,6 @@ of $\delta_Omega = \SI{0.031357 \pm 0.000018}{\micro\radian\per\second}$. Compar
 difference is approximately $0.650$, yielding relatively accurate results. When comparing the values, however, we did not take the values 
 of the errors into account as they are too small. This is again caused by the underestimation of the possible errors in our experiment. \par 
 
-
-
-
-
-% From Fig. \ref{fig:allan},  This is a
-
-
-% We observe that from performing a linear fit of the logarithm of Eq. \ref{eq:allan_shotnoise}, we obtain the 
-% following values for the parameters: $m = -0.43326504 \pm 0.00000012$ and $\mathcal{A} = \SI{114818.268 \pm 0.035}{\radian\per\second\per\sqrt\hertz}$. \par 
-% make notes about the slope not being ~ -1/2, integration time (shot noise limited integration) and comparison with gyroscopic sensitivity
-% also about small error and why
 \section{Rotation Rate of the Earth}
 
 In theory, the methods that we have performed above is sufficient to determine the rotation rate of the Earth. As we are 
@@ -1241,7 +1230,32 @@ from influencing the beat frequency pattern.\par
 
 \chapter{Appendix} \label{chap:appendix}
 
-In the following section, we include additional plots and figures for the sake completeness. 
+In the following section, we include additional plots and figures for the sake of completeness. 
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{res_peaks_freq_zoomed.png}
+	\caption{The cavity resonance signal in frequency domain, zoomed into a single cavity resonance. We observe that 
+	the difference between the sidebands and the carrier signal is $\sim \SI{10}{\mega\hertz}$, which indicates that we have
+	correctly converted our axes.}
+	\label{fig:res_peaks_zoomed}
+\end{figure*}
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{raw_err_sig_comb.png}
+	\caption{The PDH signal obtained from subtracting the contribution from the laser input frequency. This allows the error 
+	signal to look similar to that from Fig. \ref{fig:error-signal}. This signal was then used to determine the linear fit of the 
+	error signal.}
+	\label{fig:pdh_err_combined}
+\end{figure*}
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{pdh_err_filt_fit_zoomed.png}
+	\caption{The PDH error signal, zoomed into a region in which the linear fit was performed.}
+	\label{fig:pdh_err_fit_zoomed}
+\end{figure*}
 
 
 % ring down stuff
@@ -1282,6 +1296,8 @@ In the following section, we include additional plots and figures for the sake c
 	\caption{Filtered Sagnac frequency corresponding to 1V and 5V being applied to the rotation table.}
 	% \label{fig:filter-freq}
 \end{figure*}
+
+
 
 
 \printbibliography
