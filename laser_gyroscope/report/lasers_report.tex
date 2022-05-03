@@ -221,18 +221,18 @@ measure the rotation rate of the Earth.\par
 To observe the Sagnac effect, we consider an interferometer setup with light propagating with wavelength $\lambda$ enclosing an area $\vec{A}$
  with perimeter $P$. Placing such a setup onto a rotating platform with frequency $\vec{\Omega}$, we observe that the optical path that
  each light travels changes. For example, if the table rotates counter-clockwise, then the path of the co-rotating light increases, while that of the other light
-decreases (see Fig. \ref{fig:sagnac_effect}). The Sagnac effect then tells us the resulting phase shift between the two lights:
+decreases (see Fig. \ref{fig:Sagnac_effect}). The Sagnac effect then tells us the resulting phase shift between the two lights:
 \begin{equation}
 	\delta \phi = \frac{8\pi \vec{A} \cdot \vec{\Omega}}{c \lambda} \propto \vec{A} \cdot \vec{\Omega}.
 \end{equation} 
 
 \begin{figure*}[h!]
 	\centering
-	\includegraphics[width=0.6\columnwidth]{sagnac_effect.jpg}
+	\includegraphics[width=0.6\columnwidth]{Sagnac_effect.jpg}
 	\caption{The Sagnac effect. \textit{Left}: Setup without rotation. The beam moving clockwise (blue) and counter-clockwise (orange)
 	have the same optical path length. \textit{Right}: Setup with a clockwise rotation $\Omega$. The path length of the 
 	clockwise beam is larger than that of the counter-clockwise beam. Obtained from Ref. \cite{Feng2020}.}
-	\label{fig:sagnac_effect}
+	\label{fig:Sagnac_effect}
 \end{figure*}
 
 A more detailed derivation using the relativistic law of velocity addition can be found in Ref. \cite{Benedetto2019}. 
@@ -249,14 +249,14 @@ Sagnac frequency, which is given as such:
 
 \begin{equation}
 	\delta \nu = \frac{4 \vec{A} \cdot \vec{\Omega}}{P \lambda}.
-	\label{eq:sagnac_freq}
+	\label{eq:Sagnac_freq}
 \end{equation}
 
 In our experiment, we only consider square ring cavities so that $A = L^2$ and $P = 4L$, where $L$ is the path length of each arm. 
-As such, we can simplify Eq. \ref{eq:sagnac_freq} as such: 
+As such, we can simplify Eq. \ref{eq:Sagnac_freq} as such: 
 \begin{equation}
 	\delta \nu  = \frac{L \Omega}{\lambda} = n \Omega,
-	\label{eq:sagnac_scale}
+	\label{eq:Sagnac_scale}
 \end{equation}
 where $n = L / \lambda$ is the number of nodes of the light field in each arm. Thus the Sagnac frequency is proportional to the rotation rate
 of the inertial system \cite{Groh2021}.\par 
@@ -413,7 +413,7 @@ we can describe the Allan deviation with typical shot noise scaling $\propto 1 /
 where $\mathcal{A}$ (given in $\si{\radian\per\second\per\sqrt{\hertz}}$) is known as the shot-noise limited sensitivity of the gyroscope and $m = -\frac{1}{2}$ \cite{Groh2021}. \par 
 
 To compare this value to the sensitivity of the laser gyroscope, we use the relation between the Sagnac frequency and the 
-rotation rate given in Eq. \ref{eq:sagnac_scale} and evaluate the Allan deviation at the shot-noise time interval $\tau_{\mathrm{sn}}$:
+rotation rate given in Eq. \ref{eq:Sagnac_scale} and evaluate the Allan deviation at the shot-noise time interval $\tau_{\mathrm{sn}}$:
 \begin{equation}
 	\delta \Omega_{\mathrm{ad}} = \frac{\sigma_{\text{ad}} (\sqrt{\tau_{\mathrm{sn}}})}{n} = \frac{\mathcal{A}}{\sqrt{\tau_{\mathrm{sn}}}n} . 
 	\label{eq:allan_sensitivity}
@@ -884,31 +884,50 @@ where $a$ is the amplitude, $t_{dec}$ is the decay constant and $c$ is a constan
 % % \end{figure}	
 
 \subsection{Scale Factor} \label{sec:scale_fact}
-The gyroscope table was set into rotation, all the while making sure that the cavity was still locked. The oscilloscope channel was used to read the frequency. In order to get the frequency in Hz, the encoder rate of 10,000 needs to be taken into account. Since one complete rotation corresponds to 10,000 counts, the recorded values need to be divided by 10,000 over the duration. 
+The gyroscope table was set into rotation, all the while making sure that the cavity was still locked. The oscilloscope channel was used to read the frequency. In order to get the frequency in Hz, the encoder rate of 10,000 needs to be taken into account. Since one complete rotation corresponds to 10,000 counts, the recorded values need to be divided by 10,000. Since this is the angular frequency of the table, in order to get the rotation rate in $\si{\hertz}$, the final fit value is divided by a factor of $2 \pi$ in order to get the correct dimensions. 
 
 The beat signal was recorded from another channel and evaluated for five different voltages, which correspond to five different rotation rates. Higher rotation rates lead to highly unstable cavity, with stability of the lock not lasting more than 2-3s. Hence, lower rotation rates were preferred for a much more reliable data. Nevertheless, even at low rotation rates, the cavity falls out of lock and we had to re-lock it and continue taking readings. Another interesting thing to note is that this lock could be broken with slight disturbances like banging the table or moving the chair. 
 
-As an example, the unfiltered data for beat frequency at 1.5V is shown in Fig. \ref{fig:unfiltered-sagnac}. In order to extract usable data from this, first loose upper and lower bounds were set to make sure that unreasonably high and low values do not contribute. From \texttt{scipy.signal}, the package \texttt{savgol-filter} was used to filter the data. The filtered data is shown in Fig. \ref{fig:filtered-sagnac}. 
+As an example, the unfiltered data for beat frequency at 1.5V is shown in Fig. \ref{fig:unfiltered-Sagnac}. In order to extract usable data from this, first loose upper and lower bounds were set to make sure that unreasonably high and low values do not contribute. From \texttt{scipy.signal}, the package \texttt{savgol-filter} was used to filter the data. The filtered data is shown in Fig. \ref{fig:filtered-Sagnac}. 
 
-\hl{Do you know why there is a weird 0.5 next to these figures?}
 % \begin{figure}
 % 	\centering
 % 	\begin{subfigure}[!h]{0.5\textwidth}
 % 		\centering
-% 		\includegraphics[width=0.8\linewidth]{unfiltered_sagnac_15}
-% 		\caption{Unfiltered data of sagnac beat frequency with 1.5V applied to the rotation table.}
-% 		\label{fig:unfiltered-sagnac}
+% 		\includegraphics[width=0.8\linewidth]{unfiltered_Sagnac_15}
+% 		\caption{Unfiltered data of Sagnac beat frequency with 1.5V applied to the rotation table.}
+% 		\label{fig:unfiltered-Sagnac}
 % 	\end{subfigure}
 % 	\begin{subfigure}[!h]{0.5\textwidth}
 % 			\centering
-% 			\includegraphics[width=0.8\linewidth]{filtered_sagnac_15}
-% 			\caption{Filtered data of sagnac beat frequency with 1.5V applied to the rotation table.}
-% 			\label{fig:filtered-sagnac}
+% 			\includegraphics[width=0.8\linewidth]{filtered_Sagnac_15}
+% 			\caption{Filtered data of Sagnac beat frequency with 1.5V applied to the rotation table.}
+% 			\label{fig:filtered-Sagnac}
 % 	\end{subfigure}
 % 	\caption{Unfiltered and filtered data for 1.5V.}
 % \end{figure}
 
-% Similarly, in order to get the rate of rotation of the table, the data was first filtered. As an example for this, we look at the data corresponding to 2V. This can be seen in Fig. \ref{fig:filter-freq}. 
+\begin{figure*}[h!]
+	\centering
+	\subfloat[Unfiltered data of Sagnac beat frequency with 1.5V applied to the rotation table. \label{fig:unfiltered-Sagnac}]{{\includegraphics[width=0.8\columnwidth]{unfiltered_Sagnac_15}}}
+	\quad
+	\centering
+	\subfloat[Filtered data of Sagnac beat frequency with 1.5V applied to the rotation table. \label{fig:filtered-Sagnac}]{{\includegraphics[width=0.8\columnwidth]{filtered_Sagnac_15}}}
+	\caption{Unfiltered and filtered data for 1.5V.}
+	%\label{fig:}
+\end{figure*}
+
+Similarly, in order to get the rate of rotation of the table, the data was first filtered. As an example for this, we look at the data corresponding to 2V. This can be seen in Fig. \ref{fig:filter-freq}. 
+
+\begin{figure*}[h!]
+	\centering
+	\subfloat[Unfiltered data of rate of rotation of table  with 2V. \label{fig:unfiltered-Sagnac}]{{\includegraphics[width=0.8\columnwidth]{unfiltered_freq_2}}}
+	\quad
+	\centering
+	\subfloat[Filtered data of rate of rotation of table  with 2V. \label{fig:filtered-Sagnac}]{{\includegraphics[width=0.8\columnwidth]{filtered_freq_2}}}
+	\caption{Unfiltered and filtered data for 2V.}
+	\label{fig:filter-freq}
+\end{figure*}
 
 % \begin{figure}
 % 		\centering
@@ -926,7 +945,7 @@ As an example, the unfiltered data for beat frequency at 1.5V is shown in Fig. \
 % 		\label{fig:filter-freq}
 % \end{figure}
 
-In order to extract the sagnac frequency and the rate of rotation, the average of the filtered data was taken. Averages were calculated for six different rotation rates. These were then plotted against each other and a fit was made using the package \texttt{np.polyfit}. A standard systematic error of $\pm 2500 \text{Hz}$ was taken in order to account for the noise and fluctuations. Statistical error was computed using assuming a gaussian distribution and error propagation was done. 
+In order to extract the Sagnac frequency and the rate of rotation, the average of the filtered data was taken. Averages were calculated for six different rotation rates. These were then plotted against each other and a fit was made using the package \texttt{np.polyfit}. A standard systematic error of $\pm 2500 \text{Hz}$ was taken in order to account for the noise and fluctuations. Statistical error was computed using assuming a gaussian distribution and error propagation was done. 
 
 
 \subsection{Allan Deviation}
@@ -1053,61 +1072,90 @@ Fig. \ref{fig:error-signal}. Such behavior is caused by the noise of the signal 
  prevents us from applying a true linear fit to the data. \par 
 
 \section{Cavity Ring-down}
-The fit parameters and the errors associated with them are shown in Table \ref{tab:params}. 
+The fit parameters and the errors associated with them are shown in Table \ref{tab:params}. The corresponding values of reflectivity and finesse is summarized in Table \ref{tab:ref-fin}. Lastly, the weighted mean and error were calculated and are shown in Table \ref{tab:mean-ref}. 
 
 \begin{table}[!ht]
     \centering
-    \begin{tabular}{|l|l|l|}
+    \begin{tabular}{|c|c|c|}
     \hline
-        Amplitude & Decay constant & Constant \\ \hline
-        66.12124808964487 $\pm$ 0.2001438883010806 & 3.049052276536888e-06 $\pm$ 3.5041229676291223e-12 & 299792458.0 $\pm$ 0.13258875712122611 \\ \hline
-        64.77033727650118 $\pm$ 0.15202168481992212 & 2.9118526431435e-06 $\pm$ 2.908015943069563e-12 & 299792458.0 $\pm$ 0.09865707073410175 \\ \hline
-        61.84663499069027 $\pm$ 0.14406367853665786 & 2.978240240680793e-06 $\pm$ 2.9544315063084647e-12 & 299792458.0 $\pm$ 0.09443138471156583 \\ \hline
-        61.787730173167056 $\pm$ 0.12409216640670646 & 2.9156613841236986e-06 $\pm$ 2.605043691153906e-12 & 299792458.0 $\pm$ 0.0805780331524504 \\ \hline
-        59.4685929555159 $\pm$ 0.13629439016052394 & 3.0983804523717357e-06 $\pm$ 2.8996656785363702e-12 & 299792458.0 $\pm$ 0.09095511919226895 \\ \hline
-        56.68326927482809 $\pm$ 0.1298713427389263 & 2.887719239442153e-06 $\pm$ 3.271142319023611e-12 & 299792458.0 $\pm$ 0.08397427752677772 \\ \hline
-        63.60402375836323 $\pm$ 0.15611940343196642 & 3.03146562878942e-06 $\pm$ 2.9721472330787964e-12 & 299792458.0 $\pm$ 0.10315238898532117 \\ \hline
-        59.921605117952375 $\pm$ 0.1673084947183357 & 2.8995938164271174e-06 $\pm$ 3.755185875034669e-12 & 299792458.0 $\pm$ 0.10837665638542927 \\ \hline
-        58.56003780401901 $\pm$ 0.14063197140043612 & 2.9590837847112614e-06 $\pm$ 3.2381269178125302e-12 & 299792458.0 $\pm$ 0.09191697914201112 \\ \hline
-        59.75278049584717 $\pm$ 0.14207431239484616 & 2.8398782691994703e-06 $\pm$ 3.2726360000951898e-12 & 299792458.0 $\pm$ 0.09120648217483271 \\ \hline
-        63.945746017862426 $\pm$ 0.16027254477411704 & 3.0083069504448304e-06 $\pm$ 3.0428396422881004e-12 & 299792458.0 $\pm$ 0.10553101218218365 \\ \hline
-        65.16513833908078 $\pm$ 0.13291890502304402 & 2.9705475348527077e-06 $\pm$ 2.461614812045365e-12 & 299792458.0 $\pm$ 0.08702659806925384 \\ \hline
+        Amplitude & Decay constant ($\si{\micro\second}$) & Constant \\ \hline
+        66.121 $\pm$ 0.200 & 3.049 $\pm$ 3.504 $\cross 10^{-6}$ & 17.995 $\pm$ 0.132 \\ \hline
+        64.770 $\pm$ 0.152 & 2.911 $\pm$ 2.908 $\cross 10^{-6}$ & 20.862 $\pm$ 0.098 \\ \hline
+        61.846 $\pm$ 0.144 & 2.978 $\pm$ 2.954 $\cross 10^{-6}$ & 18.201 $\pm$ 0.094 \\ \hline
+        61.787 $\pm$ 0.124 & 2.915 $\pm$ 2.605 $\cross 10^{-6}$ & 18.501 $\pm$ 0.080 \\ \hline
+        59.468 $\pm$ 0.136 & 3.098 $\pm$ 2.899 $\cross 10^{-6}$ & 18.823 $\pm$ 0.090 \\ \hline
+        56.683 $\pm$ 0.129 & 2.887 $\pm$ 3.271 $\cross 10^{-6}$ & 19.797 $\pm$ 0.083 \\ \hline
+        63.604 $\pm$ 0.156 & 3.031 $\pm$ 2.972 $\cross 10^{-6}$ & 16.951 $\pm$ 0.103 \\ \hline
+        59.921 $\pm$ 0.167 & 2.899 $\pm$ 3.755 $\cross 10^{-6}$ & 19.726 $\pm$ 0.108 \\ \hline
+        58.560 $\pm$ 0.140 & 2.959 $\pm$ 3.238 $\cross 10^{-6}$ & 19.142 $\pm$ 0.091 \\ \hline
+        59.752 $\pm$ 0.142 & 2.839 $\pm$ 3.272 $\cross 10^{-6}$ & 20.856 $\pm$ 0.091 \\ \hline
+        63.945 $\pm$ 0.160 & 3.008 $\pm$ 3.042 $\cross 10^{-6}$ & 17.469 $\pm$ 0.105 \\ \hline
+        65.165 $\pm$ 0.132 & 2.970 $\pm$ 2.461 $\cross 10^{-6}$ & 17.501 $\pm$ 0.087 \\ \hline
     \end{tabular}
     \caption{Fit parameters.}
     \label{tab:params}
 \end{table}
 
-The corresponding values of reflectivity and finesse is summarized in Table \ref{tab:ref-fin}.
-
 \begin{table}[!ht]
     \centering
-    \begin{tabular}{|l|l|}
+    \begin{tabular}{|c|c|}
     \hline
         Reflectivity & Finesse \\ \hline
-        0.9994544629677966 $\pm$ 1.516104549549461e-07 & 5757.144655120688 $\pm$ 0.509425515560193 \\ \hline
-        0.9994287658916413 $\pm$ 1.5874956831930504e-07 & 5498.087713979654 $\pm$ 0.4865016395852652 \\ \hline
-        0.9994414956464581 $\pm$ 1.552128642282255e-07 & 5623.439127300455 $\pm$ 0.49759339234066374 \\ \hline
-        0.9994295118843176 $\pm$ 1.5854210719031526e-07 & 5505.279284132763 $\pm$ 0.48713736251091944 \\ \hline
-        0.9994631459304909 $\pm$ 1.4919758731179933e-07 & 5850.284891851928 $\pm$ 0.5176656126673118 \\ \hline
-        0.9994239933181743 $\pm$ 1.6007581043297294e-07 & 5452.519620304722 $\pm$ 0.4824704115302266 \\ \hline
-        0.9994512989751448 $\pm$ 1.524891655306694e-07 & 5723.937983533094 $\pm$ 0.5064860187930168 \\ \hline
-        0.9994263515358811 $\pm$ 1.5942104172445944e-07 & 5474.940901741847 $\pm$ 0.48445561094148104 \\ \hline
-        0.9994378810288168 $\pm$ 1.5621732882260883e-07 & 5587.2683827852015 $\pm$ 0.49439348512863296 \\ \hline
-        0.9994142926746028 $\pm$ 1.6277093629132772e-07 & 5362.1874880744035 $\pm$ 0.47447744102527534 \\ \hline
-        0.9994470761092433 $\pm$ 1.5366247643463177e-07 & 5680.210342121531 $\pm$ 0.5026169540371729 \\ \hline
-        0.9994400497155201 $\pm$ 1.5561428810010616e-07 & 5608.91395116285 $\pm$ 0.49630716851130935 \\ \hline
+        0.999454 $\pm$ 1.516 $\cross 10^{-7}$ & 5757.144 $\pm$ 0.509 \\ \hline
+        0.999428 $\pm$ 1.587 $\cross 10^{-7}$ & 5498.087 $\pm$ 0.486 \\ \hline
+        0.999441 $\pm$ 1.552 $\cross 10^{-7}$ & 5623.439 $\pm$ 0.497 \\ \hline
+        0.999429 $\pm$ 1.585 $\cross 10^{-7}$ & 5505.279 $\pm$ 0.487 \\ \hline
+        0.999463 $\pm$ 1.491 $\cross 10^{-7}$ & 5850.284 $\pm$ 0.517 \\ \hline
+        0.999423 $\pm$ 1.600 $\cross 10^{-7}$ & 5452.519 $\pm$ 0.482 \\ \hline
+        0.999451 $\pm$ 1.524 $\cross 10^{-7}$ & 5723.937 $\pm$ 0.506 \\ \hline
+        0.999426 $\pm$ 1.594 $\cross 10^{-7}$ & 5474.940 $\pm$ 0.484 \\ \hline
+        0.999437 $\pm$ 1.562 $\cross 10^{-7}$ & 5587.268 $\pm$ 0.494 \\ \hline
+        0.999414 $\pm$ 1.627 $\cross 10^{-7}$ & 5362.187 $\pm$ 0.474 \\ \hline
+        0.999447 $\pm$ 1.536 $\cross 10^{-7}$ & 5680.210 $\pm$ 0.502 \\ \hline
+        0.999440 $\pm$ 1.556 $\cross 10^{-7}$ & 5608.913 $\pm$ 0.496 \\ \hline
     \end{tabular}
     \caption{Reflectivity and Finesse of each measurement.}
     \label{tab:ref-fin}
 \end{table}
 
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+        Mean Reflectivity & Mean Finesse \\ \hline
+        0.999438 $\pm$ 4.503 $\cross 10^{-8}$ & 5587.0880 $\pm$ 0.142 \\ \hline
+    \end{tabular}
+    \caption{Weighted mean of reflectivity and finesse.}
+    \label{tab:mean-ref}
+\end{table}
+
+
 \section{Scale Factor}
-The scale factor is shown in Fig. \ref{fig:scale-factor}. 
+From the filtered data, the average Sagnac frequencies and the rotation rate were computed. These values can be found in Table \ref{tab:sagnac}. 
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+        Voltage & Average Sagnac Frequency (Hz) & Rotation Rate (rad/s) \\ \hline
+        1V & 3693.55 $\pm$ 0.27 & 8.44 $\pm$ 0.00012 \\ \hline
+        1.5V & 6062.34 $\pm$ 0.39 & 13.41 $\pm$ 0.00019 \\ \hline
+        2V & 9143.27 $\pm$ 0.63 & 18.25 $\pm$ 0.00020 \\ \hline
+        2.5V & 14975.54 $\pm$ 0.71 & 22.86 $\pm$ 0.00026 \\ \hline
+        3V & 14935.25 $\pm$ 2.36 & 28.20 $\pm$ 0.00028 \\ \hline
+        5V & 26884.50 $\pm$ 2.51 & 47.95 $\pm$ 0.00031 \\ \hline
+    \end{tabular}
+    \caption{Average Sagnac Frequency and corresponding Rotation Rate of the table.}
+    \label{tab:sagnac}
+\end{table}
+
+The scale factor is shown in Fig. \ref{fig:scale-factor}. The slope of the fit function is $941102.493 \pm 0.203$. The theoretical value is estimated using the arm length which was calculated to be $0.24$m and the wavelength of $1064$nm, giving 225563.909. Our estimated value deviates from the expected value by 31.52\%. This could be because the intensity of the lock was unable to reach an the ideal value of approximately 1V. It could also be due to the fact that our data did not include the direction of rotation (CW or CCW). This could lead to higher or lower Sagnac beat frequencies, depending on the direction of rotation, which should be considered separately. 
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=0.7\textwidth]{scale-factor}
-	\caption{The sagnac frequency and their linear fit, which gives the scale factor.}
+	\includegraphics[width=0.7\textwidth]{scale_factor}
+	\caption{The Sagnac frequency and their linear fit, which gives the scale factor.}
 	\label{fig:scale-factor}
 \end{figure}
 
@@ -1192,6 +1240,49 @@ from influencing the beat frequency pattern.\par
 \printbibliography
 
 \chapter{Appendix} \label{chap:appendix}
+
+In the following section, we include additional plots and figures for the sake completeness. 
+
+
+% ring down stuff
+\begin{figure*}[h!]
+	\centering
+	\subfloat[]{{\includegraphics[width=0.4\columnwidth]{ring_down_0}}}
+	\quad
+	\centering
+	\subfloat[]{{\includegraphics[width=0.4\columnwidth]{ring_down_1}}}
+	\quad
+	\centering
+	\subfloat[]{{\includegraphics[width=0.4\columnwidth]{ring_down_2}}}
+	\quad
+	\centering
+	\subfloat[]{{\includegraphics[width=0.4\columnwidth]{ring_down_3}}}
+	\caption{Additional plots showing the exponential decay, with fit, in the ring down technique.}
+	% \label{fig:filter-freq}
+\end{figure*}
+
+
+% scale factor stuff 
+\begin{figure*}[h!]
+	\centering
+	\subfloat[]{{\includegraphics[width=0.8\columnwidth]{unfiltered_sagnac_1}}}
+	\quad
+	\centering
+	\subfloat[]{{\includegraphics[width=0.8\columnwidth]{unfiltered_sagnac_5}}}
+	\caption{Unfiltered Sagnac frequency corresponding to 1V and 5V being applied to the rotation table.}
+	% \label{fig:filter-freq}
+\end{figure*}
+
+\begin{figure*}[h!]
+	\centering
+	\subfloat[]{{\includegraphics[width=0.8\columnwidth]{filtered_sagnac_1}}}
+	\quad
+	\centering
+	\subfloat[]{{\includegraphics[width=0.8\columnwidth]{filtered_sagnac_5}}}
+	\caption{Filtered Sagnac frequency corresponding to 1V and 5V being applied to the rotation table.}
+	% \label{fig:filter-freq}
+\end{figure*}
+
 
 \printbibliography
 
