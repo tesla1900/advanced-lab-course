@@ -329,7 +329,7 @@ We expect the power transmitted through the cavity to have a Lorentzian like lin
 \subsection{Finesse} \label{sec:finesse}
 The Finesse of a cavity essentially quantifies the number of bounces a beam makes before leaking out or being absorbed. Mathematically, it is the ratio of the free spectral range, $\delta \nu_{\mathrm{FSR}}$, to the spectral linewidth $\delta \nu_{1/2}$, the Full Width Half Maximum (FWHM) of the transmission peak. Since it is inversely proportional to the FWHM, a high finesse equals a narrow resonance line and vice versa. A narrow resonance line is better for high precision frequency applications. The formula is given by
 
-\begin{equation}
+\begin{equation} \label{eqn:finesse}
 		\mathcal{F} = \frac{\delta \nu_{\mathrm{FSR}}}{\delta \nu_{1/2}} \approx \frac{\pi \sqrt{\mathcal{R}}}{1 - \mathcal{R}},
 \end{equation}
 where $\mathcal{R} = \sqrt{\mathcal{R}_{1} \mathcal{R}_{2} \mathcal{R}_{3} \mathcal{R}_{4}}$, where $\mathcal{R}_{i}$ is the reflectivity of the cavity mirrors. 
@@ -340,12 +340,12 @@ To precisely compute the finesse of mirrors in the cavity, we employ ring-down t
 Neglecting the losses in the cavity medium, the time evolution of the laser intensity is given by
 
 \begin{equation}
-		\label{eqn:ring_down}
+		\label{eqn:ring-down}
 		I(t) = I_{0}\mathcal{R}^{2t/\tau _{r}} = I_{0} \exp\left(-\frac{t}{\tau _{dec}}\right),
 \end{equation}
 where $\tau _{r} = P /c $ is the roundtrip time and $\tau _{dec}$ is the decay time, which is given by
 
-\begin{equation}
+\begin{equation}\label{eqn:reflec}
 		\tau _{dec} = -\frac{\tau _{r}}{\log \mathcal{R}^2} = - \frac{P}{c \log \mathcal{R}^2}.
 \end{equation}
 
@@ -795,13 +795,12 @@ resulting mode obtained when locking can be seen in Fig. \ref{fig:tem00-lock}. \
     \label{fig:ring-down}
 \end{figure}
 
-As discussed in the \ref{sec:ring-down}, here we measure the exponential decay of power within the cavity after the ``switch" is turned off. After setting the photodiode channel to the appropriate height, trigger mode was set to single. The laser beam is then switched off using the front panel control of the AOM driver. We notice an exponential decay, as seen in Fig. \ref{fig:ring-down}. Several measurements were taken out which ten were analyzed. Rest of the figures can be found in the Appendix \ref{chap:appendix}. The data was ananlysed in \texttt{Python} and curve fitting was done using the following function
+As discussed in the \ref{sec:ring-down}, here we measure the exponential decay of power within the cavity after the ``switch" is turned off. After setting the photodiode channel to the appropriate height, trigger mode was set to single. The laser beam is then switched off using the front panel control of the AOM driver. We notice an exponential decay, as seen in Fig. \ref{fig:ring-down}. Several measurements were taken out which twelve were analyzed. Rest of the figures can be found in the Appendix \ref{chap:appendix}. The data was ananlysed in \texttt{Python} and curve fitting was done using the following function
 
 \begin{equation}
 		f(t) = a \exp\left(-\frac{t}{t_{dec}}\right) + c,
 \end{equation}
-where $a$ is the amplitude, $t_{dec}$ is the decay constant and $c$ is a constant. The fitting was done using the function \texttt{scipy.optimize.curve-fit}. The following results were obtained:
-
+where $a$ is the amplitude, $t_{dec}$ is the decay constant and $c$ is a constant. The fitting was done using the function \texttt{scipy.optimize.curve-fit}. This function also gives us the error associated with the fit. Using the fit parameters, the decay constant can be computed using the Eqn. \ref{eqn:ring-down}. Using the value of decay constant, reflectivity was computed using the Eqn. \ref{eqn:reflec} and finesse of the cavity was computed using Eqn. \ref{eqn:finesse}. The weighted mean and error was calculated for the twelve different measurements. Error propagation was used in order to calculate the error associated with these quantities.
 
 
 \subsubsection{Locking}
@@ -818,7 +817,7 @@ where $a$ is the amplitude, $t_{dec}$ is the decay constant and $c$ is a constan
 \subsection{Scale Factor} \label{sec:scale_fact}
 The gyroscope table was set into rotation, all the while making sure that the cavity was still locked. The oscilloscope channel was used to read the frequency. In order to get the frequency in Hz, the encoder rate of 10,000 needs to be taken into account. Since one complete rotation corresponds to 10,000 counts, the recorded values need to be divided by 10,000 over the duration. 
 
-The beat signal was recorded from another channel and evaluated for five different voltages, which correspond to five different rotation rates. Higher rotation rates lead to highly unstable cavity, with stability of the lock not lasting more than 2-3s. Hence, lower rotation rates were preferred for a much more reliable data. Nevertheless, even at low rotation rates, the cavity falls out of lock and we had to re-lock it and continue taking readings. Another interesting thing to note is that this lock could be broken with slight discturbances like banging the table or moving the chair. 
+The beat signal was recorded from another channel and evaluated for five different voltages, which correspond to five different rotation rates. Higher rotation rates lead to highly unstable cavity, with stability of the lock not lasting more than 2-3s. Hence, lower rotation rates were preferred for a much more reliable data. Nevertheless, even at low rotation rates, the cavity falls out of lock and we had to re-lock it and continue taking readings. Another interesting thing to note is that this lock could be broken with slight disturbances like banging the table or moving the chair. 
 
 As an example, the unfiltered data for beat frequency at 1.5V is shown in Fig. \ref{fig:unfiltered-sagnac}. In order to extract usable data from this, first loose upper and lower bounds were set to make sure that unreasonably high and low values do not contribute. From \texttt{scipy.signal}, the package \texttt{savgol-filter} was used to filter the data. The filtered data is shown in Fig. \ref{fig:filtered-sagnac}. 
 
@@ -858,17 +857,7 @@ As an example, the unfiltered data for beat frequency at 1.5V is shown in Fig. \
 % 		\label{fig:filter-freq}
 % \end{figure}
 
-
-Taking the average of the entire data gives us the corresponding sagnac frequency. Blah blah blah. 
-
-The scale factor is shown in Fig. \ref{fig:scale-factor}. 
-
-\begin{figure}[htpb]
-    \centering
-    \includegraphics[width=0.7\textwidth]{scale-factor}
-    \caption{The sagnac frequency and their linear fit, which gives the scale factor.}
-    \label{fig:scale-factor}
-\end{figure}
+In order to extract the sagnac frequency and the rate of rotation, the average of the filtered data was taken. Averages were calculated for six different rotation rates. These were then plotted against each other and a fit was made using the package \texttt{np.polyfit}. A standard systematic error of $\pm 2500 \text{Hz}$ was taken in order to account for the noise and fluctuations. Statistical error was computed using assuming a gaussian distribution and error propagation was done. 
 
 
 \subsection{Allan Deviation}
@@ -994,6 +983,15 @@ Fig. \ref{fig:error-signal}. Such behavior is caused by the noise of the signal 
 \section{Cavity Ring-down}
 
 \section{Scale Factor}
+The scale factor is shown in Fig. \ref{fig:scale-factor}. 
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{scale-factor}
+	\caption{The sagnac frequency and their linear fit, which gives the scale factor.}
+	\label{fig:scale-factor}
+\end{figure}
+
 
 \section{Allan Deviation}
 
