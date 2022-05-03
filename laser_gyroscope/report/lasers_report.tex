@@ -405,10 +405,10 @@ where $M$ is the number of samples. The Allan deviation is then the square root 
 The Allan deviation is especially helpful to understand the sensitivity in gyroscopes. Imposing the same assumptions as above,
 we can describe the Allan deviation with typical shot noise scaling $\propto 1 / \sqrt{\tau}$ as such:
 \begin{equation}
-	\sigma_{\text{ad}} = \frac{\mathcal{A}}{\sqrt{\tau}},
+	\sigma_{\text{ad}} = \mathcal{A} \tau ^ m = \frac{\mathcal{A}}{\sqrt{\tau}},
 	\label{eq:allan_shotnoise}
 \end{equation}
-where $\mathcal{A}$ (given in $\si{\radian\per\second\per\sqrt{\hertz}}$) is known as the sensitivity of the gyroscope. This 
+where $\mathcal{A}$ (given in $\si{\radian\per\second\per\sqrt{\hertz}}$) is known as the shot-noise limited sensitivity of the gyroscope and $m = -\frac{1}{2}$. This 
 value can be directly compared with the theoretical gyroscope sensitivity (per integration time)
 described in Eq. \ref{eq:gyroscope_sensitivity} \cite{Groh2021}.
 
@@ -490,6 +490,98 @@ the time series of the $x, y, z$ coordinates in the $+y$ and $-z$ directions. Pe
 
 
 \section{Task 2: Allan Deviation} \label{sec:prelab_allan_dev}
+
+To determine the Allan deviation of the phone's MEMS gyroscope, we placed our phone on a platform with minimal disturbance and 
+took the measurement for approximately one hour. Fig. \ref{fig:prelab_allan_time} shows the time series for each gyroscopic 
+component obtained. From the time series alone, we observe that there are no significant deviations in the measurements in 
+each direction. \par 
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.75\columnwidth]{prelab_allan_time_series.png}
+
+	\caption{Time series of the Allan deviation measurement for each gyroscopic component.}
+	\label{fig:prelab_allan_time}
+\end{figure*}
+
+We then performed a Fast Fourier Transform (FFT) using the built-in package \texttt{scipy.fft} to obtain the plot in the frequency
+domain. Fig. \ref{fig:prelab_allan_fourier} shows the Fourier spectrum in each gyroscopic component. We observe that up until around
+a frequency of $\SI[]{1.5}[]{\hertz}$, the frequency spectrum shows the noise of the measurement. After this point, we observe 
+that the spectrum drops significantly, which indicates that the gyroscope readings occur after this point in the frequency domain. 
+We observe that there is a dip in the spectrum at around $\SI{2.2}{\hertz}$ as well as a small peak at approximately 
+$\SI{18}{\hertz}$ for the measurement in the x direction. This may be caused by the 
+location in which the MEMS gyroscope is placed within the phone, which would account for the bias in the x direction. We observed the 
+same phenomena when measuring for the rotation rate of the Earth, indicating a clear bias in the x direction. \par 
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.75\columnwidth]{prelab_allan_fourier.png}
+
+	\caption{The Fourier spectrum of the Allan deviation measurement in each gyroscopic direction.}
+	\label{fig:prelab_allan_fourier}
+\end{figure*}
+
+To determine the Allan deviation, we used the function \texttt{oadev} from the Python package \texttt{allantools} 
+that computes the overlapping Allan deviation given the frequency data, the sample rate, and the time series of the measurement. This returns
+the Allan deviation for each integration time $\tau$. By using \texttt{oadev} instead of the standard \texttt{adev}, the noise that is 
+apparent after the point of instability is reduced, yielding a smooth curve at each integration time. The sampling rate was obtained by taking the inverse of the timestep in the 
+measurement, yielding a sampling rate of $\SI[]{99.2}[]{\hertz}$. Fig. \ref{fig:prelab_allan} shows the Allan deviation for each gyroscopic component 
+at each integration time, displayed in a log-log format. \par 
+
+\begin{figure*}[hbt!]
+	\centering
+	\subfloat[$x$ direction \label{fig:prelab_allan_x}]{{\includegraphics[width=0.7\columnwidth]{prelab_allan_x.png}}}
+	\quad
+	\subfloat[$y$ direction \label{fig:prelab_allan_y}]{{\includegraphics[width=0.7\columnwidth]{prelab_allan_y.png}}}
+	\quad
+	\subfloat[$z$ direction \label{fig:prelab_allan_z}]{{\includegraphics[width=0.7\columnwidth]{prelab_allan_z.png}}}
+
+	\caption{The Allan deviation for each gyroscopic component for each integration time $\tau$. The log-linear fit is 
+	also shown.}
+	\label{fig:prelab_allan}
+\end{figure*}
+
+
+The shot-noise time interval, which is the integration time up until the point where the instability of the instrument or drift dominates, 
+can be determined as the point where the first minima of the plot is observed. From Fig. \ref{fig:prelab_allan}, we observe that the
+point of instability of the x direction occurs at a much earlier integration time than compared to those from the y and z directions. 
+This indicates that the bias from the x direction affected the Allan deviation measurement. \par 
+
+We also determine the shot-noise limited sensitivity $\mathcal{A}$ 
+by performing a log-linear fit according to Eq. \ref{eq:allan_shotnoise}. 
+By taking the logarithm on both sides, we obtain an equation that can be linearized as such:
+\begin{equation}
+	\log(\sigma_{\mathrm{ad}}) = m \log(\tau) + \log \mathcal{A}
+\end{equation}
+where $m$ should yield $-0.5$ due to the shot-noise scaling. The shot-noise limited sensitivity can then be obtained
+by taking the exponential of the intercept from the log-linear fit. The data was truncated after the point of instability for 
+each direction. Fig. \ref{fig:prelab_allan} shows the log-linear fit for each component. Table \ref{tab:prelab_allan_vals} show the shot-noise limited time interval and the fit parameters (the slope $m$ and the shot-noise 
+limited sensitivity $\mathcal{A}$) for each component. 
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline 
+		Component & $\tau$ [$\si{\second}$] & $m$ & $\mathcal{A}$ [\si[]{\radian\per\second\per\sqrt{\hertz}}] & $|m - (-0.5)|$\\ \hline
+		x & 1 & -0.3925 & 0.0576  & 0.1106\\ \hline
+		y & 10 & -0.4318 & 0.0395 & 0.0677\\ \hline
+		z & 20 & -0.4952 & 0.0354 & 0.0048\\ \hline
+	\end{tabular}
+	\caption{The shot-noise limited time interval and associated fit parameters from the log-linear fit of the Allan deviation
+			in each component. \hl{Fix table width}}
+	\label{tab:prelab_allan_vals}
+\end{table}
+
+We observe that the time intervals vary between each component, however $\tau_x$ is one order of magnitude smaller than those from 
+the y and z direction. This indicates that the bias observed in Fig. \ref{fig:prelab_allan_fourier} influenced the measurement of the 
+Allan deviation. \par 
+
+When comparing the fit parameters, we observe that the slope from the z component yield the value most closest to $-0.5$, which may be 
+due to the longer shot-noise time interval, which in turn allows more data points to be fit. However, all components yield slopes
+close to $-0.5$, with the largest deviation from the x-direction with a residual of $\sim 0.11$. We also observe that the shot-noise
+limited sensitivity from the x component is approximately $0.02$ larger than that of the y and z components. This again 
+indicates the influence of the bias of measurement in the x direction. This also shows that the phone's gyroscope is more sensitive
+to measurements in the y and z direction as compared to that of the x direction. 
 
 \section{Task 3: Rotation Rate of Earth}
 
@@ -635,17 +727,27 @@ We compared our obtained results with the measured value of the cavity perimeter
 \subsection{PDH Error Signal and PID Optimization}
 
 To observe the error signal generated from PDH locking, we observed the combined signal generated from the fast and slow PID controller. 
-Fig. \ref{fig:errsig_raw} shows the raw signal obtained from the PDH error.  
-The corresponding data was then used to determine the linear fit of the error signal where the zero crossing and 
-linear slope is present (i.e. near the middle of the observed error signal). 
-This was performed by first filtering the data using \texttt{scipy.signal.sosfilt}, then using a least-squares fit with 
-\texttt{numpy.polyfit}. \par 
+Fig. \ref{fig:errsig_raw} shows the raw signal obtained from the PDH error. \par 
 
 \begin{figure*}[h!]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{raw_err_sig.png}
 	\caption{Raw Signal from PDH locking using the fast and slow PID controller.}
 	\label{fig:errsig_raw}
+\end{figure*}
+
+The corresponding data was then used to determine the linear fit of the error signal where the zero crossing and 
+linear slope is present (i.e. near the middle of the observed error signal). 
+This was performed by first filtering the data using \texttt{scipy.signal.sosfilt}, then using a least-squares fit with 
+\texttt{numpy.polyfit}.Fig. \ref{fig:pdh_err_filt} shows the filtered data from the error signal generated by PDH locking. We observe that the shape of the signal closely
+resembles that of Fig. \ref{fig:error-signal} as desired. 
+
+ \begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{pdh_err_filt.png}
+	\caption{Filtered signal from PDH locking. The behavior of the signal closely resembles that of the signal 
+	shown in Fig. \ref{fig:error-signal}. }
+	\label{fig:pdh_err_filt}
 \end{figure*}
 
 
@@ -721,40 +823,40 @@ The beat signal was recorded from another channel and evaluated for five differe
 As an example, the unfiltered data for beat frequency at 1.5V is shown in Fig. \ref{fig:unfiltered-sagnac}. In order to extract usable data from this, first loose upper and lower bounds were set to make sure that unreasonably high and low values do not contribute. From \texttt{scipy.signal}, the package \texttt{savgol-filter} was used to filter the data. The filtered data is shown in Fig. \ref{fig:filtered-sagnac}. 
 
 \hl{Do you know why there is a weird 0.5 next to these figures?}
-\begin{figure}
-		\centering
-		\begin{subfigure}{0.5\textwidth}
-				\centering
-				\includegraphics[width=0.8\linewidth]{unfiltered_sagnac_15}
-				\caption{Unfiltered data of sagnac beat frequency with 1.5V applied to the rotation table.}
-				\label{fig:unfiltered-sagnac}
-		\end{subfigure}
-		\begin{subfigure}{0.5\textwidth}
-				\centering
-				\includegraphics[width=0.8\linewidth]{filtered_sagnac_15}
-				\caption{Filtered data of sagnac beat frequency with 1.5V applied to the rotation table.}
-				\label{fig:filtered-sagnac}
-		\end{subfigure}
-		\caption{Unfiltered and filtered data for 1.5V.}
-\end{figure}
+% \begin{figure}
+% 	\centering
+% 	\begin{subfigure}[!h]{0.5\textwidth}
+% 		\centering
+% 		\includegraphics[width=0.8\linewidth]{unfiltered_sagnac_15}
+% 		\caption{Unfiltered data of sagnac beat frequency with 1.5V applied to the rotation table.}
+% 		\label{fig:unfiltered-sagnac}
+% 	\end{subfigure}
+% 	\begin{subfigure}[!h]{0.5\textwidth}
+% 			\centering
+% 			\includegraphics[width=0.8\linewidth]{filtered_sagnac_15}
+% 			\caption{Filtered data of sagnac beat frequency with 1.5V applied to the rotation table.}
+% 			\label{fig:filtered-sagnac}
+% 	\end{subfigure}
+% 	\caption{Unfiltered and filtered data for 1.5V.}
+% \end{figure}
 
-Similarly, in order to get the rate of rotation of the table, the data was first filtered. As an example for this, we look at the data corresponding to 2V. This can be seen in Fig. \ref{fig:filter-freq}. 
+% Similarly, in order to get the rate of rotation of the table, the data was first filtered. As an example for this, we look at the data corresponding to 2V. This can be seen in Fig. \ref{fig:filter-freq}. 
 
-\begin{figure}
-		\centering
-		\begin{subfigure}{0.5\textwidth}
-				\centering
-				\includegraphics[width=0.8\linewidth]{unfiltered_freq_2}
-				\caption{Unfiltered data of rate of rotation of table  with 2V.}
-		\end{subfigure}
-		\begin{subfigure}{0.5\textwidth}
-				\centering
-				\includegraphics[width=0.8\linewidth]{filtered_freq_2}
-				\caption{Filtered data of rate of rotation of table  with 2V.}
-		\end{subfigure}
-		\caption{Unfiltered and filtered data for 2V.}
-		\label{fig:filter-freq}
-\end{figure}
+% \begin{figure}
+% 		\centering
+% 		\begin{subfigure}[!h]{0.5\textwidth}
+% 				\centering
+% 				\includegraphics[width=0.8\linewidth]{unfiltered_freq_2}
+% 				\caption{Unfiltered data of rate of rotation of table  with 2V.}
+% 		\end{subfigure}
+% 		\begin{subfigure}[!h]{0.5\textwidth}
+% 				\centering
+% 				\includegraphics[width=0.8\linewidth]{filtered_freq_2}
+% 				\caption{Filtered data of rate of rotation of table  with 2V.}
+% 		\end{subfigure}
+% 		\caption{Unfiltered and filtered data for 2V.}
+% 		\label{fig:filter-freq}
+% \end{figure}
 
 
 Taking the average of the entire data gives us the corresponding sagnac frequency. Blah blah blah. 
@@ -787,9 +889,19 @@ approximately 1.5 hours. The unprocessed time series for the frequency measureme
 \end{figure*}
 
 From the raw data, we first removed any measurements that were taken while the laser was unlocked and when the 
-rotation of the table was switched. After applying some filtering to the data as before, we then performed
-the same procedure as with the Pre-lab tasks in Sec. \ref{sec:prelab_allan_dev} to determine the Allan deviation.
-We also determined the shot-noise limited time $\tau$ by observing the time duration in which the instability of the 
+rotation of the table was switched. We then apply filtering towards our data using \texttt{scipy.signal.sosfilt} to remove
+fluctuations of the signal. Fig. \ref{fig:allan_ts_filt} shows the measured data after filtering. \par 
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{allan_ts_filt.png}
+	\caption{Time series of Allan deviation measurement after filtering and removing unwanted data measurements.}
+	\label{fig:allan_ts_filt}
+\end{figure*}
+
+We then performed the same procedure as with the Pre-lab tasks in Sec. \ref{sec:prelab_allan_dev} to determine the Allan deviation.
+, namely to first determine the frequency spectrum of the signal using \texttt{scipy.fft} before passing through the frequency data into \texttt{allantools.oadev}
+to obtain the Allan deviation for each integration time $\tau$. We also determined the shot-noise limited time $\tau$ by observing the time duration in which the instability of the 
 measurement starts. For the rotation frequency of the table, we followed the same procedure from Sec. \ref{sec:scale_fact}. \par 
 
 % $\Omega = \SI{5.95\pm 0.75}{\hertz}$
@@ -859,17 +971,6 @@ result we have obtained is in good, but not great agreement with the measured va
 
 \section{PDH Error Signal}
 
-Fig. \ref{fig:pdh_err_filt} shows the filtered data from the error signal generated by PDH locking. We observe that the shape of the signal closely
-resembles that of Fig. \ref{fig:error-signal} as desired. 
-
- \begin{figure*}[h!]
-	\centering
-	\includegraphics[width=0.8\columnwidth]{pdh_err_filt.png}
-	\caption{Filtered signal from PDH locking. The behavior of the signal closely resembles that of the signal 
-	shown in Fig. \ref{fig:error-signal}. }
-	\label{fig:pdh_err_filt}
-\end{figure*}
-
 Once applying the linear fit within the region of interest, we obtain 
 the following parameters: $a = \SI{-1168 \pm 580}{\joule\per\second\squared}, \quad b = \SI{639.82 \pm 0.13}{\milli\joule\per\second}$
 for a linear fit of $\epsilon_{\mathrm{fit}} = a t + b$. The filtered data within the region of interest
@@ -896,10 +997,43 @@ Fig. \ref{fig:error-signal}. Such behavior is caused by the noise of the signal 
 
 \section{Allan Deviation}
 
-Fig. shows the Allan deviation obtained for each integration time. This was evaluated using \texttt{allantools.adev} as mentioned in 
-previous sections. We observe that from performing a linear fit of the logarithm of Eq. \ref{eq:allan_shotnoise}, we obtain the 
-following parameters:  
+In Fig. , we show the frequency spectrum of the measurement obtained for the Allan deviation. We observe that the laser gyroscope is 
+at least sensitive to rotations starting from $\sim \num{5e-4}$. This can be noted due to the cutoff between the noise and the 
+actual signal. 
 
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{allan_fs.png}
+	\caption{The frequency spectrum of the Allan deviation measurement.}
+	\label{fig:allan}
+\end{figure*}
+
+Fig. \ref{fig:allan} shows the Allan deviation obtained for each integration time.
+We observe that the shot-noise time interval is approximately $\tau = \SI{4}{\second}$, which is extensively small 
+compared to those in typical experiments, which can yield values as high as $\tau \sim 10^{5}$ \cite{Groh2021}. 
+Further, when we perform the linear fit, we obtain the following values for our fit parameters: 
+\begin{equation}
+	m = -0.6966511 \pm 0.0000016 \quad \mathcal{A} = 51163.064 \pm 0.094. 
+\end{equation}
+When comparing with the expected power of $-0.5$, we see that the residual gives $0.196$, giving a relatively large deviation. 
+A possible cause for this may be due to the lack of errors that needed to be taken into account. As we can see from the errors in 
+the fit parameters, the errors are largely underestimated, indicating that we have neglected to consider other errors into account. 
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{allan.png}
+	\caption{The Allan deviation of the laser gyroscope, plotted against the integration time in a log-log plot. The log-linear fit
+	is also shown.}
+	\label{fig:allan}
+\end{figure*}
+
+From Fig. \ref{fig:allan},  This is a
+
+
+% We observe that from performing a linear fit of the logarithm of Eq. \ref{eq:allan_shotnoise}, we obtain the 
+% following values for the parameters: $m = -0.43326504 \pm 0.00000012$ and $\mathcal{A} = \SI{114818.268 \pm 0.035}{\radian\per\second\per\sqrt\hertz}$. \par 
+% make notes about the slope not being ~ -1/2, integration time (shot noise limited integration) and comparison with gyroscopic sensitivity
+% also about small error and why
 \section{Rotation Rate of the Earth}
 
 
