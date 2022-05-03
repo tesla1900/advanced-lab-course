@@ -256,6 +256,7 @@ In our experiment, we only consider square ring cavities so that $A = L^2$ and $
 As such, we can simplify Eq. \ref{eq:sagnac_freq} as such: 
 \begin{equation}
 	\delta \nu  = \frac{L \Omega}{\lambda} = n \Omega,
+	\label{eq:sagnac_scale}
 \end{equation}
 where $n = L / \lambda$ is the number of nodes of the light field in each arm. Thus the Sagnac frequency is proportional to the rotation rate
 of the inertial system \cite{Groh2021}.\par 
@@ -409,9 +410,14 @@ we can describe the Allan deviation with typical shot noise scaling $\propto 1 /
 	\sigma_{\text{ad}} = \mathcal{A} \tau ^ m = \frac{\mathcal{A}}{\sqrt{\tau}},
 	\label{eq:allan_shotnoise}
 \end{equation}
-where $\mathcal{A}$ (given in $\si{\radian\per\second\per\sqrt{\hertz}}$) is known as the shot-noise limited sensitivity of the gyroscope and $m = -\frac{1}{2}$. This 
-value can be directly compared with the theoretical gyroscope sensitivity (per integration time)
-described in Eq. \ref{eq:gyroscope_sensitivity} \cite{Groh2021}.
+where $\mathcal{A}$ (given in $\si{\radian\per\second\per\sqrt{\hertz}}$) is known as the shot-noise limited sensitivity of the gyroscope and $m = -\frac{1}{2}$ \cite{Groh2021}. \par 
+
+To compare this value to the sensitivity of the laser gyroscope, we use the relation between the Sagnac frequency and the 
+rotation rate given in Eq. \ref{eq:sagnac_scale} and evaluate the Allan deviation at the shot-noise time interval $\tau_{\mathrm{sn}}$:
+\begin{equation}
+	\delta \Omega_{\mathrm{ad}} = \frac{\sigma_{\text{ad}} (\sqrt{\tau_{\mathrm{sn}}})}{n} = \frac{\mathcal{A}}{\sqrt{\tau_{\mathrm{sn}}}n} . 
+	\label{eq:allan_sensitivity}
+\end{equation}
 
 
 
@@ -688,6 +694,8 @@ MEMS gyroscope does not have as many tools that will calibrate for such deviatio
 
 \section{Experimental Set-Up}
 
+In this experiment, we use 
+
 % Here we should describe how we set-up the laser gyroscope until it works for our measurements
 % so we should mention the following in the procedure section (NOT in this section, to avoid overlap):
 % - measuring free spectral range
@@ -880,7 +888,11 @@ approximately 1.5 hours. The unprocessed time series for the frequency measureme
 
 From the raw data, we first removed any measurements that were taken while the laser was unlocked and when the 
 rotation of the table was switched. We then apply filtering towards our data using \texttt{scipy.signal.sosfilt} to remove
-fluctuations of the signal. Fig. \ref{fig:allan_ts_filt} shows the measured data after filtering. \par 
+fluctuations of the signal. Fig. \ref{fig:allan_ts_filt} shows the measured data after filtering. We observe that the signal of 
+the Sagnac frequency differs in the region $t \in [1800, 3800]$ as compared to the other regions, yielding an average frequency
+of $\sim \SI{2000}{\hertz}$ larger than the others. This is due to the fact that we have rotated the table counter-clockwise
+for that duration. The rotation rate of the table, however, was kept the same, and as such this has no impact in the 
+calculation of the Allan deviation. \par 
 
 \begin{figure*}[h!]
 	\centering
@@ -889,8 +901,7 @@ fluctuations of the signal. Fig. \ref{fig:allan_ts_filt} shows the measured data
 	\label{fig:allan_ts_filt}
 \end{figure*}
 
-We then performed the same procedure as with the Pre-lab tasks in Sec. \ref{sec:prelab_allan_dev} to determine the Allan deviation.
-, namely to first determine the frequency spectrum of the signal using \texttt{scipy.fft} before passing through the frequency data into \texttt{allantools.oadev}
+We then performed the same procedure as with the Pre-lab tasks in Sec. \ref{sec:prelab_allan_dev} to determine the Allan deviation, namely to first determine the frequency spectrum of the signal using \texttt{scipy.fft} before passing through the frequency data into \texttt{allantools.oadev}
 to obtain the Allan deviation for each integration time $\tau$. We also determined the shot-noise limited time $\tau$ by observing the time duration in which the instability of the 
 measurement starts. For the rotation frequency of the table, we followed the same procedure from Sec. \ref{sec:scale_fact}. \par 
 
@@ -1043,7 +1054,7 @@ The scale factor is shown in Fig. \ref{fig:scale-factor}.
 
 \section{Allan Deviation}
 
-In Fig. , we show the frequency spectrum of the measurement obtained for the Allan deviation. We observe that the laser gyroscope is 
+In Fig. \ref{fig:allan_fs}, we show the frequency spectrum of the measurement obtained for the Allan deviation. We observe that the laser gyroscope is 
 at least sensitive to rotations starting from $\sim \num{5e-4}$. This can be noted due to the cutoff between the noise and the 
 actual signal. 
 
@@ -1051,21 +1062,22 @@ actual signal.
 	\centering
 	\includegraphics[width=0.8\columnwidth]{allan_fs.png}
 	\caption{The frequency spectrum of the Allan deviation measurement.}
-	\label{fig:allan}
+	\label{fig:allan_fs}
 \end{figure*}
 
-Fig. \ref{fig:allan} shows the Allan deviation obtained for each integration time.
-We observe that the shot-noise time interval is approximately $\tau = \SI{4}{\second}$, which is extensively small 
-compared to those in typical experiments, which can yield values as high as $\tau \sim 10^{5}$ \cite{Groh2021}. 
+Fig. \ref{fig:allan} shows the Allan deviation obtained for each integration time. We observe that the shot-noise time interval is approximately $\tau_{\mathrm{sn}} = \SI{4}{\second}$, which is extensively small 
+compared to those in typical experiments, which can yield values as high as $\tau_{\mathrm{sn}} \sim 10^{5}$ \cite{Groh2021}. 
 Further, when we perform the linear fit, we obtain the following values for our fit parameters: 
 \begin{equation}
 	m = -0.6966511 \pm 0.0000016 \quad \mathcal{A} = 51163.064 \pm 0.094. 
 \end{equation}
 When comparing with the expected power of $-0.5$, we see that the residual gives $0.196$, giving a relatively large deviation. 
 A possible cause for this may be due to the lack of errors that needed to be taken into account. As we can see from the errors in 
-the fit parameters, the errors are largely underestimated, indicating that we have neglected to consider other errors into account. 
-
-
+the fit parameters, the errors are largely underestimated, indicating that we have neglected to consider other errors into account.
+A possible error that we have not accounted for may be due to the temperature fluctuations in the room. As the measurement was performed
+over an extensive period of time, the difference in the temperature in the room can affect the degree of locking, causing larger 
+deviations in the measurement. Other possible causes may be due to the dust accumulation on the mirrors, decreasing the reflectivity of the 
+mirrors. \par 
 
 \begin{figure*}[h!]
 	\centering
@@ -1074,6 +1086,14 @@ the fit parameters, the errors are largely underestimated, indicating that we ha
 	is also shown.}
 	\label{fig:allan}
 \end{figure*}
+
+To obtain the gyroscopic sensitivity, we use the scale factor obtained from Sec. \ref{sec:scale_fact} using Eq. \ref{eq:allan_sensitivity}.
+Evaluating the Allan deviation at the shot-noise time interval, we then obtain the shot-noise limited sensitivity of our laser gyroscope as 
+$\delta\Omega_{\mathrm{ad}} = $
+
+
+
+
 
 % From Fig. \ref{fig:allan},  This is a
 
@@ -1094,7 +1114,7 @@ fraction has an upper limit of $r_s \leq \sqrt{4 - sqrt{\mathcal{R}}}$, giving u
 
 Considering all such values, we evaluate the lock-in threshold using Eq. \ref{eq:lockin_thresh} to be $\Omega_L = \SI{8.5774 +- 0.0049}{\milli\radian\per\second}$. 
 Comparing this to the rotation rate of the Earth of $\SI{72.92}{\micro\radian\per\second}$, we observe that the lock-in effect will 
-prevent us to measure such value. As of such, our laser gyroscope is not capable to measure the rotation rate of the Earth. To be 
+prevent us to measure the rotation rate. As of such, our laser gyroscope is not capable to measure the rotation rate of the Earth. To be 
 able to measure such quantity, the lock-in threshold must be lowered. This can be done by either increasing the effective area of 
 the cavity or decreasing the laser wavelength. The mirrors should also have higher reflectivity to prevent backscattering 
 from influencing the beat frequency pattern.\par 
