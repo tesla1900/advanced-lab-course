@@ -696,13 +696,71 @@ MEMS gyroscope does not have as many tools that will calibrate for such deviatio
 
 In this experiment, we use a interference filter laser diode with $\lambda = \SI[]{1064}[]{\nano\metre}$ as our laser, placed 
 outside of the ring cavity system. The signal is then transmitted through an electro-optical phase modulator (EOM). The EOM 
-generates sidebands of $\Omega / (2\pi) = \SI{10}{\mega\hertz}$. Each beam 
+generates sidebands of $\Omega / (2\pi) = \SI{10}{\mega\hertz}$. Each beam is then passed through an acousto-optical modulator (AOM),
+where the light is diffracted with a frequency of approximate;y $\SI[]{200}[]{\mega\hertz}$. The beams are then passed through 
+a square cavity with an arm length of approximately $\SI[]{0.25}[]{\centi\metre}$, placed on a rotating table. The cavity consists of four mirrors with high
+reflectivity, and allows the laser to be passed through the cavity in a clockwise or counter-clockwise manner. A plexiglass covering
+is placed around the cavity to limit any degradation of the reflectivity due to dust \cite{Groh2021}. 
+Fig. \ref{fig:exp_setup} shows the setup of the experiment, and Fig. \ref{fig:exp_schematic} shows the schematic of the set-up.
 
-% Here we should describe how we set-up the laser gyroscope until it works for our measurements
-% so we should mention the following in the procedure section (NOT in this section, to avoid overlap):
-% - measuring free spectral range
-% - measuring error signal
-% - measuring other things like 
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.6\columnwidth]{exp_setup_picture.png}
+	\caption{The set-up used in this experiment.}
+	\label{fig:exp_setup}
+\end{figure*}
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{setup_schematic.png}
+	\caption{The schematic of the set-up. Obtained from Ref. \cite{Groh2021}.}
+	\label{fig:exp_schematic}
+\end{figure*}
+
+In order to perform the laser locking, the signal from the cavity is passed into the Moglabs laser lock box, in which the fast and slow PID 
+controller controlled the laser frequency. For PID optimization, we configured the parameters given in the laser lock box
+until the lock was stable with a high intensity. To lock the laser, we turned the two switches located next to the parameter controls
+simultaneously. To observe the corresponding signal from the first laser, we connected the drivers to an oscilloscope. This setup was used 
+to determine the free spectral range and the PDH error signal \cite{Groh2021}. The obtained signal was exported through a \texttt{.csv} file
+via a USB port. Fig. \ref{fig:exp_setup_devices} show the oscilloscope, Moglabs laser lock box, 
+and EOM used in this experiment.\par 
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{devices_picture.jpg}
+	\caption{The oscilloscope (top), Moglabs laser lock box (middle), and EOM (bottom) used in this experiment.}
+	\label{fig:exp_setup_devices}
+\end{figure*}
+
+To lock the laser moving in the other direction, the signal was passed into the AOM driver control box, in which its 
+build-in PID controller set the laser frequency. This was connected to an external AOM software in which the PID parameters can be set. 
+Different drivers can be connected to the software so that the amplitude and frequency of the signal can be monitored during runtime. 
+The corresponding signals was saved as a \texttt{.mat} file. As the laser can easily be out of lock (due to clapping, vibrations, thermal fluctuations etc.), we performed the locking procedure
+multiple times throughout the experiment. To make sure that the signal was in lock, we used the camera placed on the rotation table which
+displayed the cavity transmission on the external monitor. \par 
+
+% To lock the laser moving in the other direction, we pass the signal through the EOM to apply a modulation frequency before passing 
+% it through the AOM driver control box. The built-in PID controller then controls this laser frequency. To modify the PID parameters, 
+% the software connected to a desktop was used. The same software allowed us to observe a second signal and its corresponding frequency. 
+% This feature was used to observe the Sagnac frequency and the Allan deviation. An example output of the display from the AOM software is shown in Fig. \par
+
+% \begin{figure*}[h!]
+% 	\centering
+% 	\includegraphics[width=0.8\columnwidth]{software_picture.jpg}
+% 	\caption{An example output from the AOM software used to monitor the beat frequency.}
+% 	\label{fig:exp_setup_software}
+% \end{figure*}
+
+To rotate the table, we used a rotary encoder that sends a voltage signal that controls the rotation rate of the table. The output 
+was connected to the AOM software so that the rotation rate can be observed simultaneously with the observed beat frequency when 
+measuring the Sagnac frequency and the Allan deviation. Fig. \ref{fig:exp_setup_gyroscope} shows the gyroscope used in this experiment.
+
+\begin{figure*}[h!]
+	\centering
+	\includegraphics[width=0.6\columnwidth]{gyroscope_picture.jpg}
+	\caption{The ring cavity laser gyroscope used in this experiment.}
+	\label{fig:exp_setup_gyroscope}
+\end{figure*}
 
 \section{Procedure}
 
@@ -735,7 +793,7 @@ We compared our obtained results with the measured value of the cavity perimeter
  $P_{\text{meas}} = \SI{0.990\pm 0.005}{\meter}$ obtained from Ref. \cite{Groh2021}. 
 
 
-\subsection{PDH Error Signal and PID Optimization}
+\subsection{PDH Error Signal and PID Optimization} \label{sec:pdh_err_procedure}
 
 To observe the error signal generated from PDH locking, we observed the combined signal generated from the fast and slow PID controller. 
 Fig. \ref{fig:errsig_raw} shows the raw signal obtained from the PDH error. \par 
@@ -814,16 +872,16 @@ As discussed in the \ref{sec:ring-down}, here we measure the exponential decay o
 where $a$ is the amplitude, $t_{dec}$ is the decay constant and $c$ is a constant. The fitting was done using the function \texttt{scipy.optimize.curve-fit}. This function also gives us the error associated with the fit. Using the fit parameters, the decay constant can be computed using the Eqn. \ref{eqn:ring-down}. Using the value of decay constant, reflectivity was computed using the Eqn. \ref{eqn:reflec} and finesse of the cavity was computed using Eqn. \ref{eqn:finesse}. The weighted mean and error was calculated for the twelve different measurements. Error propagation was used in order to calculate the error associated with these quantities.
 
 
-\subsubsection{Locking}
+% \subsubsection{Locking}
 
-% need to have this figure here
+% % need to have this figure here
 
-% \begin{figure}[htpb]
-%     \centering
-%     \includegraphics[width=0.6\textwidth]{tem00_lock}
-%     \caption{The Fundamental $\mathrm{TEM}_{0, 0}$ Gaussian mode.}
-%     \label{fig:tem00-lock}
-% \end{figure}	
+% % \begin{figure}[htpb]
+% %     \centering
+% %     \includegraphics[width=0.6\textwidth]{tem00_lock}
+% %     \caption{The Fundamental $\mathrm{TEM}_{0, 0}$ Gaussian mode.}
+% %     \label{fig:tem00-lock}
+% % \end{figure}	
 
 \subsection{Scale Factor} \label{sec:scale_fact}
 The gyroscope table was set into rotation, all the while making sure that the cavity was still locked. The oscilloscope channel was used to read the frequency. In order to get the frequency in Hz, the encoder rate of 10,000 needs to be taken into account. Since one complete rotation corresponds to 10,000 counts, the recorded values need to be divided by 10,000 over the duration. 
