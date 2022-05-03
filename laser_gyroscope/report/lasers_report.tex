@@ -99,7 +99,15 @@
 		\begin{centering}
 			% \large
 			\textbf{Abstract}\\[0.2cm]
-			 
+			In this experiment, we attempt to measure the rotation rate of the Earth using a ring cavity laser gyroscope. 
+			We passed through a diode laser through a square cavity placed on a rotating platform, and the corresponding Sagnac frequency
+			between the counter-propagating beams were observed. To quantify the performance of the ring laser 
+			gyroscope, we determined the free spectral range, the error signal due to Pound-Drever-Hall locking, the finesse and 
+			reflectivity of the cavity, and the Allan deviation of the gyroscope. We also determined the scale factor that converts between the obtained 
+			Sagnac frequency and rotation rate. The values that we obtained were mostly on the order of the magnitude of the expected values. 
+			Due to the lock-in threshold being 2 orders of magnitude larger than the rotation rate of the Earth, our setup is not 
+			viable to determine the rotation rate of the Earth. We suggest adjustments that can be performed in order to 
+			allow our laser gyroscope to measure the rotation rate.
 		\end{centering}
 	\end{minipage}
 	
@@ -199,7 +207,7 @@ to determine the rotation rate of the Earth. Chapter 2 describes the theory behi
 describes the setup used in our experiment and the method used to determine the relevant quantities for each part of our experiment. 
 Chapter 4 shows the pre-laboratory tasks that were required before starting the experiment. Chapter 5 shows the results
 that we have obtained and discussions related to the results. Finally, we summarize our findings and address possible outlooks for our experiment
-in Chapter 6. 
+in Chapter 6. It is to be noted that throughout the report, we will be referencing to the manual from Thorsten and Stellmer (Ref. \cite{Groh2021}).
 
 % should we hyperlink the chapters?
 
@@ -313,7 +321,7 @@ The Hermite-Gaussian modes are also called Transverse Electromagnetic Mode (TEM)
 where $l \in \mathbb{N}^{\ge 0}$ represents the different longitudinal nodes. The spacing between these longitudinal modes is given by the free spectral range, $\delta \nu_{\mathrm{FSR}}$,
 
 \begin{equation}
-	\delta\nu_{\\mathrm{FSR}} = \frac{c}{P} .
+	\delta\nu_{\mathrm{FSR}} = \frac{c}{P} .
 	\label{eq:fsr}
 \end{equation}
 
@@ -415,7 +423,7 @@ where $\mathcal{A}$ (given in $\si{\radian\per\second\per\sqrt{\hertz}}$) is kno
 To compare this value to the sensitivity of the laser gyroscope, we use the relation between the Sagnac frequency and the 
 rotation rate given in Eq. \ref{eq:Sagnac_scale} and evaluate the Allan deviation at the shot-noise time interval $\tau_{\mathrm{sn}}$:
 \begin{equation}
-	\delta \Omega_{\mathrm{ad}} = \frac{\sigma_{\text{ad}} (\sqrt{\tau_{\mathrm{sn}}})}{n} = \frac{\mathcal{A}}{\sqrt{\tau_{\mathrm{sn}}}n} . 
+	\delta \Omega_{\mathrm{ad}} = \frac{\sigma_{\text{ad}} (\tau_{\mathrm{sn}})}{n} = \frac{\mathcal{A}}{\sqrt{\tau_{\mathrm{sn}}}n} . 
 	\label{eq:allan_sensitivity}
 \end{equation}
 
@@ -883,6 +891,16 @@ where $a$ is the amplitude, $t_{dec}$ is the decay constant and $c$ is a constan
 % %     \label{fig:tem00-lock}
 % % \end{figure}	
 
+\begin{figure*}[h!]
+	\centering
+	\subfloat[Unfiltered data of Sagnac beat frequency with 1.5V applied to the rotation table. \label{fig:unfiltered-Sagnac}]{{\includegraphics[width=0.8\columnwidth]{unfiltered_Sagnac_15}}}
+	\quad
+	\centering
+	\subfloat[Filtered data of Sagnac beat frequency with 1.5V applied to the rotation table. \label{fig:filtered-Sagnac}]{{\includegraphics[width=0.8\columnwidth]{filtered_Sagnac_15}}}
+	\caption{Unfiltered and filtered data for 1.5V.}
+	%\label{fig:}
+\end{figure*}
+
 \subsection{Scale Factor} \label{sec:scale_fact}
 The gyroscope table was set into rotation, all the while making sure that the cavity was still locked. The oscilloscope channel was used to read the frequency. In order to get the frequency in Hz, the encoder rate of 10,000 needs to be taken into account. Since one complete rotation corresponds to 10,000 counts, the recorded values need to be divided by 10,000. Since this is the angular frequency of the table, in order to get the rotation rate in $\si{\hertz}$, the final fit value is divided by a factor of $2 \pi$ in order to get the correct dimensions. 
 
@@ -907,15 +925,15 @@ As an example, the unfiltered data for beat frequency at 1.5V is shown in Fig. \
 % 	\caption{Unfiltered and filtered data for 1.5V.}
 % \end{figure}
 
-\begin{figure*}[h!]
-	\centering
-	\subfloat[Unfiltered data of Sagnac beat frequency with 1.5V applied to the rotation table. \label{fig:unfiltered-Sagnac}]{{\includegraphics[width=0.8\columnwidth]{unfiltered_Sagnac_15}}}
-	\quad
-	\centering
-	\subfloat[Filtered data of Sagnac beat frequency with 1.5V applied to the rotation table. \label{fig:filtered-Sagnac}]{{\includegraphics[width=0.8\columnwidth]{filtered_Sagnac_15}}}
-	\caption{Unfiltered and filtered data for 1.5V.}
-	%\label{fig:}
-\end{figure*}
+% \begin{figure*}[h!]
+% 	\centering
+% 	\subfloat[Unfiltered data of Sagnac beat frequency with 1.5V applied to the rotation table. \label{fig:unfiltered-Sagnac}]{{\includegraphics[width=0.8\columnwidth]{unfiltered_Sagnac_15}}}
+% 	\quad
+% 	\centering
+% 	\subfloat[Filtered data of Sagnac beat frequency with 1.5V applied to the rotation table. \label{fig:filtered-Sagnac}]{{\includegraphics[width=0.8\columnwidth]{filtered_Sagnac_15}}}
+% 	\caption{Unfiltered and filtered data for 1.5V.}
+% 	%\label{fig:}
+% \end{figure*}
 
 Similarly, in order to get the rate of rotation of the table, the data was first filtered. As an example for this, we look at the data corresponding to 2V. This can be seen in Fig. \ref{fig:filter-freq}. 
 
