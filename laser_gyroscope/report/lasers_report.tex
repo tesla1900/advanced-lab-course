@@ -583,7 +583,7 @@ limited sensitivity $\mathcal{A}$) for each component.
 		z & 20 & -0.4952 & 0.0354 & 0.0048\\ \hline
 	\end{tabular}
 	\caption{The shot-noise limited time interval and associated fit parameters from the log-linear fit of the Allan deviation
-			in each component. \hl{Fix table width}}
+			in each component.}
 	\label{tab:prelab_allan_vals}
 \end{table}
 
@@ -1027,8 +1027,7 @@ that we used to determine the free spectral range. Fig. \ref{fig:res_peaks} show
 		6 & 1.900 \\ \hline
 		\textbf{Mean} & \textbf{$2.104 \pm 0.066$} \\ \hline
 	\end{tabular}
-	\caption{The conversion time determined from each sideband with the three resonant peaks obtained from Fig. \ref{fig:threeres_raw}.
-	\hl{Fix table width}}
+	\caption{The conversion time determined from each sideband with the three resonant peaks obtained from Fig. \ref{fig:threeres_raw}.}
 	\label{tab:mod_times}
 \end{table}
 
@@ -1059,7 +1058,7 @@ obtained free spectral range and cavity perimeter for each peak-to-peak differen
 		\textbf{Mean} & \textbf{$299.778 \pm 0.083$} & \textbf{$99.760 \pm 0.028$} \\ \hline
 	\end{tabular}
 	\caption{The free spectral range $\delta\nu_{\mathrm{FSR}}$ and the cavity perimeter $P$ obtained for each
-			peak-to-peak. The weighted average is also shown. \hl{Fix table width}}
+			peak-to-peak. The weighted average is also shown.}
 	\label{tab:fsr_peri}
 \end{table}
 
@@ -1242,7 +1241,24 @@ from influencing the beat frequency pattern.\par
 
 \chapter{Conclusion and Outlook}
 
-\chapter{Acknowledgements}
+In this experiment, we attempted to measure the rotation rate of the Earth using a ring laser gyroscope. A $\SI{1064}{\nano\meter}$ diode laser was 
+passed through a square cavity, constructed with four highly reflective mirrors. This allowed the laser to be divided into two counter-propagating beams. The cavity was placed on a rotating table, and the Sagnac frequency between the beams was measured. In order to quantify the performance of the gyroscope and the cavity system, we determined and investigated the free spectral range, PDH error signal, finesse and reflectivity of the cavity, and the Allan deviation. The scale factor between the Sagnac frequency and rotation rate was also measured. Each of these quantities were compared with their expected values.\par 
+
+To determine the free spectral range, the cavity resonance signal was obtained by connecting the output signal to an oscilloscope. The free spectral range was obtained by determining the peak-to-peak difference between the carrier signal, which was correspondingly obtained by converting the time to frequency axis via the modulation frequency of $\SI{10}{\mega\hertz}$. The cavity perimeter was also calculated based from the free spectral range. From this, we obtained a free spectral range of $299.778 \pm 0.083$ MHz and a cavity perimeter of $99.760 \pm 0.028$ cm, obtaining values that are on good agreement with the measured values.
+
+The PDH error signal was obtained by taking the error signal from the fast and slow PID controller. The combined signal was first filtered before obtaining a linear fit, obtaining $a = −1168 \pm 580$ $\si{\joules\per\second\squared}$, $b = 639.82 \pm 0.13$ mJ$s^{-1}$. We further saw that we cannot truly perform a linear fit of the error signal due to the oscillatory behavior of the signal.
+
+
+The ring down technique allows us to compute the reflectivity and the finesse of the cavity. The power loss in the cavity after the laser is switched off follows an exponential decay curve. Using analysis methods to fit a the curve, gives the corresponding parameters the decay constant, using which we can get the reflectivity and finesse. The average reflectivity was measured to be 0.999438 $\pm$ 4.503 $\cross 10^{-8}$, the ideal value being 1. The average finesse was measured to be 5587.0880 $\pm$ 0.142, with the ideal value approaching infinity. Since there is no way to compute the theoretical values for our equipment, we cannot quantify the deviation from a standard value. 
+
+The scale factor is measured by taking the slope of linear fit of between the Sagnac frequency and rotation rate of the table. In order to achieve this, we take several measurements at different rate of rotations. Since the cavity falls out of lock multiple times, these ``breaks" in the data need to be removed before taking the average. After taking the average, the Sagnac frequency and rotation rate were plotted against each other and a value of $941102.493 \pm 0.203$ was obtained. The theoretical value is 225563.909, which deviates from our value by 31.52\%. This deviation could be because of not being able to achieve a higher intensity lock. It could also be because the data obtained does not include whether the table was rotating CW or CCW, further affecting our analysis.
+
+The Allan deviation was determined by taking an extensive measurement of the Sagnac frequency with a slow rotation rate of the table. The Fourier spectrum of the resulting signal was taken, and this was passed through \texttt{allantools.oadev} to obtain the Allan deviation. The shot-noise time interval was shown to be $\tau_{\mathrm{sn}} = 10$s. We performed a log-linear fit and obtained a gyroscopic sensitivity that was relatively close to the theoretical value.
+
+The current setup can be improved in several ways so that it would be possible to measure of the rate of rotation of earth. With the current setup, in order to overcome the lock-in effect, the backscattering from the mirrors needs to be reduced. To do that, the set up can be completely sealed and additionally, can be sealed in vacuum. This should reduce the locking threshold. Further, we can introduce some forced dither, which is an intentional noise applied to randomize the quantization error, which can help overcome this problem. This is done by rotating the laser cavity clockwise and counter-clockwise about its axis at the resonance frequency. This method ensures that the angular velocity is not close to the lock-in threshold. But this does not fix the problem completely, as every time the direction of rotation is switched, for a brief moment, the rotation rate is almost zero, allowing for the lock-in effect to occur briefly. To fix this, noise can be introduced to the vibrations. 
+
+Further ways to improve the set up would be to make the base more stable, as it was still susceptible to disturbances from the surrounding, for example, the opening and closing of door. Furthermore, a larger ring would increase the effective perimeter and the area which would further reduce the locking threshold. 
+
 
 \printbibliography
 
