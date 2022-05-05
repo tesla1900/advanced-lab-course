@@ -1,0 +1,149 @@
+\documentclass[a4paper]{report}
+
+% \usepackage[utf8]{inputenc}
+% \usepackage[T1]{fontenc}
+% \usepackage{textcomp}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[separate-uncertainty=true, multi-part-units=single]{siunitx}
+\usepackage[]{subfig}
+\usepackage[colorlinks=true, anchorcolor=blue, linkcolor=blue, citecolor=blue, bookmarks=false,hyperfootnotes=false]{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{color,soul}
+\usepackage{tabularx}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{physics}
+\graphicspath{ {./figures/} }
+% \setlength{\parindent}{0pt}
+\usepackage{chngcntr}
+\usepackage{verbatim}
+\usepackage{indentfirst}
+\numberwithin{equation}{section}
+\counterwithin{figure}{section}
+\newcommand{\incfig}[1]{%
+		\def\svgwidth{\columnwidth}
+		\import{./figures/}{#1.pdf_tex}
+
+}
+
+\pdfsuppresswarningpagegroup=1
+
+% for citations / references
+\usepackage[style=ieee]{biblatex}
+\addbibresource{cavities-report.bib}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for horizontal lines, change thickness here
+	
+	\center % Centre everything on the page
+	%------------------------------------------------
+	%	Headings
+	%------------------------------------------------
+	
+	\textsc{\LARGE Rheinische Friedrich-Wilhelms-Universit\"at Bonn }\\[4cm] % Main heading such as the name of your university/college
+	
+	\textsc{\Large Advanced Laboratory Course}\\[0.5cm] % Major heading such as course name
+	
+	\textsc{\large Performed on: April 22, 2022}\\[0.5cm] % Minor heading such as course title
+
+	\textsc{\large Submitted on: May 13, 2022}\\[0.5cm] % Minor heading such as course title
+	
+	%------------------------------------------------
+	%	Title
+	%------------------------------------------------
+	
+	\HRule\\[0.4cm]
+	
+	{\huge\bfseries K221: M\:o{\ss}bauer Effect}\\[0.4cm] % Title of your document
+	
+	\HRule\\[1.5cm]
+	
+	%------------------------------------------------
+	%	Author(s)
+	%------------------------------------------------
+	
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft}
+			\large
+			\textit{Authors}\\
+			Paarth Thakkar \\
+			Keito Watanabe
+		\end{flushleft}
+	\end{minipage}
+	~
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushright}
+			\large
+			\textit{Tutor(s)}\\
+			Dr. Michael Switka
+		\end{flushright}
+	\end{minipage}
+
+	\vspace*{5em}
+
+	\begin{minipage}{0.8\textwidth}
+		\begin{centering}
+			% \large
+			\textbf{Abstract}\\[0.2cm]
+
+		\end{centering}
+	\end{minipage}
+	
+	% If you don't want a supervisor, uncomment the two lines below and comment the code above
+	%{\large\textit{Author}}\\
+	%John \textsc{Smith} % Your name
+	
+	%------------------------------------------------
+	%	Date
+	%------------------------------------------------
+	
+	%\vfill\vfill\vfill % Position the date 3/4 down the remaining page
+	% \vfill\vfill
+	
+	% {\large\today} % Date, change the \today to a set date if you want to be precise
+	
+	%------------------------------------------------
+	%	Logo
+	%------------------------------------------------
+	
+	%\vfill\vfill
+	%\includegraphics[width=0.2\textwidth]{placeholder.jpg}\\[1cm] % Include a department/university logo - this will require the graphicx package
+	 
+	%----------------------------------------------------------------------------------------
+	
+	% \vfill % Push the date up 1/4 of the remaining page
+	
+\end{titlepage}
+
+
+
+\tableofcontents
+
+\chapter{Introduction}
+
+
+\chapter{Theory}
+
+\chapter{Experimental Set-Up and Procedure}
+
+\chapter{Results and Discussion}
+
+\chapter{Conclusion and Outlook}
+
+\chapter{Acknowledgements}
+
+\chapter{Appendix}
+
+
+\end{document}
