@@ -132,8 +132,80 @@
 
 \chapter{Introduction}
 
+In this experiment, the phenomenon known as M\"o{\ss}bauer effect. is studied by means of transition spectroscopy. Using a $^{57}$Co source, this effect is observed and the hyperfine structure of 14.4 keV transition in $^{57}$Fe is measured. 
+
+From the M\"o{\ss}bauer spectrum of measured, we can see the isomeric shift and quadrupole and magnetic splitting of energy levels. Using this, one can determine the $g$-factor of the ground state and the first excited state can be determined. 
 
 \chapter{Theory}
+In the following section, we shall study the theoretical background of the M\"o{\ss}bauer effect in brief. A much more detailed discussion can be found in \cite{Schatz1996}, mostly on which the following section is based.
+
+\section{Principles} \label{sec:principles}
+
+Let's take two atoms. If one of the atom's nucleus emits a photon and goes from an excited to a ground state, one might assume that the other nucleus can absorb this photon because the excitation energy of both the nuclei is the same. But that is not the case, since energy is lost by the radiated photon because of the recoil of the nucleus, just like a gun recoils when a bullet is fired. In 1957, R. M\"o{\ss}bauer found that this energy reduction in the emitted photon can be reduced if the atom is part of the bigger crystalline structure. In such a situation, the recoil momentum is transferred to the crystal as a whole, which is much more massive than the atom itself and hence the recoil energy is negligible. The recoilless emission and absorption of $\gamma $-radiation by the nucleus of an atom is known as the M\"o{\ss}bauer effect \cite{Schatz1996}. This effect can be seen in Fig. \ref{fig:moess}.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{moessbauer-effect}
+    \caption{The recoilless emission and absorption of photon (M\"o{\ss}bauer effect).}
+    \label{fig:moess}
+\end{figure}
+
+\subsection{Natural Linewidth}
+The uncertainty in energy in the case of recoilless emission is limited by its natural linewidth. From the Heisenberg's uncertainty principle, we know that 
+
+\begin{equation}
+		\Delta E \Delta t = \hbar,
+\end{equation}
+where $\Delta E $ is the energy difference, $\Delta t$ is the time difference and $\hbar $ is the reduced Planck's constant. In our case, if we have a nuclear level with a mean lifetime of $\tau _{N}$, the energy uncertainty is given by
+
+\begin{equation}
+		\Gamma = \hbar / \tau _{N}.	
+\end{equation}
+
+The frequency spectrum given by this emitted $\gamma$-ray is given by a Lorentz distribution, 
+
+\begin{equation}
+		I (\omega) = \frac{I_{0}}{1 + [2 \hbar (\omega - \omega_{0})/\Gamma]^2}
+\end{equation}
+where $I(\omega)$ is the intensity of the radiation at frequency $\omega$. The distribution (Fig. \ref{fig:lorentz}) is centered at $\omega_{0}$ and has a halfwidth of $\Gamma / \hbar $. For $^{57}$Fe used in this experiment, $\Gamma = 4.7 \times 10^{-9}$. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{lorentz}
+    \caption{Intensity distribution of emitted $\gamma$-ray, centered at $\omega_{0}$ with a halfwidth of $1 / \tau _{N}$.}
+    \label{fig:lorentz}
+\end{figure}
+
+\subsection{Recoil and Doppler Shift}
+
+As discussed in Section \ref{sec:principles}, the recoil of the nucleus when emitting a $\gamma$-ray leads to a reduced energy. This can be written as
+
+\begin{equation}
+		E_{before} = E_{e} + \frac{p^2}{2M},
+\end{equation}
+where, $p$ is the momentum and $M$ is the mass of the nucleus. Energy after the emission can be written as
+
+\begin{equation}
+		E_{after} = E_{g} + \frac{(p - \hbar k)^2}{2M},
+\end{equation}
+where $\hbar k$ is the momentum of the emitted $\gamma$-ray. The energy difference is 
+
+\begin{equation}
+		E_{before} - E_{after} \equiv \hbar \omega = \hbar \omega_{0} + \hbar (k \cdot v) - \frac{\hbar ^2 k^2}{2M},
+\end{equation}
+where the term $\hbar (k \cdot v)$ is the Doppler effect, which is responsible for shift and broadening of the spectra. At room temperature, the Doppler shift for $^{57}$Fe is $\propto 10^{-2}$. The recoil energy \frac{\hbar ^2 k^2}{2M} is $2 \times 10^{-3}$ eV, both of which are orders of magnitude greater than the natural width. The absorption and emission frequency spectrum is shown in Fig. \ref{fig:doppler}.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{doppler}
+    \caption{Emission and absorption spectrum of a monoatomic gas in thermal equilibrium. Both the spectra are shifted by the recoil energy and have been broadened due to Maxwell velocity distribution.}
+    \label{fig:doppler}
+\end{figure}
+
+
+\subsection{Debye-Waller Factor}
+
+
 
 \chapter{Experimental Set-Up and Procedure}
 
@@ -205,6 +277,8 @@ We identified the 14.4 keV transition line as the third peak on Fig. .
 \chapter{Conclusion and Outlook}
 
 \chapter{Acknowledgements}
+We would like to take this moment and thank Dr. Barth, who was really helpful and patient with us. We were lucky to have him as our tutor. Next, we would like to thank...
+
 
 \printbibliography
 
