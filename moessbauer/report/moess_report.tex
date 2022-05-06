@@ -36,7 +36,7 @@
 
 % for citations / references
 \usepackage[style=ieee]{biblatex}
-\addbibresource{cavities-report.bib}
+\addbibresource{moess_report.bib}
 
 \begin{document}
 
@@ -65,7 +65,7 @@
 	
 	\HRule\\[0.4cm]
 	
-	{\huge\bfseries K221: M\:o{\ss}bauer Effect}\\[0.4cm] % Title of your document
+	{\huge\bfseries K221: M{\"{o}}{\ss}bauer Effect}\\[0.4cm] % Title of your document
 	
 	\HRule\\[1.5cm]
 	
@@ -86,7 +86,7 @@
 		\begin{flushright}
 			\large
 			\textit{Tutor(s)}\\
-			Dr. Michael Switka
+			Dr. Jens Barth
 		\end{flushright}
 	\end{minipage}
 
@@ -137,11 +137,76 @@
 
 \chapter{Experimental Set-Up and Procedure}
 
+\section{Experimental Set-Up}
+
+To measure the Moessbauer spectrum, we placed a Co-57 radioactive source onto a table with a moving absorber 
+that has a maximum displacement of $\SI[]{25.1 \pm 0.2}[]{\milli\metre}$.  A photodetector is placed 
+behind the absorber that detects the number of photons that are not absorbed via this process. The speed of the 
+absorber is controlled by a motor that uses the voltage as an input. See Fig. \ref{apparatus_source}
+for the Moessbauer source apparatus. \par 
+
+\begin{figure*}[htb!]
+	\centering
+	\includegraphics[width=0.7\columnwidth]{source_image.png}
+
+	\caption{The set-up of the Moessbauer source. \textit{Left}: The Co-57 source. \textit{Middle}: 
+	The moving absorber. \textit{Right}: The photodetector which is connected to the detector apparatus.
+	}
+	\label{fig:apparatus_source}
+\end{figure*}
+
+The photodetector is then connected to a single channel analyzer (SCA), which determines the number of counts detected
+in a given time range and maximal and minimal width to observe the counts. The SCA has 2 main parameters that should be modified:
+the Upper Level Discrimator (ULD) and the Lower Level Discrimator (LLD), which controls the binsize and the lower limit for 
+photodetection respectively. The modes of the ULD can be set to measure with a higher resolution by detecting counts with 
+10 $\%$ of the binsize. The SCA was then connected to a display in which the number of counts obtained in a specific time 
+interval was shown. 
+The photodetecting apparatus consisted of two such setups to consider for measurements with positive and negative velocity 
+of the absorber as the offset voltage between the two can allow the measurements in the LR and RL direction to differ.
+ A separate run counter that tracks the number of turns that the absorber had is also contained in the apparatus. A timer 
+ that controls the time interval of measurement is also placed which is used for the calibration process.
+See Fig. \ref{fig:apparatus_raw} for the apparatus used for the photodetection as well as the schematic of the apparatus. \par 
+
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[]{{\includegraphics[width=0.45\columnwidth]{apparatus_image.png}}}
+	\quad
+	\centering
+	\subfloat[]{{\includegraphics[width=0.45\columnwidth]{apparatus_schematic.png}}}
+	\caption{(a) The photodetector apparatus used in this experiment. (b) The schematic of the apparatus. Obtained from 
+			Ref. \cite{k2212016}.}
+	\label{fig:apparatus_raw}
+\end{figure*}
+
+\section{Procedure}
+
+\subsection{Calibration of SCA}
+
+Before we took any measurements, we determined the optimal values for the LLD in order to ensure that we are 
+detecting counts from the 14.4 keV transition. In order to do so, we modified the LLD from 0 to 4 and determined the number 
+of counts obtained at each value. The ULD and time interval was fixed to be 10 for all measurements. Once the data was obtained, 
+we plotted the count rate $N / T$ against the LLD values and compared our results to the Fe-57 $\gamma$-spectrum as seen in Fig. \hl{add reference here}.
+Fig. \ref{fig:calib_plot} shows the obtained spectrum from our experiment.
+
+% \begin{figure*}[htb!]
+% 	\centering
+% 	\includegraphics[width=0.7\columnwidth]{source_image.png}
+
+% 	\caption{The set-up of the Moessbauer source. \textit{Left}: The Co-57 source. \textit{Middle}: 
+% 	The moving absorber. \textit{Right}: The photodetector which is connected to the detector apparatus.
+% 	}
+% 	\label{fig:calib_plot}
+% \end{figure*}
+
+We identified the 14.4 keV transition line as the third peak on Fig. . 
+
 \chapter{Results and Discussion}
 
 \chapter{Conclusion and Outlook}
 
 \chapter{Acknowledgements}
+
+\printbibliography
 
 \chapter{Appendix}
 
