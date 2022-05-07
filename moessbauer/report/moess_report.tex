@@ -259,21 +259,19 @@ detecting counts from the 14.4 keV transition. In order to do so, we modified th
 of counts obtained at each value for a fixed time interval for $T = \SI{10}{\second}$. Once the data was obtained, 
 we plotted the number of detected photons $N$ against the LLD values and compared our results to the Fe-57 $\gamma$-spectrum as seen in Fig. \hl{add reference here}.
 This allowed us to identify the range in which we should set the ULD and LLD values when performing the Moessbauer measurements. 
- Fig. \ref{fig:calib_plot} shows the obtained spectrum from our experiment. See the Appendix section for the full data obtained from this 
+ Fig. \ref{fig:calibration_plot} shows the obtained spectrum from our experiment. See the Appendix section for the full data obtained from this 
  section. The uncertainty for the counts were taken to be purely statistical such that $\delta N = \sqrt{N}$, and the uncertainty 
  of the time interval measurement was taken to be $\delta T = \pm \SI{0.003}{\second}$. \par
 
 \begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.7\columnwidth]{calib_plot.png}
-
 	\caption{The pulse height spectrum for Fe-57 decay observed in the experiment. The number of counts are shown for varying 
-	LLD values.
-	}
-	\label{fig:calib_plot}
+	LLD values.}
+	\label{fig:calibration_plot}
 \end{figure*}
 
-By comparison to expected results, we identified the 14.4 keV transition line as the third peak on Fig. \label{fig:calib_plot}. 
+By comparison to expected results, we identified the 14.4 keV transition line as the third peak on Fig. \ref{fig:calibration_plot}. 
 The ULD and LLD values that were used to perform the Moessbauer measurement was then set to be 1.8 and 2.6 respectively. \par 
 
 % add something about how we used fit to get the true values for the LLD values (if we do)?
@@ -313,18 +311,42 @@ as in Chapter \ref{sec:calibration}:
 To determine the peaks, we first filtered out the outliers from the data, then combined the LR and RL measurements to construct 
 the full Moessbauer spectrum. We then performed a non-linear fit to the multi-Lorentzian distribution, i.e. the sum of Lorentzian
 distributions, to determine the peak velocity $v_0$, peak amplitude $I_0$, and uncertainty $\Gamma_v$ for each observed peak. The 
-offset $\delta_v$ from a full symmetric distribution was also determined through this fitting process. This was done using the built-in
-function \texttt{scipy.optimize.curve\_fit} that utilizes the least-squares method. Fig. \ref{fig:moess_spect} shows the full Moessbauer
-spectrum with the obtained Lorentzian fit. Table  shows the obtained fit parameters from the analysis. \par 
+offset $\delta_v$ from a full symmetric distribution was also determined through this fitting process. This was done using the Python package \texttt{lmfit} that utilizes the Levenberg-Marquardt method. Fig. \ref{fig:moess_spect} shows the full Moessbauer
+spectrum with the obtained Lorentzian fit. Table \ref{tab:fit_params} shows the obtained fit parameters from the analysis for each peak.
+The offset was determined to be $\delta_v = \SI{3.131 \pm 0.020}{\milli\meter\per\second} $. \par 
 
 
 \begin{figure*}[htb!]
 	\centering
-	\includegraphics[width=0.7\columnwidth]{moess_spect.png}
+	\includegraphics[width=0.8\columnwidth]{moess_spect.png}
 	\caption{The observed Moessbauer spectrum for Fe-57 through the 14.4 keV transition for varying absorber velocities. The 
 	non-linear Lorentzian fit is also shown.}
 	\label{fig:moess_spect}
 \end{figure*}
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+        Peak & $v_0$ [$\si[]{\milli\meter\per\second}$] & $I_0$  & $\Gamma_v$ [$\si[]{\milli\meter\per\second}$] & $\delta_v - I_0$\\ \hline
+        1 &$ -6.710 \pm 0.010$ & $0.731 \pm 0.037$ & $ 0.346 \pm 0.033$ & $2.400 \pm 0.042$\\ \hline
+        2 &$ -5.337 \pm 0.025 $ & $0.479 \pm 0.034$ & $ 0.630 \pm 0.090$ & $2.653 \pm 0.040$\\ \hline
+        3 &$ -3.172 \pm 0.013 $ & $0.478 \pm 0.026$ & $ 0.496 \pm 0.053$ & $2.654 \pm 0.033$\\ \hline
+        4 &$ -0.963 \pm 0.073 $ & $0.209 \pm 0.033$ & $ 1.21 \pm 0.50$ & $2.923 \pm 0.039$\\ \hline
+        5 &$ 0.778 \pm 0.019 $ & $0.303\pm 0.067$ & $ 0.39\pm 0.12$ & $2.829 \pm 0.070$\\ \hline
+        6 &$ 2.956\pm 0.012 $ & $0.461 \pm 0.024$ & $ 0.529 \pm 0.051$ & $2.670 \pm 0.031$\\ \hline
+        7 &$ 5.125 \pm 0.023 $ & $0.477 \pm 0.033$ & $ 0.610 \pm 0.085$ & $2.654 \pm 0.039$\\ \hline
+        8 &$ 6.3430 \pm 0.0091 $ & $0.754 \pm 0.034$ & $ 0.3042 \pm 0.027$ & $2.378 \pm 0.040$\\ \hline
+    \end{tabular}
+	\caption{Fit parameters $v_0$, $I_0$, and $\Gamma_v$ obtained for each peak. The peak values $\delta_v - I_0$ 
+			as shown in Fig. \ref{fig:moess_spect} is also presented.
+			 The peak is numbered from the left most peak to the rightmost peak.}
+	\label{tab:fit_params}
+\end{table}
+
+
+
+
 
 \section{Discussion}
 
@@ -338,6 +360,8 @@ We would like to take this moment and thank Dr. Barth, who was really helpful an
 \printbibliography
 
 \chapter{Appendix} \label{sec:Appendix}
+
+% add moessbauer spectrum with initial guess and with fit for each Lorentzian peak
 
 
 \end{document}
