@@ -207,9 +207,7 @@ where the term $\hbar (k \cdot v)$ is the Doppler effect, which is responsible f
 
 
 
-\chapter{Experimental Set-Up and Procedure}
-
-\section{Experimental Set-Up}
+\chapter{Experimental Set-Up}
 
 To measure the Moessbauer spectrum, we placed a Co-57 radioactive source onto a table with a moving absorber 
 that has a maximum displacement of $\SI[]{25.1 \pm 0.2}[]{\milli\metre}$.  A photodetector is placed 
@@ -235,8 +233,9 @@ photodetection respectively. The modes of the ULD can be set to measure with a h
 interval was shown. 
 The photodetecting apparatus consisted of two such setups to consider for measurements with positive and negative velocity 
 of the absorber as the offset voltage between the two can allow the measurements in the LR and RL direction to differ.
- A separate run counter that tracks the number of turns that the absorber had is also contained in the apparatus. A timer 
- that controls the time interval of measurement is also placed which is used for the calibration process.
+A separate run counter that tracks the number of turns that the absorber had is also contained in the apparatus. A timer 
+that controls the time interval of measurement is also placed which is used for the calibration process. The set-up is 
+constructed in a way such that the count and time measurements terminate only after the absorber had performed a full turn. 
 See Fig. \ref{fig:apparatus_raw} for the apparatus used for the photodetection as well as the schematic of the apparatus. \par 
 
 \begin{figure*}[htb!]
@@ -250,29 +249,60 @@ See Fig. \ref{fig:apparatus_raw} for the apparatus used for the photodetection a
 	\label{fig:apparatus_raw}
 \end{figure*}
 
-\section{Procedure}
+% \section{Procedure}
 
-\subsection{Calibration of SCA}
+% \subsection{Calibration of SCA}
+\chapter{Calibration} \label{sec:calibration}
 
 Before we took any measurements, we determined the optimal values for the LLD in order to ensure that we are 
 detecting counts from the 14.4 keV transition. In order to do so, we modified the LLD from 0 to 4 and determined the number 
-of counts obtained at each value. The ULD and time interval was fixed to be 10 for all measurements. Once the data was obtained, 
-we plotted the count rate $N / T$ against the LLD values and compared our results to the Fe-57 $\gamma$-spectrum as seen in Fig. \hl{add reference here}.
-Fig. \ref{fig:calib_plot} shows the obtained spectrum from our experiment.
+of counts obtained at each value for a fixed time interval for $T = \SI{10}{\second}$. Once the data was obtained, 
+we plotted the number of detected photons $N$ against the LLD values and compared our results to the Fe-57 $\gamma$-spectrum as seen in Fig. \hl{add reference here}.
+This allowed us to identify the range in which we should set the ULD and LLD values when performing the Moessbauer measurements. 
+ Fig. \ref{fig:calib_plot} shows the obtained spectrum from our experiment. The uncertainty in our measurement was purely statistical so
+ that $\delta N = \sqrt{N}$. The uncertainty in the duration from the time counter was also identified to be $\delta T = \pm \SI{0.003}{\seconds}$.
+
+\begin{figure*}[htb!]
+	\centering
+	\includegraphics[width=0.7\columnwidth]{calib_plot.png}
+
+	\caption{The pulse height spectrum for Fe-57 decay observed in the experiment. The number of counts are shown for varying 
+	LLD values.
+	}
+	\label{fig:calib_plot}
+\end{figure*}
+
+By comparison to expected results, we identified the 14.4 keV transition line as the third peak on Fig. \label{fig:calib_plot}. 
+The ULD and LLD values that were used to perform the Moessbauer measurement was then set to be 1.8 and 2.6 respectively. \par 
+
+% add something about how we used fit to get the true values for the LLD values (if we do)?
+
+% \chapter{Results and Discussion}
+
+\chapter{Moessbauer Spectrum}
+
+\section{Procedure}
+
+To observe the Moessbauer spectrum, we first set the ULD and LLD to 1.8 and 2.6 respectively as obtained from Sec. \ref{sec:calibration}. 
+Once a certain motor speed has been set, we ran both LR and RL single channel analyzer for a set number of turns, ranging from 4 to 10
+turns. We then recorded the obtained number of counts and duration for both LR and RL analyzers. This was repeated until we obtained 
+enough points to more accurately construct the Moessbauer peaks. This was verified by using the built-in plotting tool in \texttt{Numbers}, 
+plotting the count rate $N / T$ against the motor speed. We took a total of 60 measurements in this experiment, ranging for 
+motor speeds from 0 to 2.06. Fig. shows the raw data obtained from both analyzers. See Sec. \ref{sec:Appendix} for the raw data table obtained from both analyzers. \par 
 
 % \begin{figure*}[htb!]
 % 	\centering
-% 	\includegraphics[width=0.7\columnwidth]{source_image.png}
+% 	\includegraphics[width=0.7\columnwidth]{calib_plot.png}
 
-% 	\caption{The set-up of the Moessbauer source. \textit{Left}: The Co-57 source. \textit{Middle}: 
-% 	The moving absorber. \textit{Right}: The photodetector which is connected to the detector apparatus.
+% 	\caption{The pulse height spectrum for Fe-57 decay observed in the experiment. The number of counts are shown for varying 
+% 	LLD values.
 % 	}
 % 	\label{fig:calib_plot}
 % \end{figure*}
 
-We identified the 14.4 keV transition line as the third peak on Fig. . 
 
-\chapter{Results and Discussion}
+After removing the outliers, we combined the LR and RL data to obtain the spectrum for the full range of velocities. The spectrum 
+was then fit to the sum of Lorentzian functions to determine the values of each peak, as well as the amplitude. 
 
 \chapter{Conclusion and Outlook}
 
@@ -282,7 +312,7 @@ We would like to take this moment and thank Dr. Barth, who was really helpful an
 
 \printbibliography
 
-\chapter{Appendix}
+\chapter{Appendix} \label{sec:Appendix}
 
 
 \end{document}
