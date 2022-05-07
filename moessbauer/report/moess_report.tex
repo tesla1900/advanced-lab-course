@@ -193,7 +193,7 @@ where $\hbar k$ is the momentum of the emitted $\gamma$-ray. The energy differen
 \begin{equation}
 		E_{before} - E_{after} \equiv \hbar \omega = \hbar \omega_{0} + \hbar (k \cdot v) - \frac{\hbar ^2 k^2}{2M},
 \end{equation}
-where the term $\hbar (k \cdot v)$ is the Doppler effect, which is responsible for shift and broadening of the spectra. At room temperature, the Doppler shift for $^{57}$Fe is $\propto 10^{-2}$. The recoil energy \frac{\hbar ^2 k^2}{2M} is $2 \times 10^{-3}$ eV, both of which are orders of magnitude greater than the natural width. The absorption and emission frequency spectrum is shown in Fig. \ref{fig:doppler}.
+where the term $\hbar (k \cdot v)$ is the Doppler effect, which is responsible for shift and broadening of the spectra. At room temperature, the Doppler shift for $^{57}$Fe is $\propto 10^{-2}$. The recoil energy $\frac{\hbar ^2 k^2}{2M}$ is $2 \times 10^{-3}$ eV, both of which are orders of magnitude greater than the natural width. The absorption and emission frequency spectrum is shown in Fig. \ref{fig:doppler}.
 
 \begin{figure}[htpb]
     \centering
@@ -212,7 +212,7 @@ where the term $\hbar (k \cdot v)$ is the Doppler effect, which is responsible f
 To measure the Moessbauer spectrum, we placed a Co-57 radioactive source onto a table with a moving absorber 
 that has a maximum displacement of $\SI[]{25.1 \pm 0.2}[]{\milli\metre}$.  A photodetector is placed 
 behind the absorber that detects the number of photons that are not absorbed via this process. The speed of the 
-absorber is controlled by a motor that uses the voltage as an input. See Fig. \ref{apparatus_source}
+absorber is controlled by a motor that swings the absorber at a fixed velocity. See Fig. \ref{apparatus_source}
 for the Moessbauer source apparatus. \par 
 
 \begin{figure*}[htb!]
@@ -259,8 +259,9 @@ detecting counts from the 14.4 keV transition. In order to do so, we modified th
 of counts obtained at each value for a fixed time interval for $T = \SI{10}{\second}$. Once the data was obtained, 
 we plotted the number of detected photons $N$ against the LLD values and compared our results to the Fe-57 $\gamma$-spectrum as seen in Fig. \hl{add reference here}.
 This allowed us to identify the range in which we should set the ULD and LLD values when performing the Moessbauer measurements. 
- Fig. \ref{fig:calib_plot} shows the obtained spectrum from our experiment. The uncertainty in our measurement was purely statistical so
- that $\delta N = \sqrt{N}$. The uncertainty in the duration from the time counter was also identified to be $\delta T = \pm \SI{0.003}{\seconds}$.
+ Fig. \ref{fig:calib_plot} shows the obtained spectrum from our experiment. See the Appendix section for the full data obtained from this 
+ section. The uncertainty for the counts were taken to be purely statistical such that $\delta N = \sqrt{N}$, and the uncertainty 
+ of the time interval measurement was taken to be $\delta T = \pm \SI{0.003}{\second}$. \par
 
 \begin{figure*}[htb!]
 	\centering
@@ -281,28 +282,52 @@ The ULD and LLD values that were used to perform the Moessbauer measurement was 
 
 \chapter{Moessbauer Spectrum}
 
-\section{Procedure}
+\section{Procedure and Results}
 
-To observe the Moessbauer spectrum, we first set the ULD and LLD to 1.8 and 2.6 respectively as obtained from Sec. \ref{sec:calibration}. 
+To observe the Moessbauer spectrum, we first set the ULD and LLD to 1.8 and 2.6 respectively as obtained from Chapter \ref{sec:calibration}. 
 Once a certain motor speed has been set, we ran both LR and RL single channel analyzer for a set number of turns, ranging from 4 to 10
 turns. We then recorded the obtained number of counts and duration for both LR and RL analyzers. This was repeated until we obtained 
-enough points to more accurately construct the Moessbauer peaks. This was verified by using the built-in plotting tool in \texttt{Numbers}, 
-plotting the count rate $N / T$ against the motor speed. We took a total of 60 measurements in this experiment, ranging for 
-motor speeds from 0 to 2.06. Fig. shows the raw data obtained from both analyzers. See Sec. \ref{sec:Appendix} for the raw data table obtained from both analyzers. \par 
+enough points to more accurately construct the Moessbauer peaks. This was verified by using the built-in plotting tool in Excel where we 
+displayed the plot between the count rate $R = N / T$ against the motor speed. We took a total of 60 measurements in this experiment, ranging for 
+motor speeds from 0 to 2.5. Fig. \ref{moess_raw} shows the raw data obtained from both analyzers. See Appendix (Chapter \ref{sec:Appendix}) for the raw data table obtained from both analyzers. \par 
 
-% \begin{figure*}[htb!]
-% 	\centering
-% 	\includegraphics[width=0.7\columnwidth]{calib_plot.png}
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[]{{\includegraphics[width=0.45\columnwidth]{raw_moess_LR.png}}}
+	\quad
+	\centering
+	\subfloat[]{{\includegraphics[width=0.45\columnwidth]{raw_moess_RL.png}}}
+	\caption{The Raw Spectrum obtained from the Moessbauer measurement for the 14.4 keV transition for Fe-57 from the (a) LR and (b) RL 
+	single channel analyzer. Several outliers can be observed.}
+	\label{fig:moess_raw}
+\end{figure*}
 
-% 	\caption{The pulse height spectrum for Fe-57 decay observed in the experiment. The number of counts are shown for varying 
-% 	LLD values.
-% 	}
-% 	\label{fig:calib_plot}
-% \end{figure*}
+
+The uncertainty of the count rate was calculated using the standard Gaussian error propagation formula using $\delta N$, $\delta T$ 
+as in Chapter \ref{sec:calibration}:
+\begin{equation}
+	\delta R = R \sqrt{\left(\frac{\delta N}{N}\right)^2 + \left(\frac{\delta T}{T}\right)^2} = R \sqrt{\left(\frac{\sqrt{N}}{N}\right)^2 + \left(\frac{\delta T}{T}\right)^2} .
+\end{equation} \par 
 
 
-After removing the outliers, we combined the LR and RL data to obtain the spectrum for the full range of velocities. The spectrum 
-was then fit to the sum of Lorentzian functions to determine the values of each peak, as well as the amplitude. 
+To determine the peaks, we first filtered out the outliers from the data, then combined the LR and RL measurements to construct 
+the full Moessbauer spectrum. We then performed a non-linear fit to the multi-Lorentzian distribution, i.e. the sum of Lorentzian
+distributions, to determine the peak velocity $v_0$, peak amplitude $I_0$, and uncertainty $\Gamma_v$ for each observed peak. The 
+offset $\delta_v$ from a full symmetric distribution was also determined through this fitting process. This was done using the built-in
+function \texttt{scipy.optimize.curve\_fit} that utilizes the least-squares method. Fig. \ref{fig:moess_spect} shows the full Moessbauer
+spectrum with the obtained Lorentzian fit. Table  shows the obtained fit parameters from the analysis. \par 
+
+
+\begin{figure*}[htb!]
+	\centering
+	\includegraphics[width=0.7\columnwidth]{calib_plot.png}
+	\caption{The observed Moessbauer spectrum for Fe-57 through the 14.4 keV transition for varying absorber velocities. The 
+	non-linear Lorentzian fit is also shown.}
+	\label{fig:moess_spect}
+\end{figure*}
+
+\section{Discussion}
+
 
 \chapter{Conclusion and Outlook}
 
