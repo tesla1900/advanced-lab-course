@@ -355,7 +355,7 @@ The ULD and LLD values that were used to perform the Moessbauer measurement was 
 
 \chapter{Moessbauer Spectrum}
 
-\section{Procedure and Results}
+\section{Spectrum}
 
 To observe the Moessbauer spectrum, we first set the ULD and LLD to 1.8 and 2.6 respectively as obtained from Chapter \ref{sec:calibration}. 
 Once a certain motor speed has been set, we ran both LR and RL single channel analyzer for a set number of turns, ranging from 4 to 10
@@ -386,9 +386,16 @@ as in Chapter \ref{sec:calibration}:
 To determine the peaks, we first filtered out the outliers from the data, then combined the LR and RL measurements to construct 
 the full Moessbauer spectrum. We then performed a non-linear fit to the multi-Lorentzian distribution, i.e. the sum of Lorentzian
 distributions, to determine the peak velocity $v_0$, peak amplitude $I_0$, and uncertainty $\Gamma_v$ for each observed peak. The 
-offset $\delta_v$ from a full symmetric distribution was also determined through this fitting process. This was done using the Python package \texttt{lmfit} that utilizes the Levenberg-Marquardt method. Fig. \ref{fig:moess_spect} shows the full Moessbauer
-spectrum with the obtained Lorentzian fit. Table \ref{tab:fit_params} shows the obtained fit parameters from the analysis for each peak.
-The offset was determined to be $\delta_v = \SI{3.131 \pm 0.020}{\milli\meter\per\second} $. \par 
+offset $\delta_v$ from a full symmetric distribution was also determined through this fitting process. The equation used to fit
+is shown as such:
+\begin{equation}
+    I_{tot}(v, v_{0_i}, I_{0_i}, \Gamma_{v_i}, \delta_v) = \delta_v + \sum \limits_{i}^{N_{\mathrm{peaks}}} - I_{0_i} \frac{(\Gamma_{v_i} / 2)^2}{(v - v_{0_i})^2 + (\Gamma_{v_i} / 2)^2}
+    \label{eq:multi_lorentzian}
+\end{equation}
+The fitting procedure was implemented using the Python package \texttt{lmfit} which utilizes the Levenberg-Marquardt method. 
+Fig. \ref{fig:moess_spect} shows the full Moessbauer spectrum with the obtained Lorentzian fit, and Table \ref{tab:fit_params} shows the obtained fit parameters from the analysis for each peak.
+The offset was determined to be $\delta_v = \SI{3.131 \pm 0.020}{\milli\meter\per\second} $. The uncertanties were obtained from the 
+covariance matrix evaluated through the fitting procedure. \par 
 
 
 \begin{figure*}[htb!]
@@ -419,12 +426,24 @@ The offset was determined to be $\delta_v = \SI{3.131 \pm 0.020}{\milli\meter\pe
 	\label{tab:fit_params}
 \end{table}
 
+% From Fig. \ref{fig:moess_spect}, we observe eight prominent peaks. The six sharp peaks observe can be identified as the 
+% spectrum due to the hyperfine splitting of the Fe-57 atom through the 14.4 keV transition. This can be said as the nearest
+% two peaks have lower peak amplitudes compared to the other observed peaks with a difference of $\sim 0.15$ compared to its
+% closest peaks. Their linewidth is also much larger than the rest, where the 4th peaks has a linewidth greater than 1. 
+% These unphysical peaks may have been caused by the temperature fluctuations and instrumentation error associated with the 
+% equipment. \par 
+
+To compare the obtained peaks to the analytical results from the hyperfine splitting of the Fe-57 nucleus through the 14.4 keV
+transition, we convert the fit parameters described in the absorber velocity into the transition energy $E_\gamma$ using the 
+equation describing the Doppler shift of the ground state energy: 
+\begin{equation}
+    E = E_0 (1 + \frac{v}{c}) \implies E_\gamma = \Delta E = E_0\frac{v}{c}
+\end{equation}
+where $E_0$ is the expected ground state energy $E_0 = \SI{14.4}{\kilo\electronvolt}$. Table shows the energy value $E_{0_i}$ and its 
+linewidth $\Gamma_i$ for each observed peak. 
 
 
-
-
-\section{Discussion}
-
+% next objective: to add isomer shift and determine g factor
 
 \chapter{Conclusion and Outlook}
 
