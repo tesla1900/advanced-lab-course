@@ -433,13 +433,27 @@ covariance matrix evaluated through the fitting procedure. \par
 % These unphysical peaks may have been caused by the temperature fluctuations and instrumentation error associated with the 
 % equipment. \par 
 
+From Fig. \ref{fig:moess_spect}, we observe a total of eight peaks, contrary to the 
+six peaks that are expected from the hyperfine splitting of the Fe-57 spectrum. After calculating for the isomer shift and 
+g-factors in the following sections, we observed that the first and last peaks were outliers that may have not have been a result of  
+ the 14.4 keV transition of Fe-57. 
+A possible explanation of the additional peaks is due to the oxidation of the absorber. As the instrument may be relatively old,
+the iron may have oxidized, creating impurities within the absorber. The oxidation of the iron will have caused some of the iron
+to iron(III) oxide, containing Fe$_2$O$_3$, FeO, and Fe$_3$O$_4$. When performing Moessbauer spectroscopy onto such molecules, 
+one observes finer splitting at absorber velocities of around $6-8\si[]{\milli\metre\per\second}$, which is what we also 
+observe from Fig. \ref{fig:moess_spect} \cite{Winsett2019}. In the following sections, we will omit the parameters obtained from 
+the first and last peaks. \par 
+
+\section{Natural Linewidth}
+
 To compare the obtained peaks to the analytical results from the hyperfine splitting of the Fe-57 nucleus through the 14.4 keV
 transition, we convert the fit parameters described in the absorber velocity into the transition energy $E_\gamma$ using the 
 equation describing the Doppler shift of the ground state energy: 
 \begin{equation}
     E = E_0 \left(1 + \frac{v}{c}\right) \implies \Delta E = E_\gamma = E_0\frac{v}{c}
 \end{equation}
-where $E_0$ is the expected ground state energy $E_0 = \SI{14.4}{\kilo\electronvolt}$. Table \ref{tab:energy_params} shows the energy value $\Delta E$ and its 
+where $E_0$ is the expected ground state energy $E_0 = \SI{14.4}{\kilo\electronvolt}$. The linewidths were converted in a similar 
+fashion. Table \ref{tab:energy_params} shows the energy value $\Delta E$ and its 
 linewidth $\Gamma$ for each observed peak. 
 
 \begin{table}[!ht]
@@ -447,24 +461,23 @@ linewidth $\Gamma$ for each observed peak.
     \begin{tabular}{|c|c|c|}
     \hline  
         Peak & $\Delta E$ [$\SI{1e-7}{\electronvolt}$] & $\Gamma$ [$\SI{1e-9}{\electronvolt}$] \\ \hline
-        1 &$-3.2223 \pm 0.0046$ & $16.9 \pm 1.6$ \\ \hline
-        2 &$-2.561 \pm 0.012$ &   $32.7 \pm 4.6$ \\ \hline
-        3 &$-1.5238 \pm 0.0079$ &   $25.8 \pm 3.1$ \\ \hline
-        4 &$-0.453 \pm 0.069$ &   $73 \pm 36 $ \\ \hline
-        5 &$ 0.372 \pm 0.015$ &   $20.4 \pm 9.8$ \\ \hline
-        6 &$ 1.4201 \pm 0.0073$ & $28.0 \pm 3.0$ \\ \hline
-        7 &$ 2.460 \pm 0.012$ &   $32.3 \pm 4.5$ \\ \hline
-        8 &$ 3.0456 \pm 0.0043$ & $15.1 \pm 1.3$ \\ \hline
+        1 &$-3.2223 \pm 0.0046$ & $8.4 \pm 0.8 $\\ \hline
+        2 &$-2.561 \pm 0.012$ &   $16.3 \pm 2.3$ \\ \hline
+        3 &$-1.5238 \pm 0.0079$ & $12.9 \pm 1.5$ \\ \hline
+        4 &$-0.453 \pm 0.069$ &   $36 \pm 18 $ \\ \hline
+        5 &$ 0.372 \pm 0.015$ &   $10.2 \pm 4.9$ \\ \hline
+        6 &$ 1.4201 \pm 0.0073$ & $14.0 \pm 1.5$ \\ \hline
+        7 &$ 2.460 \pm 0.012$ &   $16.1 \pm 2.2$ \\ \hline
+        8 &$ 3.0456 \pm 0.0043$ & $7.5 \pm 0.6 $\\ \hline
     \end{tabular}
     \caption{The energy values at the peaks $\Delta E$ and the linewidths $\Gamma$ obtained for each peak. The peaks are 
     labelled as given in Table \ref{tab:fit_params}.}
 \label{tab:energy_params}
 \end{table}
 
-From Fig. \ref{fig:moess_spect}, we observe a total of eight peaks, contrary to the 
-six peaks that are expected from the hyperfine splitting of the Fe-57 spectrum.
-A possible explanation of the additional peaks is due to the oxidation of the 
-
+From Table \ref{tab:energy_params}, we obtained an average linewidth of $\Gamma_{\mathrm{avg}} = \SI{35.5 \pm 6.5}{\electronvolt}$. 
+Comparing this to the natural linewidth of the 14.4 keV transition of $\Gamma_0 =$, we observe that the linewidths we obtained are an 
+order of magnitude larger. A possible cause for this may be due to the Doppler broadening that is caused by temperature fluctuations
 
 % next objective: to add isomer shift and determine g factor
 
