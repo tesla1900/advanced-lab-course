@@ -266,7 +266,7 @@ There are several possible sources for studying the M\"o{\ss}bauer effect, many 
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.8\textwidth]{source}
+    \includegraphics[width=0.7\textwidth]{source}
     \caption{Decay scheme of $^{57}$Co. The decay occurs largely (99.8\%) due to Electron Capture (EC). The nuclear moments of M\"o{\ss}bauer level (I = 3/2) and ground level (I = 1/2) are shown here.}
     \label{fig:decay}
 \end{figure}	
@@ -326,8 +326,62 @@ where $v_{res}$ is the isomer shift. By convention, this value is positive when 
 
 \section{Electric Quadrupole Interaction}
 
+Electric quadrupole interaction occurs in the presence of electric field gradient, which leads to non-spherical nucleus when the nuclear spin I $\geq$ 1. In this case the degeneracy of the $m$ sublevels is lifted and we get a splitting of energy levels. As can be seen in Fig. \ref{fig:quadrupole}, the energy level splitting does not depend on the sign of $m$, $m = \pm 3 / 2$ are indistinguishable.    
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{quadrupole}
+    \caption{Quadrupole splitting of I = 3/2 and the corresponding M\"o{\ss}bauer spectrum \cite{Kuzmann2011}.}
+    \label{fig:quadrupole}
+\end{figure}
+
+The energy separation that can be seen Fig. \ref{fig:quadrupole}, is given by
+
+\begin{equation}
+		\Delta E = 6 \hbar \omega _{Q} = \hbar \omega _{0} \frac{\Delta v}{c},
+\end{equation}
+where $\Delta v$ is the separation in between two lines in velocity spectrum, it is given by
+
+\begin{equation}
+		\Delta v = \frac{eQV_{zz}c}{2 \hbar \omega _{0}}.
+\end{equation}
+
+In the case of powder sample of $^{57}$Fe, we get equal amplitude of M\"o{\ss}bauer lines. This is because the electric field gradient are distributed statistically, which leads to the $\gamma$-rays being emitted isotropically. 
+
 \section{Magnetic Dipole Interaction}
 
+Magnetic dipole interaction leads to further splitting in the energy levels of the sublevels. This is a result of magnetic interaction ($- \mu \cdot B$) splitting the magnetic sublevels equally, consequently splitting the energy levels of the emitted $\gamma$ radiation. Fig. \ref{fig:dipole} shows the magnetic splitting for $^{57}$Fe. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{dipole}
+    \caption{The magnetic splitting of energy levels and the corresponding M\"o{\ss}bauer spectrum of $^{57}$Fe \cite{Kuzmann2011}.}
+    \label{fig:dipole}
+\end{figure}
+
+Experimentally, only six lines are transitions are observed and therefore we can conclude that this follows the m1 selection rules, according to which no m cannot be greater than one. The transition energies are given by
+
+\begin{align}
+		\hbar \omega (m_{e} \rightarrow m_{g})  &= \left(E_{e} - \frac{\mu_{e}}{I_{e}} m _{e} B \right) - \left( E_{g} - \frac{\mu _{g}}{I_{g}}m _{g} B \right) \\
+												&= \hbar \omega _{0} - \left(\frac{\mu _{e}}{I_{e}} m _{e} - \frac{\mu _{g}}{I_{g}}m _{g} \right) B.
+\end{align}
+
+The resonant velocity is given by
+
+\begin{equation}
+		v_{res} = - \frac{c}{\hbar \omega _{0}} \left(\frac{\mu _{e}}{I_{e}} m _{e} - \frac{\mu _{g}}{I_{g}} \mu _{g} \right) B.
+\end{equation}
+
+The magnetic hyperfine structure can be given by
+
+\begin{equation}
+		H = - \mu \cdot B = -g \mu _{N} I B,
+\end{equation}
+where $\mu$ is the magnetic moment and  $\mu _{N}$ is the nuclear nuclear magneton \cite{Kuzmann2011}. Since the magnetic energy is given by $E_{m} = g \mu _{N} M B$, the energy perturbation due to hyperfine splitting is given by 
+
+\begin{equation}
+		E_{m} = - g \mu _{N} B.
+\end{equation}
 
 
 \chapter{Experimental Set-Up}
