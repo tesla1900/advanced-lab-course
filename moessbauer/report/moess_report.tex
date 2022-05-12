@@ -136,7 +136,7 @@ In this experiment, the phenomenon known as M\"o{\ss}bauer effect. is studied by
 
 From the M\"o{\ss}bauer spectrum of measured, we can see the isomeric shift and quadrupole and magnetic splitting of energy levels. Using this, one can determine the $g$-factor of the ground state and the first excited state can be determined. 
 
-\chapter{Theory}
+\chapter{Theoretical Background}
 In the following section, we shall study the theoretical background of the M\"o{\ss}bauer effect in brief. A much more detailed discussion can be found in \cite{Schatz1996}, mostly on which the following section is based.
 
 \section{Principles} \label{sec:principles}
@@ -167,7 +167,7 @@ The frequency spectrum given by this emitted $\gamma$-ray is given by a Lorentz 
 \begin{equation}
 		I (\omega) = \frac{I_{0}}{1 + [2 \hbar (\omega - \omega_{0})/\Gamma]^2}
 \end{equation}
-where $I(\omega)$ is the intensity of the radiation at frequency $\omega$. The distribution (Fig. \ref{fig:lorentz}) is centered at $\omega_{0}$ and has a halfwidth of $\Gamma / \hbar $. For $^{57}$Fe used in this experiment, $\Gamma = 4.7 \times 10^{-9}$. 
+where $I(\omega)$ is the intensity of the radiation at frequency $\omega$. The distribution (Fig. \ref{fig:lorentz}) is centered at $\omega_{0}$ and has a halfwidth of $\Gamma / \hbar $. For $^{57}$Fe used in this experiment, $\Gamma = 4.7 \times 10^{-9}$ eV. 
 
 \begin{figure}[htpb]
     \centering
@@ -271,15 +271,63 @@ There are several possible sources for studying the M\"o{\ss}bauer effect, many 
     \label{fig:decay}
 \end{figure}	
 
-The M\"o{\ss}bauer source $^{57}$Co - $^{57}$Fe is an ideal choice because the parent isotope, $^{57}$Co has long halflife (270 days), which enables one to perform several experiments with the same source. The lifetime of the M\"o{\ss}bauer level is sufficiently long, giving us a good energy resolution. Lastly, the energy level of 14.4 keV is small enough to allow for the conduction of experiment at room temperature. 
+The M\"o{\ss}bauer source $^{57}$Co-$^{57}$Fe is an ideal choice because the parent isotope, $^{57}$Co has long halflife (270 days), which enables one to perform several experiments with the same source. The lifetime of the M\"o{\ss}bauer level is sufficiently long, giving us a good energy resolution. Lastly, the energy level of 14.4 keV is small enough to allow for the conduction of experiment at room temperature. 
+
+\section{M\"o{\ss}bauer Apparatus and Setup}
+
+A schematic representation of the setup is shown in Fig. \ref{fig:setup}. Here, we have a radioactive source, an absorber and a detector. In the diagram, the source is moving with respect to the absorber but in our setup, the source was stationary and the absorber was moving. This doesn't really change anything, since the relative motion is constant. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{setup}
+	\caption{A representation of the setup of the experiment. In our case, the absorber moves while the source remains stationary. The Doppler principle is seen by the scanning of the absorption line with the emission line. The resultant intensity is proportional to the addition of absorption and emission lines, which are marked at four arbitrary chosen velocities between $u_{1}$ and $u_{4}$ \cite{Kuzmann2011}.}
+    \label{fig:setup}
+\end{figure}
+
+There are two possible arrangements: transmission geometry and scattering geometry. In  transmission geometry, we record the intensity of $\gamma$-rays transmitted. While in scattering geometry, the fluorescence radiation is measured. In order to achieve the resonance condition (similar to what can be seen in Fig. \ref{fig:setup}), we move the absorber relative to the source (or vice versa). A loudspeaker principle is often used to produce these oscillations. On these oscillations, velocity profiles can be imposed by using driver coils, using a function generator. 
+
+The $\gamma$-ray detector is often made of scintillators or gas-filled proportional counters. These detect the intensity of $\gamma$-rays that pass through the absorber. The pulse height that we get with a proportional counter with 97\% Kr and 3\% CO$_2$, is shown in Fig. \ref{fig:pulse-height}. The line corresponding to 14.4 keV is the M\"o{\ss}bauer line. This is the region that we study in the experiment in order to get the M\"o{\ss}bauer spectrum. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.4\textwidth]{pulse-height}
+    \caption{Pulse height spectrum measured using gas-filled proportional counter. The 14.4 keV M\"o{\ss}bauer line is shown. \cite{Schatz1996}.}
+    \label{fig:pulse-height}
+\end{figure}
+
+The absorber velocity is varied from 0 mm/s to 6 mm/s. The counts for the $\gamma$-rays are recorded separately for when it is moving Left-to-Right (LR), N(LR) and when it is moving Right-to-Left (RL), N(RL). Depending upon the direction of motion of the absorber, the detector pulses are fed into the signal-channel-analyzer into their respective counters. At the same time, the respective timers feed their information into the counters of their respective channel, T(LR) or T(RL). The number of turns made by the absorber can be read off from the run counter. The total swing of the device is 25.1mm. 
 
 \section{Isomer Shift}
+
+A shift in the resonance of the spectrum occurs in the M\"o{\ss}bauer experiment due to difference in the monopole energy in the ground state and excited state. The monopole energy is given by
+
+\begin{equation}
+		E_{c} = \frac{Z e^2}{6 \epsilon_{0}} \left| \Psi(0) \right|^2 <r^2>,
+\end{equation}
+where $<r^2>$ is the mean square radius of the nuclei. 
+
+For a moving absorber, the energy difference between excited (e) to ground state (g) is given by
+
+\begin{equation}
+		\hbar \omega (A) = \hbar \omega _{0} \left( 1 + \frac{v}{c} \right) + \frac{Z e^2}{6 \epsilon_{0}} \left| \Psi_{A}(0) \right| ^2 (<r_{e}^2> - <r_{g}^2> ),
+\end{equation}
+where the first term corresponds to Doppler shift due to the motion of the absorber. For a stationary absorber, 
+
+\begin{equation}
+		\hbar \omega (S) = \hbar \omega _{0} + \frac{Z e^2}{6 \epsilon_{0}} \left| \Psi_{S} (0) \right| ^2 ((<r_{e}^2> - <r_{g}^2> ).
+\end{equation}
+
+For the resonance condition to be fulfilled, $\omega (S) = \omega (A)$, the velocity of the absorber must be
+
+\begin{equation}
+		v_{res} = \frac{Z e^2 c}{6 \epsilon_{0} \hbar \omega _{0}} \left( \left| \Psi_{A} (0) \right|^2 - \left| \Psi_{S} (0) \right| ^2 \right) \left( <r_{e}^2> - < r_{g}^2 > \right), 
+\end{equation}
+where $v_{res}$ is the isomer shift. By convention, this value is positive when the absorber is moving near the source. For $^{57}$Fe, this value is negative since the radius of the nuclei in the excited state is smaller than the of ground state. Typically, the order of isomer shift is of the order of several mm s$^{-1}$. 
 
 \section{Electric Quadrupole Interaction}
 
 \section{Magnetic Dipole Interaction}
 
-\section{M\"o{\ss}bauer Apparatus and Setup}
 
 
 \chapter{Experimental Set-Up}
@@ -497,7 +545,7 @@ In the following section, we include all the data which was measured while perfo
     \centering
 	\begin{tabular}{|c|c|c|c|}
     \hline
-	Lower Limit Discriminator $\pm$ 0.01 & Count (N) & Time (s) $\pm$ 0.03 & Upper Level Discriminator ($\Delta$ E) (100\%) ($10^{-1}$)) \\ \hline
+	LLD $\pm$ 0.01 & Count (N) & Time (s) $\pm$ 0.03 & ULD ($\Delta$ E) (100\%) ($10^{-1}$)) \\ \hline
         0.02 & 420580 & 10 & 10 \\ \hline
         0.10 & 279704 & 10 & 10 \\ \hline
         0.20 & 45643 & 10 & 10 \\ \hline
@@ -540,7 +588,7 @@ In the following section, we include all the data which was measured while perfo
         3.9 & 108 & 10 & 10 \\ \hline
         4 & 129 & 10 & 10 \\ \hline
     \end{tabular}
-    \caption{Calibration of the single channel analyzer.}
+    \caption{Calibration of the single channel analyzer. Where, Lower Limit Discriminator (LLD) and Upper Level Discriminator (ULD).}
     \label{calibration}
 \end{table}
 
@@ -550,7 +598,7 @@ In the following section, we include all the data which was measured while perfo
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
     \hline
-        Velocity (mm/s) & Motor speed (V) & Count (N) (RL) & Time (ms) (RL) & Number of turns & Count/s (N/s) \\ \hline
+        Velocity (mm/s) & Motor speed (V) & Count (N) & Time (ms) & Turns & Count/s (N/s) \\ \hline
         0 & 0 & 3030 & 999 & 0 & 3.03303303303303 \\ \hline
         0.375400077772128 & 0.2 & 101223 & 33431 & 5 & 3.02781849181897 \\ \hline
         0.674368619022031 & 0.3 & 10578 & 3722 & 1 & 2.8420204191295 \\ \hline
@@ -606,7 +654,7 @@ In the following section, we include all the data which was measured while perfo
         6.92413793103448 & 2.45 & 6780 & 2175 & 6 & 3.11724137931034 \\ \hline
         7.06757843925986 & 2.5 & 7777 & 2486 & 7 & 3.1283185840708 \\ \hline
     \end{tabular}
-    \caption{Velocity measurements for Right to Left.}
+    \caption{Velocity measurements for Right to Left (RL).}
 \end{table}
 
 
@@ -614,7 +662,7 @@ In the following section, we include all the data which was measured while perfo
     \centering
     \begin{tabular}{|l|l|l|l|l|l|}
     \hline
-        Velocity (mm/s) & Motor speed (V) & Count (N) (LR) & Time (ms) (LR) & Number of turns & Count/s (N/s)\\ \hline
+        Velocity (mm/s) & Motor speed (V) & Count (N) & Time (ms) & Turns & Count/s (N/s)\\ \hline
         -7.44176196526895 & 2.5 & 7271 & 2361 & 7 & 3.07962727657772 \\ \hline
         -7.31067961165049 & 2.45 & 6396 & 2060 & 6 & 3.10485436893204 \\ \hline
         -7.14760322733745 & 2.4 & 6483 & 2107 & 6 & 3.07688656858092 \\ \hline
@@ -669,7 +717,7 @@ In the following section, we include all the data which was measured while perfo
         -0.746668253212756 & 0.2 & 49236 & 16808 & 5 & 2.92931937172775 \\ \hline
         0 & 0 & 3030 & 999 & 0 & 3.03303303303303 \\ \hline
     \end{tabular}
-    \caption{Velocity measurements for Left to Right.}
+    \caption{Velocity measurements for Left to Right (LR).}
 \end{table}
 
 
