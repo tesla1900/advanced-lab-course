@@ -96,7 +96,7 @@
 		\begin{centering}
 			% \large
 			\textbf{Abstract}\\[0.2cm]
-            We investigated the hyperfine splitting of the $^{57}$Fe using the M\"o{\ss}bauer effect that allows 
+            We investigated the hyperfine splitting of the $^{57}$Fe using the M\"o{\ss}bauer effect which is the
             recoilless emission and absorption of photons. A $^{57}$Co source was placed with a moving 
             absorber, and the counts corresponding to the 14.4 keV transition of $^{57}$Fe was measured. The 
             obtained spectrum yielded more peaks than desired, which were attributed to the Iron (III) oxide
@@ -156,7 +156,7 @@ In the following section, we shall study the theoretical background of the M\"o{
 
 \section{Principles} \label{sec:principles}
 
-Let's take two atoms. If one of the atom's nucleus emits a photon and goes from an excited to a ground state, one might assume that the other nucleus can absorb this photon because the excitation energy of both the nuclei is the same. But that is not the case, since energy is lost by the radiated photon because of the recoil of the nucleus, just like a gun recoils when a bullet is fired. In 1957, R. M\"o{\ss}bauer found that this energy reduction in the emitted photon can be reduced if the atom is part of the bigger crystalline structure. In such a situation, the recoil momentum is transferred to the crystal as a whole, which is much more massive than the atom itself and hence the recoil energy is negligible. The recoilless emission and absorption of $\gamma $-radiation by the nucleus of an atom is known as the M\"o{\ss}bauer effect \cite{Schatz1996}. This effect can be seen in Fig. \ref{fig:moess}.
+Consider two atoms in proximity. If one of the atom's nucleus emits a photon and goes from an excited to a ground state, one might assume that the other nucleus can absorb this photon because the excitation energy of both the nuclei is the same. But that is not the case, since energy is lost by the radiated photon because of the recoil of the nucleus, just like the way a gun recoils when a bullet is fired. In 1957, R. M\"o{\ss}bauer found that this energy reduction in the emitted photon can be reduced if the atom is part of the bigger crystalline structure. In such a situation, the recoil momentum is transferred to the crystal as a whole, which is much more massive than the atom itself and hence the recoil energy is negligible. The recoilless emission and absorption of $\gamma $-radiation by the nucleus of an atom is known as the M\"o{\ss}bauer effect \cite{Schatz1996}. This effect can be seen in Fig. \ref{fig:moess}.
 
 \begin{figure}[htpb]
     \centering
@@ -221,17 +221,17 @@ where the term $\hbar (k \cdot v)$ is the Doppler effect, which is responsible f
 \subsection{Debye-Waller Factor}
 In a typical tightly bound solid, the energy required to displace an atom from its position is 20 eV. Since the recoil energy of the $\gamma$-ray is of the order $10^{-3}$ eV, there are two possibilities that can occur. One, since the atom cannot be displaced, it is set in a vibrational motion. Or second, if the vibrational motion is not altered by the emission, the recoil energy is absorbed by the entire solid. In a typical solid, the mass of the entire crystal is $10^{20}$ times more than the mass of the atom and hence the recoil energy is negligible. In this case, we get an unshifted, unbroadened, emission (M\"o{\ss}bauer) line. 
 
-The Debye-Waller factor ($f(T)$) is defined is the ratio of the unshifted $\gamma$-ray emission to the total number of emissions. This ratio is dependent on temperature and is the highest at $T = 0 \si{\kelvin}$. But even at absolute zero, $f < 1$. This is because of zero-point energy. 
+The Debye-Waller factor $f(T)$ is defined is the ratio of the unshifted $\gamma$-ray emission to the total number of emissions. This ratio is dependent on temperature and is the highest at $T = 0 \si{\kelvin}$. But even at absolute zero, $f < 1$ because of zero-point energy. 
 
-In order to understand the M\"o{\ss}bauer effect better, one needs to understand the Debye-Waller factor. Because this factor shows us why the M\"o{\ss}bauer fraction is large. Since the quantum mechanical derivation is a bit too complicated, we look at the semi-classical approach to gain an intuition behind the Debye-Waller factor.
+In order to understand the M\"o{\ss}bauer effect better, one needs to understand the Debye-Waller factor because this factor shows us why the M\"o{\ss}bauer fraction is large. Since the quantum mechanical derivation is a bit too complicated, we look at the semi-classical approach to gain an intuition behind the Debye-Waller factor.
 
-\subsubsection{The Semiclassical Approach of the Debye-Waller Factor}
-Let us consider a nucleus, continuously emitting an electromagnetic wave of frequency $\omega_{0} = E_{\gamma}/\hbar $ and oscillating around an equilibrium point. Considering only one vibration frequency $\Omega$, which corresponds to the Einstein model of the oscillations. The electric field of the emitted radiation is given by
+\subsubsection{The Semi-classical Approach of the Debye-Waller Factor}
+Let us consider a nucleus, continuously emitting an electromagnetic wave of frequency $\omega_{0} = E_{\gamma}/\hbar $ and oscillating around an equilibrium point. Considering only one vibration frequency $\Omega$, which corresponds to the Einstein model of the oscillations, the electric field of the emitted radiation is given by
 
 \begin{equation} \label{eqn:emission}
 		E(t) = E_{0} \exp\left(- i [\omega_{0} t + k x(t) ] \right),
 \end{equation}
-where $x(t) = a \sin (\Omega t)$, $a$ is the amplitude of the oscillation. Decomposition of this relation in Eqn. \ref{eqn:emission} shows that, the effect of vibration of the atom reduces the intensity of the central line by a factor of ($1 - k^2 a^2 / 4$) and also produces sidebands with frequencies $\omega_{0} \pm \Omega$, $\omega_{0} \pm 2 \Omega$, .... 
+where $x(t) = a \sin (\Omega t)$, $a$ is the amplitude of the oscillation. Decomposition of this relation in Eqn. \ref{eqn:emission} shows that, the effect of vibration of the atom reduces the intensity of the central line by a factor of ($1 - k^2 a^2 / 4$) and also produces sidebands with frequencies $\omega_{0} \pm \Omega$, $\omega_{0} \pm 2 \Omega$, and so on. 
 
 If we sum up these contributions to the intensity from sidebands to the unshifted line, we get
 
@@ -243,7 +243,7 @@ where $\mathcal{J}_{0} (ka)$ is the Bessel function of zero order. The Debye-Wal
 So far we have considered only a single oscillation mode. When we consider several normal modes (phonons), in which each frequency produces its own sidebands, we need to take the product of all of them (Eqn. \ref{eqn:product}). 
 
 \begin{equation} \label{eqn:product}
-		f = \prod \mathcal{J}_{0}^2(ka_{n}) \approx \prod \left( 1 - \frac{k^2 a^2}{4}\right)^2 \approx \exp \left(- k^2 < x^2 > \right),   
+		f = \prod_n \mathcal{J}_{0}^2(ka_{n}) \approx \prod_n \left( 1 - \frac{k^2 a_n^2}{4}\right)^2 \approx \exp \left(- k^2 < x^2 > \right),   
 \end{equation}
 where $< x^2 > = \sum_{}^{} a_{n}^2 / 2$ is the average square displacement. For an isotropic, 3-dimensional oscillator, 
 
@@ -252,7 +252,7 @@ where $< x^2 > = \sum_{}^{} a_{n}^2 / 2$ is the average square displacement. For
 \end{equation}
 where $< u^2 > = 3 < x^2 >$, the average square displacement. In quantum mechanics, this $< u^2 >$ becomes the expectation value.
 
-Going back to the Einstein model, where only single vibration frequency $\Omega $ is considered, we can derive the temperature dependence for the Debye-Waller factor. The harmonic energy with $n$ excited quanta is taken, the occupation probability is calculated and we find that the Bose-Einstein distribution function is obtained. Using this result, we then generalize for a phonon distribution function $Z(\Omega )$ and calculate the dependence for 3-dimensions. The result we obtain is
+Going back to the Einstein model, where only single vibration frequency $\Omega $ is considered, we can derive the temperature dependence for the Debye-Waller factor. Taking the harmonic energy with $n$ excited quanta, we calculate the occupation probability and obtain the Bose-Einstein distribution function. Using this result, we then generalize for a phonon distribution function $Z(\Omega )$ and calculate the dependence for 3-dimensions. The result we obtain is
 
 \begin{equation}
 		f(T) = \exp \left( - \frac{\hbar k^2}{6 M N } \int\limits_{0}^{\infty} \frac{Z(\Omega )}{\Omega } \left[ 1 + \frac{2}{\exp(\hbar \Omega / k_{b} T) - 1 } \right] d \Omega \right),
@@ -286,11 +286,11 @@ There are several possible sources for studying the M\"o{\ss}bauer effect, many 
     \label{fig:decay}
 \end{figure}	
 
-The M\"o{\ss}bauer source $^{57}$Co-$^{57}$Fe is an ideal choice because the parent isotope, $^{57}$Co has long halflife (270 days), which enables one to perform several experiments with the same source. The lifetime of the M\"o{\ss}bauer level is sufficiently long, giving us a good energy resolution. Lastly, the energy level of 14.4 keV is small enough to allow for the conduction of experiment at room temperature. 
+The M\"o{\ss}bauer source $^{57}$Co-$^{57}$Fe is an ideal choice because the parent isotope, $^{57}$Co has long half-life (270 days), which enables one to perform several experiments with the same source. The lifetime of the M\"o{\ss}bauer level is sufficiently long, giving us a good energy resolution. Lastly, the energy level of 14.4 keV is small enough to allow for the conduction of experiment at room temperature. 
 
 \section{M\"o{\ss}bauer Apparatus and Setup}
 
-A schematic representation of the setup is shown in Fig. \ref{fig:setup}. Here, we have a radioactive source, an absorber and a detector. In the diagram, the source is moving with respect to the absorber but in our setup, the source was stationary and the absorber was moving. This doesn't really change anything, since the relative motion is constant. 
+A schematic representation of the setup is shown in Fig. \ref{fig:setup}. Here, we have a radioactive source, an absorber and a detector. In the diagram, the source is moving with respect to the absorber but in our setup, the source was stationary and the absorber was moving. However, this does not affect the measurement, since the relative motion is constant. 
 
 \begin{figure}[htpb]
     \centering
@@ -299,7 +299,7 @@ A schematic representation of the setup is shown in Fig. \ref{fig:setup}. Here, 
     \label{fig:setup}
 \end{figure}
 
-There are two possible arrangements: transmission geometry and scattering geometry. In  transmission geometry, we record the intensity of $\gamma$-rays transmitted. While in scattering geometry, the fluorescence radiation is measured. In order to achieve the resonance condition (similar to what can be seen in Fig. \ref{fig:setup}), we move the absorber relative to the source (or vice versa). A loudspeaker principle is often used to produce these oscillations. On these oscillations, velocity profiles can be imposed by using driver coils, using a function generator. 
+There are two possible arrangements in the setup: transmission geometry and scattering geometry. In  transmission geometry, we record the intensity of $\gamma$-rays transmitted. While in scattering geometry, the fluorescence radiation is measured. In order to achieve the resonance condition (similar to what can be seen in Fig. \ref{fig:setup}), we move the absorber relative to the source (or vice versa). A loudspeaker principle is often used to produce these oscillations. On these oscillations, velocity profiles can be imposed by using driver coils, using a function generator. 
 
 The $\gamma$-ray detector is often made of scintillators or gas-filled proportional counters. These detect the intensity of $\gamma$-rays that pass through the absorber. The pulse height that we get with a proportional counter with 97\% Kr and 3\% CO$_2$, is shown in Fig. \ref{fig:pulse-height}. The line corresponding to 14.4 keV is the M\"o{\ss}bauer line. This is the region that we study in the experiment in order to get the M\"o{\ss}bauer spectrum. 
 
@@ -310,7 +310,7 @@ The $\gamma$-ray detector is often made of scintillators or gas-filled proportio
     \label{fig:pulse-height}
 \end{figure}
 
-The absorber velocity is varied from 0 mm/s to 6 mm/s. The counts for the $\gamma$-rays are recorded separately for when it is moving Left-to-Right (LR), N(LR) and when it is moving Right-to-Left (RL), N(RL). Depending upon the direction of motion of the absorber, the detector pulses are fed into the signal-channel-analyzer into their respective counters. At the same time, the respective timers feed their information into the counters of their respective channel, T(LR) or T(RL). The number of turns made by the absorber can be read off from the run counter. The total swing of the device is 25.1mm. 
+% The absorber velocity is varied from 0 mm/s to 6 mm/s. The counts for the $\gamma$-rays are recorded separately for when it is moving Left-to-Right (LR), N(LR) and when it is moving Right-to-Left (RL), N(RL). Depending upon the direction of motion of the absorber, the detector pulses are fed into the signal-channel-analyzer into their respective counters. At the same time, the respective timers feed their information into the counters of their respective channel, T(LR) or T(RL). The number of turns made by the absorber can be read off from the run counter. The total swing of the device is 25.1mm. 
 
 \section{Isomer Shift}
 
@@ -337,11 +337,11 @@ For the resonance condition to be fulfilled, $\omega (S) = \omega (A)$, the velo
 \begin{equation}
 		v_{res} = \frac{Z e^2 c}{6 \epsilon_{0} \hbar \omega _{0}} \left( \left| \Psi_{A} (0) \right|^2 - \left| \Psi_{S} (0) \right| ^2 \right) \left( <r_{e}^2> - < r_{g}^2 > \right), 
 \end{equation}
-where $v_{res}$ is the isomer shift. By convention, this value is positive when the absorber is moving near the source. For $^{57}$Fe, this value is negative since the radius of the nuclei in the excited state is smaller than the of ground state. Typically, the order of isomer shift is of the order of several mm s$^{-1}$. 
+where $v_{res}$ is the isomer shift. By convention, this value is positive when the absorber is moving towards the source. For $^{57}$Fe, this value is negative since the radius of the nuclei in the excited state is smaller than the of ground state. Typically, the order of isomer shift is of the order of several mm s$^{-1}$. 
 
 \section{Electric Quadrupole Interaction}
 
-Electric quadrupole interaction occurs in the presence of electric field gradient, which leads to non-spherical nucleus when the nuclear spin I $\geq$ 1. In this case the degeneracy of the $m$ sublevels is lifted and we get a splitting of energy levels. As can be seen in Fig. \ref{fig:quadrupole}, the energy level splitting does not depend on the sign of $m$, $m = \pm 3 / 2$ are indistinguishable.    
+Electric quadrupole interaction occurs in the presence of electric field gradient, which leads to non-spherical nucleus when the nuclear spin I $\geq$ 1. In this case the degeneracy of the $m$ sub-levels is lifted and we get a splitting of energy levels. As can be seen in Fig. \ref{fig:quadrupole}, the energy level splitting does not depend on the sign of $m$, for instance, $m = \pm 3 / 2$ are indistinguishable.    
 
 \begin{figure}[htpb]
     \centering
@@ -355,7 +355,7 @@ The energy separation that can be seen Fig. \ref{fig:quadrupole}, is given by
 \begin{equation}
 		\Delta E = 6 \hbar \omega _{Q} = \hbar \omega _{0} \frac{\Delta v}{c},
 \end{equation}
-where $\Delta v$ is the separation in between two lines in velocity spectrum, it is given by
+where $\Delta v$ is the separation in between two lines in velocity spectrum given by
 
 \begin{equation}
 		\Delta v = \frac{eQV_{zz}c}{2 \hbar \omega _{0}}.
@@ -365,7 +365,7 @@ In the case of powder sample of $^{57}$Fe, we get equal amplitude of M\"o{\ss}ba
 
 \section{Magnetic Dipole Interaction}
 
-Magnetic dipole interaction leads to further splitting in the energy levels of the sublevels. This is a result of magnetic interaction ($- \mu \cdot B$) splitting the magnetic sublevels equally, consequently splitting the energy levels of the emitted $\gamma$ radiation. Fig. \ref{fig:dipole} shows the magnetic splitting for $^{57}$Fe. 
+Magnetic dipole interaction leads to further splitting in the energy levels of the sub-levels. This is a result of magnetic interaction ($- \vec{\mu} \cdot \vec{B}$) splitting the magnetic sub-levels equally, consequently splitting the energy levels of the emitted $\gamma$ radiation. Fig. \ref{fig:dipole} shows the magnetic splitting for $^{57}$Fe. 
 
 \begin{figure}[htpb]
     \centering
@@ -374,7 +374,7 @@ Magnetic dipole interaction leads to further splitting in the energy levels of t
     \label{fig:dipole}
 \end{figure}
 
-Experimentally, only six lines are transitions are observed and therefore we can conclude that this follows the m1 selection rules, according to which no m cannot be greater than one. The transition energies are given by
+Experimentally, only six lines are transitions are observed and therefore we can conclude that this follows the M1 selection rules, according to which $|m| \leq 1$. The transition energies are given by
 
 \begin{align}
 		\hbar \omega (m_{e} \rightarrow m_{g})  &= \left(E_{e} - \frac{\mu_{e}}{I_{e}} m _{e} B \right) - \left( E_{g} - \frac{\mu _{g}}{I_{g}}m _{g} B \right) \\
@@ -384,15 +384,15 @@ Experimentally, only six lines are transitions are observed and therefore we can
 The resonant velocity is given by
 
 \begin{equation}
-		v_{res} = - \frac{c}{\hbar \omega _{0}} \left(\frac{\mu _{e}}{I_{e}} m _{e} - \frac{\mu _{g}}{I_{g}} \mu _{g} \right) B.
+		v_{res} = - \frac{c}{\hbar \omega _{0}} \left(\frac{\mu _{e}}{I_{e}} m _{e} - \frac{\mu _{g}}{I_{g}} m _{g} \right) B.
 \end{equation}
 
-The magnetic hyperfine structure can be given by
+The magnetic hyperfine structure can be given by the Hamiltonian
 
 \begin{equation}
 		H = - \mu \cdot B = -g \mu _{N} I B,
 \end{equation}
-where $\mu$ is the magnetic moment and  $\mu _{N}$ is the nuclear nuclear magneton \cite{Kuzmann2011}. Since the magnetic energy is given by $E_{m} = g \mu _{N} M B$, the energy perturbation due to hyperfine splitting is given by 
+where $\mu$ is the magnetic moment and  $\mu _{N}$ is the nuclear magneton \cite{Kuzmann2011}. Since the magnetic energy is given by $E_{m} = g \mu _{N} M B$, the energy perturbation due to hyperfine splitting is given by 
 
 \begin{equation}
 		E_{m} = - g \mu _{N} B.
@@ -406,7 +406,7 @@ To measure the M\"o{\ss}bauer spectrum, we placed a $^{57}$Co radioactive source
 that has a maximum displacement of $\SI[]{25.1 \pm 0.2}[]{\milli\metre}$.  A photodetector is placed 
 behind the absorber that detects the number of photons that are not absorbed via this process. The speed of the 
 absorber is controlled by a motor that swings the absorber at a fixed velocity. See Fig. \ref{fig:apparatus_source}
-for the M\"o{\ss}bauer source apparatus. \par 
+for the M\"o{\ss}bauer source apparatus. In our experiment, we vary the absorber velocity up until 7.5 mm/s. \par 
 
 \begin{figure*}[htb!]
 	\centering
@@ -418,19 +418,24 @@ for the M\"o{\ss}bauer source apparatus. \par
 	\label{fig:apparatus_source}
 \end{figure*}
 
-The photodetector is then connected to a single channel analyzer (SCA), which determines the number of counts detected
-in a given time range and maximal and minimal width to observe the counts. The SCA has 2 main parameters that should be modified:
-the Upper Level Discrimator (ULD) and the Lower Level Discrimator (LLD), which controls the binsize and the lower limit for 
-photodetection respectively. The modes of the ULD can be set to measure with a higher resolution by detecting counts with 
-10 $\%$ of the binsize. The SCA was then connected to a display in which the number of counts obtained in a specific time 
+The photodetector is then connected to a single channel analyzer (SCA), which displays the number of counts N detected
+in a given time range T. The SCA has 2 main parameters that should be modified:
+the Upper Level Discriminator (ULD) and the Lower Level Discriminator (LLD). The ULD and LLD controls the range in which we 
+detect the counts, and the ULD can further control the bin-size of the measurement. 
+The modes of the ULD can be set to measure with a higher resolution by detecting counts with 
+10 $\%$ of the bin-size. The SCA was then connected to a display in which the number of counts obtained in a specific time 
 interval was shown. \par 
 
-The photodetecting apparatus consisted of two such setups to consider for measurements with positive and negative velocity 
-of the absorber as the offset voltage between the two can allow the measurements in the LR and RL direction to differ.
-A separate run counter that tracks the number of turns that the absorber had is also contained in the apparatus. A timer 
-that controls the time interval of measurement is also placed which is used for the calibration process. The set-up is 
+
+
+
+% The absorber velocity is varied from 0 mm/s to 6 mm/s. The counts for the $\gamma$-rays are recorded separately for when it is moving Left-to-Right (LR), N(LR) and when it is moving Right-to-Left (RL), N(RL). Depending upon the direction of motion of the absorber, the detector pulses are fed into the signal-channel-analyzer into their respective counters. At the same time, the respective timers feed their information into the counters of their respective channel, T(LR) or T(RL). The number of turns made by the absorber can be read off from the run counter. The total swing of the device is 25.1mm. 
+
+The photo-detecting apparatus consists of two SCA that allows measurements for absorber velocities in both positive (RL) and negative (LR)
+directions. This is required since the offset voltage between the two directions can allow the measurements to differ. This gives us 
+counts N(RL / LR) and time intervals T(RL / LR) for each direction. A separate run counter that tracks the number of turns made by the absorber is also contained in the apparatus. We also use a separate timer that controls the time interval of measurement for the calibration process. The set-up is 
 constructed in a way such that the count and time measurements terminate only after the absorber had performed a full turn. 
-See Fig. \ref{fig:apparatus_raw} for the apparatus used for the photodetection as well as the schematic of the apparatus. \par 
+See Fig. \ref{fig:apparatus_raw} for the apparatus used for the photo-detection as well as the schematic of the apparatus. \par 
 
 \begin{figure*}[htb!]
 	\centering
@@ -453,8 +458,7 @@ detecting counts from the 14.4 keV transition. In order to do so, we modified th
 of counts obtained at each value for a fixed time interval for $T = \SI{10}{\second}$. Once the data was obtained, 
 we plotted the number of detected photons $N$ against the LLD values and compared our results to the $^{57}$Fe $\gamma$-spectrum as seen in Fig. \ref{fig:pulse-height}.
 This allowed us to identify the range in which we should set the ULD and LLD values when performing the M\"o{\ss}bauer measurements. 
- Fig. \ref{fig:calibration_plot} shows the obtained spectrum from our experiment. See the Appendix section for the full data obtained from this 
- section. The uncertainty for the counts were taken to be purely statistical such that $\delta N = \sqrt{N}$, and the uncertainty 
+ Fig. \ref{fig:calibration_plot} shows the obtained spectrum from our experiment. See the Appendix section (Chapter \ref{sec:Appendix}) for the full data obtained from this section. The uncertainty for the counts were taken to be purely statistical such that $\delta N = \sqrt{N}$, and the uncertainty 
  of the time interval measurement was taken to be $\delta T = \pm \SI{0.003}{\second}$. \par
 
 \begin{figure*}[htb!]
@@ -466,7 +470,7 @@ This allowed us to identify the range in which we should set the ULD and LLD val
 \end{figure*}
 
 By comparison to expected results, we identified the 14.4 keV transition line as the third peak on Fig. \ref{fig:calibration_plot}. 
-The ULD and LLD values that were used to perform the M\"o{\ss}bauer measurement was then set to be 1.8 and 2.6 respectively. \par 
+The ULD and LLD values that were used to perform the M\"o{\ss}bauer measurement was then set to be 1.8V and 2.6V respectively. \par 
 
 % add something about how we used fit to get the true values for the LLD values (if we do)?
 
@@ -476,12 +480,12 @@ The ULD and LLD values that were used to perform the M\"o{\ss}bauer measurement 
 
 \section{Spectrum}
 
-To observe the M\"o{\ss}bauer spectrum, we first set the ULD and LLD to 1.8 and 2.6 respectively as obtained from Chapter \ref{sec:calibration}. 
-Once a certain motor speed has been set, we ran both LR and RL single channel analyzer for a set number of turns, ranging from 4 to 10
+To observe the M\"o{\ss}bauer spectrum, we first set the ULD and LLD to 1.8V and 2.6V respectively as obtained from Chapter \ref{sec:calibration}. 
+Once a certain motor speed has been set, we ran both LR and RL single channel analyzers for a set number of turns, ranging from 4 to 10
 turns. We then recorded the obtained number of counts and duration for both LR and RL analyzers. This was repeated until we obtained 
 enough points to more accurately construct the M\"o{\ss}bauer peaks. This was verified by using the built-in plotting tool in Excel where we 
 displayed the plot between the count rate $R = N / T$ against the motor speed. We took a total of 60 measurements in this experiment, ranging for 
-motor speeds from 0 to 2.5. Fig. \ref{fig:moess_raw} shows the raw data obtained from both analyzers. See Appendix (Chapter \ref{sec:Appendix}) for the raw data table obtained from both analyzers. \par 
+motor speeds from 0V to 2.5V. Fig. \ref{fig:moess_raw} shows the raw data obtained from both analyzers. See Appendix (Chapter \ref{sec:Appendix}) for the raw data table obtained from both analyzers. \par 
 
 \begin{figure*}[htb!]
 	\centering
@@ -513,20 +517,20 @@ the full M\"o{\ss}bauer spectrum. Fig. \ref{fig:moess_spect_filt} shows the comb
 \end{figure*}
 
 
-We then performed a non-linear fit to the multi-Lorentzian distribution, i.e. the sum of Lorentzian
+We then performed a non-linear fit to the multi-Lorentz distribution, i.e. the sum of Lorentz
 distributions, to determine the peak velocity $v_0$, peak amplitude $I_0$, and the full-width half-maximum of the peaks (FWHM) $\Gamma_v$ for each observed peak. The 
 offset $\delta_I$ from a full symmetric distribution was also determined through this fitting process. The equation used to fit
 is shown as such:
 \begin{equation}
-    I_{tot}(v, v_{0_i}, I_{0_i}, \Gamma_{v_i}, \delta_I) = \delta_I + \sum \limits_{i=1}^{N_{\mathrm{peaks}}} - I_{0_i} \frac{(\Gamma_{v_i} / 2)^2}{(v - v_{0_i})^2 + (\Gamma_{v_i} / 2)^2}
+    I_{tot}(v, v_{0_i}, I_{0_i}, \Gamma_{v_i}, \delta_I) = \delta_I + \sum \limits_{i=1}^{N_{\mathrm{peaks}}} - I_{0_i} \frac{(\Gamma_{v_i} / 2)^2}{(v - v_{0_i})^2 + (\Gamma_{v_i} / 2)^2}.
     \label{eq:multi_lorentzian}
 \end{equation}
 The fitting procedure was implemented using the Python package \texttt{lmfit} which utilizes the Levenberg-Marquardt method. 
 
-Fig. \ref{fig:moess_spect} shows the full Moessbauer spectrum with the obtained multi-Lorentzian fit, and Table \ref{tab:fit_params} shows the obtained fit parameters from the analysis for each peak.
+Fig. \ref{fig:moess_spect} shows the full M\"o{\ss}bauer spectrum with the obtained multi-Lorentzian fit, and Table \ref{tab:fit_params} shows the obtained fit parameters from the analysis for each peak.
 The offset was determined to be $\delta_I = \SI{3.162 \pm 0.025}{\per\second} $. We also show the spectrum against the individual Lorentzian
-peaks that composed our total fit in Fig. \ref{fig:moess_spect_comps}. The uncertanties were obtained from the 
-covariance matrix evaluated through the fitting procedure. Sec. \ref{sec:Appendix} shows the fit using the initial guess parameters. \par 
+peaks that composed our total fit in Fig. \ref{fig:moess_spect_comps}. The uncertainties were obtained from the 
+covariance matrix evaluated through the fitting procedure. In the Appendix section (Chapter \ref{sec:Appendix}) we show the fit using the initial guess parameters. \par 
 
 \begin{figure*}[htb!]
 	\centering
@@ -576,7 +580,7 @@ g-factors in the following sections, we observed that the first and last peaks w
  the 14.4 keV transition of $^{57}$Fe. 
 A possible explanation of the additional peaks is due to the oxidation of the absorber. As the instrument may be relatively old,
 the iron may have oxidized, creating impurities within the absorber. The oxidation of the iron will have caused some of the iron
-to iron(III) oxide, containing Fe$_2$O$_3$, FeO, and Fe$_3$O$_4$. When performing M\"o{\ss}bauer spectroscopy onto such molecules, 
+to form into iron (III) oxide which consists of Fe$_2$O$_3$, FeO, and Fe$_3$O$_4$. When performing M\"o{\ss}bauer spectroscopy onto such molecules, 
 one observes finer splitting at absorber velocities of around $6-8\si[]{\milli\metre\per\second}$, which is what we also 
 observe from Fig. \ref{fig:moess_spect} \cite{Winsett2019}. As of such, we removed the first and last peaks for the following 
 sections. \par 
@@ -587,7 +591,7 @@ To compare the obtained peaks to the analytical results from the hyperfine split
 transition, we convert the fit parameters described in the absorber velocity into the transition energy $E_\gamma$ using the 
 equation describing the Doppler shift of the ground state energy: 
 \begin{equation}
-    E = E_0 \left(1 + \frac{v}{c}\right) \implies E_\gamma = \Delta E = E_0\frac{v}{c}
+    E = E_0 \left(1 + \frac{v}{c}\right) \implies E_\gamma = \Delta E = E_0\frac{v}{c},
 \end{equation}
 where $E_0$ is the expected ground state energy $E_0 = \SI{14.4}{\kilo\electronvolt}$. The FWHM were converted in a similar 
 fashion. Table \ref{tab:energy_params} shows the energy value $\Delta E$ and its 
@@ -626,20 +630,20 @@ FWHM $\Gamma$ for each observed peak.
         7 &$ 2.460 \pm 0.012$ &   $16.1 \pm 2.2$ \\ \hline
         % 8 &$ 3.0456 \pm 0.0043$ & $7.5 \pm 0.6 $\\ \hline
     \end{tabular}
-    \caption{The energy values at the peaks $E_\gamma$ and the linewidths $\Gamma$ obtained for each peak. The peaks are 
+    \caption{The energy values at the peaks $E_\gamma$ and the FWHM, $\Gamma$, obtained for each peak. The peaks are 
     labelled as given in Table \ref{tab:fit_params}, where the outliers are omitted.}
 \label{tab:energy_params}
 \end{table}
 
 We then evaluated the average linewidth and its corresponding error using the weighted mean as such: 
 \begin{equation}
-    \Gamma_{\mathrm{avg}} = \frac{1}{2}\frac{\sum_{i=1}^{N_\mathrm{peaks}} \Gamma_i \delta\Gamma_i^{-2}}{\sum_{i=1}^{N_\mathrm{peaks}} \delta\Gamma_i^{-2}}
-    \quad \delta \Gamma_\mathrm{avg} = \frac{1}{2}\sqrt{\left(\sum_{i=1}^{N_\mathrm{peaks}} \delta\Gamma_i^{-2}\right)^{-1}}
+    \Gamma_{\mathrm{avg}} = \frac{1}{2}\frac{\sum_{i=1}^{N_\mathrm{peaks}} \Gamma_i \delta\Gamma_i^{-2}}{\sum_{i=1}^{N_\mathrm{peaks}} \delta\Gamma_i^{-2}} ,
+    \quad \delta \Gamma_\mathrm{avg} = \frac{1}{2}\sqrt{\left(\sum_{i=1}^{N_\mathrm{peaks}} \delta\Gamma_i^{-2}\right)^{-1}},
     \label{eq:linewidth_avg}
 \end{equation}
 where the $1 / 2$ is incorporated as the linewidth is defined as half of the FWHM of the peak. 
 
-Using Eq. \ref{eq:linewidth_avg}, we obtained an average linewidth of $\Gamma_{\mathrm{avg}} = \num[{scientific-notation = true}]{14.28(90)e-9}\si{\electronvolt}$. 
+Using Eqn. \ref{eq:linewidth_avg}, we obtained an average linewidth of $\Gamma_{\mathrm{avg}} = \num[{scientific-notation = true}]{14.28(90)e-9}\si{\electronvolt}$. 
 Comparing this to the natural linewidth of the 14.4 keV transition of $\Gamma_0 = \SI{4.7e-9}{\electronvolt}$, we observe that the linewidths we obtained are an 
 order of magnitude larger. A possible cause for this may be due to the Doppler broadening that is caused by the temperature in the room
 in which the experiment was conducted in. This is due to the fact that at high temperature the vibrations of the atoms within both the source and 
@@ -652,10 +656,10 @@ Fig. \ref{fig:moess_spect} show the multiple peaks that correspond to the hyperf
 magnetic dipole transitions of the $^{57}$Fe nucleus. As the spectrum splits both at the excited state and at the ground state, we evaluated
 the g-factor for both the excited and ground state which we denote as $g_{\mathrm{exc}}$ and $g_{\mathrm{gr}}$ respectively. \par
 
-We use Eq. \ref{eq:hyperfine_en} to determine the g-factor using the magnetic field of the nucleus of $H = \SI{33.3 \pm 1.0}{\tesla}$ as given in Ref. \cite{k2212016}
+We use Eqn. \ref{eq:hyperfine_en} to determine the g-factor using the magnetic field of the nucleus of $H = \SI{33.3 \pm 1.0}{\tesla}$ as given in Ref. \cite{k2212016}
 and the nuclear magneton as $\mu_N = \SI{3.152e-8}{\electronvolt\per\tesla}$:
 \begin{equation}
-    g = \frac{\Delta E}{\mu_N H}
+    g = \frac{\Delta E}{\mu_N H}.
     \label{eq:hyperfine_gfac}
 \end{equation}
 
@@ -679,13 +683,13 @@ two middle peaks (peaks 4 and 5) were omitted as they do not represent transitio
 \end{table}
 
 From this, we obtain a weighted average excited transition energy of $\Delta E_\mathrm{exc, avg} = (1.0413 \pm 0.0089)\times 10^{-7} \si[]{\electronvolt}$ 
-using the weighted average formula similarly to Eq. \ref{eq:linewidth_avg}. Using Eq. \ref{eq:hyperfine_gfac}, we obtain a g-factor for the excited state as $| g_\mathrm{exc} | = 0.0992 \pm 0.0031$.
+using the weighted average formula similarly to Eqn. \ref{eq:linewidth_avg}. Using Eqn. \ref{eq:hyperfine_gfac}, we obtain a g-factor for the excited state as $| g_\mathrm{exc} | = 0.0992 \pm 0.0031$.
 This yields values that are $2.19\sigma$ values away from to the expected value of 
 the g-factor of the excited state $| g_\mathrm{exc, thr} | = 0.106$ \cite{VANIN2007}. This indicates that our obtained 
 values are in not in good agreement with the expected value.\par 
 
 To find the corresponding g-factor of the ground state, we first determine the energy values between peaks from the $+v$ and $-v$
-directions, i.e. those in each symmetric distribution. This yields the total transition energy due to the 
+directions, which yields the total transition energy due to the 
 splitting of both excited and ground states. The energy difference due to the hyperfine splitting of the ground state is then obtained by 
 subtracting the contribution from the average excited state energy obtained above, i.e.
 \begin{equation}
@@ -712,14 +716,14 @@ we observe that our results is $0.18\sigma$ values away, which indicates excelle
 
 We observe that while we obtain excellent agreement with the ground state g-factor, we do not obtain good results for the excited 
 state g-factor. A possible cause of this may be due to the asymmetry in the distribution. We observe that Peak 4 has much larger 
-broadening compared to other peaks, which may cause deviation in the peak energy. In the future, more datapoints should be taken in 
+broadening compared to other peaks, which may cause deviation in the peak energy. In the future, more data-points should be taken in 
 regions where peak values are located to obtain an even better resolution for the measurement.
 
 \section{Isomer Shift}
 
 We measure the isomer shift by taking the energy difference between the pair of similar peaks obtained from the $+v$ and $-v$
 directions, i.e. the furthermost peaks, the middle peaks, and the two innermost peaks. As the spectrum is ideally symmetric, 
-by observing the deviation from the two peaks, we observe the deviation of the difference from the zero value. This will yield the 
+by observing the deviation from the two peaks we observe the deviation of the difference from the zero value. This will yield the 
 desired isomer shift. Table \ref{tab:isomer_en} shows the resulting values for each pair of peaks. 
 
 \begin{table}[!ht]
@@ -743,10 +747,10 @@ energies of the ground and excited state of the electric monopole. \par
 
 In this paper we investigated the hyperfine structure of the $^{57}$Fe decay
  at the 14.4 keV transition energy utilizing the M\"o{\ss}bauer effect. The M\"o{\ss}bauer effect
- allows the recoil energy of the atom due to the emission or absorption of the radiated
- photon to be neglected by moving the source or absorber of the photons. This allows measurements 
+ is the recoilless emission and absorption of photons. This effect is observed by moving the source or the absorber
+ relative to each other. This allows measurements 
  up to the order of $\SI{1e-9}{\electronvolt}$ and thus can observe phenomena which requires 
- precision such as the isomer shift and the hyperfine splitting of the nuclei. \par
+ precision such as the isomer shift and hyperfine splitting of nuclei. \par
  
  In our experiment, a $^{57}$Co source was placed near a moving $^{57}$Fe absorber, and the transmission 
  of photons through the absorber was measured using a single channel analyzer. The setup was 
@@ -757,15 +761,15 @@ In this paper we investigated the hyperfine structure of the $^{57}$Fe decay
  The absorber was then set to various velocities and the corresponding counts were measured. 
  After removing outliers from the measurement, we obtained the desired M\"o{\ss}bauer
  spectrum for $^{57}$Fe. Two additional peaks were observed, but we considered them as outliers 
- that possibly originate from the iron oxide that is formed from oxidation of the iron. \par
+ that possibly originate from the iron oxide that is formed due to oxidation of the iron. \par
  
  The corresponding spectrum was then fitted using a sum of Lorentzian 
- functions, and from this we obtained the amplitudes, peak energies, and linewidths of 
- each peak. We obtained a linewidth of $\Gamma_{\mathrm{avg}} = \num[{scientific-notation = true}]{14.28(90)e-9}\si{\electronvolt}$,
+ functions, and from this we obtained the amplitudes, peak energies, and FWHM of 
+ each peak. From this we obtained a linewidth of $\Gamma_{\mathrm{avg}} = \num[{scientific-notation = true}]{14.28(90)e-9}\si{\electronvolt}$,
  which is an order of magnitude larger than the natural linewidth. This is expected due to 
- Doppler broadening due to temperature fluctuations \par
+ Doppler broadening due to temperature fluctuations. \par
  
-To determine the g-factor of the excited and ground state, the peak-to-peak energy was obtained. 
+To determine the g-factor of the excited and ground state, we obtained the peak-to-peak energy. 
 For the excited state, the energy difference between each peak was taken, and with the given
 magnetic field we obtained our g-factor to be $| g_\mathrm{exc} | = 0.0992 \pm 0.0031$, which is
 $2.7\sigma$ away from the expected value. For the ground state, the excited state energy was 
@@ -780,24 +784,24 @@ indicates that there are large deviations between the monopole energy of the gro
 In the future, we can obtain finer measurements for the spectrum, which would yield 
 in a more precise spectrum. Further, multiple measurements should be taken for each point, which 
 will reduce the statistical uncertainty. This project can be extended by observing the temperature 
-dependence of the Debye-Walle factor or comparing the spectrum between different M\"o{\ss}bauer sources.
+dependence of the Debye-Waller factor or comparing the spectrum between different M\"o{\ss}bauer sources.
 
 
 \chapter{Acknowledgements}
-We would like to take this moment and thank Dr. Barth, who was really helpful and patient with us. We were lucky to have him as our tutor. Next, we would like to thank...
+We would like to take this moment and thank Dr. Barth, who was really helpful and patient with us throughout the whole experiment. We appreciate him guiding us through the experiment, especially at times at which we were confused. Next, we would like to thank Advanced Lab Course Module for giving us an opportunity to study hyperfine structure of $^{57}$Fe with such a simple setup. It is especially interesting to us that with such a setup, we were able to observe phenomena which otherwise requires a much more advanced setup. 
 
 
 \printbibliography
 
 \chapter{Appendix} \label{sec:Appendix}
 
-In the following section, we include all the data which was measured while performing the experiment.
+In the following section, we include all the data which was measured while performing the experiment and an additional plot.
 
 \begin{table}[!ht]
     \centering
 	\begin{tabular}{|c|c|c|c|}
     \hline
-	LLD $\pm$ 0.01 & Count (N) & Time (s) $\pm$ 0.03 & ULD ($\Delta$ E) (100\%) ($10^{-1}$)) \\ \hline
+	LLD (V) $\pm$ 0.01 & Count (N) & Time (s) $\pm$ 0.003 & ULD ($\Delta$ E) (100\%) ($10^{-1}$)) (V) \\ \hline
         0.02 & 420580 & 10 & 10 \\ \hline
         0.10 & 279704 & 10 & 10 \\ \hline
         0.20 & 45643 & 10 & 10 \\ \hline
@@ -845,7 +849,6 @@ In the following section, we include all the data which was measured while perfo
 \end{table}
 
 
-\hl{Verify the unit of motor speed.}
 \begin{table}[!ht]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|}
@@ -912,7 +915,7 @@ In the following section, we include all the data which was measured while perfo
 
 \begin{table}[!ht]
     \centering
-    \begin{tabular}{|l|l|l|l|l|l|}
+    \begin{tabular}{|c|c|c|c|c|c|}
     \hline
         Velocity (mm/s) & Motor speed (V) & Count (N) & Time (ms) & Turns & Count/s (N/s)\\ \hline
         -7.44176196526895 & 2.5 & 7271 & 2361 & 7 & 3.07962727657772 \\ \hline
@@ -984,7 +987,7 @@ In the following section, we include all the data which was measured while perfo
 % \begin{figure*}[htb!]
 % 	\centering
 % 	\includegraphics[width=0.8\columnwidth]{moess_spect_comps.png}
-% 	\caption{The Moessbauer spectrum with each Lorentzian distribution that was fitted for the overall model.}
+% 	\caption{The M\"o{\ss}bauer spectrum with each Lorentzian distribution that was fitted for the overall model.}
 % 	\label{fig:moess_spect_comps}
 % \end{figure*}
 % =======
