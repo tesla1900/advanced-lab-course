@@ -96,9 +96,9 @@
 		\begin{centering}
 			% \large
 			\textbf{Abstract}\\[0.2cm]
-            We investigated the hyperfine splitting of the Fe-57 using the Moessbauer effect that allows 
-            recoilless emission and absorption of photons. A Co-57 source was placed with a moving 
-            absorber, and the counts corresponding to the 14.4 keV transition of Fe-57 was measured. The 
+            We investigated the hyperfine splitting of the $^{57}$Fe using the M\"o{\ss}bauer effect that allows 
+            recoilless emission and absorption of photons. A $^{57}$Co source was placed with a moving 
+            absorber, and the counts corresponding to the 14.4 keV transition of $^{57}$Fe was measured. The 
             obtained spectrum yielded more peaks than desired, which were attributed to the Iron (III) oxide
             from oxidation of the absorber. The linewidth obtained was an order of magnitude larger than the natural 
             linewidth, caused by temperature broadening. The g-factor from the hyperfine spectrum for both excited and ground 
@@ -142,11 +142,16 @@
 
 \chapter{Introduction}
 
-In this experiment, the phenomenon known as M\"o{\ss}bauer effect. is studied by means of transition spectroscopy. Using a $^{57}$Co source, this effect is observed and the hyperfine structure of 14.4 keV transition in $^{57}$Fe is measured. 
+In this experiment, the phenomenon known as the M\"o{\ss}bauer effect is studied by means of transition spectroscopy. Using a $^{57}$Co source, this effect is observed and the hyperfine structure of 14.4 keV transition in $^{57}$Fe is measured. 
 
-From the M\"o{\ss}bauer spectrum of measured, we can see the isomeric shift and quadrupole and magnetic splitting of energy levels. Using this, one can determine the $g$-factor of the ground state and the first excited state can be determined. 
+From the M\"o{\ss}bauer spectrum measured, we can see the isomeric shift, quadrupole and magnetic splitting of energy levels. Using this, one can determine the $g$-factor of the ground state and the first excited state.
 
-\chapter{Theoretical Background}
+In today's report, we will first discuss the theoretical background in Chapter \ref{sec:theory}. In this section we go through the principles of the M\"o{\ss}bauer effect, which gives us on insight on how the isomer shift, the electric quadrupole interaction and the magnetic dipole interaction give us the observed M\"o{\ss}bauer spectrum. Then in Chapter \ref{sec:experiment}, we look at the experimental set-up used in order to perform the experiment and get the data. In Chapter \ref{sec:calibration}, we look at the decay spectrum of $^{57}$Fe, and find the region of interest, which is the M\"o{\ss}bauer line corresponding to 14.4 keV energy difference. 
+
+In Chapter \ref{sec:moess}, we look at the M\"o{\ss}bauer spectrum for absorber moving Left-to-Right (LR) and Right-to-Left (RL), relative to the source for different relative velocities. This allows us to look at the Doppler shift, the isomeric shift and the hyperfine splitting in the energy levels. We also determine the $g$-factor for the separation of lines between the first excited state and the ground state. 
+
+
+\chapter{Theoretical Background} \label{sec:theory}
 In the following section, we shall study the theoretical background of the M\"o{\ss}bauer effect in brief. A much more detailed discussion can be found in \cite{Schatz1996}, mostly on which the following section is based.
 
 \section{Principles} \label{sec:principles}
@@ -395,19 +400,19 @@ where $\mu$ is the magnetic moment and  $\mu _{N}$ is the nuclear nuclear magnet
 \end{equation}
 
 
-\chapter{Experimental Set-Up}
+\chapter{Experimental Set-Up} \label{sec:experiment}
 
-To measure the Moessbauer spectrum, we placed a Co-57 radioactive source onto a table with a moving absorber 
+To measure the M\"o{\ss}bauer spectrum, we placed a $^{57}$Co radioactive source onto a table with a moving absorber 
 that has a maximum displacement of $\SI[]{25.1 \pm 0.2}[]{\milli\metre}$.  A photodetector is placed 
 behind the absorber that detects the number of photons that are not absorbed via this process. The speed of the 
 absorber is controlled by a motor that swings the absorber at a fixed velocity. See Fig. \ref{fig:apparatus_source}
-for the Moessbauer source apparatus. \par 
+for the M\"o{\ss}bauer source apparatus. \par 
 
 \begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.7\columnwidth]{source_image.png}
 
-	\caption{The set-up of the Moessbauer source. \textit{Left}: The Co-57 source. \textit{Middle}: 
+	\caption{The set-up of the M\"o{\ss}bauer source. \textit{Left}: The $^{57}$Co source. \textit{Middle}: 
 	The moving absorber. \textit{Right}: The photodetector which is connected to the detector apparatus.
 	}
 	\label{fig:apparatus_source}
@@ -446,8 +451,8 @@ See Fig. \ref{fig:apparatus_raw} for the apparatus used for the photodetection a
 Before we took any measurements, we determined the optimal values for the LLD in order to ensure that we are 
 detecting counts from the 14.4 keV transition. In order to do so, we modified the LLD from 0 to 4 and determined the number 
 of counts obtained at each value for a fixed time interval for $T = \SI{10}{\second}$. Once the data was obtained, 
-we plotted the number of detected photons $N$ against the LLD values and compared our results to the Fe-57 $\gamma$-spectrum as seen in Fig. \ref{fig:pulse-height}.
-This allowed us to identify the range in which we should set the ULD and LLD values when performing the Moessbauer measurements. 
+we plotted the number of detected photons $N$ against the LLD values and compared our results to the $^{57}$Fe $\gamma$-spectrum as seen in Fig. \ref{fig:pulse-height}.
+This allowed us to identify the range in which we should set the ULD and LLD values when performing the M\"o{\ss}bauer measurements. 
  Fig. \ref{fig:calibration_plot} shows the obtained spectrum from our experiment. See the Appendix section for the full data obtained from this 
  section. The uncertainty for the counts were taken to be purely statistical such that $\delta N = \sqrt{N}$, and the uncertainty 
  of the time interval measurement was taken to be $\delta T = \pm \SI{0.003}{\second}$. \par
@@ -455,26 +460,26 @@ This allowed us to identify the range in which we should set the ULD and LLD val
 \begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.7\columnwidth]{calib_plot.png}
-	\caption{The pulse height spectrum for Fe-57 decay observed in the experiment. The number of counts are shown for varying 
+	\caption{The pulse height spectrum for $^{57}$Fe decay observed in the experiment. The number of counts are shown for varying 
 	LLD values.}
 	\label{fig:calibration_plot}
 \end{figure*}
 
 By comparison to expected results, we identified the 14.4 keV transition line as the third peak on Fig. \ref{fig:calibration_plot}. 
-The ULD and LLD values that were used to perform the Moessbauer measurement was then set to be 1.8 and 2.6 respectively. \par 
+The ULD and LLD values that were used to perform the M\"o{\ss}bauer measurement was then set to be 1.8 and 2.6 respectively. \par 
 
 % add something about how we used fit to get the true values for the LLD values (if we do)?
 
 % \chapter{Results and Discussion}
 
-\chapter{Moessbauer Spectrum}
+\chapter{M\"o{\ss}bauer Spectrum} \label{sec:moess}
 
 \section{Spectrum}
 
-To observe the Moessbauer spectrum, we first set the ULD and LLD to 1.8 and 2.6 respectively as obtained from Chapter \ref{sec:calibration}. 
+To observe the M\"o{\ss}bauer spectrum, we first set the ULD and LLD to 1.8 and 2.6 respectively as obtained from Chapter \ref{sec:calibration}. 
 Once a certain motor speed has been set, we ran both LR and RL single channel analyzer for a set number of turns, ranging from 4 to 10
 turns. We then recorded the obtained number of counts and duration for both LR and RL analyzers. This was repeated until we obtained 
-enough points to more accurately construct the Moessbauer peaks. This was verified by using the built-in plotting tool in Excel where we 
+enough points to more accurately construct the M\"o{\ss}bauer peaks. This was verified by using the built-in plotting tool in Excel where we 
 displayed the plot between the count rate $R = N / T$ against the motor speed. We took a total of 60 measurements in this experiment, ranging for 
 motor speeds from 0 to 2.5. Fig. \ref{fig:moess_raw} shows the raw data obtained from both analyzers. See Appendix (Chapter \ref{sec:Appendix}) for the raw data table obtained from both analyzers. \par 
 
@@ -484,7 +489,7 @@ motor speeds from 0 to 2.5. Fig. \ref{fig:moess_raw} shows the raw data obtained
 	\quad
 	\centering
 	\subfloat[]{{\includegraphics[width=0.45\columnwidth]{raw_moess_RL.png}}}
-	\caption{The Raw Spectrum obtained from the Moessbauer measurement for the 14.4 keV transition for Fe-57 from the (a) LR and (b) RL 
+	\caption{The Raw Spectrum obtained from the M\"o{\ss}bauer measurement for the 14.4 keV transition for $^{57}$Fe from the (a) LR and (b) RL 
 	single channel analyzer. Several outliers can be observed.}
 	\label{fig:moess_raw}
 \end{figure*}
@@ -498,12 +503,12 @@ as in Chapter \ref{sec:calibration}:
 
 
 To determine the peaks, we first filtered out the outliers from the data, then combined the LR and RL measurements to construct 
-the full Moessbauer spectrum. Fig. \ref{fig:moess_spect_filt} shows the combined Moessbauer measurement after filtering. \par 
+the full M\"o{\ss}bauer spectrum. Fig. \ref{fig:moess_spect_filt} shows the combined M\"o{\ss}bauer measurement after filtering. \par 
 
 \begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{moess_spect_filt.png}
-	\caption{The Moessbauer spectrum after removing outliers and combining the LR and RL data.}
+	\caption{The M\"o{\ss}bauer spectrum after removing outliers and combining the LR and RL data.}
 	\label{fig:moess_spect_filt}
 \end{figure*}
 
@@ -517,6 +522,7 @@ is shown as such:
     \label{eq:multi_lorentzian}
 \end{equation}
 The fitting procedure was implemented using the Python package \texttt{lmfit} which utilizes the Levenberg-Marquardt method. 
+
 Fig. \ref{fig:moess_spect} shows the full Moessbauer spectrum with the obtained multi-Lorentzian fit, and Table \ref{tab:fit_params} shows the obtained fit parameters from the analysis for each peak.
 The offset was determined to be $\delta_I = \SI{3.162 \pm 0.025}{\per\second} $. We also show the spectrum against the individual Lorentzian
 peaks that composed our total fit in Fig. \ref{fig:moess_spect_comps}. The uncertanties were obtained from the 
@@ -525,7 +531,7 @@ covariance matrix evaluated through the fitting procedure. Sec. \ref{sec:Appendi
 \begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{moess_spect.png}
-	\caption{The observed Moessbauer spectrum for Fe-57 through the 14.4 keV transition for varying absorber velocities. The 
+	\caption{The observed M\"o{\ss}bauer spectrum for $^{57}$Fe through the 14.4 keV transition for varying absorber velocities. The 
 	non-linear Lorentzian fit is also shown.}
 	\label{fig:moess_spect}
 \end{figure*}
@@ -558,26 +564,26 @@ covariance matrix evaluated through the fitting procedure. Sec. \ref{sec:Appendi
 \end{table}
 
 % From Fig. \ref{fig:moess_spect}, we observe eight prominent peaks. The six sharp peaks observe can be identified as the 
-% spectrum due to the hyperfine splitting of the Fe-57 atom through the 14.4 keV transition. This can be said as the nearest
+% spectrum due to the hyperfine splitting of the $^{57}$Fe atom through the 14.4 keV transition. This can be said as the nearest
 % two peaks have lower peak amplitudes compared to the other observed peaks with a difference of $\sim 0.15$ compared to its
 % closest peaks. Their linewidth is also much larger than the rest, where the 4th peaks has a linewidth greater than 1. 
 % These unphysical peaks may have been caused by the temperature fluctuations and instrumentation error associated with the 
 % equipment. \par 
 
 From Fig. \ref{fig:moess_spect}, we observe a total of eight peaks, contrary to the 
-six peaks that are expected from the hyperfine splitting of the Fe-57 spectrum. After calculating for the isomer shift and 
+six peaks that are expected from the hyperfine splitting of the $^{57}$Fe spectrum. After calculating for the isomer shift and 
 g-factors in the following sections, we observed that the first and last peaks were outliers that may have not have been a result of  
- the 14.4 keV transition of Fe-57. 
+ the 14.4 keV transition of $^{57}$Fe. 
 A possible explanation of the additional peaks is due to the oxidation of the absorber. As the instrument may be relatively old,
 the iron may have oxidized, creating impurities within the absorber. The oxidation of the iron will have caused some of the iron
-to iron(III) oxide, containing Fe$_2$O$_3$, FeO, and Fe$_3$O$_4$. When performing Moessbauer spectroscopy onto such molecules, 
+to iron(III) oxide, containing Fe$_2$O$_3$, FeO, and Fe$_3$O$_4$. When performing M\"o{\ss}bauer spectroscopy onto such molecules, 
 one observes finer splitting at absorber velocities of around $6-8\si[]{\milli\metre\per\second}$, which is what we also 
 observe from Fig. \ref{fig:moess_spect} \cite{Winsett2019}. As of such, we removed the first and last peaks for the following 
 sections. \par 
 
 \section{Natural Linewidth}
 
-To compare the obtained peaks to the analytical results from the hyperfine splitting of the Fe-57 nucleus through the 14.4 keV
+To compare the obtained peaks to the analytical results from the hyperfine splitting of the $^{57}$Fe nucleus through the 14.4 keV
 transition, we convert the fit parameters described in the absorber velocity into the transition energy $E_\gamma$ using the 
 equation describing the Doppler shift of the ground state energy: 
 \begin{equation}
@@ -637,13 +643,13 @@ Using Eq. \ref{eq:linewidth_avg}, we obtained an average linewidth of $\Gamma_{\
 Comparing this to the natural linewidth of the 14.4 keV transition of $\Gamma_0 = \SI{4.7e-9}{\electronvolt}$, we observe that the linewidths we obtained are an 
 order of magnitude larger. A possible cause for this may be due to the Doppler broadening that is caused by the temperature in the room
 in which the experiment was conducted in. This is due to the fact that at high temperature the vibrations of the atoms within both the source and 
-the absorber yield larger uncertainties in the transition energies of the Fe-57 nucleus. In the future, this experiment should be 
+the absorber yield larger uncertainties in the transition energies of the $^{57}$Fe nucleus. In the future, this experiment should be 
 conducted in a colder environment to reduce such broadening.\par 
 
 \section{Hyperfine Splitting}
 
 Fig. \ref{fig:moess_spect} show the multiple peaks that correspond to the hyperfine splitting through electric quadrupole and 
-magnetic dipole transitions of the Fe-57 nucleus. As the spectrum splits both at the excited state and at the ground state, we evaluated
+magnetic dipole transitions of the $^{57}$Fe nucleus. As the spectrum splits both at the excited state and at the ground state, we evaluated
 the g-factor for both the excited and ground state which we denote as $g_{\mathrm{exc}}$ and $g_{\mathrm{gr}}$ respectively. \par
 
 We use Eq. \ref{eq:hyperfine_en} to determine the g-factor using the magnetic field of the nucleus of $H = \SI{33.3 \pm 1.0}{\tesla}$ as given in Ref. \cite{k2212016}
@@ -735,22 +741,22 @@ energies of the ground and excited state of the electric monopole. \par
 
 \chapter{Conclusion and Outlook}
 
-In this paper we investigated the hyperfine structure of the Fe-57 decay
- at the 14.4 keV transition energy utilizing the Moessbauer effect. The Moessbauer effect
+In this paper we investigated the hyperfine structure of the $^{57}$Fe decay
+ at the 14.4 keV transition energy utilizing the M\"o{\ss}bauer effect. The M\"o{\ss}bauer effect
  allows the recoil energy of the atom due to the emission or absorption of the radiated
  photon to be neglected by moving the source or absorber of the photons. This allows measurements 
  up to the order of $\SI{1e-9}{\electronvolt}$ and thus can observe phenomena which requires 
  precision such as the isomer shift and the hyperfine splitting of the nuclei. \par
  
- In our experiment, a Co-57 source was placed near a moving Fe-57 absorber, and the transmission 
+ In our experiment, a $^{57}$Co source was placed near a moving $^{57}$Fe absorber, and the transmission 
  of photons through the absorber was measured using a single channel analyzer. The setup was 
- first calibrated so that only counts resulting from the 14.4 keV Moessbauer transitions are obtained when 
+ first calibrated so that only counts resulting from the 14.4 keV M\"o{\ss}bauer transitions are obtained when 
  performing the measurement. This was performed by varying the channel parameter to obtain the 
- $\gamma$-spectrum of Fe-57 and identifying the peak that corresponds to the 14.4 keV transition. \par 
+ $\gamma$-spectrum of $^{57}$Fe and identifying the peak that corresponds to the 14.4 keV transition. \par 
 
  The absorber was then set to various velocities and the corresponding counts were measured. 
- After removing outliers from the measurement, we obtained the desired Moessbauer
- spectrum for Fe-57. Two additional peaks were observed, but we considered them as outliers 
+ After removing outliers from the measurement, we obtained the desired M\"o{\ss}bauer
+ spectrum for $^{57}$Fe. Two additional peaks were observed, but we considered them as outliers 
  that possibly originate from the iron oxide that is formed from oxidation of the iron. \par
  
  The corresponding spectrum was then fitted using a sum of Lorentzian 
@@ -774,7 +780,7 @@ indicates that there are large deviations between the monopole energy of the gro
 In the future, we can obtain finer measurements for the spectrum, which would yield 
 in a more precise spectrum. Further, multiple measurements should be taken for each point, which 
 will reduce the statistical uncertainty. This project can be extended by observing the temperature 
-dependence of the Debye-Walle factor or comparing the spectrum between different Moessbauer sources.
+dependence of the Debye-Walle factor or comparing the spectrum between different M\"o{\ss}bauer sources.
 
 
 \chapter{Acknowledgements}
@@ -970,16 +976,25 @@ In the following section, we include all the data which was measured while perfo
 \begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{moess_spect_init.png}
-	\caption{The Moessbauer spectrum with the fit using the initial guess parameters.}
+	\caption{The M\"o{\ss}bauer spectrum with the fit using the initial guess parameters.}
 	\label{fig:moess_spect_init}
 \end{figure*}
 
+% <<<<<<< HEAD
 % \begin{figure*}[htb!]
 % 	\centering
 % 	\includegraphics[width=0.8\columnwidth]{moess_spect_comps.png}
 % 	\caption{The Moessbauer spectrum with each Lorentzian distribution that was fitted for the overall model.}
 % 	\label{fig:moess_spect_comps}
 % \end{figure*}
+% =======
+% \begin{figure*}[htb!]
+% 	\centering
+% 	\includegraphics[width=0.8\columnwidth]{moess_spect_comps.png}
+% 	\caption{The M\"o{\ss}bauer spectrum with each Lorentzian distribution that was fitted for the overall model.}
+% 	\label{fig:moess_spect_comps}
+% \end{figure*}
+% >>>>>>> 4e1f69b (Added intro)
 
 
 \end{document}
