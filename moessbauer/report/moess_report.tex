@@ -418,7 +418,8 @@ in a given time range and maximal and minimal width to observe the counts. The S
 the Upper Level Discrimator (ULD) and the Lower Level Discrimator (LLD), which controls the binsize and the lower limit for 
 photodetection respectively. The modes of the ULD can be set to measure with a higher resolution by detecting counts with 
 10 $\%$ of the binsize. The SCA was then connected to a display in which the number of counts obtained in a specific time 
-interval was shown. 
+interval was shown. \par 
+
 The photodetecting apparatus consisted of two such setups to consider for measurements with positive and negative velocity 
 of the absorber as the offset voltage between the two can allow the measurements in the LR and RL direction to differ.
 A separate run counter that tracks the number of turns that the absorber had is also contained in the apparatus. A timer 
@@ -445,7 +446,7 @@ See Fig. \ref{fig:apparatus_raw} for the apparatus used for the photodetection a
 Before we took any measurements, we determined the optimal values for the LLD in order to ensure that we are 
 detecting counts from the 14.4 keV transition. In order to do so, we modified the LLD from 0 to 4 and determined the number 
 of counts obtained at each value for a fixed time interval for $T = \SI{10}{\second}$. Once the data was obtained, 
-we plotted the number of detected photons $N$ against the LLD values and compared our results to the Fe-57 $\gamma$-spectrum as seen in Fig. \hl{add reference here}.
+we plotted the number of detected photons $N$ against the LLD values and compared our results to the Fe-57 $\gamma$-spectrum as seen in Fig. \ref{fig:pulse-height}.
 This allowed us to identify the range in which we should set the ULD and LLD values when performing the Moessbauer measurements. 
  Fig. \ref{fig:calibration_plot} shows the obtained spectrum from our experiment. See the Appendix section for the full data obtained from this 
  section. The uncertainty for the counts were taken to be purely statistical such that $\delta N = \sqrt{N}$, and the uncertainty 
@@ -518,8 +519,8 @@ is shown as such:
 The fitting procedure was implemented using the Python package \texttt{lmfit} which utilizes the Levenberg-Marquardt method. 
 Fig. \ref{fig:moess_spect} shows the full Moessbauer spectrum with the obtained Lorentzian fit, and Table \ref{tab:fit_params} shows the obtained fit parameters from the analysis for each peak.
 The offset was determined to be $\delta_I = \SI{3.162 \pm 0.025}{\per\second} $. The uncertanties were obtained from the 
-covariance matrix evaluated through the fitting procedure. \par 
-
+covariance matrix evaluated through the fitting procedure. Sec. \ref{sec:Appendix} shows the fitting of our data 
+to each Lorentzian distribution, as well as the fit using the initial guess parameters. \par 
 
 \begin{figure*}[htb!]
 	\centering
@@ -951,6 +952,20 @@ In the following section, we include all the data which was measured while perfo
     \caption{Velocity measurements for Left to Right (LR).}
 \end{table}
 
+
+\begin{figure*}[htb!]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{moess_spect_init.png}
+	\caption{The Moessbauer spectrum with the fit using the initial guess parameters.}
+	\label{fig:moess_spect_init}
+\end{figure*}
+
+\begin{figure*}[htb!]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{moess_spect_comps.png}
+	\caption{The Moessbauer spectrum with each Lorentzian distribution that was fitted for the overall model.}
+	\label{fig:moess_spect_comps}
+\end{figure*}
 
 
 \end{document}
