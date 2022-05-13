@@ -96,7 +96,17 @@
 		\begin{centering}
 			% \large
 			\textbf{Abstract}\\[0.2cm]
-
+            We investigated the hyperfine splitting of the Fe-57 using the Moessbauer effect that allows 
+            recoilless emission and absorption of photons. A Co-57 source was placed with a moving 
+            absorber, and the counts corresponding to the 14.4 keV transition of Fe-57 was measured. The 
+            obtained spectrum yielded more peaks than desired, which were attributed to the Iron (III) oxide
+            from oxidation of the absorber. The linewidth obtained was an order of magnitude larger than the natural 
+            linewidth, caused by temperature broadening. The g-factor from the hyperfine spectrum for both excited and ground 
+            states were determined, yielding $| g_\mathrm{exc} | = 0.0992 \pm 0.0031$ and $| g_\mathrm{gr} | = 0.1809 +-\pm 0.0056$
+            respectively. The g-factor of the ground state was in excellent agreement with the expected value, while those for the 
+            excited state yielded poor agreement, attributing to the asymmetry in the distribution. We obtained the 
+            isomer shift as $\delta = \num[scientific-notation=true]{0.1026(31)e-7}\si[]{\electronvolt}$, which indicates a deviation in 
+            excited and ground state monopole energies. 
 		\end{centering}
 	\end{minipage}
 	
@@ -381,6 +391,7 @@ where $\mu$ is the magnetic moment and  $\mu _{N}$ is the nuclear nuclear magnet
 
 \begin{equation}
 		E_{m} = - g \mu _{N} B.
+        \label{eq:hyperfine_en}
 \end{equation}
 
 
@@ -486,7 +497,17 @@ as in Chapter \ref{sec:calibration}:
 
 
 To determine the peaks, we first filtered out the outliers from the data, then combined the LR and RL measurements to construct 
-the full Moessbauer spectrum. We then performed a non-linear fit to the multi-Lorentzian distribution, i.e. the sum of Lorentzian
+the full Moessbauer spectrum. Fig. \ref{fig:moess_spect_filt} shows the combined Moessbauer measurement after filtering. \par 
+
+\begin{figure*}[htb!]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{moess_spect_filt.png}
+	\caption{The Moessbauer spectrum after removing outliers and combining the LR and RL data.}
+	\label{fig:moess_spect_filt}
+\end{figure*}
+
+
+We then performed a non-linear fit to the multi-Lorentzian distribution, i.e. the sum of Lorentzian
 distributions, to determine the peak velocity $v_0$, peak amplitude $I_0$, and uncertainty $\Gamma_v$ for each observed peak. The 
 offset $\delta_I$ from a full symmetric distribution was also determined through this fitting process. The equation used to fit
 is shown as such:
@@ -552,32 +573,52 @@ To compare the obtained peaks to the analytical results from the hyperfine split
 transition, we convert the fit parameters described in the absorber velocity into the transition energy $E_\gamma$ using the 
 equation describing the Doppler shift of the ground state energy: 
 \begin{equation}
-    E = E_0 \left(1 + \frac{v}{c}\right) \implies \Delta E = E_\gamma = E_0\frac{v}{c}
+    E = E_0 \left(1 + \frac{v}{c}\right) \implies E_\gamma = \Delta E = E_0\frac{v}{c}
 \end{equation}
 where $E_0$ is the expected ground state energy $E_0 = \SI{14.4}{\kilo\electronvolt}$. The linewidths were converted in a similar 
 fashion. Table \ref{tab:energy_params} shows the energy value $\Delta E$ and its 
 linewidth $\Gamma$ for each observed peak. 
 
+% \begin{table}[!ht]
+%     \centering
+%     \begin{tabular}{|c|c|c|}
+%     \hline  
+%         Peak & $E_\gamma$ [$\SI{1e-7}{\electronvolt}$] & $\Gamma$ [$\SI{1e-9}{\electronvolt}$] \\ \hline
+%         1 &$-3.2223 \pm 0.0046$ & $8.4 \pm 0.8 $\\ \hline
+%         2 &$-2.561 \pm 0.012$ &   $16.3 \pm 2.3$ \\ \hline
+%         3 &$-1.5238 \pm 0.0079$ & $12.9 \pm 1.5$ \\ \hline
+%         4 &$-0.453 \pm 0.069$ &   $36 \pm 18 $ \\ \hline
+%         5 &$ 0.372 \pm 0.015$ &   $10.2 \pm 4.9$ \\ \hline
+%         6 &$ 1.4201 \pm 0.0073$ & $14.0 \pm 1.5$ \\ \hline
+%         7 &$ 2.460 \pm 0.012$ &   $16.1 \pm 2.2$ \\ \hline
+%         8 &$ 3.0456 \pm 0.0043$ & $7.5 \pm 0.6 $\\ \hline
+%     \end{tabular}
+%     \caption{The energy values at the peaks $E_\gamma$ and the linewidths $\Gamma$ obtained for each peak. The peaks are 
+%     labelled as given in Table \ref{tab:fit_params}.}
+% \label{tab:energy_params}
+% \end{table}
+
 \begin{table}[!ht]
     \centering
     \begin{tabular}{|c|c|c|}
     \hline  
-        Peak & $\Delta E$ [$\SI{1e-7}{\electronvolt}$] & $\Gamma$ [$\SI{1e-9}{\electronvolt}$] \\ \hline
-        1 &$-3.2223 \pm 0.0046$ & $8.4 \pm 0.8 $\\ \hline
+        Peak & $E_\gamma$ [$\SI{1e-7}{\electronvolt}$] & $\Gamma$ [$\SI{1e-9}{\electronvolt}$] \\ \hline
+        % 1 &$-3.2223 \pm 0.0046$ & $8.4 \pm 0.8 $\\ \hline
         2 &$-2.561 \pm 0.012$ &   $16.3 \pm 2.3$ \\ \hline
         3 &$-1.5238 \pm 0.0079$ & $12.9 \pm 1.5$ \\ \hline
         4 &$-0.453 \pm 0.069$ &   $36 \pm 18 $ \\ \hline
         5 &$ 0.372 \pm 0.015$ &   $10.2 \pm 4.9$ \\ \hline
         6 &$ 1.4201 \pm 0.0073$ & $14.0 \pm 1.5$ \\ \hline
         7 &$ 2.460 \pm 0.012$ &   $16.1 \pm 2.2$ \\ \hline
-        8 &$ 3.0456 \pm 0.0043$ & $7.5 \pm 0.6 $\\ \hline
+        % 8 &$ 3.0456 \pm 0.0043$ & $7.5 \pm 0.6 $\\ \hline
     \end{tabular}
-    \caption{The energy values at the peaks $\Delta E$ and the linewidths $\Gamma$ obtained for each peak. The peaks are 
-    labelled as given in Table \ref{tab:fit_params}.}
+    \caption{The energy values at the peaks $E_\gamma$ and the linewidths $\Gamma$ obtained for each peak. The peaks are 
+    labelled as given in Table \ref{tab:fit_params}, where the outliers are omitted.}
 \label{tab:energy_params}
 \end{table}
 
-From Table \ref{tab:energy_params}, we obtained an average linewidth of $\Gamma_{\mathrm{avg}} = \SI[{scientific-notation = true}]{17.3(33)e-9}{\electronvolt}$. 
+
+From Table \ref{tab:energy_params}, we obtained an average linewidth of $\Gamma_{\mathrm{avg}} = \num[{scientific-notation = true}]{14.28(90)e-9}\si{\electronvolt}$. 
 Comparing this to the natural linewidth of the 14.4 keV transition of $\Gamma_0 = \SI{4.7e-9}{\electronvolt}$, we observe that the linewidths we obtained are an 
 order of magnitude larger. A possible cause for this may be due to the Doppler broadening that is caused by the temperature in the room
 in which the experiment was conducted in. This is due to the fact that at high temperature the vibrations of the atoms within both the source and 
@@ -588,18 +629,138 @@ conducted in a colder environment to reduce such broadening.\par
 
 Fig. \ref{fig:moess_spect} show the multiple peaks that correspond to the hyperfine splitting through electric quadrupole and 
 magnetic dipole transitions of the Fe-57 nucleus. As the spectrum splits both at the excited state and at the ground state, we evaluated
-the g-factor for both the excited and ground state, given as $g_{\mathrm{exc}}$ and $g_{\mathrm{gr}}$ respectively. \par
+the g-factor for both the excited and ground state which we denote as $g_{\mathrm{exc}}$ and $g_{\mathrm{gr}}$ respectively. \par
 
-To evaluate the g-factor, we use the magnetic field of the nucleus of $H = \SI{33.3 \pm 1.0}{\tesla}$ as given in Ref. \cite{k2212016}
+We use Eq. \ref{eq:hyperfine_en} to determine the g-factor using the magnetic field of the nucleus of $H = \SI{33.3 \pm 1.0}{\tesla}$ as given in Ref. \cite{k2212016}
+and the nuclear magneton as $\mu_N = \SI{3.152e-8}{\electronvolt\per\tesla}$:
+\begin{equation}
+    g = \frac{\Delta E}{\mu_N H}
+    \label{eq:hyperfine_gfac}
+\end{equation}
 
+In order to use this equation, we first determined the energy values between the peaks. For the excited states, we compare between the 
+peaks that induce the same transition, i.e. the difference of energy values between each peak. The peak-to-peak difference between the 
+two middle peaks (peaks 4 and 5) were omitted as they do not represent transitions through excited states. Table \ref{tab:hyperfine_exc_en} shows the energy values between such peaks.  
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+        Peaks & $\Delta E_\mathrm{exc}$ [$\SI{1e-7}{\electronvolt}$] \\ \hline
+        2 - 3 & $1.037 \pm 0.015$ \\ \hline
+        3 - 4 & $1.070 \pm 0.069$\\ \hline
+        5 - 6 & $1.047 \pm 0.017$ \\ \hline
+        6 - 7 & $1.039 \pm 0.014$ \\ \hline
+    \end{tabular}
+    \caption{Peak-to-peak energy values, corresponding to energies for hyperfine splitting in the excited state. The peaks are 
+    defined as with before.}
+    \label{tab:hyperfine_exc_en}
+\end{table}
+
+From this, we obtain a (weighted) mean excited transition energy of $\Delta E_\mathrm{exc, avg} = (1.0413 \pm 0.0089)\times 10^{-7} \si[]{\electronvolt}$, 
+and using Eq. \ref{eq:hyperfine_gfac}, we obtain a g-factor for the excited state as $| g_\mathrm{exc} | = 0.0992 \pm 0.0031$.
+This yields values that are $2.19\sigma$ values away from to the expected value of 
+the g-factor of the excited state $| g_\mathrm{exc, thr} | = 0.106$ \cite{VANIN2007}. This indicates that our obtained 
+values are in not in good agreement with the expected value.\par 
+
+To find the corresponding g-factor of the ground state, we first determine the energy values between peaks from the $+v$ and $-v$
+directions, i.e. those in each symmetric distribution. This yields the total transition energy due to the 
+splitting of both excited and ground states. The energy difference due to the hyperfine splitting of the ground state is then obtained by 
+subtracting the contribution from the average excited state energy obtained above, i.e.
+\begin{equation}
+    \Delta E_{\mathrm{gr}} = \Delta E_{\mathrm{exc + gr}} - \Delta E_{\mathrm{exc}} . 
+\end{equation}
+Table \ref{tab:hyperfine_gr_en} shows the ground state transition energies for each peak. 
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+        Peaks & $\Delta E_\mathrm{exc + gr}$ [$\SI{1e-7}{\electronvolt}$] & $\Delta E_\mathrm{gr}$ [$\SI{1e-7}{\electronvolt}$]\\ \hline
+        2 - 5 & $2.934 \pm 0.020$ & $1.885 \pm 0.028$\\ \hline
+        3 - 6 & $2.944 \pm 0.011$ & $1.895 \pm 0.022$\\ \hline
+        4 - 7 & $2.913 \pm 0.071$ & $1.864 \pm 0.073$\\ \hline
+    \end{tabular}
+    \caption{Same as Table \ref{tab:hyperfine_exc_en} but for the ground state. The total excitation energy is also shown.}
+    \label{tab:hyperfine_gr_en}
+\end{table}
+
+From Table \ref{tab:hyperfine_gr_en}, we obtained a mean ground state splitting energy $\Delta E_{\mathrm{gr, avg}} = \num[scientific-notation=true]{1.899(12)e-7}\si{\electronvolt}$, 
+which gives us a g-factor of $| g_\mathrm{gr} | = 0.1809 +-\pm 0.0056$. Comparing with the expected value of $| g_\mathrm{gr, thr} | = 0.181$, 
+we observe that our results is $0.18\sigma$ values away, which indicates excellent agreement \cite{VANIN2007}.\par 
+
+We observe that while we obtain excellent agreement with the ground state g-factor, we do not obtain good results for the excited 
+state g-factor. A possible cause of this may be due to the asymmetry in the distribution. We observe that Peak 4 has much larger 
+broadening compared to other peaks, which may cause deviation in the peak energy. In the future, more datapoints should be taken in 
+regions where peak values are located to obtain an even better resolution for the measurement.
 
 \section{Isomer Shift}
 
+We measure the isomer shift by taking the energy difference between the pair of similar peaks obtained from the $+v$ and $-v$
+directions, i.e. the furthermost peaks, the middle peaks, and the two innermost peaks. As the spectrum is ideally symmetric, 
+by observing the deviation from the two peaks, we observe the deviation of the difference from the zero value. This will yield the 
+desired isomer shift. Table \ref{tab:isomer_en} shows the resulting values for each pair of peaks. 
 
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+        Peaks & $\Delta E_\mathrm{pair}$ [$\SI{1e-7}{\electronvolt}$] \\ \hline
+        2 - 7 & $0.1012 \pm 0.0059$ \\ \hline
+        3 - 6 & $0.1037 \pm 0.0036$ \\ \hline
+        4 - 5 & $0.080 \pm 0.024$ \\ \hline
+    \end{tabular}
+    \caption{The energy difference between each similar pair of peaks, which is used to determine the isomer shift.}
+    \label{tab:isomer_en}
+\end{table}
 
-% next objective: to add isomer shift and determine g factor
+We then obtained the isomer shift by taking the weighted average of the energy difference values. From this, we yielded
+$\delta = \num[scientific-notation=true]{0.1026(31)e-7}\si[]{\electronvolt}$, indicating a clear difference in the 
+energies of the ground and excited state of the electric monopole. \par 
 
 \chapter{Conclusion and Outlook}
+
+In this paper we investigated the hyperfine structure of the Fe-57 decay
+ at the 14.4 keV transition energy utilizing the Moessbauer effect. The Moessbauer effect
+ allows the recoil energy of the atom due to the emission or absorption of the radiated
+ photon to be neglected by moving the source or absorber of the photons. This allows measurements 
+ up to the order of $\SI{1e-9}{\electronvolt}$ and thus can observe phenomena which requires 
+ precision such as the isomer shift and the hyperfine splitting of the nuclei. \par
+ 
+ In our experiment, a Co-57 source was placed near a moving Fe-57 absorber, and the transmission 
+ of photons through the absorber was measured using a single channel analyzer. The setup was 
+ first calibrated so that only counts resulting from the 14.4 keV Moessbauer transitions are obtained when 
+ performing the measurement. This was performed by varying the channel parameter to obtain the 
+ $\gamma$-spectrum of Fe-57 and identifying the peak that corresponds to the 14.4 keV transition. \par 
+
+ The absorber was then set to various velocities and the corresponding counts were measured. 
+ After removing outliers from the measurement, we obtained the desired Moessbauer
+ spectrum for Fe-57. Two additional peaks were observed, but we considered them as outliers 
+ that possibly originate from the iron oxide that is formed from oxidation of the iron. \par
+ 
+ The corresponding spectrum was then fitted using a sum of Lorentzian 
+ functions, and from this we obtained the amplitudes, peak energies, and linewidths of 
+ each peak. We obtained a linewidth of $\Gamma_{\mathrm{avg}} = \num[{scientific-notation = true}]{14.28(90)e-9}\si{\electronvolt}$,
+ which is an order of magnitude larger than the natural linewidth. This is expected due to 
+ Doppler broadening due to temperature fluctuations \par
+ 
+To determine the g-factor of the excited and ground state, the peak-to-peak energy was obtained. 
+For the excited state, the energy difference between each peak was taken, and with the given
+magnetic field we obtained our g-factor to be $| g_\mathrm{exc} | = 0.0992 \pm 0.0031$, which is
+$2.7\sigma$ away from the expected value. For the ground state, the excited state energy was 
+subtracted from the energy difference between every third peak, yielding a g-factor of $| g_\mathrm{gr} | = 0.1809 +-\pm 0.0056$.
+The results obtained for the ground state were $0.18\sigma$ away, indicating excellent agreement. This deviation
+was attributed to the asymmetry between the left and right side of the distribution. \par 
+
+To determine the isomer shift, the energy difference between pairs of peaks were taken, yielding 
+$\delta = \num[scientific-notation=true]{0.1026(31)e-7}\si[]{\electronvolt}$. The large isomer shift
+indicates that there are large deviations between the monopole energy of the ground and excited state. \par 
+
+In the future, we can obtain finer measurements for the spectrum, which would yield 
+in a more precise spectrum. Further, multiple measurements should be taken for each point, which 
+will reduce the statistical uncertainty. This project can be extended by observing the temperature 
+dependence of the Debye-Walle factor or comparing the spectrum between different Moessbauer sources.
+
 
 \chapter{Acknowledgements}
 We would like to take this moment and thank Dr. Barth, who was really helpful and patient with us. We were lucky to have him as our tutor. Next, we would like to thank...
