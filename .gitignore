@@ -488,3 +488,6 @@ laser_gyroscope/report/lasers_report.pdf
 # ignore laser data
 laser_gyroscope/laser_gyroscope_data
 laser_gyroscope/inlab/inlab_photos
+
+# ignore pdf
+moessbauer/report/moess_report.pdf
