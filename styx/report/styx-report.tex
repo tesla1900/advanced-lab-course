@@ -1,0 +1,54 @@
+\documentclass[a4paper]{report}
+
+% \usepackage[utf8]{inputenc}
+% \usepackage[T1]{fontenc}
+% \usepackage{textcomp}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[separate-uncertainty=true, multi-part-units=single]{siunitx}
+\usepackage[]{subfig}
+\usepackage[colorlinks=true, anchorcolor=blue, linkcolor=blue, citecolor=blue, bookmarks=false,hyperfootnotes=false]{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{color,soul}
+\usepackage{tabularx}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{physics}
+\graphicspath{ {./figures/} }
+% \setlength{\parindent}{0pt}
+\usepackage{chngcntr}
+\usepackage{verbatim}
+\usepackage{indentfirst}
+\numberwithin{equation}{section}
+\counterwithin{figure}{section}
+\newcommand{\incfig}[1]{%
+		\def\svgwidth{\columnwidth}
+		\import{./figures/}{#1.pdf_tex}
+
+}
+
+\pdfsuppresswarningpagegroup=1
+
+% for citations / references
+% \usepackage[style=ieee]{biblatex}
+% \addbibresource{styx_report.bib}
+
+\begin{document}
+
+\chapter{Introduction}
+
+
+
+\chapter{Theory}
+
+\chapter{Experimental Setup}
+
+
+
+
+\end{document}
