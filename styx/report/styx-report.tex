@@ -130,11 +130,11 @@
 
 \tableofcontents
 
-\chapter{Introduction}
+\chapter{Introduction} \label{chap:intro}
 
 
 
-\chapter{Theory}
+\chapter{Theory} \label{chap:theory}
 
 \section{Cosmic Rays}
 
@@ -143,7 +143,7 @@
 Primary cosmic rays are highly energetic charged particles or nuclei with a long lifetime of order $10^6$ years or longer that are accelerated by 
 astrophysical origins. These particles mainly consist of protons (85\%), but also consist of heavier nuclei such as Helium \cite{Tanabashi2018}. 
 These cosmic rays propagate through intergalactic and interstellar space, losing energy through radiative processes \cite{DeDomenico2012}.
-They are then captured by the Earth's magnetic field before arriving at Earth's atmosphere with energies ranging from MeV to GeV ranges. 
+They are then captured by the Earth's magnetic field before arriving at Earth's atmosphere with energies in MeV to GeV ranges. 
 They then interact with the atmospheric nuclei on Earth, producing "secondaries", that is, particles produced from such interactions. The secondaries
 produced are mainly pions ($\pi^\pm, \pi^0$), whereas kaons ($K^\pm, K^0, \bar{K}^0$) are only produced with a probability of 10\% compared to pions \cite{Grupen2005}. \par 
 
@@ -153,7 +153,7 @@ produced are mainly pions ($\pi^\pm, \pi^0$), whereas kaons ($K^\pm, K^0, \bar{K
 	\caption{ \textit{Left:} An electromagnetic shower induced by $\gamma$ at $\SI{1}{\tera\electronvolt}$. 
 				\textit{Right: } A hadronic shower induced by a $\SI{1}{\tera\electronvolt}$ proton. Both plots show the lateral
 				development of the showers at different altitudes. The red lines indicate electromagnetic components, blue indicates 
-				hadronic components, and green indicate muon components (consisting of $\mu, \nu_\mu$) \cite{Haeffner2014}. }
+				hadronic components, and green indicate muon components (consisting of $\mu, \nu_\mu$). Obtained from Ref. \cite{Haeffner2014}. }
 	\label{fig:em_had_showers}
 \end{figure*}
 
@@ -164,7 +164,6 @@ pions and kaons, however, primarily decay into a pair of muon and its correspond
 K^- \rightarrow \mu^- + \bar{\nu}_\mu$). These muons can also decay weakly into electrons, which then create subsequent electromagnetic cascades.
 At higher energies of $E > \SI{10}{\giga\electronvolt}$, these pions and kaons can also decay into subsequent pions, which 
 creates a hadronic cascade primarily consisting of these particles. Fig. \ref{fig:em_had_showers} shows an example of an electromagnetic and hadronic cascade that occurs from cosmic rays.
-
 
 
 Through such electromagnetic and hadronic cascades, most charged particles are absorbed by the atmosphere and thus do not reach sea level. However, most of the muons 
@@ -179,8 +178,8 @@ Fig. \ref{fig:air_shower} shows the schematic of a typical air shower from a pri
 	\centering
 	\includegraphics[width=0.6\textwidth]{air_shower.png}
 	\caption{A typical air shower resulting from interaction of primary cosmic ray with the atmosphere. Electromagnetic cascades are shown in blue and hadronic 
-	cascades are shown in green. The muons and neutrinos (indicated in red) produced from pion and kaon decays are the most common particles that reach sea level 
-	\cite{Blanco2009}.}
+	cascades are shown in green. The muons and neutrinos (indicated in red) produced from pion and kaon decays are the most common particles that reach sea level.
+	Obtained from Ref. \cite{Blanco2009}.}
 	\label{fig:air_shower}	
 \end{figure*}
 
@@ -190,14 +189,129 @@ inclined angles. The intensity distribution is given as such:
 \begin{equation}
     I(\theta) = I_0 \cos^n \theta 
 \end{equation}
-where $I_0$ is the intensity at the local zenith $\theta = 0^\circ$ \cite{Grupen2005}. The exponent of the cosine function at 
+where $I_0$ is the intensity at the local zenith ($\theta = 0^\circ$) \cite{Grupen2005}. The exponent of the cosine function at 
 sea level is $n = 2$ as most muons have energies $E_\mu \sim \SI{3}{\giga\electronvolt}$ when they reach sea level \cite{Stefano2012}.
 
 \section{Gaseous Detectors}
 
+To detect the muons that originate from cosmic ray showers, we use ionization detectors which collects the ionized electrons and ions 
+from the emitted radiation from such muons. The basic configuration of an gaseous ionization detector is 
+made of a cylindrical container with conducting walls, representing the cathode, that is filled with a noble gas such as argon. A positive voltage 
+$+V_0$ is applied through a conducting wire, representing the anode, which is then connected to the thin end window.
+See Fig. \ref{fig:ionization_chamber_schematic} 
+for a schematic of the ionization detector with this setup. From this, a radial electric field of the following form is generated within the chamber:
+\begin{equation}
+	E(r) = \frac{1}{r}\frac{V_0}{\ln (b / a)}
+\end{equation}
+where $r$ is the radial distance from the axis, $b$ is the inner radius of the cylinder, and $a$ is the outer radius of the conducting 
+wire as shown in Fig. \ref{fig:ionization_chamber_schematic}. \par 
+
+\begin{figure*}[!h]
+	\centering
+	\includegraphics[width=0.6\textwidth]{ionization_chamber_schematic.png}
+	\caption{Schematic of an gaseous ionization detector based on Ref. \cite{Leo1994}. Here, $b$ is the inner radius of the cylinder (cathode) and $a$ is the outer radius 
+	of the conducting wire (anode).}
+	\label{fig:ionization_chamber_schematic}	
+\end{figure*}
+
+As such, as the charged particles traverses through the detector it produces electron-ion pairs. Due to the resulting electric field, 
+the electrons and ions drift towards the anode and cathode respectively. The signal from the anode can then be used for detection of the 
+traversing charged particle \cite{Leo1994}. \par 
+
+The signal obtained from the ionization detector depends on the field intensity and thus the applied voltage $V_0$. Fig. \ref{fig:ionization_regions} shows the 
+dependency of the number of ions collected with the applied voltage for two types of incident particles. This dependence can be separated into six regions:
+\begin{enumerate}
+	\item \textbf{Recombination Region}: For low voltages, the electric field is not strong enough to accelerate the electron-ion pairs, thus allowing them to recombine 
+			before they are collected.
+	\item \textbf{Ionization Region}: At some voltage, enough voltage is applied so that all electron and ions are collected in their respective electrodes. 
+			A plateau is observed in this region as increasing the voltage will not affect the number of ions or electrons collected. Ionization chambers operate in this region.
+	\item \textbf{Region of Proportionality}: If we increase the voltage past the plateau region, the electric field is strong enough to accelerate the electrons to ionize the gas molecules 
+			in the cylinder. Electrons produced from the ionization will further ionize other gas molecules, creating an ionization avalanche or cascade. As $E \propto r^{-1}$,
+			the electric field is strongest near the anode so the avalanche occurs very quickly before electrons are collected by the anode. Since the number of electron-ion
+			pairs are directly proportional to the number of primary electrons, the number of ions collected is proportional to the applied voltage $V_0$. Proportionality
+			chambers are operated within this region, and is the most relevant region for our experiment.
+	\item \textbf{Region of Limited Proportionality}: As we increase the voltage further, the proportionality is lost as the space charges distorts the electric field
+			near the anode. 
+	\item \textbf{Saturation Region}: Further increasing the voltage, the increased energy causes discharge within the gas. A chain reaction of avalanches occur 
+			throughout the anode, causing the output signal to be saturated. The amplitude of the signal will remain the same even when increasing the energy, 
+			yielding the second plateau. To prevent this effect, a quenching gas is often placed in the medium to absorb the photons causing the chain reaction. 
+			Geiger-M{\"u}ller counters operate in this region.
+	\item \textbf{Discharge Region}: Above the saturation region, continous discharge occurs throughout the cylinder which can damage the detector. As such, this region
+			is to be avoided when operating the detector.
+\end{enumerate}
+
+\begin{figure*}[!h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{ionization_regions.png}
+	\caption{Number of ions collected at different applied voltage where the incident particles are $\alpha$ or $\beta$ particles. 
+	The first five regions as mentioned in the script are labelled (i) - (v) in the plot, and the sixth region can be seen to the right of region (v). 
+	Obtained from Ref. \cite{Lukas2018}. }
+	\label{fig:ionization_regions}	
+\end{figure*}
+
+\section{Drift Chambers}
+
+In our experiment, we use a type of proportional chamber called a drift chamber, also known as "straws". The drift chamber allows one to determine the spatial information 
+of the traversing particle by measuring the drift time of the ionized electrons. The position of the produced electrons from the anode wire is 
+given as such: 
+\begin{equation}
+	x = \int_{t_0}^{t_1} u dt
+\end{equation}
+where $t_0$ is the arrival time of the particle, $t_1$ is the time in which the signal reaches the anode, and $u$ is the drift velocity. To obtain a 
+linear depedence with time and distance, a constant drift velocity and thus a constant electric field is desired. Using drift chambers, one can 
+construct a constant electric field. \par 
+
+\begin{figure*}[!hb]
+	\centering
+	\includegraphics[width=0.6\textwidth]{drift_chamber.png}
+	\caption{Schematic of a typical drift chamber. The scintillator counter is placed below the chamber. The 
+	traversing charged particle ionizes the gas molecules, and the electrons drift with a constant drift velocity (due to the 
+	applied drift voltage) towards the 
+	anode, where the signal is created. Obtained from Ref. \cite{Leo1994}.}
+	\label{fig:drift_chamber}	
+\end{figure*}
 
 
-\chapter{Experimental Setup}
+The drift chamber is constructed by placing a series of cathode field wires at appropriate voltages in between a high voltage electrode and 
+an anode of a simple proportional counter. A scintillation counter is placed before or after the chamber to signal the arrival of a particle. Refer to 
+Sec.  \ref{sec:scint_pmt} for more details about the scintillator counter. 
+Once the charged particles passes through the chamber and scintillator, the liberated electrons drift to the anode. The fast signal from the scintillator
+starts a timer at the same time. The timer is then stopped from the signal created at the anode by the drifting electrons. See Fig. \ref{fig:drift_chamber} for a schematic of a typical 
+drift chamber \cite{Leo1994}. In our experiment, we use multiple straws with several layers to more accurately determine the position of the 
+atmospheric muons. \par 
+
+\section{Scintillation Detectors and Photomultiplier Tubes} \label{sec:scint_pmt}
+
+Certain materials emit a small flash of light, i.e. a scintillation, when they are struck by nuclear particles or radiation.
+With an amplifying device such as a photomultiplier tube (PMT), one can convert the scintillation into an electric pulse
+using a scintillation detector. The electric pulse is then analyzed to study about the incident radiation. Scintillation detectors 
+are useful especially due to their high sensitivity to energy measurements, their fast time response, and their ability 
+to discriminate between pulse shapes. \par 
+
+A scintillator detector is constructed from a scintillating materia which is optically coupled to a PMT. The radiation excites the 
+atom or molecule in the scintillating material, causing scintillation to occur. The PMT then converts and amplifies the light into 
+an electric current which is then read out by an electronics system \cite{Leo1994}. The scintillation detectors used in our experiment 
+operate under the same principles as above. \par 
+
+
+The photomultiplier tubes used within the scintillation detectors convert detected photons into electronic current that can 
+be measured. The photons are collected from a photocathode before emitting an electron due to the photoelectric effect. The electrons 
+are then multiplied by a series of dynodes which emits secondary electrons within the material due to transfer of energy. An applied 
+voltage is also applied in this region to accelerate these electrons, subsequently producing more electrons. The constructed cascade is 
+collected at the anode to give a measurable electronic current \cite{Leo1994}. Fig. shows the schematic of a typical photomultiplier tube. 
+
+
+\begin{figure*}[!h]
+	\centering
+	\includegraphics[width=0.6\textwidth]{pmt_schematic.png}
+	\caption{Schematic of a typical photomultiplier tube. Photons are detected at the cathode, before entering the focusing grid,
+	 and the electrons are accelerated by the multiple dynodes before collected at the anode to produce an electronic signal.
+	 Obtained from Ref. \cite{Danisch2014}.}
+	\label{fig:pmt_schematic}	
+\end{figure*}
+
+
+\chapter{Experimental Setup} \label{chap:exp_setup}
 
 fdaf
 
