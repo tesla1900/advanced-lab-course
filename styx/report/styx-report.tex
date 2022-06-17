@@ -135,9 +135,11 @@
 
 \chapter{Introduction} \label{chap:intro}
 
-...
+In this experiment, The Straw Tube Young student eXperiment (STYX), we study detect and study the secondary cosmic rays that reach the surface of earth. Elements of the experiment were originally part of ZEUS detector at DESY. 
 
-In this report, we closely follow \cite{labman}.
+The experiment starts off with getting familiar with the setup. This is followed by calibrating the detector to appropriate voltages so as to reduce noise and maximize the number of events. In the process, we also learn how to operate software tools such as the various classes of \texttt{Styx} and ROOT, an data analysis software developed by CERN. After the voltages have been set, the detector is left overnight to collect data. The next day, before starting the analysis, the data is further calibrated using straw-by-straw calibration. Then, the data is analyzed and various aspects of secondary cosmic rays are studied. 
+
+In Chapter \ref{chap:theory}, we discuss the theoretical background behind necessary to gain insight about the experiment and it's setup. More specifically, we look at cosmic rays and various kinds of detectors used to study charged particles. In Chapter \ref{chap:exp_setup}, the experimental setup with each of it's components is discussed. In Chapter \ref{chap:procedure}, we look at how we go about setting the appropriate operating and threshold voltages for PhotoMultiplier Tubes (PMTs) and the Front-End (FE) electronics. In Chapter \ref{chap:calib}, we look at how the calibration process, straw-by-straw calibration is applied to the data. In Chapter \ref{chap:track_analysis}, having applied the calibration, we look at several properties of cosmic rays, more specifically, the muons. Lastly, we include additional plots and figures in the Appendix \ref{chap:appendix}. This report, closely follows the STYX lab manual \cite{labman}.
 
 \chapter{Theory} \label{chap:theory}
 
@@ -318,117 +320,32 @@ collected at the anode to give a measurable electronic current \cite{Leo1994}. F
 
 \chapter{Experimental Setup} \label{chap:exp_setup}
 
-The experimental setup is shown in fig. \ref{fig:setup1}. The setup consists of two major components, the modules, which are the three copper-colored trapezoids, and the trigger system, which are the two black panels. 
-
-\begin{figure}[htpb]
-    \centering
-    \includegraphics[width=0.6\textwidth]{setup1.jpg}
-    \caption{Experimental setup with modules (copper-colored trapezoid) and PMTs (black panels).}
-    \label{fig:setup1}
-\end{figure}	
-
-The modules consist of simple drift chambers. Each of these modules consists of three layers of 88 straws. The straws are a simple drift chambers, filled with a gas mixture of argon and carbon-dioxide. The radius of each straw is 3.75mm and the length ranges from 20cm to 102cm. The reason for the variable length is due to the trapezoidal shape of the module. Each of these straws is connected to readout channel in a front-end (FE) board which contains a preamplifier, a shaper and a discriminator. When the input voltage exceeds a certain threshold voltage, each of these straws give a digital output pulse. This output pulse is then time-multiplexed for six straws each, which gives an output signal with 200ns offset with respect to each other, giving a total of 1200ns readout window per event. From the FE board, the signal is fed into the TDC board to measure drift time.  
-
 \section{Detectors}
-Since the detectors themselves do not have an internal triggering mechanism, an external one is used. This triggering system comprises of two large scintillators which are placed above and below the modules. To these scintillators, photomultiplier tubes (PMTs) are attached which registers the photon emitted by the material when a charged particles passes through and ionizes the material. This light signal is then converted to electronic pulse, which can be measured. Further, the two scintillators are operated in coincidence logic to trigger events when a muon passes both the scintillators and hence the tracking modules. 
 
-
-
-\chapter{Procedure}
-
-\section{Determination of PMT Operation Voltage}
-Before making the measurements, the operation voltage for the PMT needs to be determined. In order to have a working trigger system, a high voltage needs to be set for the photomultipliers. The voltage is varied in the range of 1700-2300V. The counts measured by the lower photomultiplier are displayed on the middle counter in the electronics rack (as seen in fig. \ref{fig:rack}). In order to reduce the statistical uncertainty, four measurements for each voltage were measured. The result is shown in fig. \ref{fig:low_count}. A change in upper photomultiplier voltage does not affect the count. A standard error of 0.5V is taken for each reading based on the instrumentation. 
+The experimental setup is shown in Fig. \ref{fig:setup1}. The setup consists of two major components, the modules, which are the three copper-colored trapezoids, and the trigger system, which are the two black panels. 
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.6\textwidth]{rack.jpg}
-    \caption{The electronic rack which displays the count for upper and lower photomultiplier and the coincidence rate.}
-    \label{fig:rack}
-\end{figure}	
-
-\begin{figure}[htpb]
-    \centering
-    \includegraphics[width=0.8\textwidth]{low_count}
-    \caption{The change in count with respect to voltage. We notice an exponential growth followed by a linear growth.}
-    \label{fig:low_count}
-\end{figure}	
-
-We notice that from 1700-2050V, the behavior is exponential and after 2100V, the behavior is linear. Therefore, we choose the operating voltage for the lower photomultiplier to be 2100V, since above this value, an increase voltage leads to an increase in noise. 
-
-Having fixed the voltage for the bottom panel, we determine the operating voltage for the upper panel. This is done by varying the voltage in the same range but this time instead of measuring the count, we measure the coincidence rate. Again, we take four measurements per voltage to reduce statistical uncertainty. The result is shown in fig. \ref{fig:up_count}. 
-
-\begin{figure}[htpb]
-    \centering
-    \includegraphics[width=0.8\textwidth]{up_count}
-    \caption{The change in coincidence rate with respect to voltage. We notice a plateau, indicating the independence of coincidence rate.}
-    \label{fig:up_count}
-\end{figure}
-
-A plateau can be seen starting after 1950V. This implies that a subsequent increase in voltage does not change the coincidence rate - the coincidence rate is independent of increase in the voltage. Therefore, we pick 2000V as the operating voltage for the upper panel. 
-
-\section{Front-end Threshold Voltage}
-
-Having determined the optimal operating voltage for the lower and the upper panel, the threshold voltage for front-end has to be determined. To do this, the voltage is varied 1.0-2.6V in the steps of 0.4V. An additional 2.0V reading was also taken. For each voltage, 25000 events are measured. We illustrate the typical procedure below. 
-
-After taking the measurement for 1.0V, the following command is run:
-
-\begin{tcolorbox}
-\begin{verbatim}
-StyxM2C2 -N 25000 -O TS_10V.txt --all --no-clean \ 
- -I /home/styx/data/etraxp114/te13085163152.hld
-\end{verbatim}
-\end{tcolorbox}
-
-in order to process the data. The \texttt{StyxM2C2} calls the program. \texttt{-N 25000} considers only the first 25000 events to process them. \texttt{-O TS\_10V.txt} names the output file. \texttt{--all --no-clean} process the data files with \texttt{StyxM2C2} using all process steps except for the cleaning. \texttt{-I \slash home\slash styx\slash data\slash etraxp114\slash te13085163152.hld} is the input file. This is repeated for each voltage. 
-
-To find good channels, the a monitoring root file is produced using the command: 
-
-\begin{tcolorbox}
-\begin{verbatim}
-StyxMonitor TS_10V_mon.txt
-\end{verbatim}
-\end{tcolorbox}
-This create a \texttt{TS\_10V\_mon.root} file, which can be opened via running:
-
-\begin{tcolorbox}
-\begin{verbatim}
-root TS_10V_mon.root
-\end{verbatim}
-\end{tcolorbox}
-After \texttt{root} has started, the command \texttt{new TBrowser} is used to browse through the plots and study them. To compare the results from one TDC number and one channel number, the following command is run: 
-
-\begin{tcolorbox}
-\begin{verbatim}
-StyxThresholdScan 1 3 TS_10V_mon.txt TS_14V_mon.txt TS_18V_mon.txt TS_20V_mon.txt\ 
-TS_22V_mon.txt TS_26V_mon.txt
-\end{verbatim}
-\end{tcolorbox}
-This would then compare the channel 3 and TDC 1 for all the measurements. 
-
-
-\section{Overnight Measurement}
-
-The experimental setup is shown in fig. \ref{fig:setup1}. The setup consists of two major components, the modules, which are the three copper-colored trapezoids, and the trigger system, which are the two black panels. 
-
-\begin{figure}[htpb]
-    \centering
-    \includegraphics[width=0.6\textwidth]{setup1.jpg}
+    \includegraphics[width=0.5\textwidth]{setup1.jpg}
     \caption{Experimental setup with modules (copper-colored trapezoid) and PMTs (black panels).}
     \label{fig:setup1}
 \end{figure}	
 
 The modules consist of simple drift chambers. Each of these modules consists of three layers of 88 straws. The straws are a simple drift chambers, filled with a gas mixture of argon and carbon-dioxide. The radius of each straw is 3.75mm and the length ranges from 20cm to 102cm. The reason for the variable length is due to the trapezoidal shape of the module. Each of these straws is connected to readout channel in a front-end (FE) board which contains a preamplifier, a shaper and a discriminator. When the input voltage exceeds a certain threshold voltage, each of these straws give a digital output pulse. This output pulse is then time-multiplexed for six straws each, which gives an output signal with 200ns offset with respect to each other, giving a total of 1200ns readout window per event. From the FE board, the signal is fed into the TDC board to measure drift time.  
 
+\section{Triggering system}
 Since the detectors themselves do not have an internal triggering mechanism, an external one is used. This triggering system comprises of two large scintillators which are placed above and below the modules. To these scintillators, photomultiplier tubes (PMTs) are attached which registers the photon emitted by the material when a charged particles passes through and ionizes the material. This light signal is then converted to electronic pulse, which can be measured. Further, the two scintillators are operated in coincidence logic to trigger events when a muon passes both the scintillators and hence the tracking modules. 
 
-\chapter{Procedure}
+
+
+\chapter{Procedure} \label{chap:procedure}
 
 \section{Determination of PMT Operation Voltage}
-Before making the measurements, the operation voltage for the PMT needs to be determined. In order to have a working trigger system, a high voltage needs to be set for the photomultipliers. The voltage is varied in the range of 1700-2300V. The counts measured by the lower photomultiplier are displayed on the middle counter in the electronics rack (as seen in fig. \ref{fig:rack}). In order to reduce the statistical uncertainty, four measurements for each voltage were measured. The result is shown in fig. \ref{fig:low_count}. A change in upper photomultiplier voltage does not affect the count. A standard error of 0.5V is taken for each reading based on the instrumentation. 
+Before making the measurements, the operation voltage for the PMT needs to be determined. In order to have a working trigger system, a high voltage needs to be set for the photomultipliers. The voltage is varied in the range of 1700-2300V. The counts measured by the lower photomultiplier are displayed on the middle counter in the electronics rack (as seen in Fig. \ref{fig:rack}). In order to reduce the statistical uncertainty, four measurements for each voltage were measured. The result is shown in Fig. \ref{fig:low_count}. A change in upper photomultiplier voltage does not affect the count. A standard error of 0.5V is taken for each reading based on the instrumentation. 
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.6\textwidth]{rack.jpg}
+    \includegraphics[width=0.5\textwidth]{rack.jpg}
     \caption{The electronic rack which displays the count for upper and lower photomultiplier and the coincidence rate.}
     \label{fig:rack}
 \end{figure}	
@@ -442,7 +359,7 @@ Before making the measurements, the operation voltage for the PMT needs to be de
 
 We notice that from 1700-2050V, the behavior is exponential and after 2100V, the behavior is linear. Therefore, we choose the operating voltage for the lower photomultiplier to be 2100V, since above this value, an increase voltage leads to an increase in noise. 
 
-Having fixed the voltage for the bottom panel, we determine the operating voltage for the upper panel. This is done by varying the voltage in the same range but this time instead of measuring the count, we measure the coincidence rate. Again, we take four measurements per voltage to reduce statistical uncertainty. The result is shown in fig. \ref{fig:up_count}. 
+Having fixed the voltage for the bottom panel, we determine the operating voltage for the upper panel. This is done by varying the voltage in the same range but this time instead of measuring the count, we measure the coincidence rate. Again, we take four measurements per voltage to reduce statistical uncertainty. The result is shown in Fig. \ref{fig:up_count}. 
 
 \begin{figure}[htpb]
     \centering
@@ -466,7 +383,7 @@ StyxM2C2 -N 25000 -O TS_10V.txt --all --no-clean \
 \end{verbatim}
 \end{tcolorbox}
 
-in order to process the data. The \texttt{StyxM2C2} calls the program. \texttt{-N 25000} considers only the first 25000 events to process them. \texttt{-O TS\_10V.txt} names the output file. \texttt{--all --no-clean} process the data files with \texttt{StyxM2C2} using all process steps except for the cleaning. \texttt{-I \slash home\slash styx\slash data\slash etraxp114\slash te13085163152.hld} is the input file. This is repeated for each voltage. 
+\noindent in order to process the data. The \texttt{StyxM2C2} calls the program. \texttt{-N 25000} considers only the first 25000 events to process them. \texttt{-O TS\_10V.txt} names the output file. \texttt{--all --no-clean} process the data files with \texttt{StyxM2C2} using all process steps except for the cleaning. \texttt{-I \slash home\slash styx\slash data\slash etraxp114\slash te13085163152.hld} is the input file. This is repeated for each voltage. 
 
 To find good channels, the a monitoring root file is produced using the command: 
 
@@ -475,14 +392,14 @@ To find good channels, the a monitoring root file is produced using the command:
 StyxMonitor TS_10V_mon.txt
 \end{verbatim}
 \end{tcolorbox}
-This create a \texttt{TS\_10V\_mon.root} file, which can be opened via running:
+\noindent This create a \texttt{TS\_10V\_mon.root} file, which can be opened via running:
 
 \begin{tcolorbox}
 \begin{verbatim}
 root TS_10V_mon.root
 \end{verbatim}
 \end{tcolorbox}
-After \texttt{root} has started, the command \texttt{new TBrowser} is used to browse through the plots and study them. To compare the results from one TDC number and one channel number, the following command is run: 
+\noindent After \texttt{root} has started, the command \texttt{new TBrowser} is used to browse through the plots and study them. To compare the results from one TDC number and one channel number, the following command is run: 
 
 \begin{tcolorbox}
 \begin{verbatim}
@@ -490,10 +407,137 @@ StyxThresholdScan 1 3 TS_10V_mon.txt TS_14V_mon.txt TS_18V_mon.txt TS_20V_mon.tx
 TS_22V_mon.txt TS_26V_mon.txt
 \end{verbatim}
 \end{tcolorbox}
-This would then compare the channel 3 and TDC 1 for all the measurements. 
+\noindent This would then compare the channel 3 and TDC 1 for all the measurements. In order to analyze these plots, we run \texttt{root} again. 
+
+The next step is to find the threshold voltage for the front-end. In order to find the optimal value, we need a compromise between low noise and high event count. The way to do this is by comparing multiple plots that we outputted in the steps mentioned above. In Fig. \ref{fig:remove_10} we see that the number of counts corresponding to 1.0V is disproportionately high. This indicates that this is due to noise. This can also be seen from the overlay plot in Fig. \ref{fig:remove_10_1}. The black line corresponds to 1.0V. A high count and non-uniform distribution is another indicator of the noise in this channel. Hence, we rule out 1.0V. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.65\textwidth]{StyxThresholdScan_1_11_Rate.pdf}
+    \caption{Event count for different voltages for channel 11, TDC 1.}
+    \label{fig:remove_10}
+\end{figure}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.65\textwidth]{StyxThresholdScan_1_11_Overlay.pdf}
+    \caption{Event count for different voltages as a function of time, overlayed, for channel 11, TDC 1.}
+    \label{fig:remove_10_1}
+\end{figure}
+
+Next, we look at Fig. \ref{fig:rm_below_20}. Here, we see a slight decrease in count as the voltage increases to 2.0V. After 2.0V, the value remains pretty stable. This indicates the presence of noise in voltages below 2.0V. Since the value remains constant after that, the voltages above are independent of noise, till certain extent. Hence, we rule out voltages below 2.0V and consider 2.0V as a possible candidate. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.65\textwidth]{StyxThresholdScan_1_3_Rate.pdf}
+    \caption{Event count for different voltages for channel 3, TDC 1.}
+    \label{fig:rm_below_20}
+\end{figure}
+
+Lastly, we look at Fig. \ref{fig:pick_20}. In Fig. \ref{subfig:pick_20_c}, a decrease in the count can be seen after 2.0V. Since one of our criteria was high event count, we rule out the voltages above 2.0V. Therefore, at 2.0V, we have a high event count and low noise. The corresponding overlay plot is shown in Fig. \ref{subfig:pick_20_o}. 
+
+\begin{figure*}[htb]
+	\centering
+	\subfloat[Event count for different voltages. \label{subfig:pick_20_c}]{{\includegraphics[width=0.47\columnwidth]{StyxThresholdScan_1_28_Rate.pdf}}}
+	\quad
+	\centering
+	\subfloat[Event count for different voltages as a function of time, overlayed. \label{subfig:pick_20_o}]{{\includegraphics[width=0.47\columnwidth]{StyxThresholdScan_1_28_Overlay.pdf}}}
+	\caption{Comparison plots for channel 28, TDC 1.}
+	\label{fig:pick_20}
+\end{figure*}
 
 
 \section{Overnight Measurement}
+
+After setting up the PMT operation voltage and the front-end threshold voltage, we then execute the program to make the measurements overnight. The data collected overnight gives high numbers of events to work with and reduces the statistical uncertainty in the analysis. The collected data was then sent to us by our tutor. 
+
+
+% The experimental setup is shown in Fig. \ref{fig:setup1}. The setup consists of two major components, the modules, which are the three copper-colored trapezoids, and the trigger system, which are the two black panels. 
+
+% \begin{figure}[htpb]
+%     \centering
+%     \includegraphics[width=0.6\textwidth]{setup1.jpg}
+%     \caption{Experimental setup with modules (copper-colored trapezoid) and PMTs (black panels).}
+%     \label{fig:setup1}
+% \end{figure}	
+
+% The modules consist of simple drift chambers. Each of these modules consists of three layers of 88 straws. The straws are a simple drift chambers, filled with a gas mixture of argon and carbon-dioxide. The radius of each straw is 3.75mm and the length ranges from 20cm to 102cm. The reason for the variable length is due to the trapezoidal shape of the module. Each of these straws is connected to readout channel in a front-end (FE) board which contains a preamplifier, a shaper and a discriminator. When the input voltage exceeds a certain threshold voltage, each of these straws give a digital output pulse. This output pulse is then time-multiplexed for six straws each, which gives an output signal with 200ns offset with respect to each other, giving a total of 1200ns readout window per event. From the FE board, the signal is fed into the TDC board to measure drift time.  
+
+% Since the detectors themselves do not have an internal triggering mechanism, an external one is used. This triggering system comprises of two large scintillators which are placed above and below the modules. To these scintillators, photomultiplier tubes (PMTs) are attached which registers the photon emitted by the material when a charged particles passes through and ionizes the material. This light signal is then converted to electronic pulse, which can be measured. Further, the two scintillators are operated in coincidence logic to trigger events when a muon passes both the scintillators and hence the tracking modules. 
+
+% \chapter{Procedure}
+
+% \section{Determination of PMT Operation Voltage}
+% Before making the measurements, the operation voltage for the PMT needs to be determined. In order to have a working trigger system, a high voltage needs to be set for the photomultipliers. The voltage is varied in the range of 1700-2300V. The counts measured by the lower photomultiplier are displayed on the middle counter in the electronics rack (as seen in Fig. \ref{fig:rack}). In order to reduce the statistical uncertainty, four measurements for each voltage were measured. The result is shown in Fig. \ref{fig:low_count}. A change in upper photomultiplier voltage does not affect the count. A standard error of 0.5V is taken for each reading based on the instrumentation. 
+
+% \begin{figure}[htpb]
+%     \centering
+%     \includegraphics[width=0.6\textwidth]{rack.jpg}
+%     \caption{The electronic rack which displays the count for upper and lower photomultiplier and the coincidence rate.}
+%     \label{fig:rack}
+% \end{figure}	
+
+% \begin{figure}[htpb]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{low_count}
+%     \caption{The change in count with respect to voltage. We notice an exponential growth followed by a linear growth.}
+%     \label{fig:low_count}
+% \end{figure}	
+
+% We notice that from 1700-2050V, the behavior is exponential and after 2100V, the behavior is linear. Therefore, we choose the operating voltage for the lower photomultiplier to be 2100V, since above this value, an increase voltage leads to an increase in noise. 
+
+% Having fixed the voltage for the bottom panel, we determine the operating voltage for the upper panel. This is done by varying the voltage in the same range but this time instead of measuring the count, we measure the coincidence rate. Again, we take four measurements per voltage to reduce statistical uncertainty. The result is shown in Fig. \ref{fig:up_count}. 
+
+% \begin{figure}[htpb]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{up_count}
+%     \caption{The change in coincidence rate with respect to voltage. We notice a plateau, indicating the independence of coincidence rate.}
+%     \label{fig:up_count}
+% \end{figure}
+
+% A plateau can be seen starting after 1950V. This implies that a subsequent increase in voltage does not change the coincidence rate - the coincidence rate is independent of increase in the voltage. Therefore, we pick 2000V as the operating voltage for the upper panel. 
+
+% \section{Front-end Threshold Voltage}
+
+% Having determined the optimal operating voltage for the lower and the upper panel, the threshold voltage for front-end has to be determined. To do this, the voltage is varied 1.0-2.6V in the steps of 0.4V. An additional 2.0V reading was also taken. For each voltage, 25000 events are measured. We illustrate the typical procedure below. 
+
+% After taking the measurement for 1.0V, the following command is run:
+
+% \begin{tcolorbox}
+% \begin{verbatim}
+% StyxM2C2 -N 25000 -O TS_10V.txt --all --no-clean \ 
+%  -I /home/styx/data/etraxp114/te13085163152.hld
+% \end{verbatim}
+% \end{tcolorbox}
+
+% in order to process the data. The \texttt{StyxM2C2} calls the program. \texttt{-N 25000} considers only the first 25000 events to process them. \texttt{-O TS\_10V.txt} names the output file. \texttt{--all --no-clean} process the data files with \texttt{StyxM2C2} using all process steps except for the cleaning. \texttt{-I \slash home\slash styx\slash data\slash etraxp114\slash te13085163152.hld} is the input file. This is repeated for each voltage. 
+
+% To find good channels, the a monitoring root file is produced using the command: 
+
+% \begin{tcolorbox}
+% \begin{verbatim}
+% StyxMonitor TS_10V_mon.txt
+% \end{verbatim}
+% \end{tcolorbox}
+% This create a \texttt{TS\_10V\_mon.root} file, which can be opened via running:
+
+% \begin{tcolorbox}
+% \begin{verbatim}
+% root TS_10V_mon.root
+% \end{verbatim}
+% \end{tcolorbox}
+% After \texttt{root} has started, the command \texttt{new TBrowser} is used to browse through the plots and study them. To compare the results from one TDC number and one channel number, the following command is run: 
+
+% \begin{tcolorbox}
+% \begin{verbatim}
+% StyxThresholdScan 1 3 TS_10V_mon.txt TS_14V_mon.txt TS_18V_mon.txt TS_20V_mon.txt\ 
+% TS_22V_mon.txt TS_26V_mon.txt
+% \end{verbatim}
+% \end{tcolorbox}
+% This would then compare the channel 3 and TDC 1 for all the measurements. 
+
+
+% \section{Overnight Measurement}
 
 
 
