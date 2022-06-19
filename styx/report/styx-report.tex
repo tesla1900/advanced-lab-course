@@ -788,9 +788,9 @@ An attempt to fit a function $\propto \cos ^2 \theta$ is shown in Fig \ref{fig:t
 	\includegraphics[width=0.8\textwidth]{trackangle_cos2fit.png}
 	\caption{Same as Fig. \ref{fig:tracksangle} but for the fit function $I = I_0 \cos^2 \theta$ (red line) instead. }
 	\label{fig:tracksangle_cos2fit}
-\end{figure*}
+\end{figure*} \par
 
-% The deviation from our results to the expected results can be caused by the geometry of the detector. As mentioned in previous
+% The deviation from our results to the expected results may be caused by the geometry of the detector. As mentioned in previous
 % sections, the scintillators are only located in the inner region of the trapezoidal detector, and as such the 
 
 Finally, we compare our reconstructed tracks with the segment for events with only one track. 
@@ -799,9 +799,9 @@ Fig. \ref{fig:trackvssegment} shows the two-dimensional histogram between the tr
 
 \begin{figure*}[!h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{trackangle_cos2fit.png}
+	\includegraphics[width=0.8\textwidth]{trackvshits.png}
 	\caption{The histogram between the track angles and segment angles for events with only one track. The 
-	color axis represents the number of entries per track and segment angle. }
+	color axis represents the number of entries per track and segment angle. \textcolor{red}{temporary figure}}
 	\label{fig:trackvssegment}
 \end{figure*}
 
@@ -833,11 +833,19 @@ that we need approximately $\sim 8$ hits to construct one track per event. The a
 $I_0 = \num{2193.7 \pm 9.5}$ \textcolor{red}{units} and $n = \num{3.846 \pm 0.024}$, which deviates from the expected behaviour of 
 $\cos^2 \theta$. \textcolor{red}{add things about track vs segment angle.}
 
-In the end, we were successfully able to measure the muon distribution from cosmic rays at sea level. However, we did not obtain
-the expected behaviour of the distribution. \textcolor{red}{add future ideas}
+In the end, we were successfully able to measure the muon distribution from cosmic rays at sea level, however, we did not obtain
+the expected behaviour of the distribution. In the future, we hope to understand the reason behind this deviation in our distribution better as 
+the reason for this deviation was not fully clear to us. All in all, this experiment gave us insight in the methods in which 
+secondary particles from cosmic rays are measured and how data analysis in particle physics is conducted.
 
 
 \chapter{Acknowledgements}
+
+We would like to thank our tutor Patrick Bauer for his guidance throughout the lab. We thank him for his help even after the lab 
+when we struggled with determining the distribution between the track and segment angles. We would also like to thank the Advanced 
+Laboratory Course for granting us this opportunity to take this particular lab unit. This course gave us great insight into 
+how particles from cosmic rays are measured using drift time detectors, and how the reconstruction of the particle tracks are 
+conducted using ROOT. 
 
 \printbibliography
 
@@ -873,6 +881,13 @@ In this section, we show additional plots that are of interest to our report.\pa
 	color axis.}
 	\label{fig:calib_drift2d_m2l3}
 \end{figure*}
+
+\begin{figure*}[!h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{nhits.png}
+	\caption{The number of counts obtained for each number of hits detected in the detector. }
+	\label{fig:nhits}
+\end{figure*} \par
 
 \end{document}
 
