@@ -26,7 +26,7 @@
 \usepackage{verbatim}
 \usepackage{indentfirst}
 \usepackage[most]{tcolorbox}
-
+\usepackage[toc,page]{appendix}
 \numberwithin{equation}{section}
 \counterwithin{figure}{section}
 \newcommand{\incfig}[1]{%
@@ -99,7 +99,7 @@
 		\begin{centering}
 			% \large
 			\textbf{Abstract}\\[0.2cm]
-            
+            We determine the intensity distributions of secondary cosmic rays using a drift chamber detector. To do this, we first determine the operation voltage for the photomultiplier tubes (PMTs) followed by determining the threshold voltage for the front-end (FE) chip. After the instrument is setup, we leave it overnight to collect secondary cosmic ray events. After applying straw-by-straw calibration method, we reconstruct the event tracks and study the various relations between number of hits and tracks, the angular distribution of the intensity and \textcolor{red}{the relation between track and segment angle}. We find a deviation from the expected $\cos^2(\theta)$ behavior and the cause is attributed to the geometry of the detector and low energy muons penetrating through the building. \textcolor{red}{one line about segment angle}. 
 		\end{centering}
 	\end{minipage}
 	
@@ -135,11 +135,11 @@
 
 \chapter{Introduction} \label{chap:intro}
 
-In this experiment, The Straw Tube Young student eXperiment (STYX), we study detect and study the secondary cosmic rays that reach the surface of earth. Elements of the experiment were originally part of ZEUS detector at DESY. 
+In this experiment, the Straw Tube Young student eXperiment (STYX), we detect and study the secondary cosmic rays that reach the surface of earth. Elements of the experiment were originally part of ZEUS detector at DESY. 
 
-The experiment starts off with getting familiar with the setup. This is followed by calibrating the detector to appropriate voltages so as to reduce noise and maximize the number of events. In the process, we also learn how to operate software tools such as the various classes of \texttt{Styx} and ROOT, an data analysis software developed by CERN. After the voltages have been set, the detector is left overnight to collect data. The next day, before starting the analysis, the data is further calibrated using straw-by-straw calibration. Then, the data is analyzed and various aspects of secondary cosmic rays are studied. 
+The experiment starts off with getting familiar with the setup. This is followed by calibrating the detector to appropriate voltages so as to reduce noise and maximize the number of events. In the process, we also learn how to operate software tools such as the various classes of \texttt{Styx} and ROOT, a data analysis software developed by CERN. After the voltages have been set, the detector is left overnight to collect data. The next day, before starting the analysis, the data is further calibrated using straw-by-straw calibration. Then, it is analyzed and various aspects of secondary cosmic rays are studied. 
 
-In Chapter \ref{chap:theory}, we discuss the theoretical background behind necessary to gain insight about the experiment and its setup. More specifically, we look at cosmic rays and various kinds of detectors used to study charged particles. In Chapter \ref{chap:exp_setup}, the experimental setup with each of its components is discussed. In Chapter \ref{chap:procedure}, we look at how we go about setting the appropriate operating and threshold voltages for PhotoMultiplier Tubes (PMTs) and the Front-End (FE) electronics. In Chapter \ref{chap:calib}, we look at how the calibration process, straw-by-straw calibration is applied to the data. In Chapter \ref{chap:track_analysis}, having applied the calibration, we look at several properties of cosmic rays, more specifically, the muons. Lastly, we include additional plots and figures in the Appendix \ref{chap:appendix}. This report, closely follows the STYX lab manual \cite{labman}.
+In Chapter \ref{chap:theory}, we discuss the theoretical background necessary to gain insight about the experiment and its setup. More specifically, we look at secondary cosmic rays and various kinds of detectors used to study charged particles. In Chapter \ref{chap:exp_setup}, the experimental setup with each of its components is discussed. In Chapter \ref{chap:procedure}, we look at how we go about setting the appropriate operating and threshold voltages for PhotoMultiplier Tubes (PMTs) and the Front-End (FE) electronics. In Chapter \ref{chap:calib}, we look at how the calibration process, straw-by-straw calibration, is applied to the data. In Chapter \ref{chap:track_analysis}, having applied the calibration, we look at several properties of secondary cosmic rays, more specifically, the muons. In Chapter \ref{chap:concl}, we summarize the entire report and collect the final results. Lastly, we include additional plots and figures in the Appendix \ref{chap:appendix}. This report, closely follows the STYX lab manual \cite{labman}.
 
 \chapter{Theory} \label{chap:theory}
 
@@ -151,7 +151,7 @@ Primary cosmic rays are highly energetic charged particles or nuclei with a long
 astrophysical origins. These particles mainly consist of protons (85\%), but also consist of heavier nuclei such as Helium \cite{Tanabashi2018}. 
 These cosmic rays propagate through intergalactic and interstellar space, losing energy through radiative processes \cite{DeDomenico2012}.
 They are then captured by the Earth's magnetic field before arriving at Earth's atmosphere with energies in MeV to GeV ranges. 
-They then interact with the atmospheric nuclei on Earth, producing "secondaries", that is, particles produced from such interactions. The secondaries
+They then interact with the atmospheric nuclei on Earth, producing ``secondaries", that is, particles produced from such interactions. The secondaries
 produced are mainly pions ($\pi^\pm, \pi^0$), whereas kaons ($K^\pm, K^0, \bar{K}^0$) are only produced with a probability of 10\% compared to pions \cite{Grupen2005}. \par 
 
 \begin{figure*}[!h]
@@ -174,10 +174,10 @@ creates a hadronic cascade primarily consisting of these particles. Fig. \ref{fi
 
 
 Through such electromagnetic and hadronic cascades, most charged particles are absorbed by the atmosphere and thus do not reach sea level. However, most of the muons 
-produced from pions and kaons reach sea level due to their long lifetime, and as such approximately 80\% of the charged particles that reach sea level are muons.
+produced from pions and kaons reach sea level due to their long lifetime (because they are relativistic), and as such approximately 80\% of the charged particles that reach sea level are muons.
 The flux of muons detected at sea level is approximately 1 particle per cm$^2$ per minute, and as such one can detect more than $7 \times 10^{6}$ muons for an 
 overnight measurement with a detector with an area of $\SI{1}{\meter\squared}$.  Neutrinos also reach sea level as they only interact weakly with matter and has a 
-low interaction probability \cite{Grupen2005}. In the setup of our experiment, however, we are not able to detect neutrinos and thus only muons are detected. 
+low interaction probability \cite{Grupen2005}. In the setup of our experiment, however, we are not able to detect neutrinos and thus mostly muons are detected. 
 Fig. \ref{fig:air_shower} shows the schematic of a typical air shower from a primary cosmic ray. \par 
 
 
@@ -200,7 +200,7 @@ inclined angles. The intensity distribution is given as such:
 where $I_0$ is the intensity at the local zenith ($\theta = 0^\circ$) \cite{Grupen2005}. The exponent of the cosine function at 
 sea level is $n = 2$ as most muons have energies $E_\mu \sim \SI{3}{\giga\electronvolt}$ when they reach sea level \cite{Stefano2012}.
 
-\section{Gaseous Detectors}
+\section{Gaseous Detectors} \label{section:gas}
 
 To detect the muons that originate from cosmic ray showers, we use ionization detectors which collects the ionized electrons and ions 
 from the emitted radiation from such muons. The basic configuration of an gaseous ionization detector is 
@@ -259,14 +259,14 @@ dependency of the number of ions collected with the applied voltage for two type
 
 \section{Drift Chambers}
 
-In our experiment, we use a type of proportional chamber called a drift chamber, also known as "straws". The drift chamber allows one to determine the spatial information 
+In our experiment, we use a type of proportional chamber called a drift chamber, also known as ``straws". The drift chamber allows one to determine the spatial information 
 of the traversing particle by measuring the drift time of the ionized electrons. The position of the produced electrons from the anode wire is 
 given as such: 
 \begin{equation}
 	x = \int_{t_0}^{t_1} u dt
 \end{equation}
 where $t_0$ is the arrival time of the particle, $t_1$ is the time in which the signal reaches the anode, and $u$ is the drift velocity. To obtain a 
-linear depedence with time and distance, a constant drift velocity and thus a constant electric field is desired. Using drift chambers, one can 
+linear dependence with time and distance, a constant drift velocity and thus a constant electric field is desired. Using drift chambers, one can 
 construct a constant electric field. \par 
 
 \begin{figure*}[!hb]
@@ -296,16 +296,15 @@ using a scintillation detector. The electric pulse is then analyzed to study abo
 are useful especially due to their high sensitivity to energy measurements, their fast time response, and their ability 
 to discriminate between pulse shapes. \par 
 
-A scintillator detector is constructed from a scintillating materia which is optically coupled to a PMT. The radiation excites the 
+A scintillator detector is constructed from a scintillating material which is optically coupled to a PMT. The radiation excites the 
 atom or molecule in the scintillating material, causing scintillation to occur. The PMT then converts and amplifies the light into 
-an electric current which is then read out by an electronics system \cite{Leo1994}. The scintillation detectors used in our experiment 
+an electric current which is then read out by an electronic system \cite{Leo1994}. The scintillation detectors used in our experiment 
 operate under the same principles as above. \par 
 
 
 The photomultiplier tubes used within the scintillation detectors convert detected photons into electronic current that can 
 be measured. The photons are collected from a photocathode before emitting an electron due to the photoelectric effect. The electrons 
-are then multiplied by a series of dynodes which emits secondary electrons within the material due to transfer of energy. An applied 
-voltage is also applied in this region to accelerate these electrons, subsequently producing more electrons. The constructed cascade is 
+are then multiplied by a series of dynodes which emit secondary electrons within the material due to transfer of energy. A voltage is also applied in this region to accelerate these electrons, subsequently producing more electrons. The constructed cascade is 
 collected at the anode to give a measurable electronic current \cite{Leo1994}. Fig. \ref{fig:pmt_schematic} shows the schematic of a typical photomultiplier tube. 
 
 
@@ -332,7 +331,7 @@ The experimental setup is shown in Fig. \ref{fig:setup1}. The setup consists of 
     \label{fig:setup1}
 \end{figure}	
 
-The modules consist of simple drift chambers. Each of these modules consists of three layers of 88 straws. The straws are a simple drift chambers, filled with a gas mixture of argon and carbon-dioxide. The radius of each straw is 3.75mm and the length ranges from 20cm to 102cm. The reason for the variable length is due to the trapezoidal shape of the module. Each of these straws is connected to readout channel in a front-end (FE) board which contains a preamplifier, a shaper and a discriminator. When the input voltage exceeds a certain threshold voltage, each of these straws give a digital output pulse. This output pulse is then time-multiplexed for six straws each, which gives an output signal with 200ns offset with respect to each other, giving a total of 1200ns readout window per event. From the FE board, the signal is fed into the TDC board to measure drift time.  
+The modules consist of simple drift chambers. Each of these modules consists of three layers of 88 straws. The straws are a simple drift chambers, filled with a gas mixture of argon and carbon-dioxide. The radius of each straw is 3.75mm and their lengths range from 20cm to 102cm. The reason for the variable length is due to the trapezoidal shape of the module. Each of these straws is connected to readout channel in a front-end (FE) board which contains a preamplifier, a shaper and a discriminator. When the input voltage exceeds a certain threshold voltage, each of these straws give a digital output pulse. This output pulse is then time-multiplexed for six straws each, which gives an output signal with 200ns offset with respect to each other, giving a total of 1200ns readout window per event. From the FE board, the signal is fed into the Time-to-Digital Convertor (TDC) board to measure the drift time.  
 
 \section{Triggering system}
 Since the detectors themselves do not have an internal triggering mechanism, an external one is used. This triggering system comprises of two large scintillators which are placed above and below the modules. To these scintillators, photomultiplier tubes (PMTs) are attached which registers the photon emitted by the material when a charged particles passes through and ionizes the material. This light signal is then converted to electronic pulse, which can be measured. Further, the two scintillators are operated in coincidence logic to trigger events when a muon passes both the scintillators and hence the tracking modules. 
@@ -342,36 +341,36 @@ Since the detectors themselves do not have an internal triggering mechanism, an 
 \chapter{Procedure} \label{chap:procedure}
 
 \section{Determination of PMT Operation Voltage}
-Before making the measurements, the operation voltage for the PMT needs to be determined. In order to have a working trigger system, a high voltage needs to be set for the photomultipliers. The voltage is varied in the range of 1700-2300V. The counts measured by the lower photomultiplier are displayed on the middle counter in the electronics rack (as seen in Fig. \ref{fig:rack}). In order to reduce the statistical uncertainty, four measurements for each voltage were measured. The result is shown in Fig. \ref{fig:low_count}. A change in upper photomultiplier voltage does not affect the count. A standard error of 0.5V is taken for each reading based on the instrumentation. 
+Before making the measurements, the operation voltage for the PMT needs to be determined. In order to have a working trigger system, a high voltage needs to be set for the photomultipliers. The voltage is varied in the range of 1700-2300V. The counts measured by the lower photomultiplier can be seen on the middle display of the counter in the electronics rack (as seen in Fig. \ref{fig:rack}). In order to reduce the statistical uncertainty, four measurements for each voltage were measured. The result is shown in Fig. \ref{fig:low_count}. A change in upper photomultiplier voltage does not affect the count. A standard error of 0.5V is taken for each reading based on the instrumentation. 
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.5\textwidth]{rack.jpg}
-    \caption{The electronic rack which displays the count for upper and lower photomultiplier and the coincidence rate.}
+    \caption{The electronic rack which displays the count for upper and lower photomultiplier and the coincidence rate, labelled in the image.}
     \label{fig:rack}
 \end{figure}	
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.8\textwidth]{low_count}
-    \caption{The change in count with respect to voltage. We notice an exponential growth followed by a linear growth.}
+    \caption{The change in count with respect to lower voltage. We notice an exponential growth followed by a linear growth.}
     \label{fig:low_count}
 \end{figure}	
 
-We notice that from 1700-2050V, the behavior is exponential and after 2100V, the behavior is linear. Therefore, we choose the operating voltage for the lower photomultiplier to be 2100V, since above this value, an increase voltage leads to an increase in noise. 
+We notice that from 1700-2050V, the behavior is exponential and after 2100V, the behavior is linear. Therefore, we choose the operating voltage for the lower photomultiplier to be 2100V, since above this value, an increase voltage leads to an increase in noise (based on the discussion in Sec. \ref{section:gas}. 
 
 Having fixed the voltage for the bottom panel, we determine the operating voltage for the upper panel. This is done by varying the voltage in the same range but this time instead of measuring the count, we measure the coincidence rate. Again, we take four measurements per voltage to reduce statistical uncertainty. The result is shown in Fig. \ref{fig:up_count}. 
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.8\textwidth]{up_count}
-    \caption{The change in coincidence rate with respect to voltage. We notice a plateau, indicating the independence of coincidence rate.}
+    \caption{The change in coincidence rate with respect to upper voltage. We notice a plateau, indicating the independence of coincidence rate.}
     \label{fig:up_count}
 \end{figure}
 
 A plateau can be seen starting after 1950V. This implies that a subsequent increase in voltage does not change the coincidence rate - the coincidence rate is independent of increase in the voltage. Therefore, we pick 2000V as the operating voltage for the upper panel. 
 
-\section{Front-end Threshold Voltage}
+\section{Front-end Threshold Voltage} \label{sec:fe_threshhold}
 
 Having determined the optimal operating voltage for the lower and the upper panel, the threshold voltage for front-end has to be determined. To do this, the voltage is varied 1.0-2.6V in the steps of 0.4V. An additional 2.0V reading was also taken. For each voltage, 25000 events are measured. We illustrate the typical procedure below. 
 
@@ -386,14 +385,14 @@ StyxM2C2 -N 25000 -O TS_10V.txt --all --no-clean \
 
 \noindent in order to process the data. The \texttt{StyxM2C2} calls the program. \texttt{-N 25000} considers only the first 25000 events to process them. \texttt{-O TS\_10V.txt} names the output file. \texttt{--all --no-clean} process the data files with \texttt{StyxM2C2} using all process steps except for the cleaning. \texttt{-I \slash home\slash styx\slash data\slash etraxp114\slash te13085163152.hld} is the input file. This is repeated for each voltage. 
 
-To find good channels, the a monitoring root file is produced using the command: 
+To find good channels, a monitoring root file is produced using the command: 
 
 \begin{tcolorbox}
 \begin{verbatim}
 StyxMonitor TS_10V_mon.txt
 \end{verbatim}
 \end{tcolorbox}
-\noindent This create a \texttt{TS\_10V\_mon.root} file, which can be opened via running:
+\noindent This creates a \texttt{TS\_10V\_mon.root} file, which can be opened via running:
 
 \begin{tcolorbox}
 \begin{verbatim}
@@ -408,9 +407,9 @@ StyxThresholdScan 1 3 TS_10V_mon.txt TS_14V_mon.txt TS_18V_mon.txt TS_20V_mon.tx
 TS_22V_mon.txt TS_26V_mon.txt
 \end{verbatim}
 \end{tcolorbox}
-\noindent This would then compare the channel 3 and TDC 1 for all the measurements. In order to analyze these plots, we run \texttt{root} again. 
+\noindent This would then compare the channel 3 and TDC 1 for all the measurements. In order to analyze these plots, we run \texttt{root} again. In the discussion below, we look at the plots from TDC 1, since that showed us the varying level of noise and counts in the various channels. The other TDC channels showed almost a constant count across all voltages, making it difficult to pick a threshold voltage. 
 
-The next step is to find the threshold voltage for the front-end. In order to find the optimal value, we need a compromise between low noise and high event count. The way to do this is by comparing multiple plots that we outputted in the steps mentioned above. In Fig. \ref{fig:remove_10} we see that the number of counts corresponding to 1.0V is disproportionately high. This indicates that this is due to noise. This can also be seen from the overlay plot in Fig. \ref{fig:remove_10_1}. The black line corresponds to 1.0V. A high count and non-uniform distribution is another indicator of the noise in this channel. Hence, we rule out 1.0V. 
+The next step is to find the threshold voltage for the front-end. In order to find the optimal value, we need a compromise between low noise and high event count. The way to do this is by comparing multiple plots in different channels that we outputted in the steps mentioned above. In Fig. \ref{fig:remove_10} we see that the number of counts corresponding to 1.0V is disproportionately high. This indicates that this is due to noise. This can also be seen from the overlay plot in Fig. \ref{fig:remove_10_1}. The black line corresponds to 1.0V. A high count and non-uniform distribution is another indicator of the noise in this channel. Hence, we rule out 1.0V. 
 
 \begin{figure}[htpb]
     \centering
@@ -435,7 +434,7 @@ Next, we look at Fig. \ref{fig:rm_below_20}. Here, we see a slight decrease in c
     \label{fig:rm_below_20}
 \end{figure}
 
-Lastly, we look at Fig. \ref{fig:pick_20}. In Fig. \ref{subfig:pick_20_c}, a decrease in the count can be seen after 2.0V. Since one of our criteria was high event count, we rule out the voltages above 2.0V. Therefore, at 2.0V, we have a high event count and low noise. The corresponding overlay plot is shown in Fig. \ref{subfig:pick_20_o}. 
+Lastly, we look at Fig. \ref{fig:pick_20}. In Fig. \ref{subfig:pick_20_c}, a decrease in the count can be seen after 2.0V. Since one of our criteria was high event count, we rule out the voltages above 2.0V. Therefore, at 2.0V, we have a high event count and low noise, hence that voltage was chosen. The corresponding overlay plot is shown in Fig. \ref{subfig:pick_20_o}. 
 
 \begin{figure*}[htb]
 	\centering
@@ -638,7 +637,7 @@ While the signal is dominated by background in the uncalibrated data, the signal
 We also observe that the dead straws have been removed after calibration. In Fig. \ref{subfig:drift2d_layer_m1l1c}, we observe that 
 straws 37, 43, 66, 78, and 85, as well as all straws from 1 - 9 have been removed in the distribution. The reason for this is clear as we see that 
 the drift time measured by most of these straws extend past the observed drift time distribution from the other straws (as shown in Fig. 
-\ref{subfig:drift2d_layer_m1l1uc}), indicating that the distribution does not fit the desired shape. See Appendix (Chap. \ref{chap:appendix}) for the drift time 
+\ref{subfig:drift2d_layer_m1l1uc}), indicating that the distribution does not fit the desired shape. See Appendix \ref{chap:appendix} for the drift time 
 distribution for some of these particular straws. \par 
 
 The calibration program also shows a strawmap that displays the status of each straw in our detector. The calibration program 
@@ -656,13 +655,13 @@ Fig. \ref{fig:calib_strawmap} shows the strawmap for the detector used in our ex
 \end{figure*}
 
 From the bottom of the strawmap (corresponding to Module 1), we observe that the same straws that showed problematic drift time distributions
-in Fig. \ref{subfig:drift2d_layer_m1l1uc} (straws 1 - 9, 37, 43, 66, 78, 85) are indicated as either HOT or Dead. Furthermore, 
+in Fig. \ref{subfig:drift2d_layer_m1l1uc} (straws 1 - 9, 37, 43, 66, 78, 85) are indicated as either HOT or dead. Furthermore, 
 we observe that in Module 2, straws 66 and higher are dead straws. This is also reflected in the calibrated drift time distribution 
-for Layers in Module 2 (see Appendix (Chap. \ref{chap:appendix})). \par 
+for Layers in Module 2 (see Appendix \ref{chap:appendix}). \par 
 
 \chapter{Analysis} \label{chap:track_analysis}
 
-In this chapter, we use the straw-by-straw calibration method as discussed in Sec. \ref{sec:straw_calib} onto the 
+In this chapter, we use the straw-by-straw calibration method as discussed in Sec. \ref{sec:calib_proc} onto the 
 raw data taken overnight to reconstruct the events to obtain the tracks deposited by the cosmic ray muons. 
 We then analyze the distributions obtained from these reconstructed tracks. \par 
 
@@ -670,7 +669,7 @@ We then analyze the distributions obtained from these reconstructed tracks. \par
 
 We first ran the \texttt{StyxM2C2} program as with the calibration step. As we have used the first 300 000 events for 
 calibration purposes, we skipped these events and ran the program for the subsequent 200 000 events. The calibration 
-performed in Chap. \ref{chap:calib} was applied by providing the output calibration file in the argument. 
+performed in Chap. \ref{chap:calib} was applied by providing the output calibration file \texttt{CalibM2C2300k.txt} in the argument. 
 All in all, we ran the following command for this processing procedure: 
 \begin{tcolorbox}
 	\begin{verbatim}
@@ -698,7 +697,7 @@ Fig. \ref{fig:calib_strawmap}. \par
 
 When comparing between the layers, we observe no major differences between the distributions. Furthermore, the peaks observed 
 in each distribution occur at approximately the same location, indicating that such peaks are not due to background or noise. 
-\textcolor{red}{explain the peak or nah?} \par 
+A possible cause of these peaks could be due to false calibration. 
 
 
 \begin{figure*}[htb!]
@@ -733,7 +732,7 @@ each layer (Fig. \ref{fig:hitsperstraw_m1_layers}). We also observe the same dea
 \end{figure*}
 
 We also compare between the hits per straw from module 1 and module 3, shown in Fig. \ref{fig:tracksvshits_comp}. From this, we observe that the shape of the 
-distribution is the same for both modules, however the amplitude is decreased by approximately 2000 entries from straw 20 onwards. 
+distribution is the same for both modules, however the amplitude is decreased by approximately 2000 entries from straw 20 onwards. This may be due to the inefficiency of the straws in Module 3. 
 
 \begin{figure*}[!h]
 	\centering
@@ -745,10 +744,9 @@ distribution is the same for both modules, however the amplitude is decreased by
 \section{Results: Tracks}
 
 We now plot the two-dimensional histogram between the number of tracks and the number of hits per event in the detector. Fig. \ref{fig:tracksvshits}
-shows this two-dimensional histogram. From this, we observe that we need approximately 8 hits per event to construct 1 track per event
+shows this two-dimensional histogram. From this, we observe that we need approximately 7 hits per event to construct 1 track per event
 as the peak of the histogram is located at this point. This is consistent with the distribution of the number of hits triggered in 
-the detector (see Appendix (Chap. \ref{chap:appendix})).  \textcolor{red}{not too sure about this part: }Furthermore, we observe that the distribution is strongly peaked, implying that 
-the reconstruction algorithm mainly constructs one or two tracks at most. \par 
+the detector (see Appendix \ref{chap:appendix}). Ideally, we expect a peak at 9 hits per event to construct 1 track per event because we have 3 layers of straws in each module. But due to some inefficiencies in the detector, this peak gets shifted from 9 hits per event, to 7 hits per event to construct 1 track per event. The cause of the inefficiency could be due to small gaps in between the straws or the signal not being strong enough to register a hit. 
 
 \begin{figure*}[!h]
 	\centering
@@ -779,11 +777,9 @@ particles. \par
 
 
 We further fit the distribution by the intensity distribution given in Eq. \ref{eq:muon_intensity}. From using the fitting 
-program provided by ROOT, we obtain that $I_0 = \num{2193.7 \pm 9.5}$ \textcolor{red}{units} and $n = \num{3.846 \pm 0.024}$. This implies that 
+program provided by ROOT, we obtain that $I_0 = \num{2193.7 \pm 9.5}$ count and $n = \num{3.846 \pm 0.024}$. This implies that 
 the intensity distribution that we have obtained does not follow the intensity distribution of muons at sea level ($n = 2$). 
-An attempt to fit a function $\propto \cos ^2 \theta$ is shown in Fig \ref{fig:tracksangle_cos2fit}. The reason for such deviation
-is not fully clear. One possible reason may be due to the contribution from background muons originating from other processes such as 
-radioactive decay. 
+An attempt to fit a function $\propto \cos ^2 \theta$ is shown in Fig \ref{fig:tracksangle_cos2fit}. The possible reason of a disproportionate preference for vertical muon intensity could be due to the geometry of the detector. Since, the muons entering the detector at steeper angles will not be able to trigger the coincidence logic, these muons will not be counted as an event. This can also be seen from the Fig. \ref{fig:tracksvshits}, as the number of hits required to reconstruct a track is 7 hits per event, which less likely for the muons to reach which are entering at higher angles. Further, since the experiment was conducted in the ground floor of a building with multiple floors and walls, the low energy muons entering at steeper angles would be stopped more readily \cite{OlmosYanez:2019yqv}. 
 
 \begin{figure*}[!h]
 	\centering
@@ -810,16 +806,16 @@ Fig. \ref{fig:trackvssegment} shows the two-dimensional histogram between the tr
 \chapter{Conclusion} \label{chap:concl}
 
 In this report, we determined the intensity distributions from secondary cosmic ray muons using a drift chamber detector. 
-The detector was constructed by three modules, each with 88 straws and 3 layers each, with scintillators placed in between them. \par 
+The detector was constructed by three modules, each with 88 straws and 3 layers, with scintillators placed in between them. \par 
 
 We first set up the trigger system to determine the optimal voltage by varying the voltage of the lower photomultiplier tube (PMT) 
-until we observe a linear behaviour in the distribution. The optimal voltage was set to be the initial point in which the line begins, and
+until we observe a linear behavior in the distribution. The optimal voltage was set to be the initial point in which the line begins, and
 in our experiment this was set to be 2100V. We then modified the upper voltage of the PMT by looking at the coincidence rate between the 
 upper and lower PMT. The optimal upper voltage was chosen to be 2000V, which is where the plateau of the distribution begins. \par 
 
-We then determine the front-end threshhold voltage, i.e. the optimal voltage for the front-end boards in the apparatus. 
+We then determine the front-end threshold voltage, i.e. the optimal voltage for the front-end boards in the apparatus. 
 The optimal voltage was chosen by varying the voltage and choosing the histogram between time and number of hits 
-which yields the lowest noise and the highest count. In our experiment, we obtained the front-end threshhold voltage to be 
+which yields the lowest noise and the highest count. In our experiment, we obtained the front-end threshold voltage to be 
 2V. An overnight measurement was then taken using these voltage settings.\par 
 
 We then calibrated the data using the straw-by-straw calibration method which corrects the offsets in the drift time distribution
@@ -827,21 +823,20 @@ for each straw. We also removed the dead straws that showed problematic distribu
 From the obtained figures, we were successfully able to calibration our obtained overnight data. \par 
 
 Finally, we used the constructed calibration file to reconstruct the number of muon tracks. The number of hits per straw generally 
-had the same behaviour which was attributed to the geometry of the apparatus. No clear differences were observed between each layer 
+had the same behavior which was attributed to the geometry of the apparatus. No clear differences were observed between each layer 
 of a module, but there was a decrease in the amplitude when comparing between module 1 and module 3. \par 
 
 We then observed the histograms from the reconstructed tracks. We observed from the distribution between number of hits and tracks 
-that we need approximately $\sim 8$ hits to construct one track per event. The angular distribution yielded a fit value of 
-$I_0 = \num{2193.7 \pm 9.5}$ \textcolor{red}{units} and $n = \num{3.846 \pm 0.024}$, which deviates from the expected behaviour of 
+that we need approximately 7 hits to construct one track per event. The angular distribution yielded a fit value of 
+$I_0 = \num{2193.7 \pm 9.5}$ count and $n = \num{3.846 \pm 0.024}$, which deviates from the expected behavior of 
 $\cos^2 \theta$. \textcolor{red}{add things about track vs segment angle.}
 
 In the end, we were successfully able to measure the muon distribution from cosmic rays at sea level, however, we did not obtain
-the expected behaviour of the distribution. In the future, we hope to understand the reason behind this deviation in our distribution better as 
-the reason for this deviation was not fully clear to us. All in all, this experiment gave us insight in the methods in which 
+the expected behavior of the distribution. The possible reasons for this deviation was explained via the geometry of the detector and possible impact to low energy muons via the walls and the floors of the building. All in all, this experiment gave us insight in the methods in which 
 secondary particles from cosmic rays are measured and how data analysis in particle physics is conducted.
 
 
-\chapter{Acknowledgements}
+\chapter{Acknowledgements} \label{chap:ackn}
 
 We would like to thank our tutor Patrick Bauer for his guidance throughout the lab. We thank him for his help even after the lab 
 when we struggled with determining the distribution between the track and segment angles. We would also like to thank the Advanced 
@@ -851,7 +846,10 @@ conducted using ROOT.
 
 \printbibliography
 
-\chapter{Appendix} \label{chap:appendix}
+\appendix 
+
+\chapter{Additional Figures} \label{chap:appendix}
+
 
 In this section, we show additional plots that are of interest to our report.\par 
 
