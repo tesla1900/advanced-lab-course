@@ -37,6 +37,8 @@
 
 \pdfsuppresswarningpagegroup=1
 
+
+
 % for citations / references
 \usepackage[style=ieee]{biblatex}
 \addbibresource{styx-report.bib}
@@ -106,8 +108,10 @@
 			  we reconstruct the event tracks and study the various relations between number of hits and tracks, the angular
 			   distribution of the intensity and the relation between track and segment angle. We find a 
 			   deviation from the expected $\cos^2(\theta)$ behavior and the cause is attributed to the geometry of the detector 
-			   and low energy muons penetrating through the building. We try several reconstruction algorithm in order to produce the segment angles and compare the results. We also observed a linear correlation between the track and segment angles as well as an anti-correlation at $\theta = \pm \SI{30}{\degree}$, where the latter was attributed to 
-			   the layout of the straws. 
+			   and low energy muons penetrating through the building. To produce the segment angles, we used the \texttt{TENNEIGHBORS}
+			   algorithm which yielded the expected $\cos^2(\theta)$ behavior in the peak of the track angle distribution. 
+			   Comparing between the track and segment angles, we observed a linear correlation as well as an anti-correlation at 
+			   $\theta = \pm \SI{30}{\degree}$, where the latter was attributed to the layout of the straws. 
 		\end{centering}
 	\end{minipage}
 	
@@ -162,7 +166,7 @@ They are then captured by the Earth's magnetic field before arriving at Earth's 
 They then interact with the atmospheric nuclei on Earth, producing ``secondaries", that is, particles produced from such interactions. The secondaries
 produced are mainly pions ($\pi^\pm, \pi^0$), whereas kaons ($K^\pm, K^0, \bar{K}^0$) are only produced with a probability of 10\% compared to pions \cite{Grupen2005}. \par 
 
-\begin{figure*}[!h]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.6\textwidth]{em_hadronic_showers.png}
 	\caption{ \textit{Left:} An electromagnetic shower induced by $\gamma$ at $\SI{1}{\tera\electronvolt}$. 
@@ -189,7 +193,7 @@ low interaction probability \cite{Grupen2005}. In the setup of our experiment, h
 Fig. \ref{fig:air_shower} shows the schematic of a typical air shower from a primary cosmic ray. \par 
 
 
-\begin{figure*}[!h]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.6\textwidth]{air_shower.png}
 	\caption{A typical air shower resulting from interaction of primary cosmic ray with the atmosphere. Electromagnetic cascades are shown in blue and hadronic 
@@ -222,7 +226,7 @@ for a schematic of the ionization detector with this setup. From this, a radial 
 where $r$ is the radial distance from the axis, $b$ is the inner radius of the cylinder, and $a$ is the outer radius of the conducting 
 wire as shown in Fig. \ref{fig:ionization_chamber_schematic}. \par 
 
-\begin{figure*}[!h]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.6\textwidth]{ionization_chamber_schematic.png}
 	\caption{Schematic of an gaseous ionization detector based on Ref. \cite{Leo1994}. Here, $b$ is the inner radius of the cylinder (cathode) and $a$ is the outer radius 
@@ -256,7 +260,7 @@ dependency of the number of ions collected with the applied voltage for two type
 			is to be avoided when operating the detector.
 \end{enumerate}
 
-\begin{figure*}[!h]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{ionization_regions.png}
 	\caption{Number of ions collected at different applied voltage where the incident particles are $\alpha$ or $\beta$ particles. 
@@ -316,7 +320,7 @@ are then multiplied by a series of dynodes which emit secondary electrons within
 collected at the anode to give a measurable electronic current \cite{Leo1994}. Fig. \ref{fig:pmt_schematic} shows the schematic of a typical photomultiplier tube. 
 
 
-\begin{figure*}[!h]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.6\textwidth]{pmt_schematic.png}
 	\caption{Schematic of a typical photomultiplier tube. Photons are detected at the cathode, before entering the focusing grid,
@@ -475,7 +479,7 @@ distribution to determine the starting point of the distribution. See Fig. \ref{
 drift time distribution. The calibration also marks straws as hot, dead, or continuous if the distribution of that straw 
 does not have the expected shape. \par 
 
-\begin{figure*}[!h]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.6\textwidth]{calib_drift_m1l1s10_fit.png}
 	\caption{Example of the fitting process. A linear fit is applied on the rising edge of the distribution for the calibration process. The uncalibrated drift time distribution
@@ -565,7 +569,7 @@ identifies each straw as either OK (green), HOT (blue), dead (red), or continuou
 for each straw. Straws that are either HOT or dead indicate that there is some problem with the front-end chip of the straw.
 Fig. \ref{fig:calib_strawmap} shows the strawmap for the detector used in our experiment. 
 
-\begin{figure*}[!h]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{calib_strawmask.png}
 	\caption{The straw map of the detector used in this experiment. The status of each straw is marked as OK (green, 3), 
@@ -654,7 +658,7 @@ each layer (Fig. \ref{fig:hitsperstraw_m1_layers}). We also observe the same dea
 We also compare between the hits per straw from module 1 and module 3, shown in Fig. \ref{fig:tracksvshits_comp}. From this, we observe that the shape of the 
 distribution is the same for both modules, however the amplitude is decreased by approximately 2000 entries from straw 20 onwards. This may be due to the inefficiency of the straws in Module 3. 
 
-\begin{figure*}[!h]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{hitsperstraw_m1m3.png}
 	\caption{Comparison of number of hits per straw between module 1 (blue) and 3 (red). }
@@ -668,7 +672,7 @@ shows this two-dimensional histogram. From this, we observe that we need approxi
 as the peak of the histogram is located at this point. This is consistent with the distribution of the number of hits triggered in 
 the detector (see Appendix \ref{chap:appendix}). Ideally, we expect a peak at 9 hits per event to construct 1 track per event because we have 3 layers of straws in each module. But due to some inefficiencies in the detector, this peak gets shifted from 9 hits per event, to 7 hits per event to construct 1 track per event. The cause of the inefficiency could be due to small gaps in between the straws or the signal not being strong enough to register a hit. 
 
-\begin{figure*}[!h]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{trackvshits.png}
 	\caption{The two-dimensional histogram between the number of hits and the number of tracks per event. 
@@ -687,7 +691,7 @@ the number of particles, decreases as one moves further from the local zenith as
 higher incoming angle interacts more with the atmosphere, thus increasing the probability that it will be stopped by the atmospheric
 particles. \par 
 
-\begin{figure*}[!h]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{trackangle.png}
 	\caption{The angular distribution of the reconstructed tracks. The red line indicates the fit function $I = I_0 \cos^n \theta$
@@ -701,14 +705,19 @@ program provided by ROOT, we obtain that $I_0 = \num{2193.7 \pm 9.5}$ count and 
 the intensity distribution that we have obtained does not follow the intensity distribution of muons at sea level ($n = 2$). 
 An attempt to fit a function $\propto \cos ^2 \theta$ is shown in Fig \ref{fig:tracksangle_cos2fit}. The possible reason of a disproportionate preference for vertical muon intensity could be due to the geometry of the detector. Since, the muons entering the detector at steeper angles will not be able to trigger the coincidence logic, these muons will not be counted as an event. This can also be seen from the Fig. \ref{fig:tracksvshits}, as the number of hits required to reconstruct a track is 7 hits per event, which less likely for the muons to reach which are entering at higher angles. Further, since the experiment was conducted in the ground floor of a building with multiple floors and walls, the low energy muons entering at steeper angles would be stopped more readily \cite{OlmosYanez:2019yqv}. 
 
-\begin{figure*}[!h]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{trackangle_cos2fit.png}
 	\caption{Same as Fig. \ref{fig:tracksangle} but for the fit function $I = I_0 \cos^2 \theta$ (red line) instead. }
 	\label{fig:tracksangle_cos2fit}
 \end{figure*} \par
 
-For all of the discussion above, the \texttt{HOUGHTRANSFORM} algorithm was used in order to reconstruct the events. This is the default algorithm that is used in the 2022 version of the Virtual Machine (VM). Since this algorithm does not reconstruct segment angles (more on this later in this section), other algorithms had to be employed which could reconstruct the segment angles. The code for the \texttt{labCourse.cpp} and \texttt{StudentAnalysis.cxx} file can be found in the Appendix \ref{chap:appendix_code}. But the main command for changing the reconstruction algorithm is done by adding the following line to the \texttt{labCourse.cpp} file:
+For all of the discussion above, the \texttt{HOUGHTRANSFORM} algorithm was used in order to reconstruct the events. 
+This is the default algorithm that is used in the 2022 version of the Virtual Machine (VM). Since this algorithm 
+does not reconstruct segment angles (more on this later in this section), other algorithms had to be employed which 
+could reconstruct the segment angles. The relevant section of the code in the \texttt{labCourse.cpp} and \texttt{StudentAnalysis.cxx} file 
+can be found in the Appendix \ref{chap:appendix_code}. The main command for changing the reconstruction algorithm 
+is done by modifying the following line in the \texttt{labCourse.cpp} file:
 
 \begin{tcolorbox}
 	\begin{verbatim}
@@ -717,11 +726,21 @@ For all of the discussion above, the \texttt{HOUGHTRANSFORM} algorithm was used 
 	\end{verbatim}
 \end{tcolorbox}
 
-\noindent Here as an example we have set the reconstruction algorithm to \texttt{CLUSTERFIT}. After going through several reconstruction algorithm, we observed that \texttt{TENNEIGHBORS} gave the most reasonable results. Below, we discuss the results of angular distribution of reconstructed tracks using \texttt{TENNEIGHBORS}. Additional plots using this algorithm can be found in the Appendix \ref{chap:appendix}.
+\noindent Here as an example we have set the reconstruction algorithm to \texttt{CLUSTERFIT}. 
+After going through several reconstruction algorithm, we observed that \texttt{TENNEIGHBORS} gave the most reasonable results. 
+Below, we discuss the results of angular distribution of reconstructed tracks using \texttt{TENNEIGHBORS}. 
+Additional plots using this algorithm can be found in the Appendix \ref{chap:appendix}.
 
-In Fig. \ref{fig:tentrack_fit}, we see the angular distribution of the reconstructed tracks with fit parameters $I_0 = 1607.5 \pm 7.8$ count and $n = 4.939 \pm 0.028$. We notice an increase in the value of $n$ with this algorithm, implying the dependence on the reconstruction algorithm used. In Fig. \ref{fig:tentrack_peak}, we see the fit being applied to only the peak region and we obtain the following fit parameters: $I_0 = 1445.8 \pm 1.09$ count and $n = 2.763 \pm 0.185$. Here we notice that $n$ is much closer to the expected value of 2. The possible cause apart, from the difference in the reconstruction algorithm, could be that the angular distribution does not depend significantly upon the detector geometry near the peak region and hence the we get a closer value to 2. However, near the tails of the distribution, the dependence on the geometry increases and we get a different parameter for fit. 
+In Fig. \ref{fig:tentrack_fit}, we see the angular distribution of the reconstructed tracks with fit parameters 
+$I_0 = 1607.5 \pm 7.8$ count and $n = 4.939 \pm 0.028$. We notice an increase in the value of $n$ with this algorithm,
+ implying the dependence on the reconstruction algorithm used. In Fig. \ref{fig:tentrack_peak}, we see the fit being 
+ applied to only the peak region and we obtain the following fit parameters: $I_0 = 1445.8 \pm 1.09$ count and 
+ $n = 2.763 \pm 0.185$. Here we notice that $n$ is much closer to the expected value of 2. The possible cause, apart from
+  the difference in the reconstruction algorithm, could be that the angular distribution does not depend significantly
+   upon the detector geometry near the peak region and hence we get a closer value to 2. However, near the tails of 
+   the distribution, the dependence on the geometry increases and we get a different parameter for the fit. 
 
-\begin{figure*}[!h]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{tentrack_fit.png}
 	\caption{The angular distribution of the reconstructed tracks using \texttt{TENNEIGHBORS}. The red line indicates the fit function $I = I_0 \cos^n \theta$
@@ -729,7 +748,7 @@ In Fig. \ref{fig:tentrack_fit}, we see the angular distribution of the reconstru
 	\label{fig:tentrack_fit}
 \end{figure*}
 
-\begin{figure*}[!h]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{tentrack_peak.png}
 	\caption{The angular distribution of the reconstructed tracks using \texttt{TENNEIGHBORS}. The red line indicates the fit function $I = I_0 \cos^n \theta$
@@ -737,11 +756,13 @@ In Fig. \ref{fig:tentrack_fit}, we see the angular distribution of the reconstru
 	\label{fig:tentrack_peak}
 \end{figure*}
 
-Finally, we compare our reconstructed tracks with the segment for events with only one track. 
-The segment is given as the tangent line between two or more circles with radii between the anode and the measured position of the straw. 
-Fig. \ref{fig:trackvssegment} shows the two-dimensional histogram between the track and segment angle. 
+Using this algorithm, we compare our reconstructed tracks with the segment for events with only one track. 
+The segment is defined here as the tangent line between two or more circles with radii between the anode and the measured position of the straw. 
+Fig. \ref{fig:trackvssegment} shows the two-dimensional histogram between the track and segment angle. From this, we observe a linear correlation between the track and segment angles. This is expected as a wider segment angle allows more tracks to be accepted at 
+that same incoming angle. We also observe an anti-correlation at angles $\theta = \pm \SI{30}{\degree}$ which is caused by the 
+layout of the straws in the module. \par 
 
-\begin{figure*}[!h]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{tracksvssegments.png}
 	\caption{The histogram between the track angles and segment angles for events with only one track. The 
@@ -749,16 +770,12 @@ Fig. \ref{fig:trackvssegment} shows the two-dimensional histogram between the tr
 	\label{fig:trackvssegment}
 \end{figure*}
 
-From Fig. \ref{fig:trackvssegment}, we observe a linear correlation between the track and segment angles. This is expected as a wider segment angle allows more tracks to be accepted at 
-that same incoming angle. We also observe an anti-correlation at angles $\theta = \pm \SI{30}{\degree}$ which is caused by the 
-layout of the straws in the module. \par 
-
 To further investigate this behavior, we observe the strawmap with reconstructed tracks for particular events of interest, shown in Figs. 
 \ref{fig:strawmap_300224} and \ref{fig:strawmap_300254}. The red circles indicate the circles with radii from the anode to the 
 position in which the hit was detected. The segments are shown in green, and the resulting reconstructed tracks are shown in blue. 
 The hot and dead straws from the calibration is shown in yellow and cyan respectively.\par 
 
-\begin{figure*}[!h]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{event300224.pdf}
 	\caption{Strawmap showing the reconstructed track from event 300224 using the ten neighbors algorithm as 
@@ -766,7 +783,7 @@ The hot and dead straws from the calibration is shown in yellow and cyan respect
 	\label{fig:strawmap_300224}
 \end{figure*}
 
-\begin{figure*}[!h]
+\begin{figure*}[ht!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{event300254.pdf}
 	\caption{Same as Fig. \ref{fig:strawmap_300224} but for event 300254 as an example for an event with an incoming angle of 
@@ -778,6 +795,8 @@ From Fig. \ref{fig:strawmap_300224}, we see that tracks that enter the detector 
 drift time detector, which further emphasizes the correlation between the track and segment angles. From Fig. \ref{fig:strawmap_300254}, we observe that with tracks incoming at angles close to $\SI{30}{\degree}$, the number of hits also increases. This is because 
 the segments constructed by the two circles is almost parallel to the layout of the straws in the detector (as seen with the detected hits 
 in the lowest module), allowing a larger acceptance region for track reconstruction. 
+\null
+\vfill
 
 
 
@@ -808,7 +827,11 @@ of a module, but there was a decrease in the amplitude when comparing between mo
 We then observed the histograms from the reconstructed tracks. We observed from the distribution between number of hits and tracks 
 that we need approximately 7 hits to construct one track per event. The angular distribution yielded a fit value of 
 $I_0 = \num{2193.7 \pm 9.5}$ count and $n = \num{3.846 \pm 0.024}$, which deviates from the expected behavior of 
-$\cos^2 \theta$. Since the default algorithm (\texttt{HOUGHTRANSFORM}) did not reconstruct segment angles, we tried several other algorithms and did further analysis using \texttt{TENNEIGHBORS} algorithm. With this, we obtain the fit value as $I_0 = 1607.5 \pm 7.8$ count and $n = 4.939 \pm 0.028$ and near the peak we obtain $I_0 = 1445.8 \pm 1.09$ count and $n = 2.763 \pm 0.185$. The change in these values, apart from the difference in the reconstruction techniques could be due to low importance of detector geometry for the peak region. 
+$\cos^2 \theta$. Since the default algorithm (\texttt{HOUGHTRANSFORM}) did not reconstruct segment angles, we tried
+ several other algorithms and did further analysis using \texttt{TENNEIGHBORS} algorithm.
+  With this, we obtain the fit value as $I_0 = 1607.5 \pm 7.8$ count and $n = 4.939 \pm 0.028$ and 
+  near the peak we obtain $I_0 = 1445.8 \pm 1.09$ count and $n = 2.763 \pm 0.185$. The change in these values, 
+  apart from the difference in the reconstruction techniques could be due to low importance of detector geometry in the peak region. \par 
 
 Further, we observe the distribution between the track and segment angle, which showed a linear correlation throughout 
 all angles as the number of hits were higher with lower incoming angles. The distribution also showed an anti-correlation 
@@ -816,8 +839,12 @@ at $\theta = \pm \SI{30}{\degree}$, which was attributed to the layout of the st
 shown in the strawmaps displaying reconstructed tracks at relevant incoming angles.\par 
 
 In the end, we were successfully able to measure the muon distribution from cosmic rays at sea level, however, we did not obtain
-the expected behavior of the distribution. The possible reasons for this deviation was explained via the geometry of the detector and possible impact to low energy muons via the walls and the floors of the building. All in all, this experiment gave us insight in the methods in which 
-secondary particles from cosmic rays are measured and how data analysis in particle physics is conducted.
+the expected behavior in the full range of the distribution, which is mainly attributed by the geometry of the detector. 
+This experiment gave us insight in the methods in which secondary particles from cosmic rays are measured and 
+how data analysis in particle physics is conducted. This lab can further be extended by exploring the differences between 
+the Monte Carlo simulation and the data, which is already contained within the program provided. Another possible extension would 
+be to compare between different algorithms in a more rigorous manner as this was one of the major difficulties we faced in our 
+analysis. 
 
 
 \chapter{Acknowledgements} \label{chap:ackn}
@@ -866,14 +893,14 @@ In this section, we show additional plots that are of interest to our report.\pa
 	\label{fig:calib_drift2d_m2l3}
 \end{figure*}
 
-\begin{figure*}[!h]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{nhits.png}
 	\caption{The number of counts obtained for each number of hits detected in the detector. }
 	\label{fig:nhits}
 \end{figure*} \par
 
-\begin{figure*}[!h]
+\begin{figure*}[htb!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{tentracksvshits.png}
 	\caption{The two-dimensional histogram between the number of hits and the number of tracks per event with \texttt{TENNEIGHBORS} algorithm. The color axis represents the number of entries for each track and hits per event. }
@@ -882,71 +909,95 @@ In this section, we show additional plots that are of interest to our report.\pa
 
 \chapter{Code} \label{chap:appendix_code}
 
-In the following section, we include the code from \texttt{labCourse.cpp} and \texttt{StudentAnalysis.cxx} file. Since the code itself is quite long, we include only the crucial sections. 
+In the following section, we include relevant sections of code from the \texttt{labCourse.cpp} and \texttt{StudentAnalysis.cxx} file. 
 
-\noindent The following sections are from the \texttt{labCourse.cpp} file:
+\noindent The following sections are from the \texttt{labCourse.cpp} file. The \texttt{ISegmentFitter::TENNEIGHBORS} can be changed
+to modify the reconstruction algorithm :
+\begin{tcolorbox}
+	\begin{verbatim}
 
-\begin{verbatim}
+		const int nevents = 200000;
+		
+			SBuildTask *recoData1 = new SBuildTask("Reconstruct", "Reconstruct STYX events",
+				"STree", "STree", "recoCFit.root", ISegmentFitter::TENNEIGHBORS);
+		
+			// load dead straw list from calibration file
+			SDeadStrawList* fDeadStraws = new SDeadStrawList();
+			int status = fDeadStraws->ReadCalibrationFile(
+				"../calib_output/CalibStraw300k.txt"); 
+			// change this to "int status = 0;" to use an empty dead straw list
+		
+	\end{verbatim}
+\end{tcolorbox}
 
-const int nevents = 200000;
-
-    SBuildTask *recoData1 = new SBuildTask("Reconstruct", "Reconstruct STYX events",
-        "STree", "STree", "recoCFit.root", ISegmentFitter::CLUSTERFIT);
-
-    // load dead straw list from calibration file
-    SDeadStrawList* fDeadStraws = new SDeadStrawList();
-    int status = fDeadStraws->ReadCalibrationFile("../calib_output/CalibStraw300k.txt"); 
-    // change this to "int status = 0;" to use an empty dead straw list
-
-\end{verbatim}
 
 \noindent The following sections are from the \texttt{StudentAnalysis.cpp} file:
 
 \noindent These are the lines to plot the important histograms: 
 
-\begin{verbatim}
+\begin{tcolorbox}
+	\begin{verbatim}
 
-	fHists1D["TrackSlope"] = new TH1D("TrackSlope", "Track slopes", 90, -1.5, 1.5);
-	fHists1D["TrackSlope"]->SetXTitle("Slope");
-	fHists1D["TrackSlope"]->SetYTitle("Tracks");
+		/* Track Slope Distribution */
+		fHists1D["TrackSlope"] = new TH1D("TrackSlope", "Track slopes", 90, -1.5, 1.5);
+		fHists1D["TrackSlope"]->SetXTitle("Slope");
+		fHists1D["TrackSlope"]->SetYTitle("Tracks");
+	
+	
+		/* Track Angle Distribution */
+		fHists1D["TrackAngle"] = new TH1D("TrackAngle",
+		 "Angular Distribution of Tracks", 90, -80, 80);
+		fHists1D["TrackAngle"]->SetXTitle("Angle [°]");
+		fHists1D["TrackAngle"]->SetYTitle("Tracks");
+	
+	
+		/* Track vs Segment Histogram */
+		fHists2D["TracksVsSegment"] = new TH2D("TrkVsSegment",
+		 "Track Angle Vs Segment Angle", 50, -80, 80, 50, -80, 80);
+		fHists2D["TracksVsSegment"]->SetXTitle("Track Angle [°]");
+		fHists2D["TracksVsSegment"]->SetYTitle("Segment Angle [°]");
+	
+		
+		/* To see the 1-D Segment Angle Distribution */
+		fHists1D["SegmentAngle"] = new TH1D("SegmentAngle",
+		"Angular Distribution of Segments", 90, -80, 80);
+		fHists1D["SegmentAngle"]->SetXTitle("Angle [°]");
+		fHists1D["SegmentAngle"]->SetYTitle("Segments");
+	
+	\end{verbatim}
+\end{tcolorbox}
 
-	fHists1D["TrackAngle"] = new TH1D("TrackAngle", "Angular Distribution of Tracks", 
-	90, -80, 80);
-	fHists1D["TrackAngle"]->SetXTitle("Angle [°]");
-	fHists1D["TrackAngle"]->SetYTitle("Tracks");
-
-	/* 2D histograms are created like this */
-	fHists2D["TracksVsSegment"] = new TH2D("TrkVsSegment", "Track Angle Vs Segment Angle", 
-	50, -80, 80, 50, -80, 80);
-	fHists2D["TracksVsSegment"]->SetXTitle("Track Angle [°]");
-	fHists2D["TracksVsSegment"]->SetYTitle("Segment Angle [°]");
-
-	fHists1D["SegmentAngle"] = new TH1D("SegmentAngle", "Angular Distribution of Segments", 
-	90, -80, 80);
-	fHists1D["SegmentAngle"]->SetXTitle("Angle [°]");
-	fHists1D["SegmentAngle"]->SetYTitle("Segments");
-
-\end{verbatim}
 
 \noindent These are the lines to fill the segment angle vs. track angle 2D histogram:
 
-\begin{verbatim}
+\begin{tcolorbox}
+	\begin{verbatim}
 
-if (fEvent->GetNHits() > 0) {
-	for (Int_t i = 0; i < fEvent->GetNTracks(); i++) {
-		STrack *trk = fEvent->GetTracks()[i];
-		assert(trk);
+		/* To ensure that at least one hit is observed */
+		if (fEvent->GetNHits() > 0) { 
 		
-		if (trk->GetTrackAlg() == 1) {
-			for (Int_t j = 0; j < fEvent->GetNSegments(); j++) {
-				SSegment *seg = fEvent->GetSegments()[j];
-				assert(seg);
-				fHists2D["TracksVsSegment"]->Fill(
-					TMath::ATan(trk->GetSlope()) * 180. / TMath::Pi(), 
-					TMath::ATan(seg->GetSlope()) * 180. / TMath::Pi()
-				);}}}}
+			for (Int_t i = 0; i < fEvent->GetNTracks(); i++) {
+				STrack *trk = fEvent->GetTracks()[i];
+				assert(trk);
+		
+				/* To only look at 1 event per track */
+				if (trk->GetTrackAlg() == 1) {
+		
+					for (Int_t j = 0; j < fEvent->GetNSegments(); j++) {
+						SSegment *seg = fEvent->GetSegments()[j];
+						assert(seg);
+						
+						/* Convert slope to angle m = tan(theta)  */
+						fHists2D["TracksVsSegment"]->Fill(
+							TMath::ATan(trk->GetSlope()) * 180. / TMath::Pi(), 
+							TMath::ATan(seg->GetSlope()) * 180. / TMath::Pi()
+						);
+				}}}
+		}
+		
+	\end{verbatim}
+\end{tcolorbox}
 
-\end{verbatim}
 
 \end{document}
 
