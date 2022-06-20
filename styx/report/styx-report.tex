@@ -147,7 +147,7 @@ In this experiment, the Straw Tube Young student eXperiment (STYX), we detect an
 
 The experiment starts off with getting familiar with the setup. This is followed by calibrating the detector to appropriate voltages so as to reduce noise and maximize the number of events. In the process, we also learn how to operate software tools such as the various classes of \texttt{Styx} and ROOT, a data analysis software developed by CERN. After the voltages have been set, the detector is left overnight to collect data. The next day, before starting the analysis, the data is further calibrated using straw-by-straw calibration. Then, it is analyzed and various aspects of secondary cosmic rays are studied. 
 
-In Chapter \ref{chap:theory}, we discuss the theoretical background necessary to gain insight about the experiment and its setup. More specifically, we look at secondary cosmic rays and various kinds of detectors used to study charged particles. In Chapter \ref{chap:exp_setup}, the experimental setup with each of its components is discussed. In Chapter \ref{chap:procedure}, we look at how we go about setting the appropriate operating and threshold voltages for PhotoMultiplier Tubes (PMTs) and the Front-End (FE) electronics. In Chapter \ref{chap:calib}, we look at how the calibration process, straw-by-straw calibration, is applied to the data. In Chapter \ref{chap:track_analysis}, having applied the calibration, we look at several properties of secondary cosmic rays, more specifically, the muons. In Chapter \ref{chap:concl}, we summarize the entire report and collect the final results. Lastly, we include additional plots and figures in the Appendix \ref{chap:appendix}. This report, closely follows the STYX lab manual \cite{labman}.
+In Chapter \ref{chap:theory}, we discuss the theoretical background necessary to gain insight about the experiment and its setup. More specifically, we look at secondary cosmic rays and various kinds of detectors used to study charged particles. In Chapter \ref{chap:exp_setup}, the experimental setup with each of its components is discussed. In Chapter \ref{chap:procedure}, we look at how we go about setting the appropriate operating and threshold voltages for PhotoMultiplier Tubes (PMTs) and the Front-End (FE) electronics. In Chapter \ref{chap:calib}, we look at how the calibration process, straw-by-straw calibration, is applied to the data. In Chapter \ref{chap:track_analysis}, having applied the calibration, we look at several properties of secondary cosmic rays, more specifically, the muons. In Chapter \ref{chap:concl}, we summarize the entire report and collect the final results. Lastly, we include additional plots and figures in the Appendix \ref{chap:appendix} and important segments of the code in Appendix \ref{chap:appendix_code}. This report, closely follows the STYX lab manual \cite{labman}.
 
 \chapter{Theory} \label{chap:theory}
 
@@ -733,7 +733,7 @@ In Fig. \ref{fig:tentrack_fit}, we see the angular distribution of the reconstru
 	\centering
 	\includegraphics[width=0.8\textwidth]{tentrack_peak.png}
 	\caption{The angular distribution of the reconstructed tracks using \texttt{TENNEIGHBORS}. The red line indicates the fit function $I = I_0 \cos^n \theta$
-			to the peak region between $-25^{\circ} to 25^{\circ}$.}
+			to the peak region between $-25^{\circ}$ to $25^{\circ}$.}
 	\label{fig:tentrack_peak}
 \end{figure*}
 
@@ -775,8 +775,7 @@ The hot and dead straws from the calibration is shown in yellow and cyan respect
 \end{figure*}
 
 From Fig. \ref{fig:strawmap_300224}, we see that tracks that enter the detector with a lower incoming angle trigger more hits in the 
-drift time detector, which further emphasizes the correlation between the track and segment angles. From Fig. \ref{fig:strawmap_300254}, w
-we observe that with tracks incoming at angles close to $\SI{30}{\degree}$, the number of hits also increases. This is because 
+drift time detector, which further emphasizes the correlation between the track and segment angles. From Fig. \ref{fig:strawmap_300254}, we observe that with tracks incoming at angles close to $\SI{30}{\degree}$, the number of hits also increases. This is because 
 the segments constructed by the two circles is almost parallel to the layout of the straws in the detector (as seen with the detected hits 
 in the lowest module), allowing a larger acceptance region for track reconstruction. 
 
@@ -872,6 +871,13 @@ In this section, we show additional plots that are of interest to our report.\pa
 	\includegraphics[width=0.8\textwidth]{nhits.png}
 	\caption{The number of counts obtained for each number of hits detected in the detector. }
 	\label{fig:nhits}
+\end{figure*} \par
+
+\begin{figure*}[!h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{tentracksvshits.png}
+	\caption{The two-dimensional histogram between the number of hits and the number of tracks per event with \texttt{TENNEIGHBORS} algorithm. The color axis represents the number of entries for each track and hits per event. }
+	\label{fig:tentracksvshits}
 \end{figure*} \par
 
 \chapter{Code} \label{chap:appendix_code}
