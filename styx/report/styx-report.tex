@@ -99,7 +99,16 @@
 		\begin{centering}
 			% \large
 			\textbf{Abstract}\\[0.2cm]
-            We determine the intensity distributions of secondary cosmic rays using a drift chamber detector. To do this, we first determine the operation voltage for the photomultiplier tubes (PMTs) followed by determining the threshold voltage for the front-end (FE) chip. After the instrument is setup, we leave it overnight to collect secondary cosmic ray events. After applying straw-by-straw calibration method, we reconstruct the event tracks and study the various relations between number of hits and tracks, the angular distribution of the intensity and \textcolor{red}{the relation between track and segment angle}. We find a deviation from the expected $\cos^2(\theta)$ behavior and the cause is attributed to the geometry of the detector and low energy muons penetrating through the building. \textcolor{red}{one line about segment angle}. 
+            We determine the intensity distributions of secondary cosmic rays using a drift chamber detector.
+			 To do this, we first determine the operation voltage for the photomultiplier tubes followed 
+			 by determining the threshold voltage for the front-end chip. After the instrument is setup, we 
+			 leave it overnight to collect secondary cosmic ray events. After applying straw-by-straw calibration method,
+			  we reconstruct the event tracks and study the various relations between number of hits and tracks, the angular
+			   distribution of the intensity and the relation between track and segment angle. We find a 
+			   deviation from the expected $\cos^2(\theta)$ behavior and the cause is attributed to the geometry of the detector 
+			   and low energy muons penetrating through the building. \textcolor{red}{add about the algorithm} We also observed a linear correlation between the track and 
+			   segment angles as well as an anticorrelation at $\theta = \pm \SI{30}{\degree}$, where the latter was attributed to 
+			   the layout of the straws.  
 		\end{centering}
 	\end{minipage}
 	
@@ -452,94 +461,6 @@ Lastly, we look at Fig. \ref{fig:pick_20}. In Fig. \ref{subfig:pick_20_c}, a dec
 After setting up the PMT operation voltage and the front-end threshold voltage, we then execute the program to make the measurements overnight. The data collected overnight gives high numbers of events to work with and reduces the statistical uncertainty in the analysis. The collected data was then sent to us by our tutor. 
 
 
-% The experimental setup is shown in Fig. \ref{fig:setup1}. The setup consists of two major components, the modules, which are the three copper-colored trapezoids, and the trigger system, which are the two black panels. 
-
-% \begin{figure}[htpb]
-%     \centering
-%     \includegraphics[width=0.6\textwidth]{setup1.jpg}
-%     \caption{Experimental setup with modules (copper-colored trapezoid) and PMTs (black panels).}
-%     \label{fig:setup1}
-% \end{figure}	
-
-% The modules consist of simple drift chambers. Each of these modules consists of three layers of 88 straws. The straws are a simple drift chambers, filled with a gas mixture of argon and carbon-dioxide. The radius of each straw is 3.75mm and the length ranges from 20cm to 102cm. The reason for the variable length is due to the trapezoidal shape of the module. Each of these straws is connected to readout channel in a front-end (FE) board which contains a preamplifier, a shaper and a discriminator. When the input voltage exceeds a certain threshold voltage, each of these straws give a digital output pulse. This output pulse is then time-multiplexed for six straws each, which gives an output signal with 200ns offset with respect to each other, giving a total of 1200ns readout window per event. From the FE board, the signal is fed into the TDC board to measure drift time.  
-
-% Since the detectors themselves do not have an internal triggering mechanism, an external one is used. This triggering system comprises of two large scintillators which are placed above and below the modules. To these scintillators, photomultiplier tubes (PMTs) are attached which registers the photon emitted by the material when a charged particles passes through and ionizes the material. This light signal is then converted to electronic pulse, which can be measured. Further, the two scintillators are operated in coincidence logic to trigger events when a muon passes both the scintillators and hence the tracking modules. 
-
-% \chapter{Procedure}
-
-% \section{Determination of PMT Operation Voltage}
-% Before making the measurements, the operation voltage for the PMT needs to be determined. In order to have a working trigger system, a high voltage needs to be set for the photomultipliers. The voltage is varied in the range of 1700-2300V. The counts measured by the lower photomultiplier are displayed on the middle counter in the electronics rack (as seen in Fig. \ref{fig:rack}). In order to reduce the statistical uncertainty, four measurements for each voltage were measured. The result is shown in Fig. \ref{fig:low_count}. A change in upper photomultiplier voltage does not affect the count. A standard error of 0.5V is taken for each reading based on the instrumentation. 
-
-% \begin{figure}[htpb]
-%     \centering
-%     \includegraphics[width=0.6\textwidth]{rack.jpg}
-%     \caption{The electronic rack which displays the count for upper and lower photomultiplier and the coincidence rate.}
-%     \label{fig:rack}
-% \end{figure}	
-
-% \begin{figure}[htpb]
-%     \centering
-%     \includegraphics[width=0.8\textwidth]{low_count}
-%     \caption{The change in count with respect to voltage. We notice an exponential growth followed by a linear growth.}
-%     \label{fig:low_count}
-% \end{figure}	
-
-% We notice that from 1700-2050V, the behavior is exponential and after 2100V, the behavior is linear. Therefore, we choose the operating voltage for the lower photomultiplier to be 2100V, since above this value, an increase voltage leads to an increase in noise. 
-
-% Having fixed the voltage for the bottom panel, we determine the operating voltage for the upper panel. This is done by varying the voltage in the same range but this time instead of measuring the count, we measure the coincidence rate. Again, we take four measurements per voltage to reduce statistical uncertainty. The result is shown in Fig. \ref{fig:up_count}. 
-
-% \begin{figure}[htpb]
-%     \centering
-%     \includegraphics[width=0.8\textwidth]{up_count}
-%     \caption{The change in coincidence rate with respect to voltage. We notice a plateau, indicating the independence of coincidence rate.}
-%     \label{fig:up_count}
-% \end{figure}
-
-% A plateau can be seen starting after 1950V. This implies that a subsequent increase in voltage does not change the coincidence rate - the coincidence rate is independent of increase in the voltage. Therefore, we pick 2000V as the operating voltage for the upper panel. 
-
-% \section{Front-end Threshold Voltage}
-
-% Having determined the optimal operating voltage for the lower and the upper panel, the threshold voltage for front-end has to be determined. To do this, the voltage is varied 1.0-2.6V in the steps of 0.4V. An additional 2.0V reading was also taken. For each voltage, 25000 events are measured. We illustrate the typical procedure below. 
-
-% After taking the measurement for 1.0V, the following command is run:
-
-% \begin{tcolorbox}
-% \begin{verbatim}
-% StyxM2C2 -N 25000 -O TS_10V.txt --all --no-clean \ 
-%  -I /home/styx/data/etraxp114/te13085163152.hld
-% \end{verbatim}
-% \end{tcolorbox}
-
-% in order to process the data. The \texttt{StyxM2C2} calls the program. \texttt{-N 25000} considers only the first 25000 events to process them. \texttt{-O TS\_10V.txt} names the output file. \texttt{--all --no-clean} process the data files with \texttt{StyxM2C2} using all process steps except for the cleaning. \texttt{-I \slash home\slash styx\slash data\slash etraxp114\slash te13085163152.hld} is the input file. This is repeated for each voltage. 
-
-% To find good channels, the a monitoring root file is produced using the command: 
-
-% \begin{tcolorbox}
-% \begin{verbatim}
-% StyxMonitor TS_10V_mon.txt
-% \end{verbatim}
-% \end{tcolorbox}
-% This create a \texttt{TS\_10V\_mon.root} file, which can be opened via running:
-
-% \begin{tcolorbox}
-% \begin{verbatim}
-% root TS_10V_mon.root
-% \end{verbatim}
-% \end{tcolorbox}
-% After \texttt{root} has started, the command \texttt{new TBrowser} is used to browse through the plots and study them. To compare the results from one TDC number and one channel number, the following command is run: 
-
-% \begin{tcolorbox}
-% \begin{verbatim}
-% StyxThresholdScan 1 3 TS_10V_mon.txt TS_14V_mon.txt TS_18V_mon.txt TS_20V_mon.txt\ 
-% TS_22V_mon.txt TS_26V_mon.txt
-% \end{verbatim}
-% \end{tcolorbox}
-% This would then compare the channel 3 and TDC 1 for all the measurements. 
-
-
-% \section{Overnight Measurement}
-
-
 
 \chapter{Calibration} \label{chap:calib}
 
@@ -789,16 +710,50 @@ An attempt to fit a function $\propto \cos ^2 \theta$ is shown in Fig \ref{fig:t
 \end{figure*} \par
 
 Finally, we compare our reconstructed tracks with the segment for events with only one track. 
-The segment is the tangent line between two or more circles with radii between the anode and the measured position of the straw. 
-Fig. \ref{fig:trackvssegment} shows the two-dimensional histogram between the track and segment angle. \textcolor{red}{need to add interpretation of results}.
+The segment is given as the tangent line between two or more circles with radii between the anode and the measured position of the straw. 
+Fig. \ref{fig:trackvssegment} shows the two-dimensional histogram between the track and segment angle. 
 
 \begin{figure*}[!h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{trackvshits.png}
+	\includegraphics[width=0.8\textwidth]{tracksvssegments.png}
 	\caption{The histogram between the track angles and segment angles for events with only one track. The 
-	color axis represents the number of entries per track and segment angle. \textcolor{red}{temporary figure}}
+	color axis represents the number of entries per track and segment angle.}
 	\label{fig:trackvssegment}
 \end{figure*}
+
+From Fig. \ref{fig:trackvssegment}, we observe a linear correlation between the track and segment angles. This is expected as a wider segment angle allows more tracks to be accepted at 
+that same incoming angle. We also observe an anti-correlation at angles $\theta = \pm \SI{30}{\degree}$ which is caused by the 
+layout of the straws in the module. \par 
+
+To further investigate this behavior, we observe the strawmap with reconstructed tracks for particular events of interest, shown in Figs. 
+\ref{fig:strawmap_300224} and \ref{fig:strawmap_300254}. The red circles indicate the circles with radii from the anode to the 
+position in which the hit was detected. The segments are shown in green, and the resulting reconstructed tracks are shown in blue. 
+The hot and dead straws from the calibration is shown in yellow and cyan respectively.\par 
+
+\begin{figure*}[!h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{event300224.pdf}
+	\caption{Strawmap showing the reconstructed track from event 300224 using the ten neighbors algorithm as 
+	an example of an event with a low incoming angle. }
+	\label{fig:strawmap_300224}
+\end{figure*}
+
+\begin{figure*}[!h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{event300254.pdf}
+	\caption{Same as Fig. \ref{fig:strawmap_300224} but for event 300254 as an example for an event with an incoming angle of 
+	$\theta \approx \SI{30}{\degree}$. }
+	\label{fig:strawmap_300254}
+\end{figure*}
+
+From Fig. \ref{fig:strawmap_300224}, we see that tracks that enter the detector with a lower incoming angle trigger more hits in the 
+drift time detector, which further emphasizes the correlation between the track and segment angles. From Fig. \ref{fig:strawmap_300254}, w
+we observe that with tracks incoming at angles close to $\SI{30}{\degree}$, the number of hits also increases. This is because 
+the segments constructed by the two circles is almost parallel to the layout of the straws in the detector (as seen with the detected hits 
+in the lowest module), allowing a larger acceptance region for track reconstruction. 
+
+
+
 
 \chapter{Conclusion} \label{chap:concl}
 
@@ -826,7 +781,12 @@ of a module, but there was a decrease in the amplitude when comparing between mo
 We then observed the histograms from the reconstructed tracks. We observed from the distribution between number of hits and tracks 
 that we need approximately 7 hits to construct one track per event. The angular distribution yielded a fit value of 
 $I_0 = \num{2193.7 \pm 9.5}$ count and $n = \num{3.846 \pm 0.024}$, which deviates from the expected behavior of 
-$\cos^2 \theta$. \textcolor{red}{add things about track vs segment angle.}
+$\cos^2 \theta$. \textcolor{red}{add things about the algorith} \par 
+
+Using this algorithm, we observe the distribution between the track and segment angle, which showed a linear correlation throughout 
+all angles as the number of hits were higher with lower incoming angles. The distribution also showed an anti-correlation 
+at $\theta = \pm \SI{30}{\degree}$, which was attributed to the layout of the straws in the detector. Both of these features were 
+shown in the strawmaps displaying reconstructed tracks at relevant incoming angles.\par 
 
 In the end, we were successfully able to measure the muon distribution from cosmic rays at sea level, however, we did not obtain
 the expected behavior of the distribution. The possible reasons for this deviation was explained via the geometry of the detector and possible impact to low energy muons via the walls and the floors of the building. All in all, this experiment gave us insight in the methods in which 
