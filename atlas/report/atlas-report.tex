@@ -28,6 +28,9 @@
 \usepackage[most]{tcolorbox}
 \usepackage{slashed}
 \usepackage{listings}% http://ctan.org/pkg/listings
+\usepackage{siunitx}
+\DeclareSIUnit\eVperc{\eV\per\clight}
+\DeclareSIUnit\clight{\text{\ensuremath{c}}}
 \lstset{
   basicstyle=\ttfamily,
   mathescape
@@ -144,7 +147,7 @@ This report closely follows the student lab manual from \cite{labman}. All the c
 \chapter{Theory} \label{chap:theory}
 
 \section{The Standard Model}
-The Standard Model (SM) is one of the most tested theories in physics. It classifies all the known elementary particles into fermions and bosons and describes three of the four known fundamental forces of nature, strong, weak and electromagnetic force \cite{ParticleDataGroup:2020ssz}. It is a gauge quantum field theory which contains the internal symmetries of the product group, $SU(3) \times SU(2) \times U(1)$. The fermions are spin-1/2 particles and are further classified into quarks and leptons, each with three generations. The bosons are categorized by their spin with gluons, photons, $Z$ and $W^{\pm}$ boson having spin 1 and the higgs boson with spin 0. Apart from the gluons and photons, the other bosons are massive. The elementary particles of the SM are shown in Fig. \ref{fig:sm}.
+The Standard Model (SM) is one of the most tested theories in physics. It classifies all the known elementary particles into fermions and bosons and describes three of the four known fundamental forces of nature, strong, weak and electromagnetic force \cite{ParticleDataGroup:2020ssz}. It is a gauge quantum field theory which contains the internal symmetries of the product group, $SU(3) \times SU(2) \times U(1)$. The fermions are spin-1/2 particles and are further classified into quarks and leptons, each with three generations. The bosons are categorized by their spin with gluons, photons, $Z^0$ and $W^{\pm}$ boson having spin 1 and the higgs boson with spin 0. Apart from the gluons and photons, the other bosons are massive. The elementary particles of the SM are shown in Fig. \ref{fig:sm}.
 
 \begin{figure}[htpb]
     \centering
@@ -159,10 +162,49 @@ Despite its huge success, the SM fails at several fronts. It fails to explain ma
 
 \section{The Heavy Gauge Bosons} \label{sec:gauge_bosons}
 
-The $W^{\pm}$ and $Z$ are massive bosons which are responsible for the weak forces. The electromagnetic and the weak interactions and unified in the SM to give the electroweak force. The electromagnetic force arises due to $U(1)_{Y}$ ($Y$ is hypercharge) gauge symmetry and the weak force arises due to $SU(2)_L$ gauge symmetry. After Spontaneous Symmetry Breaking (SSB), the $W^{\pm}$ and $Z$ gain mass while the photon continues to be massless. In this experiment, our aim to is learn the methods of measuring the mass of the $W$ boson. 
+The $W^{\pm}$ and $Z^0$ are massive bosons which are responsible for the weak forces. The electromagnetic and the weak interactions are unified in the SM to give the electroweak force. The electromagnetic force arises due to $U(1)_{Y}$ ($Y$ is hypercharge) gauge symmetry and the weak force arises due to $SU(2)_L$ gauge symmetry. After Spontaneous Symmetry Breaking (SSB), the $W^{\pm}$ and $Z$ gain mass while the photon continues to be massless. In this experiment, our aim to is learn the methods of measuring the mass of the $W$ boson. Some important vertices of weak interaction are shown in Fig. \ref{fig:weak_int}.
 
-The mass of the $Z$ boson has been measured with high precision at the LEP accelerator in the year 2006 \cite{ALEPH:2005ab}. 
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[Fermion anti-fermion going to $Z$ boson or a virtual photon to give lepton anti-lepton pair. \label{subfig:ztoll}]{{\includegraphics[width=0.47\columnwidth]{feynman(1)}}}
+	\quad
+	\centering
+	\subfloat[Fermion anti-fermion going to $W^{\pm}$ to give lepton (anti-lepton) and anti-neutrino (neutrino). This process is the weak Drell-Yan process. \label{subfig:wtolnu}]{{\includegraphics[width=0.47\columnwidth]{feynman(2)}}}
+	\quad
+	\centering
+	\subfloat[Fermion anti-fermion going to $Z$ boson or a virtual photon to give $W^{\pm}$ pair. \label{subfig:ztoww}]{{\includegraphics[width=0.47\columnwidth]{feynman(3)}}}
+	\caption{Important weak interactions at LHC. Here $f$ stands for fermion and $l$ for leptons.}
+	\label{fig:weak_int}
+\end{figure*}
 
+The mass of the $Z$ boson has been measured with high precision at the LEP accelerator in the year 2006 \cite{ALEPH:2005ab}. Its mass was found to be $\SI[per-mode=symbol]{91.1876 \pm 0.0021}{\giga\eVperc\squared}$. Since the $Z$ boson decay to leptons (as shown in Fig. \ref{subfig:ztoll}) gives the cleanest signal to reconstruct its invariant mass, these events are usually studied. However, in the case of $W$ boson, which decay to $W \rightarrow e\nu_e$ or $W \rightarrow \mu \nu_{\mu}$, the invariant cannot be reconstructed directly. This is because neutrinos interact very weakly and are not detected. This makes measuring the mass of the $W$ boson a challenge and it is also one of the less known parameters of the SM. As of writing this report, a high precision measurement by the CDF collaboration of $W$ boson mass was made in April, giving a value of $80.433 \pm 0.009 \ \text{GeV}/c^2$ \cite{CDF:2022hxs}. This result has a 7$\sigma$ deviation from the SM prediction, suggesting inaccuracies in the calculations or possibility of new physics. Before this, the most precise measurement was made in 2018 and found to be $80.379 \pm 0.012 \ \text{GeV}/c^2$ \cite{PhysRevD.98.030001}. 
+
+There are two notable ways to measure the mass of the $W$ boson. The first utilizes the variable $\text{M}_\text{T}$, which is defined as
+
+\begin{equation}
+\mathrm{M_T} = \sqrt{2 p_{T_e} p_{T_{\nu}} (1 - \cos(\phi_e - \phi_{\nu}))},
+\end{equation}
+where $p_{T_e}$ and $p_{T_{\nu}}$ are the transverse momentum of the electron and neutrino respectively, $\phi_e$ and $\phi_{\nu}$ are the azimuthal angles. If we consider the mass of the electron to be zero, $\mathrm{M_T}$ is equal to W mass. The distribution of $\mathrm{M_T}$ gives us a Jacobi peak at the W mass. The advantage of using this method is that the transverse of momentum of the $W$ boson does not significantly affect the position of the peak. The disadvantage is the use of $p_{T_{\nu}}$, which as mentioned before, cannot be measured directly. Hence, it must be approximated using $\slashed{E}_T$, which is missing transverse momentum, given by
+
+\begin{equation}
+	\vec{\slashed{E}_T}	= - \sum_{i} E^i \sin \theta_i \vec{n}_{i, \perp},
+\end{equation}
+where $E^i$ is the energy of the $i$-th entry in the calorimeter, $\theta_i$ is the polar angle of the entry and $\vec{n}_{i, \perp}$ is the unit vector pointing towards energy entry in the x-y plane. Which means, that in order to measure $\mathrm{M_T}$ accurately, $\slashed{E}_T$ has to be well calibrated. 
+
+The second method to measure the $W$ mass is by studying the transverse momentum spectrum of the leptons using
+
+\begin{equation}
+	\frac{d \sigma}{d p_T} = \frac{d \sigma}{d \cos \theta ^*} \left| \frac{d p_T}{d \cos \theta ^*} \right| ^{-1} = \frac{d \sigma}{d \cos \theta ^*} \frac{2p_T}{M_W} \frac{1}{\sqrt{1/4 \ M_W^2 - p_T^2}}.
+\end{equation}
+This gives a Jacobi peak as shown in Fig. \ref{fig:jacobi}. The peak is at half of $W$ mass, therefore, one can measure this peak in order to deduce the $W$ mass. However, the figure shows the ideal case, in which the $W$ boson does not have an initial transverse momentum. As shown in the same figure, if $W$ has an initial momentum, there is a spread in the distribution and a shift in the Jacobi peak. Other factors that can increase the spread are the resolution of the detector and $W$-decay width. However, the advantage of using this method is that it does not require the complicated calibration of $\slashed{E}_T$. In this experiment we use this method. An interesting side note, the recent high precision measurement from 2022 used the first method to measure the $W$ mass \cite{CDF:2022hxs}.
+
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{jacobi}
+    \caption{$p_T$ spectrum of leptons from the $W \rightarrow l \nu$ decay. We see a Jacobi peak at half the mass of W boson \cite{jacobi}.}
+    \label{fig:jacobi}
+\end{figure}
 
 
 \chapter{Pre-lab Questions} \label{chap:prelab}
@@ -252,10 +294,10 @@ Another possible reason can be that in the case of more than one Z boson, the ot
 
 \bigbreak
 
-\noindent 3. Assume you have an ideal detector. What is the typical $\slashed{E_T}$ if a $Z^0$ pair has been produced and both $Z^0$ decay into electron or muon pairs? What $\slashed{E_T}$ will you expect when you have a real detector?
+\noindent 3. Assume you have an ideal detector. What is the typical $\slashed{E}_T$ if a $Z^0$ pair has been produced and both $Z^0$ decay into electron or muon pairs? What $\slashed{E}_T$ will you expect when you have a real detector?
 \bigbreak
 \noindent \underline{Solution}: \\
-\noindent In an ideal case, the expected $\slashed{E_T}$ is 0. In the case of real detector, $\slashed{E_T}$ will be non-zero due to inefficiencies in the detector and reconstruction algorithms. Further, not all muons and electrons will be detected. Or, one of the leptons could be extremely soft and not be detected at all. 
+\noindent In an ideal case, the expected $\slashed{E}_T$ is 0. In the case of real detector, $\slashed{E}_T$ will be non-zero due to inefficiencies in the detector and reconstruction algorithms. Further, not all muons and electrons will be detected. Or, one of the leptons could be extremely soft and not be detected at all. 
 
 \bigbreak
 
@@ -319,7 +361,7 @@ ETMis:
  $\phi$ = 172.829$^{\circ}$
  \end{lstlisting}
 
-Since the $\slashed{E_T}$ is quite high, we can confirm the existence of one or more neutrinos in the event. Based on the discussion above, it is not possible to rule out any SM process for two lepton events. 
+Since the $\slashed{E}_T$ is quite high, we can confirm the existence of one or more neutrinos in the event. Based on the discussion above, it is not possible to rule out any SM process for two lepton events. 
 
 
 \begin{figure}[htpb]
