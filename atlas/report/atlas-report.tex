@@ -325,7 +325,7 @@ In this part of the lab, we get familiar with the program \texttt{ATLANTIS}, whi
 
 Next, we work with two of the assignments listed in the lab manual. Since we were allowed to pick the assignments on our own, we choose to work with the \texttt{mystery-035-f.dat} data set and \texttt{xxx.dat} data set. 
 
-\subsection{Mystery Data set}
+\subsection{Assignment 7: Mystery Data Set}  \label{subsec:mystery}
 In this data set, a pre-selection is applied, in which at least two leptons ($e$ or $\mu$) are required to be in each event. The goal of this exercise is to look at the graphics and identify various Standard-Model processes by studying them. Further, we must try to rule out certain processes, if any. In Fig. \ref{fig:mys1}, we see the graphical view of event 13. Fig. \ref{fig:mys1_2}, gives us the zoomed in view of the vertex for the same event. We start our discussion from the vertex. 
 
 A zoomed in view of the vertex shows that most tracks originate from the vertex, but some a reasonably far away from the vertex. The tracks originating far away from the vertex must come from a particle which has decayed after a certain period of time. This gives us the following three possibilities for the original particle: $\tau^{\pm}$ lepton, top quark or b-quarks (b-jet). Since $W$ and $Z$ boson decay almost immediately, the track reconstruction resolution would not be able to pick on the slight differences in the vertex due to those decays. 
@@ -371,6 +371,66 @@ Since the $\slashed{E}_T$ is quite high, we can confirm the existence of one or 
     \label{fig:mys3}
 \end{figure}
 
+\subsection{Assignment 8: Cosmic Ray Dataset}
+
+In this part of the assignment, we investigated the angular distribution 
+of muons originating from pion decay from air showers in the atmosphere
+that are detected from the muon chambers in the ATLAS detector. Real ATLAS data from 2007 and 
+2008 was used in this assignment, contained in the provided file 
+\texttt{ATLASData-Cosmics-M5.zip}. \par 
+
+Fig. shows an example of an event observed with this dataset. Note that we have chosen different projections as compared to the figures 
+shown in Sec. \ref{subsec:mystery} as the projections in such previous figures do not provide any new information in this assignment.
+ We observe that no signatures have been observed in the inner detector as well as in both ECAL and HCAL. This is expected as these muons 
+ have momentum of the order of 1 GeV, and as such they do not emit bremsstrahlung and thus no showers are formed in the calorimeters. \par 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.55\textwidth]{muon_event210.eps}
+    \caption{An example event for cosmic ray muons (Event 210). The reconstructed muon tracks are shown in yellow.}
+    \label{fig:crevent210}
+\end{figure}
+
+To determine the angle in which the muon has entered the detector, we determined the azimuthal angle $\phi_0$ relative to the ATLAS detector. 
+This is obtained by using the ''pick'' option in the ATLANTIS program to select each muon track in each event in this dataset. The azimuthal 
+angle was then converted into the zenith angle, i.e. the angle from the local zenith. As $\phi_0 \in [0, 2\pi]$ where $\phi_0=0$ 
+is at the positive x-axis, and $\theta \in [-\pi, \pi]$ where $\theta = 0$ is at the local zenith, an azimuthal angle of $\phi_0 = \pi / 2.$
+will be equivalent to $\theta = 0$ as the local zenith is parallel to the y-axis in the detector. Following this logic, we can derive
+the transformation between $\phi_0$ and $\theta$ as such: 
+\begin{equation}
+	\theta = 
+	\begin{cases}
+		\phi_0 - \frac{\pi}{2} -  & : \phi_0 < \frac{3\pi}{2}\\
+		(\phi_0 - \frac{\pi}{2}) - 2\pi & : \phi_0 > \frac{3\pi}{2}.
+	\end{cases}
+\end{equation}
+See Appendix \ref{chap:appendix_figs} for a more detailed schematic of the transformation. \par 
+
+Fig. \ref{fig:muon_angdist} shows the corresponding angular distribution from the cosmic ray muons observed in this dataset, along with the expected 
+distribution $\cos^2 (\theta)$ at sea level. Note that we only plot from -90$^\circ$ to 90$^\circ$ as muons produced from beyond the horizon 
+originate from air showers with an extremely low probability.\par 
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{muon_angdist.pdf}
+    \caption{Angular distribution of cosmic ray muons observed from the ATLAS detector in 2007 and 2008. The expected $\cos^2 (\theta)$
+	is also shown.}
+    \label{fig:muon_angdist}
+\end{figure}
+
+We observe that while the muon intensity decrease with larger zenith angle, 
+the distribution does not follow a $\cos^2 (\theta)$ distribution. This can be attributed to several reasons. Firstly, the ATLAS detector 
+is located 100m below ground, and as such the muons with higher incoming angle will be stopped more by the underground material 
+as compared to those near the zenith. Further, as there are two access shafts located above the ATLAS detector, muons with higher 
+incoming angles interact less with underground material  \cite{Aad2011}. As such the distribution behaves like $\cos^n (\theta)$ with 
+the exponent $n > 2$. Another reason for this is due to the low statistics, as the the total number of events is $N_{\mathrm{ev}} = 65$. 
+With more events, the histogram will be smoother and thus will be able to discern whether the distribution behaves as $\cos^2(\theta)$
+or not.\par 
+
+
 \printbibliography
+
+\appendix
+
+\chapter{Additional Figures} \label{chap:appendix_figs}
 
 \end{document}
