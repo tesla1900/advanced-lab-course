@@ -288,7 +288,7 @@ Another possible reason can be that in the case of more than one Z boson, the ot
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.6\textwidth]{higgs-decay}
-    \caption{Higgs invariant mass distribution \cite{ATLAS:2020wny}.}
+    \caption{ATLAS four lepton invariant mass measurement showing evidence for the Higgs boson \cite{ATLAS:2020wny}.}
     \label{fig:higgs-decay}
 \end{figure}
 
@@ -323,7 +323,71 @@ Another possible reason can be that in the case of more than one Z boson, the ot
 In this part of the lab, we get familiar with the program \texttt{ATLANTIS}, which displays particle reactions in the ATLAS detector, graphically. 
 ...
 
-Next, we work with two of the assignments listed in the lab manual. Since we were allowed to pick the assignments on our own, we choose to work with the \texttt{mystery-035-f.dat} data set and \texttt{xxx.dat} data set. 
+Before looking at the assignments for this part, we first become acquainted with all the data sets. We present our observations below. 
+
+\subsection{Wenu Data set}
+
+In this data set, a $W$ boson decays like, $W^+ \rightarrow e^- \bar{\nu}_e$ or $W^+ \rightarrow e^+ \nu_e$. This means that the event will contain missing transverse momentum. In Fig. \ref{fig:wenu}, we see the event 9 from the data set. Starting from the vertex, we see two curved tracks in the top left figure, which deposit their energy in the ECAL. On the opposite side we also notice a huge deposition of hadrons in the HCAL. In the same direction, there is also the line for the $\vec{\slashed{E}_T}$. In the bottom figure, we see a huge number of deposits in the HCAL. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Wenu-1_0_00009_f-YX-RZ-RZ-YX-2022-05-23-13-13-30}
+    \caption{Event name: \texttt{Wenu-1\_0\_00009\_f}, Event: 9.}
+    \label{fig:wenu}
+\end{figure}
+
+Since the event contains the decay $W \rightarrow e \nu$, one of the tracks which is opposite the $\vec{\slashed{E}_T}$ vector is mostly likely the electron from this decay. By using the pick function, we can see the details of $\vec{\slashed{E}_T}$, which are:
+
+\begin{lstlisting}
+
+ETMis:
+ storegate key: MET_Final
+ Sum-ET  = 45.688 GeV
+ ET-Mis  = 31.907 GeV
+ ETx-Mis = 25.086 GeV
+ ETy-Mis = 19.716 GeV
+ $\phi$ = 38.165$^{\circ}$
+\end{lstlisting}
+The branching ratio (BR) of $W$ boson decay to jets is 67.46\% \cite{CMS:2022mhs}. Because of that we see a huge number of deposits in the HCAL for this event. For comparison, the BR of $W \rightarrow e \nu$ decay is 10.83\%. 
+
+\subsection{WFull Data set}
+
+Next, we study the \texttt{WFull-1-f.zip} data set. In this, all possible decays of $W$ boson can be seen. In Fig. \ref{fig:wfull}, starting from the vertex, several curved tracks emerge, indicating the presence of charged leptons and hadrons. Some cures disappear before reaching the ECAL, most likely due to their low momentum (sometimes called ``soft'' particles). The charged leptons leave their deposit in the ECAL and hadrons in the HCAL. For several deposits, we see an alignment, i.e., the jets contain leptons as well. This could be due to top quark, which decays to $t \rightarrow W^+ b$, from which we get jets from the $b$ quark and lepton and neutrino from the $W$. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{WFull-1_0_00005_f-YX-RZ-RZ-YX-2022-05-23-13-21-03}
+    \caption{Event name: \texttt{WFull-1\_0\_00005\_f}, Event: 5.}
+    \label{fig:wfull}
+\end{figure}
+
+The $\vec{\slashed{E}_T}$ is found to be 
+
+\begin{lstlisting}
+
+ETMis:
+ storegate key: MET_Final
+ Sum-ET  = 250.750 GeV
+ ET-Mis  = 14.408 GeV
+ ETx-Mis = -12.976 GeV
+ ETy-Mis = 6.263 GeV
+ $\phi$ = 154.236$^{\circ}$
+\end{lstlisting}
+which is quite high as compared to previous data set, indicating a high number of neutrinos and $W$ boson decays in the event. Further, there is a high number of deposits in the forward sections in the HCAL. This is an expected behavior, since the angular distribution of final state hadrons increases strongly in the forward region \cite{labman}. 
+
+\subsection{Zee Data set}
+
+Now we look at the \texttt{Zee-1-f.zip} data set. In Fig. \ref{fig:zee}, we see the event 3. Similar to our previous discussion, we see several tracks followed by deposits in ECAL and HCAL, with the presence of $\vec{\slashed{E}_T}$. An interesting feature of this data set is that several ECAL deposits are often opposite to each other. This means that the mother $Z$ boson was most likely at rest when these electrons were produced, giving us this characteristic. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Zee-1_0_00003_f-YX-RZ-RZ-YX-2022-05-23-13-23-32}
+    \caption{Event name: \texttt{Zee-1\_0\_00003\_f}, Event: 3.}
+    \label{fig:zee}
+\end{figure}
+
+
+Next, we work with two of the assignments listed in the lab manual. Since we were allowed to pick the assignments on our own, we chose to work with the \texttt{mystery-035-f.zip} data set and \texttt{ATLASData-Cosmics-M5.zip} data set. 
 
 \subsection{Assignment 7: Mystery Data Set}  \label{subsec:mystery}
 In this data set, a pre-selection is applied, in which at least two leptons ($e$ or $\mu$) are required to be in each event. The goal of this exercise is to look at the graphics and identify various Standard-Model processes by studying them. Further, we must try to rule out certain processes, if any. In Fig. \ref{fig:mys1}, we see the graphical view of event 13. Fig. \ref{fig:mys1_2}, gives us the zoomed in view of the vertex for the same event. We start our discussion from the vertex. 
