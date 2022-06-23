@@ -160,6 +160,108 @@ Despite its huge success, the SM fails at several fronts. It fails to explain ma
 
 \section{LHC and the ATLAS Experiment} \label{sec:lhc_and_atlas}
 
+\subsection{Large Hadron Collider}
+
+The Large Hadron Collider (LHC) is a circular particle accelerator for proton-proton collisions, located at the European Organization 
+for Nuclear Research (CERN) at Geneva, Switzerland. Within the accelerator, two proton beams, accelerated and guided by superconducting 
+cavities and electromagnets respectively, traverse in opposite directions propagating close to the speed of light. These beams then 
+collide at four different interaction points with a center-of-mass energy of up to $E_{\mathrm{CM}} = \SI{14}{\tera\electronvolt}$,
+ corresponding to the following experiments: ALICE, LHCb, CMS, and ATLAS. \par
+
+In our laboratory experiment, we work with the simulated and real data obtained from the ATLAS detector from proton-proton collisions at center-of-mass
+energies at $\SI{14}{\tera\electronvolt}$, and as such we will focus on the ATLAS detector in this report.
+
+\subsection{The ATLAS Detector}
+
+The ATLAS detector (\textbf{A} \textbf{T}oroidal \textbf{L}HC \textbf{A}pparatu\textbf{S}) is the largest detector placed at the LHC. It is 46m long, 25m high, 
+and weighs approximately 7000 tons. The massive size of the detector allows coverage of almost all solid angles. The ATLAS detector is a multi-layed structure, 
+consisting of different detector components constructed to detect the many 
+different particles that emerge from the final products of the collision. See Fig. \ref{fig:atlas_detector} for a schematic of the ATLAS detector. The detector components can largely 
+be divided into four regions: the Inner Detector, Calorimeter, and the Muon System. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{ATLASDetector.jpg}
+    \caption{The schematic of the ATLAS detector. Obtained from Ref. \cite{ATLASFactSheet}.}
+    \label{fig:atlas_detector}
+\end{figure}
+
+\subsubsection{(a) Inner Detector}
+
+The inner detector is the closest detector from the interaction point. To properly reconstruct the primary vertex, the detectors in this region are very 
+sensitive. The inner detector, along with the solenoid surrounding it, allows measurements of the direction, momentum, and electrical charge of the 
+produced particles in the proton-proton collision. The inner detector can subsequently be separated into four parts. \\ 
+
+\noindent \textit{Pixel Detector} \\ \\
+The pixel detector is located most closest to the interaction point with a radial distance of $5 - 15$cm to the proton beam. The detector processes signals of 
+over 80 million pixels, thus having the most readout channels out of all the detector components. This allows sensitive measurements on the charged particle 
+trajectory (hits) as well as reconstruction of the primary vertex. It also helps in reconstruction of secondary trajectories, which occur in decay of b-quark 
+hadrons. \\ 
+
+\noindent \textit{Semi-Conductor Tracker (SCT)} \\ \\ 
+This component is placed in between the pixel detector and the Transition Radiation Tracker (TRT). It operates similarly to the pixel detector, but 
+silicon strips with length $\SI{80}{\micro\metre}$ are used instead of pixels. These silicon strips allow measurements of the position of the 
+charged particles to an accuracy of $\SI{17}{\micro\metre}$ per layer. The area is also much larger than the pixel detector, making it an important component 
+of the inner detector \cite{ATLASFactSheet}. \\ 
+
+\noindent \textit{Transition Radiation Tracker (TRT)} \\ \\ 
+This component is placed at the outermost part of the inner detector. This detector consists of both a straw tracker and a transition radiation detector. 
+The noble gas contained within each straw ionizes and produces a signal in the wire when a charged particle passes through it. The signal is further enhanced 
+by transition radiations that occur due to the materials contained between the straws. This tracker helps to distinguish the type of charged particle that
+flew into the detector, for example whether if it is an electron or a pion. \\ 
+
+\noindent \textit{Solenoid} \\ \\ 
+The inner solenoid is a superconducting magnet surrounding the inner detector. It provides the inner detector with a solenoidal magnetic field strength of 
+$\SI{2}{\tesla}$, allowing the charged particles to bend due to the Lorentz force. This allows one to distinguish the electric charge of the particle 
+as well as measure the momentum through the radius of curvature of the particle. As neutral particles such as photons or neutrons 
+have no electric charge, they show no curvature when they traverse through the inner detector. 
+
+\subsubsection{(b) Calorimeter}
+
+The calorimeter, placed outside the solenoid, measures the energy loss of the particle as it passes through the detector. These particles are often entirely stopped 
+within the calorimeter, forcing all of their energies to be deposited in the detector. There are two types of calorimeters used. \\
+
+\noindent \textit{Presampler} \\ \\
+Before the calorimeters, a presampler is placed to support measurement of electromagnetic showers. Specifically, it helps to distinguish between single photons a
+and photons from $\pi^0$ decays. \\ 
+
+\noindent \textit{Electromagnetic Calorimeter (ECAL)}\\ \\
+The electromagnetic calorimeter (ECAL) absorbs the energies of particles that interact electromagnetically, that is, those with an electric charge as well as the photon. 
+It consists of alternating layers of iron and liquid argon, acting as the absorber and the ionization chamber respectively. The ECAL is folded similarly to 
+an accordion such that it has an angle of $\SI{45}{\degree}$ with respect to the charged particle trajectories.  \par 
+
+In the ECAL, electromagnetic showers, that is, a cascade of interactions between photons, electrons, and positrons, are produced and measured. At the relevant energy 
+regime, photons and electrons (and positrons) interact with matter most commonly via Compton scattering, pair production, or bremsstrahlung. 
+These three interactions occur interchangeably, producing subsequent electrons and photons. This leads to a cascade of such particles, which is known as an 
+electromagnetic shower. The number of particles produced in this shower is proportional to the primary energy. 
+The longitudinal extension is described by its radiation length $X_0$, defined such that after one radiation length an electron only retains 
+$1 / e$ of its initial energy. These radiation lengths in solids are typically of order cm. \par 
+
+As muons have a higher mass, they do not undergo bremsstrahlung and as such not detected in the ECAL\footnote{Muons with energies TeV or higher do lose their energy via 
+bremsstrahlung significantly and show signature in the ECAL before leaving the detector.}. As such, a seperate system is constructed to detect muons, which will be mentioned 
+in the subsequent subsection. \\
+
+\noindent \textit{Hadronic Calorimeter (HCAL)} \\ 
+The hadronic calorimeter (HCAL) are used to produce and detect hadronic showers, that is, cascades produced by hadrons (mostly pions and kaons). 
+The HCAL operates in a similar fashion to the ECAL, however, the size of the HCAL is much larger, ensuring that the hadrons are absorbed completely. The shower layers 
+consist of iron, and to detect such particles liquid-argon chambers and scintillation tiles are used. \par 
+
+The hadronic showers generated in the HCAL are produced by inelastic interaction between the hadron and the nuclei in the material. These hadrons interact strongly, 
+producing numerous hadrons and nuclei remnants, producing subsequent hadrons. This causes an avalanche of reactions, constructing a hadronic shower. Similar to 
+electromagnetic showers, the longitudinal extension of the hadronic shower is estimated by its hadronic interaction length $\lambda$. The interaction length is 
+defined such that after one interaction length, the number of hadrons that did not yet take part in the strong interaction decreases to $1 / e$. The interaction 
+length is often much larger than the radiation length. 
+
+\subsubsection{(c) The Muon System}
+
+As previously mentioned, muons do not emit bremsstrahlung and thus are not absorbed by the ECAL. Thus a separate system is necessary to measure the muon trajectory 
+and momentum. In the muon system, tracking chambers that fill up to half of the detector's volume is placed outside the calorimeters. The number of hits are then 
+measured, allowing for measurements in the muon's position. Furthermore, large superconducting toroids are placed outside the tracking chambers with a magnetic 
+field strength of $\SI{4}{\tesla}$, allowing measurements of the muon's momentum as well. \\
+
+
+
+
 \section{The Heavy Gauge Bosons} \label{sec:gauge_bosons}
 
 The $W^{\pm}$ and $Z^0$ are massive bosons which are responsible for the weak forces. The electromagnetic and the weak interactions are unified in the SM to give the electroweak force. The electromagnetic force arises due to $U(1)_{Y}$ ($Y$ is hypercharge) gauge symmetry and the weak force arises due to $SU(2)_L$ gauge symmetry. After Spontaneous Symmetry Breaking (SSB), the $W^{\pm}$ and $Z$ gain mass while the photon continues to be massless. In this experiment, our aim to is learn the methods of measuring the mass of the $W$ boson. Some important vertices of weak interaction are shown in Fig. \ref{fig:weak_int}.

@@ -106,10 +106,11 @@
 			 by determining the threshold voltage for the front-end chip. After the instrument is setup, we 
 			 leave it overnight to collect secondary cosmic ray events. After applying straw-by-straw calibration method,
 			  we reconstruct the event tracks and study the various relations between number of hits and tracks, the angular
-			   distribution of the intensity and the relation between track and segment angle. We find a 
-			   deviation from the expected $\cos^2(\theta)$ behavior and the cause is attributed to the geometry of the detector 
+			   distribution of the intensity and the relation between track and segment angle. We fit the track angle distribution to 
+			   $I(\theta) = I_0 \cos ^n (\theta)$, yielding $I_0 = \num{2193.7 \pm 9.5}$ count and $n = \num{3.846 \pm 0.024}$, showing a 
+			   deviation from the expected $\cos^2(\theta)$ behavior. The cause is attributed to the geometry of the detector 
 			   and low energy muons penetrating through the building. To produce the segment angles, we used the \texttt{TENNEIGHBORS}
-			   algorithm which yielded the expected $\cos^2(\theta)$ behavior in the peak of the track angle distribution. 
+			   algorithm which returns $n = 2.763 \pm 0.185$ in the peak of the distribution, yielding closer results to the expected behavior. 
 			   Comparing between the track and segment angles, we observed a linear correlation as well as an anti-correlation at 
 			   $\theta = \pm \SI{30}{\degree}$, where the latter was attributed to the layout of the straws. 
 		\end{centering}
@@ -151,7 +152,7 @@ In this experiment, the Straw Tube Young student eXperiment (STYX), we detect an
 
 The experiment starts off with getting familiar with the setup. This is followed by calibrating the detector to appropriate voltages so as to reduce noise and maximize the number of events. In the process, we also learn how to operate software tools such as the various classes of \texttt{Styx} and ROOT, a data analysis software developed by CERN. After the voltages have been set, the detector is left overnight to collect data. The next day, before starting the analysis, the data is further calibrated using straw-by-straw calibration. Then, it is analyzed and various aspects of secondary cosmic rays are studied. 
 
-In Chapter \ref{chap:theory}, we discuss the theoretical background necessary to gain insight about the experiment and its setup. More specifically, we look at secondary cosmic rays and various kinds of detectors used to study charged particles. In Chapter \ref{chap:exp_setup}, the experimental setup with each of its components is discussed. In Chapter \ref{chap:procedure}, we look at how we go about setting the appropriate operating and threshold voltages for PhotoMultiplier Tubes (PMTs) and the Front-End (FE) electronics. In Chapter \ref{chap:calib}, we look at how the calibration process, straw-by-straw calibration, is applied to the data. In Chapter \ref{chap:track_analysis}, having applied the calibration, we look at several properties of secondary cosmic rays, more specifically, the muons. In Chapter \ref{chap:concl}, we summarize the entire report and collect the final results. Lastly, we include additional plots and figures in the Appendix \ref{chap:appendix} and important segments of the code in Appendix \ref{chap:appendix_code}. This report, closely follows the STYX lab manual \cite{labman}.
+In Chapter \ref{chap:theory}, we discuss the theoretical background necessary to gain insight about the experiment and its setup. More specifically, we look at secondary cosmic rays and various kinds of detectors used to study charged particles. In Chapter \ref{chap:exp_setup}, the experimental setup with each of its components is discussed. In Chapter \ref{chap:procedure}, we look at how we go about setting the appropriate operating and threshold voltages for PhotoMultiplier Tubes (PMTs) and the Front-End (FE) electronics. In Chapter \ref{chap:calib}, we look at how the calibration process, straw-by-straw calibration, is applied to the data. In Chapter \ref{chap:track_analysis}, having applied the calibration, we look at several properties of secondary cosmic rays, more specifically, the muons. In Chapter \ref{chap:concl}, we summarize the entire report and collect the final results. Lastly, we include additional plots and figures in the Appendix \ref{chap:appendix} and important segments of the code in Appendix \ref{chap:appendix_code}. This report closely follows the STYX lab manual \cite{labman}.
 
 \chapter{Theory} \label{chap:theory}
 
