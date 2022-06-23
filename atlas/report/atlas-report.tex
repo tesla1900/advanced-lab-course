@@ -177,7 +177,7 @@ The ATLAS detector (\textbf{A} \textbf{T}oroidal \textbf{L}HC \textbf{A}pparatu\
 and weighs approximately 7000 tons. The massive size of the detector allows coverage of almost all solid angles. The ATLAS detector is a multi-layed structure, 
 consisting of different detector components constructed to detect the many 
 different particles that emerge from the final products of the collision. See Fig. \ref{fig:atlas_detector} for a schematic of the ATLAS detector. The detector components can largely 
-be divided into four regions: the Inner Detector, Calorimeter, and the Muon System. 
+be divided into three regions: the Inner Detector, Calorimeter, and the Muon System. 
 
 \begin{figure}[htpb]
     \centering
@@ -241,7 +241,7 @@ As muons have a higher mass, they do not undergo bremsstrahlung and as such not 
 bremsstrahlung significantly and show signature in the ECAL before leaving the detector.}. As such, a seperate system is constructed to detect muons, which will be mentioned 
 in the subsequent subsection. \\
 
-\noindent \textit{Hadronic Calorimeter (HCAL)} \\ 
+\noindent \textit{Hadronic Calorimeter (HCAL)} \\ \\
 The hadronic calorimeter (HCAL) are used to produce and detect hadronic showers, that is, cascades produced by hadrons (mostly pions and kaons). 
 The HCAL operates in a similar fashion to the ECAL, however, the size of the HCAL is much larger, ensuring that the hadrons are absorbed completely. The shower layers 
 consist of iron, and to detect such particles liquid-argon chambers and scintillation tiles are used. \par 
@@ -259,7 +259,108 @@ and momentum. In the muon system, tracking chambers that fill up to half of the 
 measured, allowing for measurements in the muon's position. Furthermore, large superconducting toroids are placed outside the tracking chambers with a magnetic 
 field strength of $\SI{4}{\tesla}$, allowing measurements of the muon's momentum as well. \\
 
+\subsection{Interaction of Particles in Detectors}
 
+As mentioned in the previous section, different detector components allows measurements of different type of particles. In this 
+section, we highlight the signature of each particle in the detector. Fig. \ref{fig:detector_signatures} shows a schematic of all such signatures. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{detector_signatures.png}
+    \caption{Signatures of different particles observed in the ATLAS detector. The electromagnetic and hadronic cascades can be seen from the ECAL and HCAL 
+	respectively. Obtained from Ref. \cite{Gerber2019}. }
+    \label{fig:detector_signatures}
+\end{figure}
+
+\noindent \textit{Electrons and Positrons} \\ 
+
+Electrons and positrons are mostly highly relativistic due to its smaller mass. They are electrically charged and thus bend when 
+hits are measured in the inner detector. As they undergo bremsstrahlung and Compton scattering, they are readily absorbed in the ECAL, 
+generating an electromagnetic cascade. \\
+
+\noindent \textit{Photons} \\
+
+Photons are electrically neutral and are highly energetic with energies $> \SI{1}{\giga\electronvolt}$, so they do not show any hits
+ in the inner detector. However, they undergo pair production and Compton scattering and are thus absorbed in the ECAL. Thus photons 
+ also produce an electromagnetic cascade. \\
+
+ \noindent \textit{Hadrons} \\
+
+ Hadrons which are electrically charged ($\pi^\pm, K^\pm, p, \bar{p}$ etc) bend when their hits are observed as with $e^-, e^+$, 
+but do not leave any signature in the ECAL as they are much heavier than electrons and positrons. They are, however, absorbed in the HCAL, 
+producing a hadronic cascade. \par 
+
+Hadrons which are electrically neutral, such as neutrons do not leave any hits in the inner detector nor do they produce 
+any electromagnetic cascades. As they interact strongly, they produce hadronic cascades in the HCAL, making the curvature in the trajectories
+the only way to distinguish between electrically charged and neutral hadrons. Neutral pions are an exception to this as they primarily decay 
+into photon pairs, which are subsequently observed in the ECAL. \par 
+
+Hadrons containing b quarks have an extremely long lifetime as the b quark itself has a long lifetime. They most often decay inside the beam pipe, located 
+outside the detector system itself. As the decay vertex is far away enough from the primary vertex, suitable reconstruction methods can be used to identify the 
+B hadrons. This is done by b-jet tagging, where the innermost detector is used to identify the jets from the b quarks. \\
+
+\noindent \textit{Muons} \\
+
+Muons are charged leptons and thus their trajectories bend in the inner detector. Due to their high mass, however, they do not emit bremsstrahlung and thus 
+do not leave any signature in both ECAL and HCAL. They are separately measured by the tracking detectors placed outside the calorimeters, where the curvature 
+of the trajectory can be observed due to additional magnetic field placed. \\
+
+\noindent \textit{Tau} \\
+
+Tau leptons ($\tau^\pm$) are much heavier than muons ($m_\tau \approx \SI{1}{\giga\electronvolt}$) and their range in matter is limited do millimeters 
+as they have a short lifetime. They most commonly decay weakly into hadrons, which can be identified in the detector as collimated ''mini jets''. \\
+
+\noindent \textit{Top Quark} \\
+
+The top quark is the only quark which decays before it can form jets due to its heavy mass of approximately $\SI{170}{\giga\electronvolt}$. They 
+primarily decay weakly via $t \rightarrow W^+ b$, i.e. to a b-quark. The top quarks can be identified by the decay products of the W boson and the 
+jets from the b-quark, i.e. with three jets or jets with a $l\nu_l$ pair. \\
+
+\noindent \textit{Neutrinos} \\
+
+Neutrinos only interact weakly and thus direct detection of single neutrinos within this detector is not possible. However, neutrinos with a high enough 
+transverse momentum are detected indirectly by using conservation laws. This will be further elaborated in Sec. \ref{sec:gauge_bosons}.
+
+\subsection{Coordinate System} 
+
+In Cartesian coordinates, we set the axes such that the origin is placed at the collision point. 
+The $z$ axis is defined to be aligned with the beam axis. The $x$ axis is defined such that it 
+points towards the center of the LHC ring. The $y$ axis is defined to be perpendicular to the beam axis. 
+\par
+
+From this, we can defined relevant quantities that are frequently used to describe the detector coordinates:
+\begin{itemize}
+	\item Radial distance to z-axis $\rho = \sqrt{x^2 + y^2}$ 
+	\item Azimuthal angle $\phi$, defined from the x-axis 
+	\item Polar angle $\theta$. The angle is defined such that $\theta = 0$ is aligned with the y-axis and $\theta = \pi / 2$ is 
+			aligned parallel to the xz plane. 
+\end{itemize}
+A schematic of the coordinate system with the above relevant quantities is shown in Fig. \ref{fig:atlas_coord}.
+
+\begin{figure*}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{atlas_coords.png}
+    \caption{Schematic of the coordinate system defined for the ATLAS detector. The radial distance to the z-axis $\rho$, 
+	azimuthal angle $\phi$ and polar angle $\theta$ is also shown. Image based on Ref. \cite{Rivera2018}.}
+    \label{fig:atlas_coord}
+\end{figure*}
+
+We also define the pseudorapidity $\eta$ as such: 
+\begin{equation}
+	\eta = -\ln \tan (\frac{\theta}{2})
+\end{equation}
+where $\theta$ is the polar angle. The pseudorapidity is defined such that $\eta = \pm\infty$ is defined in the direction of the 
+$\pm \hat{z}$ axis respectively. Fig. \ref{fig:pseudorap} shows how the pseudorapidity and polar angle are related.
+Using the pseudorapidity is especially useful for the ATLAS experiment as the final products from proton-proton collisions are primarily produced 
+near the collision point and as such forwards angles are not relevant for this experiment. 
+
+\begin{figure*}[htpb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{pseudorapidity.pdf}
+    \caption{The pseudorapidity and its relation to the polar angle. The values from the y-axis to the +z-axis is shown. 
+	Obtained from Ref. \cite{Izaak2017}.}
+    \label{fig:pseudorap}
+\end{figure*}
 
 
 \section{The Heavy Gauge Bosons} \label{sec:gauge_bosons}
