@@ -593,10 +593,175 @@ With more events, the histogram will be smoother and thus will be able to discer
 or not.\par 
 
 
+\section{Part 2: Calibration of Electrons}
+
+Before performing the measurement of the $W$ mass, the data needs to be calibrated. In this experiment, the raw data was supplied to us and we first have to improve its quality. The most accurate way to determine the energy of electrons is by measuring the deposit in the ECAL. There are several reasons for calibration:
+
+\begin{enumerate}
+	\item The detector consists of hundreds of modules, which will return unequal energy. 
+	\item There could be several parts of the calorimeter which might be inactive. 
+	\item The electron loses a part of its energy in the silicon tracking region before depositing its energy in the calorimeter. 
+\end{enumerate}
+For these reasons, the raw energy values are lower than the true value. Calibration is the way to fix that. 
+
+The mass of the $Z^0$ boson is a well known parameter of the SM. It has been measured to a precision of $2 \times 10^{-6}$ relative uncertainty. The width has been measured upto 1 per thousand. Further, we know that most of the electron-positron pairs in an event originate from $Z^0$. Hence, the $Z^0$ peak, which is a well known signal, can be used in order to calibrate our data. 
+
+To perform this calibration, we use the library \texttt{fitZee.C}, which takes the calibration from the file \texttt{ElecCalib.C} and applies that to the data. Applying changes to the \texttt{ElecCalib.C} file and compiling \texttt{fitZee.C} also changes the \texttt{z.Fit()} command. After activating \texttt{root}, the following commands are run:
+
+\begin{verbatim}
+.L fitZee.C+
+fitZee z
+z.Fit("")
+\end{verbatim}
+This creates a calibration object ``z'' which will be used to calibration. The \texttt{z.Fit("")} command fills the histogram and applies the best fit and outputs the fit parameters. The output of this command is shown in Fig. \ref{fig:uncalib}. The $Z$ mass for the uncalibrated data is found to be $89.87 \pm 0.02$ and resolution is $2.588 \pm 0.026$. In the calibration process, the aim is to get the mass as close as possible to the ideal value, which is $91.1876 \pm 0.0021 \text{GeV}/c^2$. Further, the resolution should also be decreased by at least 0.2, while trying to get a good $\chi^2 / ndf$ value (ndf stands for number of degrees of freedom). A value of approximately 1 is ideal. $\chi^2$ characterizes the characterizes the fit quality and the aim is to usually minimize it. Therefore, a high $\chi^2$ signifies a bad fit. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{uncalib}
+    \caption{The output of the uncalibrated data. A resonance near the $Z$ mass can be seen. The red line is the fit and the legend contains the fit parameters.}
+    \label{fig:uncalib}
+\end{figure}
+
+One can also look at fits with cuts, i.e., looking at how the fit changes for different regions of the parameter spectrum. For instance, to look at the fit in the different regions of the azimutal angle $\phi$, the following command can be run
+
+\begin{verbatim}
+z.Fit("el_phi>0. && el_phi<0.4")
+\end{verbatim}
+Thus, passing the cuts in the fit command allows us to probe different regions of the parameters. The some of the available variables are \texttt{el\_pt} (transverse momentum of electron), \texttt{el\_eta} (psuedorapidity), \texttt{el\_energy} and several others. After applying cuts in several ranges, one can run \texttt{z.List()} and looking at the numbers corresponding to different ranges, stack them in the single plot by running
+
+\begin{verbatim}
+z.Draw(0, 1, 2, 3)
+\end{verbatim}
+
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[Stacked reconstructed fits of different azimuthal angle, $\phi$, regions. \label{subfig:phi-range}]{{\includegraphics[width=0.47\columnwidth]{phi-range}}}
+	\quad
+	\centering
+	\subfloat[Stacked reconstructed fits of different pseudorapidity, $|\eta|$, regions. \label{subfig:eta-range}]{{\includegraphics[width=0.47\columnwidth]{eta-range}}}
+	\caption{Stacked plots of different parameters in different regions. We notice a shift in the peak for different regions.}
+	\label{fig:region-stack}
+\end{figure*}
+
+An example of this is shown in Fig. \ref{fig:region-stack}. A shift in the peak can be seen for different regions. These regions must be studied and calibration must be applied to them. After applying the calibration for several regions, the output is observed and the process is repeated for several more regions and variables. After several trail and errors, we were able to get the desired calibration. 
+
+After applying cuts for different regions of a single variable, the calibration was applied and the output was looked at. Then, with this applied calibration, different regions of another variable were compared as mentioned above and the calibration file was modified to correct for this variables. This was done for these set of variables in the following order: phi, eta, mindrjet (which is the minimum distance of the electron to the nearest jet in the $\eta \phi$ plane), etiso (transverse energy of the electron in the area surrounding it in the calorimeter) and pt (transverse momentum). The corresponding plots are shown in Fig. \ref{fig:calib-process} and the final calibration plot is shown in Fig. \ref{fig:final-calib}. The corresponding code can be found in the Appendix \ref{chap:appendix_code}. 
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[Calibration for only different regions of $\phi$. \label{subfig:phi-calib}]{{\includegraphics[width=0.47\columnwidth]{phi_calib}}}
+	\quad
+	\centering
+	\subfloat[Calibration for $\phi$ followed by $|\eta|$. \label{subfig:eta-calib}]{{\includegraphics[width=0.47\columnwidth]{phi_eta_calib}}}
+	\quad
+	\centering
+	\subfloat[Calibration for $\phi$ and $|\eta|$ followed by mindrjet. \label{subfig:rjet-calib}]{{\includegraphics[width=0.47\columnwidth]{phi_eta_rjet}}}
+	\quad
+	\centering
+	\subfloat[Calibration for $\phi$, $|\eta|$, mindrjet followed by etiso. \label{subfig:etiso-calib}]{{\includegraphics[width=0.47\columnwidth]{phi_eta_rjet_etiso}}}
+	\caption{Calibration applied one after the other for different set of variables.}
+	\label{fig:calib-process}
+\end{figure*}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{final_calib_fit}
+    \caption{The final fit curve after applying $\phi$, $|\eta|$, mindrjet, etiso followed by $p_T$ calibrations.}
+    \label{fig:final-calib}
+\end{figure}
+
+Thus, we were able to get the mass to be $91.198 \pm 0.0196$ and the resolution to be $2.342 \pm 0.024$. $\chi^2/ndf$ is found to be $464.6 / 172 \approx 2.7$. Using the command \texttt{z.Compare()}, we can see the effect of calibration on the data, in Fig. \ref{fig:calib-compare}. Further, we also notice a change in the values of mass, resolution and $\chi^2/ndf$. This is because the \texttt{Compare()} function uses the ``LARGE'' argument in the Fit() function, which uses all the data. By running \texttt{z.Fit("","LARGE")}, the change in the values was confirmed. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{calib_compare}
+    \caption{Comparison between calibrated and uncalibrated data. The blue fit corresponds to calibrated data and the green to the uncalibrated data.}
+    \label{fig:calib-compare}
+\end{figure}
+
 \printbibliography
 
 \appendix
 
 \chapter{Additional Figures} \label{chap:appendix_figs}
+
+
+\chapter{Code} \label{chap:appendix_code}
+
+The code for the final \texttt{ElecCalib.C} file is shown below. 
+
+\begin{tcolorbox}[breakable, enhanced]
+	\begin{verbatim}
+	double ElecCalib(double e_raw, double pt, double eta, 
+		 double phi, double etiso, double eoverp, double mindrjet)
+{
+  double dummy=pt*eta*phi*etiso*eoverp*mindrjet;
+  double energy = e_raw;
+
+// final fit parameters and taking the mass of Z as 91.18
+
+  // phi cuts	
+  if(fabs(phi)>0. && fabs(phi)<0.4) energy = energy * 91.18/89.69;
+  else if(fabs(phi)>0.4 && fabs(phi)<0.8) energy = energy * 91.18/89.91;
+  else if(fabs(phi)>0.8 && fabs(phi)<1.2) energy = energy * 91.18/89.85;
+  else if(fabs(phi)>1.2 && fabs(phi)<1.6) energy = energy * 91.18/89.95;
+  else if(fabs(phi)>1.6 && fabs(phi)<2.0) energy = energy * 91.18/89.88;
+  else if(fabs(phi)>2.0 && fabs(phi)<2.4) energy = energy * 91.18/89.77;
+  else if(fabs(phi)>2.4 && fabs(phi)<2.8) energy = energy * 91.18/90.01;
+  else if(fabs(phi)>2.8 && fabs(phi)<3.2) energy = energy * 91.18/89.64;
+
+  // eta cuts 
+  if(fabs(eta)>0. && fabs(eta)<0.25) energy = energy * 91.18/91.47;
+  else if(abs(eta)>0.25 && fabs(eta)<0.5) energy = energy * 91.18/91.43;
+  else if(abs(eta)>0.5 && fabs(eta)<0.75) energy = energy * 91.18/91.28;
+  else if(abs(eta)>0.75 && fabs(eta)<1.0) energy = energy * 91.18/90.91;
+  else if(abs(eta)>1.0 && fabs(eta)<1.25) energy = energy * 91.18/90.84;
+  else if(abs(eta)>1.25 && fabs(eta)<1.5) energy = energy * 91.18/90.87;
+  else if(abs(eta)>1.5 && fabs(eta)<2.0) energy = energy * 91.18/92.48;
+  else if(abs(eta)>2.0 && fabs(eta)<2.5) energy = energy * 91.18/89.83;
+
+  // mindrjet cuts 
+  if(mindrjet>0. && mindrjet<1) energy = energy * 91.18/91.44;
+  else if(mindrjet>1 && mindrjet<2) energy = energy * 91.18/91.19;
+  else if(mindrjet>2 && mindrjet<3) energy = energy * 91.18/91.22;
+  else if(mindrjet>3 && mindrjet<4) energy = energy * 91.18/91.13;
+  else if(mindrjet>4 && mindrjet<6) energy = energy * 91.18/90.51;
+  else if(mindrjet>6) energy = energy * 91.18/91.21;
+
+  // etiso cuts 
+  if(etiso>-10 && etiso<0) energy = energy * 91.18/91.35;
+  else if(etiso>0. && etiso<1) energy = energy * 91.18/91.50;
+  else if(etiso>1 && etiso<2) energy = energy * 91.18/91.30;
+  else if(etiso>2 && etiso<3) energy = energy * 91.18/91.05;
+  else if(etiso>3 && etiso<4) energy = energy * 91.18/90.62;
+  else if(etiso>4 && etiso<5) energy = energy * 91.18/90.34;
+  else if(etiso>5) energy = energy * 91.18/89.42;
+
+  // pt cuts
+  if (pt > 0. && pt < 20.) energy = energy * 91.18 / 89.21;
+  else if (pt > 20. && pt < 25.) energy = energy * 91.18 / 90.28;
+  else if (pt > 25. && pt < 30.) energy = energy * 91.18 / 90.25;
+  else if (pt > 30. && pt < 35.) energy = energy * 91.18 / 90.58;
+  else if (pt > 35. && pt < 40.) energy = energy * 91.18 / 90.67;
+  else if (pt > 40. && pt < 42.5) energy = energy * 91.18 / 91.24;
+  else if (pt > 42.5 && pt < 45.) energy = energy * 91.18 / 91.48;
+  else if (pt > 45. && pt < 47.5) energy = energy * 91.18 / 92.05;
+  else if (pt > 47.5 && pt < 50.) energy = energy * 91.18 / 92.45;
+  else if (pt > 50. && pt < 52.5) energy = energy * 91.18 / 92.30;
+  else if (pt > 52.5 && pt < 55.) energy = energy * 91.18 / 91.95;
+  else if (pt > 55. && pt < 57.5) energy = energy * 91.18 / 92.18;
+  else if (pt > 57.5 && pt < 60.) energy = energy * 91.18 / 91.95;
+  else if (pt > 60. && pt < 65.) energy = energy * 91.18 / 92.00;
+  else if (pt > 65. && pt < 70.) energy = energy * 91.18 / 92.05;
+  else if (pt > 70. && pt < 75.) energy = energy * 91.18 / 91.88;
+  else if (pt > 75. && pt < 80.) energy = energy * 91.18 / 91.77;
+  else if (pt > 80. && pt < 100.) energy = energy * 91.18 / 91.74;
+  else if (pt > 100. && pt < 150) energy = energy * 91.18 / 91.96;
+
+  return energy;
+} 
+\end{verbatim}
+\end{tcolorbox}
+
+
 
 \end{document}
