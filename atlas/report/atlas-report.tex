@@ -213,7 +213,14 @@ flew into the detector, for example whether if it is an electron or a pion. \\
 \noindent \textit{Solenoid} \\ \\ 
 The inner solenoid is a superconducting magnet surrounding the inner detector. It provides the inner detector with a solenoidal magnetic field strength of 
 $\SI{2}{\tesla}$, allowing the charged particles to bend due to the Lorentz force. This allows one to distinguish the electric charge of the particle 
-as well as measure the momentum through the radius of curvature of the particle. As neutral particles such as photons or neutrons 
+as well as measure the momentum $p$ through the radius of curvature of the particle. This can be shown by equating the Lorentz force to the 
+centripetal force:
+\begin{equation}
+	|\vec{F_L}| = |\vec{F_C}| \implies evB = \frac{mv^2}{R} \implies R = \frac{mv}{eB} = \frac{p}{eB}
+	\label{eq:rad_curvature}
+\end{equation}
+where $\vec{v} \perp \vec{B}$ from the detector geometry. We further observe that positively and negatively charged particles will have 
+opposite radius of curvatures. As neutral particles such as photons or neutrons 
 have no electric charge, they show no curvature when they traverse through the inner detector. 
 
 \subsubsection{(b) Calorimeter}
@@ -308,7 +315,7 @@ of the trajectory can be observed due to additional magnetic field placed. \\
 \noindent \textit{Tau} \\
 
 Tau leptons ($\tau^\pm$) are much heavier than muons ($m_\tau \approx \SI{1}{\giga\electronvolt}$) and their range in matter is limited do millimeters 
-as they have a short lifetime. They most commonly decay weakly into hadrons, which can be identified in the detector as collimated ''mini jets''. \\
+as they have a short lifetime. They most commonly decay weakly into hadrons ($\tau^- \rightarrow \mathrm{hadrons} + \nu_\tau$), which can be identified in the detector as collimated ''mini jets''. \\
 
 \noindent \textit{Top Quark} \\
 
@@ -524,9 +531,111 @@ Another possible reason can be that in the case of more than one Z boson, the ot
 \section{Part 1: ATLANTIS} \label{sec:atlantis}
 
 In this part of the lab, we get familiar with the program \texttt{ATLANTIS}, which displays particle reactions in the ATLAS detector, graphically. 
-...
-
+From this program, one can easily retrieve relevant quantities such as the particle's transverse momentum, azimuthal angle and pseudorapidity
+from the given datasets. 
 Before looking at the assignments for this part, we first become acquainted with all the data sets. We present our observations below. 
+
+\subsection{Electron Dataset}
+
+In this dataset, we observe the signature of a single electron in the detector. Fig. \ref{fig:single_e} shows the output from ATLANTIS for Event 7 in the 
+dataset. In each figure shown in this section, the upper left figure shows the xy projection of the 
+event. The upper right top shows a zoomed-in xy projection at the inner detector. The upper right lower figure shows the $\rho$z 
+projection, and the lower figure again shows the zoomed-in $\rho$z projection at the inner detector and calorimeters. The blue line
+ are the reconstructed tracks and the yellow boxes are the energy depositions in the calorimeters. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{electron_event7.eps}
+    \caption{Event name: \texttt{singlepart\_electron-1\_0\_00007\_f}, Event: 7. }
+    \label{fig:single_e}
+\end{figure}
+
+From this event, we observe that the electron, contrary to the its electric charge, traverses without bending. This is most likely
+due to the high momentum of the electron ($p_T = \SI{-6.03 \pm 0.097}{\giga\electronvolt}$), increasing the radius of curvature as shown in Eq. \ref{eq:rad_curvature}. We also observe 
+signatures in the ECAL, indicating that the electron has produced an electromagnetic cascade, and has thus been absorbed completely. 
+We also observe signatures in the HCAL, which are attributed to the background of the event. The $\slashed{E}_T$ shown in the 
+figure also result from background processes as $\slashed{E}_T \approx \SI{61}{\giga\electronvolt}$, which is much larger than the 
+electron momentum. \par 
+
+\subsection{Muon Dataset}
+
+Fig. \ref{fig:single_muon} shows Event 7 of the single muon dataset, where the signature of a single muon is observed. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{muon_event7.eps}
+    \caption{Event name: \texttt{singlepart\_muon-1\_0\_00007\_f}, Event: 7. }
+    \label{fig:single_muon}
+\end{figure}
+
+We observe that again, the muon trajectory looks relatively straight, which is attributed to its high momentum ($p_T = \SI{-51.82 \pm 1.070}{\giga\electronvolt}$).
+We also observe that the muon shows hits in the inner detector and the tracking detectors from the muon system as expected. 
+However, we also observe some signature in the HCAL, which indicate that the muon is highly relativistic so that it 
+undergoes bremsstrahlung which is then detected in the HCAL. Such signature is observed in the HCAL rather than the ECAL most probably
+due to the larger size of the HCAL. The $\slashed{E}_T = \SI{55.792}{\giga\electronvolt}$, which is close to the $p_T$ of the muon.
+Thus the contribution from $\nu_\mu$ may be contained within $\slashed{E}_T$.
+
+\subsection{Photon Dataset}
+
+Fig. \ref{fig:single_photon} shows Event 18 of the single dataset for the photon.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{photon_event18.eps}
+    \caption{Event name: \texttt{singlepart\_photon-1\_0\_00018\_f}, Event: 18. }
+    \label{fig:single_photon}
+\end{figure}
+
+We do not observe any signatures in the inner detector, but observe a single shower in the ECAL. This indeed matches the signature 
+of a photon as they are electrically neutral and thus transparent to the tracking detectors. The energy deposition in each 
+layer is around $E_T \approx 10 \sim 20 \si[]{\giga\electronvolt}$, indicating that the photon is energetic enough to undergo 
+pair production or Compton scattering. \par 
+
+\subsection{Tau Dataset}
+
+Fig. \ref{fig:single_tau} shows Event 10 and 33 of the single dataset of the tau lepton. 
+
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[Event name: \texttt{singlepart\_tau-1\_0\_00010\_f}, Event: 10.]{{\includegraphics[width=0.47\columnwidth]{tau_event10.eps}}}
+	\quad
+	\centering
+	\subfloat[Event name: \texttt{singlepart\_tau-1\_0\_00033\_f}, Event: 33.]{{\includegraphics[width=0.47\columnwidth]{tau_event33.eps}}}
+	\caption{Signatures of tau leptons in the detector. (a) shows decays via hadrons and (b) shows signatures from leptonic decays.}
+	\label{fig:single_tau}
+\end{figure*}
+
+In Event 10, we observe a collimated mini-jet that deposits signatures in both ECAL and HCAL. The energy deposition in the ECAL is 
+most probably attributed to the photon pairs of the neutral pions produced within the mini-jets. The hadronic cascade in the HCAL is 
+wide, which is due to the low momentum of the mini-jet ($ p_T = \SI{26.23 \pm 0.636}{\giga\electronvolt}$). The value of the missing 
+$\slashed{E}_T$ is $\SI{ 28.298}{\giga\electronvolt}$, thus $\slashed{E}_T$ is most likely associated to the momentum of $\nu_\tau$. \par 
+
+We further observe that in Event 33, we observe a leptonic decay process which accounts for more than 40\% of the branching ratio of 
+the tau leptons. The event itself is indistinguishable from Event 7 in Fig. \ref{fig:single_muon}, thus making tau leptons that decay 
+with this process much harder to detect. 
+
+\subsection{Dijets Dataset}
+
+We now observe events that display signatures of two jets in the detector. Fig. \ref{fig:dijets} shows Event 15 in the relevant dataset. 
+The upper right lower plot shows the 2-D histogram between the pseudorapidity $\eta$ and azimuthal angle $\phi$ instead as it is more 
+relevant for our discussion.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{dijet_event15.eps}
+    \caption{Event name: \texttt{dijet-1\_0\_00015\_f}, Event: 15. }
+    \label{fig:dijets}
+\end{figure}
+
+We observe two prominent jets generated opposite from each other in the transverse plane, where they are almost aligned with the y-axis.
+ The two large peaks that are observed in the 2-D histogram also shows this behavior, where the azimuthal angle are approximately $180^\circ$ from each other. We can 
+identify them as jets as they produce hadronic cascades at the HCAL. They also show signature in the ECAL which is mostly from the photon
+pairs due to neutral pion decays. We also observe two opposing trajectories (with opposing curvature) that only leave signatures
+ in the ECAL. This is most probably an $e^+e^-$ pair that is generated by pair production of photons. When observing the lower plot, 
+ we also observe an additional trajectory pair left to the lower jet with an energy deposition only in the ECAL.
+  Using the ''pick'' command, we observe that the pairs have opposing curvatures with similar momenta, implying that these trajectories
+  are from another $e^+e^-$ pair. 
+
 
 \subsection{Wenu Data set}
 
