@@ -893,12 +893,61 @@ Thus, we were able to get the mass to be $91.198 \pm 0.0196$ and the resolution 
 In this section, we elaborate on the methods used to determine the W boson mass using real ATLAS data. As mentioned in Sec. 
 \ref{sec:gauge_bosons}, there are several methods to determine the mass of the W boson. In this experiment, we measure this 
 mass by observing the position of the Jacobi peak from the electron $p_T$ distribution resulting from $W \rightarrow e\nu$ 
-events. In this experiment, we were given several datasets, mostly containing simulated $W \rightarrow e\nu$ events with 
+events. \par 
+
+In this experiment, we were given several datasets, mostly containing simulated $W \rightarrow e\nu$ events with 
 different W boson masses and real ATLAS data for the same process. A dataset containing real ATLAS data 
-form $Z \rightarrow ee$ events are also contained. A list of the datasets is shown below: 
+form $Z \rightarrow ee$ events are also contained, used to verify that the gauge curves retrieve the Z boson mass accurately, which 
+is known more accurately than the W boson mass. A list of the datasets is shown in Table \ref{tab:datasets}. 
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|}  \hline
+     Dataset Abbrv.& Description    \\ \hline
+     \texttt{Wenu} &  Real ATLAS data for  $W \rightarrow e\nu$ candidate events \\
+     \texttt{Zee} &  Real ATLAS data for  $Z \rightarrow ee$ candidate events  \\ 
+     \texttt{MCW75} &  Simulated events with $m_W = \SI{75}{\giga\electronvolt}$ \\ 
+     \texttt{MCW78} &  Simulated events with $m_W = \SI{78}{\giga\electronvolt}$ \\ 
+     \texttt{MCW79} &  Simulated events with $m_W = \SI{79}{\giga\electronvolt}$ \\ 
+     \texttt{MCW / MCW80} &  Simulated events with $m_W = \SI{80}{\giga\electronvolt}$ \\ 
+     \texttt{MCW81} &  Simulated events with $m_W = \SI{81}{\giga\electronvolt}$ \\ 
+     \texttt{MCW82} &  Simulated events with $m_W = \SI{82}{\giga\electronvolt}$ \\ 
+     \texttt{MCW85} &  Simulated events with $m_W = \SI{85}{\giga\electronvolt}$ \\ 
+     \texttt{QCD} & QCD background events extracted from ATLAS data \\ 
+     \texttt{non-QCD} & non-QCD backgrounds obtained from simulated data \\ \hline
+    \end{tabular}
+    \caption{List of datasets available for this experiment. The abbreviation used to use such datasets in ROOT is 
+    provided.}
+    \label{tab:datasets}
+\end{table}
+
+In addition to the W and Z boson datasets, two additional datasets relating to the QCD and non-QCD backgrounds are contained. The QCD
+background dataset are generated from proton-proton collisions where the hard interactions are strong. As it is difficult to 
+simulate the QCD events containing electrons, this background is extracted directly from real ATLAS data instead. While this matches the 
+shape of the QCD backgrounds in the W and Z boson datasets, the integrated luminosity are not equal and thus a proper normalization
+using a scale factor is required for our analysis. The non-QCD backgrounds are extracted from simulated events \cite{labman}. \par 
+
+For all parts of the analysis, we use ROOT and use the C++ library \texttt{Wenu.C+} to load the C++ object used in the analysis. 
+This is loaded with the following commands:
+\begin{verbatim}
+    .L Wenu.C+ 
+    Wenu w
+\end{verbatim} 
 
 
+\section{Verification of Electron Calibration}
 
+We first verify if our calibration of the electron momentum performed in Chap. \ref{chap:elec_calib}. This is done by 
+running the \texttt{FitZee} function which acts similarly to the same function in Chap. \ref{chap:elec_calib}. We observed 
+this distribution for 4 kinematical regions by applying cuts.  The 
+obtained histogram from applying no cuts is shown in Fig. \ref{fig:zee_calib}. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{zeefit.pdf}
+    \caption{The}
+    \label{fig:zee_calib}
+\end{figure}
 
 \printbibliography
 
