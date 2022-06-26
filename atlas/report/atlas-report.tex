@@ -242,7 +242,8 @@ regime, photons and electrons (and positrons) interact with matter most commonly
 These three interactions occur interchangeably, producing subsequent electrons and photons. This leads to a cascade of such particles, which is known as an 
 electromagnetic shower. The number of particles produced in this shower is proportional to the primary energy. 
 The longitudinal extension is described by its radiation length $X_0$, defined such that after one radiation length an electron only retains 
-$1 / e$ of its initial energy. These radiation lengths in solids are typically of order cm. \par 
+$1 / e$ of its initial energy. These radiation lengths in solids are typically of order cm. \textcolor{red}{add feynman diagrams for 
+these processes?}\par 
 
 As muons have a higher mass, they do not undergo bremsstrahlung and as such not detected in the ECAL\footnote{Muons with energies TeV or higher do lose their energy via 
 bremsstrahlung significantly and show signature in the ECAL before leaving the detector.}. As such, a seperate system is constructed to detect muons, which will be mentioned 
@@ -339,8 +340,8 @@ From this, we can defined relevant quantities that are frequently used to descri
 \begin{itemize}
 	\item Radial distance to z-axis $\rho = \sqrt{x^2 + y^2}$ 
 	\item Azimuthal angle $\phi$, defined from the x-axis 
-	\item Polar angle $\theta$. The angle is defined such that $\theta = 0$ is aligned with the y-axis and $\theta = \pi / 2$ is 
-			aligned parallel to the xz plane. 
+	\item Polar angle $\theta$. The angle is defined such that $\theta = 0$ is aligned with the xz-plane and $\theta = \pi / 2$ is 
+			aligned with the y-axis. 
 \end{itemize}
 A schematic of the coordinate system with the above relevant quantities is shown in Fig. \ref{fig:atlas_coord}.
 
@@ -526,22 +527,21 @@ Another possible reason can be that in the case of more than one Z boson, the ot
     \label{fig:bdecay}
 \end{figure}
 
-\chapter{Analysis} \label{chap:analysis}
-
-\section{Part 1: ATLANTIS} \label{sec:atlantis}
+\chapter{ATLANTIS} \label{chap:atlantis}
 
 In this part of the lab, we get familiar with the program \texttt{ATLANTIS}, which displays particle reactions in the ATLAS detector, graphically. 
 From this program, one can easily retrieve relevant quantities such as the particle's transverse momentum, azimuthal angle and pseudorapidity
 from the given datasets. 
 Before looking at the assignments for this part, we first become acquainted with all the data sets. We present our observations below. 
 
-\subsection{Electron Dataset}
+\section{Electron Dataset}
 
 In this dataset, we observe the signature of a single electron in the detector. Fig. \ref{fig:single_e} shows the output from ATLANTIS for Event 7 in the 
 dataset. In each figure shown in this section, the upper left figure shows the xy projection of the 
 event. The upper right top shows a zoomed-in xy projection at the inner detector. The upper right lower figure shows the $\rho$z 
 projection, and the lower figure again shows the zoomed-in $\rho$z projection at the inner detector and calorimeters. The blue line
- are the reconstructed tracks and the yellow boxes are the energy depositions in the calorimeters. 
+ are the reconstructed tracks and the yellow boxes are the energy depositions in the calorimeters. Finally, the red dashed line 
+ indicates the $\slashed{E}_T$ obtained from kinematical calculations.
 
 \begin{figure}[htpb]
     \centering
@@ -557,7 +557,7 @@ We also observe signatures in the HCAL, which are attributed to the background o
 figure also result from background processes as $\slashed{E}_T \approx \SI{61}{\giga\electronvolt}$, which is much larger than the 
 electron momentum. \par 
 
-\subsection{Muon Dataset}
+\section{Muon Dataset}
 
 Fig. \ref{fig:single_muon} shows Event 7 of the single muon dataset, where the signature of a single muon is observed. 
 
@@ -575,7 +575,7 @@ undergoes bremsstrahlung which is then detected in the HCAL. Such signature is o
 due to the larger size of the HCAL. The $\slashed{E}_T = \SI{55.792}{\giga\electronvolt}$, which is close to the $p_T$ of the muon.
 Thus the contribution from $\nu_\mu$ may be contained within $\slashed{E}_T$.
 
-\subsection{Photon Dataset}
+\section{Photon Dataset}
 
 Fig. \ref{fig:single_photon} shows Event 18 of the single dataset for the photon.
 
@@ -591,7 +591,7 @@ of a photon as they are electrically neutral and thus transparent to the trackin
 layer is around $E_T \approx 10 \sim 20 \si[]{\giga\electronvolt}$, indicating that the photon is energetic enough to undergo 
 pair production or Compton scattering. \par 
 
-\subsection{Tau Dataset}
+\section{Tau Dataset}
 
 Fig. \ref{fig:single_tau} shows Event 10 and 33 of the single dataset of the tau lepton. 
 
@@ -614,7 +614,7 @@ We further observe that in Event 33, we observe a leptonic decay process which a
 the tau leptons. The event itself is indistinguishable from Event 7 in Fig. \ref{fig:single_muon}, thus making tau leptons that decay 
 with this process much harder to detect. 
 
-\subsection{Dijets Dataset}
+\section{Dijets Dataset}
 
 We now observe events that display signatures of two jets in the detector. Fig. \ref{fig:dijets} shows Event 15 in the relevant dataset. 
 The upper right lower plot shows the 2-D histogram between the pseudorapidity $\eta$ and azimuthal angle $\phi$ instead as it is more 
@@ -637,7 +637,7 @@ pairs due to neutral pion decays. We also observe two opposing trajectories (wit
   are from another $e^+e^-$ pair. 
 
 
-\subsection{Wenu Data set}
+\section{Wenu Data set}
 
 In this data set, a $W$ boson decays like, $W^+ \rightarrow e^- \bar{\nu}_e$ or $W^+ \rightarrow e^+ \nu_e$. This means that the event will contain missing transverse momentum. In Fig. \ref{fig:wenu}, we see the event 9 from the data set. Starting from the vertex, we see two curved tracks in the top left figure, which deposit their energy in the ECAL. On the opposite side we also notice a huge deposition of hadrons in the HCAL. In the same direction, there is also the line for the $\vec{\slashed{E}_T}$. In the bottom figure, we see a huge number of deposits in the HCAL. 
 
@@ -662,7 +662,7 @@ ETMis:
 \end{lstlisting}
 The branching ratio (BR) of $W$ boson decay to jets is 67.46\% \cite{CMS:2022mhs}. Because of that we see a huge number of deposits in the HCAL for this event. For comparison, the BR of $W \rightarrow e \nu$ decay is 10.83\%. 
 
-\subsection{WFull Data set}
+\section{WFull Data set}
 
 Next, we study the \texttt{WFull-1-f.zip} data set. In this, all possible decays of $W$ boson can be seen. In Fig. \ref{fig:wfull}, starting from the vertex, several curved tracks emerge, indicating the presence of charged leptons and hadrons. Some cures disappear before reaching the ECAL, most likely due to their low momentum (sometimes called ``soft'' particles). The charged leptons leave their deposit in the ECAL and hadrons in the HCAL. For several deposits, we see an alignment, i.e., the jets contain leptons as well. This could be due to top quark, which decays to $t \rightarrow W^+ b$, from which we get jets from the $b$ quark and lepton and neutrino from the $W$. 
 
@@ -687,7 +687,7 @@ ETMis:
 \end{lstlisting}
 which is quite high as compared to previous data set, indicating a high number of neutrinos and $W$ boson decays in the event. Further, there is a high number of deposits in the forward sections in the HCAL. This is an expected behavior, since the angular distribution of final state hadrons increases strongly in the forward region \cite{labman}. 
 
-\subsection{Zee Data set}
+\section{Zee Data set}
 
 Now we look at the \texttt{Zee-1-f.zip} data set. In Fig. \ref{fig:zee}, we see the event 3. Similar to our previous discussion, we see several tracks followed by deposits in ECAL and HCAL, with the presence of $\vec{\slashed{E}_T}$. An interesting feature of this data set is that several ECAL deposits are often opposite to each other. This means that the mother $Z$ boson was most likely at rest when these electrons were produced, giving us this characteristic. 
 
@@ -701,7 +701,7 @@ Now we look at the \texttt{Zee-1-f.zip} data set. In Fig. \ref{fig:zee}, we see 
 
 Next, we work with two of the assignments listed in the lab manual. Since we were allowed to pick the assignments on our own, we chose to work with the \texttt{mystery-035-f.zip} data set and \texttt{ATLASData-Cosmics-M5.zip} data set. 
 
-\subsection{Assignment 7: Mystery Data Set}  \label{subsec:mystery}
+\section{Assignment 7: Mystery Data Set}  \label{subsec:mystery}
 In this data set, a pre-selection is applied, in which at least two leptons ($e$ or $\mu$) are required to be in each event. The goal of this exercise is to look at the graphics and identify various Standard-Model processes by studying them. Further, we must try to rule out certain processes, if any. In Fig. \ref{fig:mys1}, we see the graphical view of event 13. Fig. \ref{fig:mys1_2}, gives us the zoomed in view of the vertex for the same event. We start our discussion from the vertex. 
 
 A zoomed in view of the vertex shows that most tracks originate from the vertex, but some a reasonably far away from the vertex. The tracks originating far away from the vertex must come from a particle which has decayed after a certain period of time. This gives us the following three possibilities for the original particle: $\tau^{\pm}$ lepton, top quark or b-quarks (b-jet). Since $W$ and $Z$ boson decay almost immediately, the track reconstruction resolution would not be able to pick on the slight differences in the vertex due to those decays. 
@@ -747,7 +747,7 @@ Since the $\slashed{E}_T$ is quite high, we can confirm the existence of one or 
     \label{fig:mys3}
 \end{figure}
 
-\subsection{Assignment 8: Cosmic Ray Dataset}
+\section{Assignment 8: Cosmic Ray Dataset}
 
 In this part of the assignment, we investigated the angular distribution 
 of muons originating from pion decay from air showers in the atmosphere
@@ -776,7 +776,7 @@ the transformation between $\phi_0$ and $\theta$ as such:
 \begin{equation}
 	\theta = 
 	\begin{cases}
-		\phi_0 - \frac{\pi}{2} -  & : \phi_0 < \frac{3\pi}{2}\\
+		\phi_0 - \frac{\pi}{2}   & : \phi_0 < \frac{3\pi}{2}\\
 		(\phi_0 - \frac{\pi}{2}) - 2\pi & : \phi_0 > \frac{3\pi}{2}.
 	\end{cases}
 \end{equation}
@@ -803,7 +803,7 @@ With more events, the histogram will be smoother and thus will be able to discer
 or not.\par 
 
 
-\section{Part 2: Calibration of Electrons}
+\chapter{Part 2: Calibration of Electrons} \label{chap:elec_calib}
 
 Before performing the measurement of the $W$ mass, the data needs to be calibrated. In this experiment, the raw data was supplied to us and we first have to improve its quality. The most accurate way to determine the energy of electrons is by measuring the deposit in the ECAL. There are several reasons for calibration:
 
@@ -888,11 +888,34 @@ Thus, we were able to get the mass to be $91.198 \pm 0.0196$ and the resolution 
     \label{fig:calib-compare}
 \end{figure}
 
+\chapter{Measurement of the W-boson Mass} \label{chap:wboson}
+
+In this section, we elaborate on the methods used to determine the W boson mass using real ATLAS data. As mentioned in Sec. 
+\ref{sec:gauge_bosons}, there are several methods to determine the mass of the W boson. In this experiment, we measure this 
+mass by observing the position of the Jacobi peak from the electron $p_T$ distribution resulting from $W \rightarrow e\nu$ 
+events. In this experiment, we were given several datasets, mostly containing simulated $W \rightarrow e\nu$ events with 
+different W boson masses and real ATLAS data for the same process. A dataset containing real ATLAS data 
+form $Z \rightarrow ee$ events are also contained. A list of the datasets is shown below: 
+
+
+
+
 \printbibliography
 
 \appendix
 
 \chapter{Additional Figures} \label{chap:appendix_figs}
+
+Here we present additional figures of interest.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{cosmicray_transf_axes.png}
+    \caption{Transformation from azimuthal angle $\phi_0$ to angle from local zenith $\theta$ performed in the analysis of 
+    cosmic ray muons in Assignment 8 of Chap. \ref{chap:atlantis}. The zenith angle in the 4th quadrant ($\theta_2$) transforms 
+    differently from angles in all other quadrants (ex. 1st quadrant, $\theta_1$) due to how the domain of $\phi_0$ is defined.}
+    \label{fig:cr_transf_axes}
+\end{figure}
 
 
 \chapter{Code} \label{chap:appendix_code}
