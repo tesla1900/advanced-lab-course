@@ -1,16 +1,7 @@
 {
-
 Wenu w;
-w.SetQCDScaleFactor(0.27);
-// w.SetQCDScaleFactor(0.31);
-// w.SetCutSelection("ptw < 10.");
-// w.SetCutSelection("njet == 0 && ptw < 10.");
-w.SetCutSelection("njet == 0 && el_etiso < 10");
-
-// w.SetCutSelection("el_etiso < 6. && njet == 0");
-
-// double xmin = 28.;
-// double xmax = 60.;
+w.SetQCDScaleFactor(0.22);
+w.SetCutSelection("el_etiso < 8 && njet == 0");
 
 double xmin = 27.;
 double xmax = 55.;

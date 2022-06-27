@@ -358,9 +358,10 @@ We also define the pseudorapidity $\eta$ as such:
 	\eta = -\ln \tan (\frac{\theta}{2})
 \end{equation}
 where $\theta$ is the polar angle. The pseudorapidity is defined such that $\eta = \pm\infty$ is defined in the direction of the 
-$\pm \hat{z}$ axis respectively. Fig. \ref{fig:pseudorap} shows how the pseudorapidity and polar angle are related.
-Using the pseudorapidity is especially useful for the ATLAS experiment as the final products from proton-proton collisions are primarily produced 
-near the collision point and as such forwards angles are not relevant for this experiment. 
+$\pm \hat{z}$ axis respectively. Fig. \ref{fig:pseudorap} shows how the pseudorapidity and polar angle are related. The ATLAS 
+detector detects leptons in $|\eta| < 2.5$ and jets in $|\eta| < 5$
+Using the pseudorapidity is especially useful for the ATLAS experiment as the final products from proton-proton collisions increases 
+strongly in the forward direction (near the beam axis). 
 
 \begin{figure*}[htpb]
     \centering
@@ -803,7 +804,7 @@ With more events, the histogram will be smoother and thus will be able to discer
 or not.\par 
 
 
-\chapter{Part 2: Calibration of Electrons} \label{chap:elec_calib}
+\chapter{Calibration of Electrons} \label{chap:elec_calib}
 
 Before performing the measurement of the $W$ mass, the data needs to be calibrated. In this experiment, the raw data was supplied to us and we first have to improve its quality. The most accurate way to determine the energy of electrons is by measuring the deposit in the ECAL. There are several reasons for calibration:
 
@@ -939,15 +940,278 @@ This is loaded with the following commands:
 
 We first verify if our calibration of the electron momentum performed in Chap. \ref{chap:elec_calib}. This is done by 
 running the \texttt{FitZee} function which acts similarly to the same function in Chap. \ref{chap:elec_calib}. We observed 
-this distribution for 4 kinematical regions by applying cuts.  The 
-obtained histogram from applying no cuts is shown in Fig. \ref{fig:zee_calib}. 
+this distribution for 4 kinematical regions of interest. The obtained histogram from applying no cuts is shown in Fig. \ref{fig:zee_calib}. 
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.8\textwidth]{zeefit.pdf}
-    \caption{The}
+    \includegraphics[width=0.9\textwidth]{zeefit.pdf}
+    \caption{The invariant mass distribution of $ee$ from $Z \rightarrow ee$ decays without applying any cuts. The blue points are the 
+    real data from ATLAS, the red line is the Voight function fit, and the green histogram is the simulated data. The background 
+    is also shown in yellow.}
     \label{fig:zee_calib}
 \end{figure}
+
+We observe that the invariant mass for the $e^+ e^-$ pair is given as $\SI{91.17 \pm 0.01}{\giga\electronvolt}$, which agrees with the 
+world average value of the Z-boson mass of $\SI{91.1876 \pm 0.0023}{\giga\electronvolt}$ within 1.76 sigma \cite{ParticleDataGroup:2020ssz}.
+While this may not be within $1\sigma$, as we did not prudently calibrate the dataset for all possible parameters, we agree that the 
+calibration is indeed properly set for our analysis. \par 
+
+We also observe the invariant masses for the same distribution with different cuts: \texttt{el\_energy} $<$ 50 ($E_e < \SI{50}{\giga\electronvolt}$), \texttt{el\_eta} $<$ 1 
+($\eta < 1$), and \texttt{el\_pt} $<$ 40 ($p_{T_e} < \SI{40}{\giga\electronvolt}$). \textcolor{red}{explain why we used these energy cuts? 
+(pseudorapidity since central region -> high number of particles)}See Appendix \ref{chap:appendix_figs} for the 
+invariant mass distributions for each cut. From these distributions, we obtain the following invariant masses for each cut 
+respectively: 
+$\SI{90.93 \pm 0.02}{\giga\electronvolt}$, $\SI{91.14 \pm 0.01}{\giga\electronvolt}$, $\SI{90.94 \pm 0.02}{\giga\electronvolt}$. 
+When comparing with the world average value, we observe that they are also close to the Z-boson mass, with the largest deviation 
+of $\SI{0.25}{\giga\electronvolt}$. This shows that even with cuts applied, the Z boson mass is calibrated to an acceptable range. 
+
+\section{Kinematic Parameters and Preliminary QCD Scaling}
+
+Once we have verified that our calibration is properly applied, we observe the distributions for ATLAS data compared with 
+simulated data for different relevant parameters. In our analysis, we observed the following parameters: 
+\texttt{el\_pt}, \texttt{el\_etiso}, \texttt{njet}, \texttt{etmis}, and \texttt{ptw}. In the following sections, we highlight
+the importance of each parameter. The distributions were constructed by the following command:
+\begin{verbatim}
+    w.PlotW(PARAMETER, BINS, XMIN, XMAX, CUTS).
+\end{verbatim} 
+The transverse momentum distribution for electrons, which is most relevant to us for determining the Jacobi peak, is shown 
+in Fig. \ref{fig:elpt_nocuts}. See Appendix \ref{chap:appendix_figs} for the distributions for the other parameters with no cuts applied. \par 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{elpt_nocuts.pdf}
+    \caption{The transverse momentum distribution for electrons for the W-boson decay with no cuts applied. The blue points are the ATLAS data, 
+    the green histogram is the simulated $W \rightarrow e\nu$ decays, and the yellow and purple histograms are the QCD and 
+    non-QCD backgrounds respectively.}
+    \label{fig:elpt_nocuts}
+\end{figure}
+
+From the $p_T$ distribution of electrons, we observe that the amplitude of the simulated data (and the backgrounds) are much 
+higher than the real data. This is caused by the uncalibrated scaling of the QCD background, and as such we set a scale factor 
+so that the two data coincide. To do this, we use the function \texttt{w.SetQCDScaleFactor(VALUE)} and we set a preliminary 
+value of 0.3. See Fig. \ref{fig:elpt_qcd30} for the effect on applying such scale factor to the electron $p_T$ distribution. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{elpt_qcd30.pdf}
+    \caption{Same as Fig. \ref{fig:elpt_nocuts} but applying the QCD scale factor of 0.3 instead.}
+    \label{fig:elpt_qcd30}
+\end{figure}
+
+In the following sections, we will refine the scaling parameter after applying cuts and setting fitting ranges. \par 
+
+To obtain a sharp Jacobi peak, we want to reduce the smearing of the peak as much as possible. One factor that contributes 
+to such smearing is the transverse momentum of the W-boson $p_{T_W}$ as mentioned in Sec. \ref*{sec:gauge_bosons}. To reduce this, 
+we filter events in which several jets are produced. The W-bosons obtained from such events suffer recoil from the quarks and gluons 
+produced with the proton-proton collision, yielding a finite W-boson transverse momentum. This is shown in the $p_{T_W}$ distribution 
+for different number of jets in Figs. \ref{fig:ptw_njet0} and \ref{fig:ptw_njets}. For events with no jets, the distribution is 
+sharply peaked close to zero, however the peak shifts to $p_{T_W} \approx \SI{50}{\giga\electronvolt}$ for events with one or more jets. 
+We also observe that the number of events decrease as we increase the number of jets, indicating that the dominant events are those with 
+no jets. We further observe from these distributions that the QCD background increases as the number of jets increase due to the number of QCD processes involved. For the distributions with 
+three and four jets, the QCD background overlaps the simulated data itself.  
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{ptw_qcd30_njet0.pdf}
+    \caption{Transverse momentum distribution for W-boson in W-boson decay with no jets. The color code follows from Fig. \ref{fig:elpt_nocuts}.}
+    \label{fig:ptw_njet0}
+\end{figure}
+
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[\texttt{njet == 1}]{{\includegraphics[width=0.47\columnwidth]{ptw_qcd30_njet1.pdf}}}
+	\quad
+	\centering
+	\subfloat[\texttt{njet == 2}]{{\includegraphics[width=0.47\columnwidth]{ptw_qcd30_njet2.pdf}}}
+	\quad
+    \centering
+	\subfloat[\texttt{njet == 3}]{{\includegraphics[width=0.47\columnwidth]{ptw_qcd30_njet3.pdf}}}
+	\quad
+    \centering
+	\subfloat[\texttt{njet == 4}]{{\includegraphics[width=0.47\columnwidth]{ptw_qcd30_njet4.pdf}}}
+	\quad
+	\caption{Same as Fig. \ref{fig:ptw_njet0} but for finite number of jets. }
+	\label{fig:ptw_njets}
+\end{figure*}
+
+From such plots, we observe that in order to reduce $p_{T_W}$ and thus reduce the smearing of the Jacobi peak,
+ we should set a cut of the number of jets such that events with no jets are chosen. \textcolor{red}{if works, add 
+ stuff about cut of W boson momentum too}
+ 
+\section{QCD Scale Factor and Cut Selection}
+
+In order to properly set the QCD scale factor, we use the \texttt{el\_etiso} distribution. The parameter \texttt{el\_etiso} 
+represents the number of electrons observed within a cone of jets with $\Delta R = \sqrt{(\Delta \eta)^2 + (\Delta\phi)^2} < 0.45$. 
+This parameter is relevant as it quantifies the amount of QCD background events surrounding the electrons used to construct the 
+electron $p_T$ distribution. Thus to scale the QCD background, we observe the distribution where \texttt{el\_etiso} $< \SI{10}{\giga\electronvolt}$.
+In our analysis, we set the scale factor to be 0.22. Fig. \ref{fig:etiso_qcd} shows the \texttt{el\_etiso} distribution in the full range 
+and in the high QCD background range before and after setting the scale factor. We observe that applying our set scale factor 
+yields amplitudes close to the real ATLAS data. \par 
+
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[Full range, before scaling]{{\includegraphics[width=0.47\columnwidth]{etiso_nocuts.pdf}}}
+	\quad
+	\centering
+	\subfloat[High QCD background region, before scaling]{{\includegraphics[width=0.47\columnwidth]{etiso_nocuts_1020.pdf}}}
+	\quad
+    \centering
+	\subfloat[Full range, after scaling]{{\includegraphics[width=0.47\columnwidth]{etiso_qcd22.pdf}}}
+	\quad
+    \centering
+	\subfloat[High QCD background region, after scaling]{{\includegraphics[width=0.47\columnwidth]{etiso_qcd22_1020.pdf}}}
+	\quad
+	\caption{\texttt{el\_etiso} distribution before scaling (top) and after scaling (bottom) for the whole distribution (left)
+    and in the region with high QCD background (right). The QCD scale factor was set to 0.22.}
+	\label{fig:etiso_qcd}
+\end{figure*}
+
+To estimate the uncertainty due to the QCD scale factor, we varied the scale factor until the deviation between the real data 
+and the simulated data was significant (by eye). From this we, chose that the scale factor is acceptable between 0.20 and 
+0.25. See Appendix \ref{chap:appendix_figs} for the distributions in the full range 
+and in the high QCD background region for the two scale factors mentioned. This will be important in quantifying the systematic 
+errors for the W boson mass. \par 
+
+From the above discussion, we require that we need to have events with no jets to reduce the transverse momentum of the W boson and 
+to have \texttt{el\_etiso} $< \SI{10}{\giga\electronvolt}$ to reduce events from the QCD background. After investigating the optimal 
+value of \texttt{el\_etiso}, we set the following cuts: \texttt{njet == 0} and \texttt{el\_etiso $<$ 8}. Fig. \ref{fig:ptw_cuts} show 
+the $p_{T_W}$ distribution before and applying such cuts. We also verified that after applying 
+such cuts, the QCD scaling factor is still valid. From this figure we observe that the impact from the QCD backgrounds 
+is suppressed in higher $p_{T_W}$ values as expected. 
+
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[No cuts]{{\includegraphics[width=0.47\columnwidth]{ptw_qcd22.pdf}}}
+	\quad
+	\centering
+	\subfloat[After cuts, \texttt{njet == 0, el\_etiso $<$ 8}]{{\includegraphics[width=0.47\columnwidth]{ptw_qcd22_etiso8_njet0.pdf}}}
+	\caption{W-boson transverse momentum distribution (a) before and (b) after applying cuts. The cuts \texttt{njet == 0, el\_etiso $<$ 8}
+    was applied.}
+	\label{fig:ptw_cuts}
+\end{figure*}
+
+\section{Gauge Curve}
+
+We now apply the fit provided in ROOT to obtain the half-maximum of the electron $p_T$ distribution. This was performed using the 
+command \texttt{w.GetHalfMaximum(DATASET, XMIN, XMAX)} for each simulated dataset given in Table \ref{tab:datasets}, 
+corresponding to masses $m_W = 75, 78, 79, 80, 81, 82, \mathrm{ and } 85 \si{\giga\electronvolt}$. To efficiently run this portion 
+of the analysis, a macro file \texttt{WMacro.c} was constructed (see Appendix \ref{chap:appendix_code}). The resulting half-maximum plots 
+for each mass is shown in Appendix \ref{chap:appendix_figs}. Here we show the results for $m_W = \SI{80}{\giga\electronvolt}$ as 
+an example, shown in Fig \ref{fig:hm_m80}. For this analysis, we used the fitting range of [26, 55].
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{hm_80.pdf}
+    \caption{Half-maximum fit of electron $p_T$ spectrum for simulated data with $m_W = \SI{80}{\giga\electronvolt}$.}
+    \label{fig:hm_m80}
+\end{figure}
+
+Once we obtain the half-maximum from each fit, we apply a linear fit to directly relate the mass of the W boson and the 
+obtained half-maximum $h$ as such: 
+\begin{equation}
+    h = a \cdot m_W + b
+    \label{eq:half_max}
+\end{equation}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{gauge_curve.pdf}
+    \caption{Gauge curve between half-maximum from fit with simulated data against W boson mass.}
+    \label{fig:gauge_curve}
+\end{figure}
+
+This line is called the gauge curve. The corresponding gauge curve for the seven masses is shown in Fig. \ref{fig:gauge_curve}. The 
+linear fit was evaluated by the Python module \texttt{lmfit} that utilizes the Levenberg-Marquardt method. Table \ref{tab:gauge_params} 
+shows the obtained parameters from the fitting procedure.
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|} \hline
+    a & b [$\si{\giga\electronvolt}$] &  $\chi^2$  \\ \hline
+    $0.5209 \pm 0.0075$ & $1.21 \pm 0.35$  & 7.06  \\ \hline
+    \end{tabular}
+    \caption{Parameters obtained from fitting the gauge curve.}
+    \label{tab:gauge_params}
+\end{table}
+
+The covariance matrix obtained from the fit is shown as such: 
+\begin{equation}
+    \begin{pmatrix}
+        \sigma_a^2 & \sigma_{ab} \\ 
+        \sigma_{ab} & \sigma_b^2 
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \num{5.58e-5} & \num{-4.44e-3} \\
+        \num{-4.44e-3} & \num{3.54e-1}
+    \end{pmatrix} .
+    \label{eq:cov_matrix}
+\end{equation}
+
+As the degrees of freedom is $ndof = 7 - 2 = 5$, we observe that the reduce chi-squared $\chi^2 / ndof = 1.41$, which is close to 1, 
+indicating that the fit is good.\par 
+
+Using the obtained gauge curve, we can now determine the mass of the W boson from the real ATLAS data. To do this, we get the 
+half-maximum of the real ATLAS data by using the same command \texttt{w.GetHalfMaximum} for the ATLAS dataset \texttt{Wenu}. From this, 
+we obtain the half-maximum to be $h = 43.157 \pm 0.052$ GeV. See Fig. \ref{fig:hm_atlas} for the electron $p_T$ spectrum with the ATLAS data. 
+The mass of the W boson is then obtained by rearranging \ref{eq:half_max} so that:
+\begin{equation}
+    m_W = \frac{h - b}{a}.
+\end{equation} 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{hm_atlas.pdf}
+    \caption{Same as Fig. \ref{fig:hm_m80} but for the real ATLAS data.}
+    \label{fig:hm_atlas}
+\end{figure}
+
+From this, we obtain the mass of the W boson as such: 
+\begin{equation}
+    m_W = \SI{80.4 \pm 1.47}{\giga\electronvolt} 
+\end{equation}
+where the error is evaluated by the following:
+\begin{align}
+    \sigma_{m_W} &= \sqrt{\left| \left(\frac{\partial m_W}{\partial h} \sigma_h\right)^2 
+                        + \left( \frac{\partial m_W}{\partial a} \sigma_a\right)^2 
+                        + \left( \frac{\partial m_W}{\partial b} \sigma_b\right)^2
+                        + 2 \left( \frac{\partial m_W}{\partial a}\right) \left( \frac{\partial m_W}{\partial b}\right) \sigma_{ab} \right|} \\
+            &= m_W \sqrt{\left| \left(\frac{\sigma_h}{(h - b)}\right)^2 + \left(\frac{\sigma_a}{a}\right)^2 + 
+                            \left(\frac{\sigma_b}{(h - b)}\right)^2 + 2\left(\frac{\sigma_{ab}}{a(h - b)}\right) \right|} \\
+\end{align}
+where $\sigma_a, \sigma_b, \sigma_h$ are the uncertainties obtained from the fit parameters and the uncertainty from the 
+half-maximum fit, and $\sigma_{ab}$ are the correlation coefficients from the covariance matrix of the fit as shown in Eq. \ref{eq:cov_matrix}.
+The error is purely statistical, and systematic uncertainties must be considered. We observe that our result is within one sigma of the 
+ the most recent value of the W boson of $80.433 \pm 0.009 \ \text{GeV}$ \cite{CDF:2022hxs}. \textcolor{red}{explain why statistical 
+ uncertainty is large?}\par
+
+
+To cross-check our results, we use the $Z \rightarrow ee$ distribution from real ATLAS data and find the half-maximum fit from 
+the electron $p_T$ distribution. The Z-boson is used as the mass of the Z-boson is well known to a high accuracy. 
+The procedure is identical with the W-boson except with replacing the dataset \texttt{Wenu} to 
+\texttt{Zee}. We obtained the half-maximum $h = \SI{48.413 \pm 0.061}{\giga\electronvolt}$, shown in Fig. \ref{fig:hm_zee}. From this, 
+we obtain the mass of the Z-boson as such: 
+\begin{equation}
+    m_Z = 90.63 \pm 1.58 GeV
+\end{equation}
+which is within one sigma of the literature value of the Z boson mass of $\SI{91.1876 \pm 0.0021}{\giga\electronvolt}$. 
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{hm_zee.pdf}
+    \caption{Same as Fig. \ref{fig:hm_m80} but for real ATLAS data for the $Z \rightarrow ee$ candidate events.}
+    \label{fig:hm_zee}
+\end{figure}
+
+\section{Systematic Errors}
+
+
+
+% \texttt{el\_pt} tells us the transverse 
+% momentum of the electron, which is the relevant distribution for the Jacobi peak. The parameters  \texttt{el\_etiso} and \texttt{njet} 
+% are the transverse energy $E_T$ within a jet and the number of jets in the data, which are relevant for 
+
+
 
 \printbibliography
 
@@ -966,6 +1230,70 @@ Here we present additional figures of interest.
     \label{fig:cr_transf_axes}
 \end{figure}
 
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{zeefit_elen50.pdf}
+    \caption{The invariant mass distribution of $ee$ from $Z \rightarrow ee$ decays with $E_e < \SI{50}{\giga\electronvolt}$. The blue points are the 
+    real data from ATLAS, the red line is the Voight function fit, and the green histogram is the simulated data. The background 
+    is also shown in yellow.}
+    \label{fig:zee_calib_en50}
+\end{figure}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{zeefit_eleta1.pdf}
+    \caption{Same as Fig. \ref*{fig:zee_calib_en50} but for cuts with $\eta < 1$.}
+    \label{fig:zee_calib_eta1}
+\end{figure}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{zeefit_elpt40.pdf}
+    \caption{Same as Fig. \ref*{fig:zee_calib_en50} but for cuts with $p_{T_e} < \SI{40}{\giga\electronvolt}$.}
+    \label{fig:zee_calib_pt40}
+\end{figure}
+
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[\texttt{el\_etiso}]{{\includegraphics[width=0.47\columnwidth]{etiso_nocuts.pdf}}}
+	\quad
+	\centering
+	\subfloat[\texttt{njet}]{{\includegraphics[width=0.47\columnwidth]{njet_nocuts.pdf}}}
+    \quad
+	\centering
+	\subfloat[\texttt{etmis}]{{\includegraphics[width=0.47\columnwidth]{etmis_nocuts.pdf}}}
+    \quad
+	\centering
+	\subfloat[\texttt{ptw}]{{\includegraphics[width=0.47\columnwidth]{ptw_nocuts.pdf}}}
+	
+	\caption{Same as Fig. \ref{fig:elpt_nocuts} but for other parameters of interest. }
+	\label{fig:params_nocuts}
+\end{figure*}
+
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[Full range, Scale Factor = 0.2]{{\includegraphics[width=0.47\columnwidth]{etiso_qcd20.pdf}}}
+	\quad
+	\centering
+	\subfloat[High QCD background region, Scale Factor = 0.2]{{\includegraphics[width=0.47\columnwidth]{etiso_qcd20_1020.pdf}}}
+	\quad
+    \centering
+	\subfloat[Full range, Scale Factor = 0.25]{{\includegraphics[width=0.47\columnwidth]{etiso_qcd25.pdf}}}
+	\quad
+    \centering
+	\subfloat[High QCD background region, Scale Factor = 0.25]{{\includegraphics[width=0.47\columnwidth]{etiso_qcd25_1020.pdf}}}
+	\quad
+	\caption{\texttt{el\_etiso} distribution for the whole distribution (left)
+    and in the region with high QCD background (right) for QCD scale factors of 0.20 (top) and 0.25 (bottom).}
+	\label{fig:etiso_qcd_unc}
+\end{figure*}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{hw_plots_1.pdf}
+    \caption{Half-maximum fit of the electron $p_T$ spectrum for different values of the W boson mass.}
+    \label{fig:hm_allmass}
+\end{figure}
 
 \chapter{Code} \label{chap:appendix_code}
 
@@ -1044,6 +1372,31 @@ The code for the final \texttt{ElecCalib.C} file is shown below.
 \end{verbatim}
 \end{tcolorbox}
 
+Below we show the code used to determine the half-maximum plots for each simulated dataset. 
+
+\begin{tcolorbox}
+    \begin{verbatim}
+        {
+        Wenu w;
+        w.SetQCDScaleFactor(0.22);
+        w.SetCutSelection("el_etiso < 8 && njet == 0");
+
+        double xmin = 26.;
+        double xmax = 55.;
+
+        TCanvas* c1 = new TCanvas("c1");
+        c1->Clear();
+        c1->Divide(4,2);
+        c1->cd(1);w.GetHalfMaximum("MCW75",xmin,xmax);
+        c1->cd(2);w.GetHalfMaximum("MCW78",xmin,xmax);
+        c1->cd(3);w.GetHalfMaximum("MCW79",xmin,xmax);
+        c1->cd(4);w.GetHalfMaximum("MCW80",xmin,xmax);
+        c1->cd(5);w.GetHalfMaximum("MCW81",xmin,xmax);
+        c1->cd(6);w.GetHalfMaximum("MCW82",xmin,xmax);
+        c1->cd(7);w.GetHalfMaximum("MCW85",xmin,xmax);
+        }
+    \end{verbatim}
+\end{tcolorbox}
 
 
 \end{document}
