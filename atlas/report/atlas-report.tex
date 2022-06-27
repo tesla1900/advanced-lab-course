@@ -1479,6 +1479,44 @@ Here we present additional figures of interest.
     \label{fig:hm_allmass}
 \end{figure}
 
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[QCD Scale Factor = 0.28]{{\includegraphics[width=0.47\columnwidth]{hm_qcd28.pdf}}}
+	\quad
+	\centering
+	\subfloat[QCD Scale Factor = 0.32]{{\includegraphics[width=0.47\columnwidth]{hm_qcd32.pdf}}}
+	\caption{The half-maximum fits for QCD scale factors of 0.28 and 0.32. This is used for determining the systematic 
+    effects of the $W$ boson mass.}
+	\label{fig:hm_qcd}
+\end{figure*}
+
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[Fit Region: \[26, 65\]]{{\includegraphics[width=0.47\columnwidth]{hm_fit2665.pdf}}}
+	\quad
+	\centering
+	\subfloat[Fit Region: \[30, 50\]]{{\includegraphics[width=0.47\columnwidth]{hm_fit3050.pdf}}}
+	\caption{Same as Fig. \ref{fig:hm_qcd} but for the fit regions [26, 65] and [30,50] GeV instead. This is used to determine 
+    the systematic effects of the variation of the fit region to the $W$ boson mass.}
+	\label{fig:hm_fit}
+\end{figure*}
+
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[No cuts]{{\includegraphics[width=0.47\columnwidth]{hm_nocuts.pdf}}}
+	\quad
+	\centering
+	\subfloat[\texttt{njet == 0}]{{\includegraphics[width=0.47\columnwidth]{hm_njet0.pdf}}}
+    \quad
+	\centering
+	\subfloat[\texttt{el\_etiso} $< \SI{8}{\giga\electronvolt}$]{{\includegraphics[width=0.47\columnwidth]{hm_etiso8.pdf}}}
+    \quad
+	\centering
+	\subfloat[\texttt{el\_etiso} $< \SI{8}{\giga\electronvolt}$ and \texttt{njet == 0}]{{\includegraphics[width=0.47\columnwidth]{hm_etiso8_njet0.pdf}}}
+	\caption{Same as Fig. \ref{fig:hm_qcd} but for different cut selections: (a) no cuts, (b) with no jets, (c) with 
+    \texttt{el\_etiso} $< \SI{8}{\giga\electronvolt}$, and (d) with both cuts applied.}
+	\label{fig:hm_cuts}
+\end{figure*}
 
 
 \chapter{Code} \label{chap:appendix_code}
