@@ -1044,7 +1044,7 @@ In order to properly set the QCD scale factor, we use the \texttt{el\_etiso} dis
 represents the number of electrons observed within a cone of jets with $\Delta R = \sqrt{(\Delta \eta)^2 + (\Delta\phi)^2} < 0.45$. 
 This parameter is relevant as it quantifies the amount of QCD background events surrounding the electrons used to construct the 
 electron $p_T$ distribution. Thus to scale the QCD background, we observe the distribution where \texttt{el\_etiso} $< \SI{10}{\giga\electronvolt}$.
-In our analysis, we set the scale factor to be 0.26. Fig. \ref{fig:etiso_qcd} shows the \texttt{el\_etiso} distribution in the full range 
+In our analysis, we set the scale factor to be 0.30. Fig. \ref{fig:etiso_qcd} shows the \texttt{el\_etiso} distribution in the full range 
 and in the high QCD background range before and after setting the scale factor. We observe that applying our set scale factor 
 yields amplitudes close to the real ATLAS data. \par 
 
@@ -1056,19 +1056,19 @@ yields amplitudes close to the real ATLAS data. \par
 	\subfloat[High QCD background region, before scaling]{{\includegraphics[width=0.47\columnwidth]{etiso_nocuts_1020.pdf}}}
 	\quad
     \centering
-	\subfloat[Full range, after scaling]{{\includegraphics[width=0.47\columnwidth]{etiso_qcd26.pdf}}}
+	\subfloat[Full range, after scaling]{{\includegraphics[width=0.47\columnwidth]{etiso_qcd30.pdf}}}
 	\quad
     \centering
-	\subfloat[High QCD background region, after scaling]{{\includegraphics[width=0.47\columnwidth]{etiso_qcd26_1020.pdf}}}
+	\subfloat[High QCD background region, after scaling]{{\includegraphics[width=0.47\columnwidth]{etiso_qcd30_1020.pdf}}}
 	\quad
 	\caption{\texttt{el\_etiso} distribution before scaling (top) and after scaling (bottom) for the whole distribution (left)
-    and in the region with high QCD background (right). The QCD scale factor was set to 0.26.}
+    and in the region with high QCD background (right). The QCD scale factor was set to 0.30.}
 	\label{fig:etiso_qcd}
 \end{figure*}
 
 To estimate the uncertainty due to the QCD scale factor, we varied the scale factor until the deviation between the real data 
-and the simulated data was significant (by eye). From this we, chose that the scale factor is acceptable between 0.24 and 
-0.28. See Appendix \ref{chap:appendix_figs} for the distributions in the full range 
+and the simulated data was significant (by eye). From this we, chose that the scale factor is acceptable between 0.28 and 
+0.30. See Appendix \ref{chap:appendix_figs} for the distributions in the full range 
 and in the high QCD background region for the two scale factors mentioned. This will be important in quantifying the systematic 
 errors for the W boson mass. \par 
 
@@ -1081,10 +1081,10 @@ is suppressed in higher $p_{T_W}$ values as expected.
 
 \begin{figure*}[htb!]
 	\centering
-	\subfloat[No cuts]{{\includegraphics[width=0.47\columnwidth]{ptw_qcd26.pdf}}}
+	\subfloat[No cuts]{{\includegraphics[width=0.47\columnwidth]{ptw_qcd30.pdf}}}
 	\quad
 	\centering
-	\subfloat[After cuts, \texttt{njet == 0, el\_etiso $<$ 8}]{{\includegraphics[width=0.47\columnwidth]{ptw_qcd26_etiso8_njet0.pdf}}}
+	\subfloat[After cuts, \texttt{njet == 0, el\_etiso $<$ 8}]{{\includegraphics[width=0.47\columnwidth]{ptw_qcd30_njet0_etiso8.pdf}}}
 	\caption{W-boson transverse momentum distribution (a) before and (b) after applying cuts. The cuts \texttt{njet == 0, el\_etiso $<$ 8}
     was applied.}
 	\label{fig:ptw_cuts}
@@ -1128,7 +1128,7 @@ shows the obtained parameters from the fitting procedure.
     \centering
     \begin{tabular}{|c|c|c|} \hline
     a & b [$\si{\giga\electronvolt}$] &  $\chi^2$  \\ \hline
-    $0.5218 \pm 0.0073$ & $1.03 +- 0.59$  & 7.39  \\ \hline
+    $0.5214 \pm 0.0080$ & $1.04 +- 0.64$  & 8.68  \\ \hline
     \end{tabular}
     \caption{Parameters obtained from fitting the gauge curve.}
     \label{tab:gauge_params}
@@ -1142,13 +1142,13 @@ The covariance matrix obtained from the fit is shown as such:
     \end{pmatrix}
     =
     \begin{pmatrix}
-        \num{5.40e-5} & \num{-4.32e-3} \\
-        \num{-4.32e-3} & \num{3.47e-1}
+        \num{6.48e-5} & \num{-5.19e-3} \\
+        \num{-5.19e-3} & \num{4.16e-1}
     \end{pmatrix} .
     \label{eq:cov_matrix}
 \end{equation}
 
-As the degrees of freedom is $ndof = 7 - 2 = 5$, we observe that the reduce chi-squared $\chi^2 / ndof = 1.48$, which is close to 1, 
+As the degrees of freedom is $ndof = 7 - 2 = 5$, we observe that the reduce chi-squared $\chi^2 / ndof = 1.74$, which is close to 1, 
 indicating that the fit is good.\par 
 
 Using the obtained gauge curve, we can now determine the mass of the W boson from the real ATLAS data. To do this, we get the 
@@ -1168,7 +1168,7 @@ The mass of the W boson is then obtained by rearranging \ref{eq:half_max} so tha
 
 From this, we obtain the mass of the W boson as such: 
 \begin{equation}
-    m_W = \SI{80.41 \pm 0.10}{\giga\electronvolt} 
+    m_W = \SI{80.45 \pm 0.10}{\giga\electronvolt} 
 \end{equation}
 where the error is evaluated by the following:
 \begin{align}
@@ -1181,19 +1181,19 @@ where the error is evaluated by the following:
 \end{align}
 where $\sigma_a, \sigma_b, \sigma_h$ are the uncertainties obtained from the fit parameters and the uncertainty from the 
 half-maximum fit, and $\sigma_{ab}$ are related to the correlation coefficients from the covariance matrix of the fit as shown in Eq. \ref{eq:cov_matrix}.
-Here, the error is purely statistical. We observe that our result is $0.261\sigma$ from the 
+Here, the error is purely statistical. We observe that our result is $0.177\sigma$ from the 
  the most recent value of the W boson of $80.433 \pm 0.009 \ \text{GeV}$ \cite{CDF:2022hxs}. \par
 
 
 To cross-check our results, we use the $Z \rightarrow ee$ distribution from real ATLAS data and find the half-maximum fit from 
 the electron $p_T$ distribution. The Z-boson is used as the mass of the Z-boson is well known to a high accuracy. 
 The procedure is identical with the W-boson except with replacing the dataset \texttt{Wenu} to 
-\texttt{Zee}. We obtained the half-maximum $h = \SI{48.413 \pm 0.061}{\giga\electronvolt}$, shown in Fig. \ref{fig:hm_zee}. From this, 
+\texttt{Zee}. We obtained the half-maximum $h = \SI{48.457 \pm 0.045}{\giga\electronvolt}$, shown in Fig. \ref{fig:hm_zee}. From this, 
 we obtain the mass of the Z-boson as such: 
 \begin{equation}
-    m_Z = \SI{90.89 \pm 0.18}{\giga\electronvolt}
+    m_Z = \SI{90.94 \pm 0.20}{\giga\electronvolt}
 \end{equation}
-which is $1.64\sigma$ from the literature value of the Z boson mass of $\SI{91.1876 \pm 0.0021}{\giga\electronvolt}$. Thus the 
+which is $1.26\sigma$ from the literature value of the Z boson mass of $\SI{91.1876 \pm 0.0021}{\giga\electronvolt}$. Thus the 
 obtained Z-boson mass is not within one sigma of the literature value. This may be attributed to the noisy dataset. We observe from 
 Fig. \ref{fig:hm_zee} that the peak in the ATLAS data has large fluctuations thus decreasing the goodness of fit for the half-maximum.
 
@@ -1216,16 +1216,19 @@ To quantitatively determine the systematic error, we use the Z-boson mass we hav
 As the measurement of the W boson mass contains other systematic errors, we can neglect such errors by observing the 
 relative uncertainty between the systematic error in the Z boson and W boson mass:
 \begin{equation}
-    \frac{\sigma_{m_Z, calib}}{m_Z} = \frac{\sigma_{m_W, calib}}{m_W} \implies \sigma_{m_W, calib} = m_W \frac{\sigma_{m_Z, calib}}{m_Z}
+    \frac{\sigma_{m_Z, \mathrm{calib}}}{m_Z} = \frac{\sigma_{m_W, \mathrm{calib}}}{m_W} \implies \sigma_{m_W, \mathrm{calib}} = m_W \frac{\sigma_{m_Z, \mathrm{calib}}}{m_Z}
 \end{equation} 
 As we have performed our calibration using the Z-boson mass, we can determine the systematic error from calibration in this manner. 
 The systematic error from calibration for the Z-boson is given by the difference from the obtained and 
-expected value: $\sigma_{m_Z, calib} = \left| 90.89 - 91.1876 \right| = \SI{0.2976}{\giga\electronvolt}$. From this, we obtain the 
+expected value: $\sigma_{m_Z, \mathrm{calib}} = 90.94 - 91.1876 = -\SI{0.25}{\giga\electronvolt}$ (where we have taken two 
+significant figures to match those of the statistical errors). From this, we obtain the 
 systematic error from calibration for the W-boson mass as such: 
 \begin{equation}
-    \sigma_{m_W, calib} = (\SI{80.41}{\giga\electronvolt}) \cdot \left( \frac{\SI{0.2976}{\giga\electronvolt}}{\SI{90.89}{\giga\electronvolt}}\right) = \SI{0.26}{\giga\electronvolt}
+    \sigma_{m_W, \mathrm{calib}} = (\SI{80.45}{\giga\electronvolt}) \cdot \left( \frac{\SI{-0.25}{\giga\electronvolt}}{\SI{90.94}{\giga\electronvolt}}\right) = -\SI{0.22}{\giga\electronvolt}
 \end{equation}
-Here, we keep the significant digits to two decimal places to match those of the statistical errors. 
+Here, we keep the significant digits to two decimal places to match those of the statistical errors. We observe that the 
+error from the calibration plays a significant impact for the value of the two masses, as they are both larger than the 
+statistical error. 
 
 \subsection{QCD Background Scale Factor}
 
@@ -1234,32 +1237,145 @@ the scale factors until the deviation in the shape of the high QCD background re
 (\texttt{el\_etiso} $< \SI{10}{\giga\electronvolt}$ ) between the real and simulated data is significant. We then took the 
 maximal and minimal scale factors that yield this deviation and determine the W-boson mass with the same configuration. \par 
 
-The QCD scale factors, as mentioned in Sec. \ref{sec:qcdscale_cuts} were chosen to be 0.24 and 0.28 for the minimal and maximal scale 
-factor respectively. Table \ref{tab:qcd_syserr} shows the W-boson masses obtained from using the two scale factors. The half-maxima obtained for each 
-scale factor for each simulated W-boson mass is shown in Table  in Appendix \ref{chap:appendix_figs}. \textcolor{red}{edit appendix 
+The QCD scale factors, as mentioned in Sec. \ref{sec:qcdscale_cuts} were chosen to be 0.28 and 0.32 for the minimal and maximal scale 
+factor respectively. Table \ref{tab:qcd_syserr} shows the W and Z-boson masses obtained from using the two scale factors. The half-maxima fits obtained for each 
+scale factor for the simulated W-boson mass for $m_W = \SI{80}{\giga\electronvolt}$ is shown in Appendix \ref{chap:appendix_figs}. \textcolor{red}{edit appendix 
 referencing for each figure (and code)!}
 
 \begin{table}
     \centering
-    \begin{tabular}{|c|c|} \hline
-    QCD Scale Factor &  $m_W / \si{\giga\electronvolt}$\\ \hline
-    0.24 & $1.03 +- 0.59$ \\ 
-    0.28 & $jlfsa$ \\ \hline
+    \begin{tabular}{|c|c|c|} \hline
+    QCD Scale Factor &  $m_W / \si{\giga\electronvolt}$ & $m_Z / \si{\giga\electronvolt}$\\ \hline
+    0.28 & $\SI{80.42 \pm 0.104}{\giga\electronvolt}$ & $\SI{90.92 \pm 0.20}{\giga\electronvolt}$ \\ 
+    0.32 & $\SI{80.47 \pm 0.103}{\giga\electronvolt}$ & $\SI{90.92 \pm 0.18}{\giga\electronvolt}$ \\ \hline
     \end{tabular}
-    \caption{Parameters obtained from fitting the gauge curve.}
+    \caption{W-boson and Z-boson masses from QCD scale factors of 0.28 and 0.32. The variation of the QCD scale factor 
+    does not show large deviation between the real and simulated data between these values.}
     \label{tab:qcd_syserr}
 \end{table}
 
-To then obtain the systematic uncertainty
+To obtain the systematic uncertainty, we subtracted the masses from the maximal / minimal scale factor from our scale 
+factor we have set (0.30), yielding:
+\begin{align}
+    \sigma_{m_W, \mathrm{QCD, max}} = \SI{80.47}{\giga\electronvolt} - \SI{80.45}{\giga\electronvolt} = \SI{0.02}{\giga\electronvolt} \\
+    \sigma_{m_W, \mathrm{QCD, min}} = \SI{80.42}{\giga\electronvolt} - \SI{80.45}{\giga\electronvolt} = -\SI{0.03}{\giga\electronvolt} \\
+    \sigma_{m_Z, \mathrm{QCD}} = \SI{90.94}{\giga\electronvolt} - \SI{90.92}{\giga\electronvolt} = \SI{0.02}{\giga\electronvolt} \\
+\end{align}
+where the systematic error for the Z boson was determine by subtracting the mass of either scale factor (0.28, 0.32) from our original 
+case (0.30) as both scale factors yield the same value of $m_Z$.
+As the systematic error is small, it is clear that the QCD background scale factor does not impact the analysis when compared to the other systematic
+  errors and the statistical error. 
 
+\subsection{Fit Region}
 
+The third systematic error that we need to consider is the impact of the fit region as the choice of the fitting region 
+strongly impacts the half-maximum chosen for each distribution. To quantify this, we take the maximal and minimal 
+region width of the fitting range such that the shape of the fit stays consistent with the original distribution from 
+Fig. \ref{fig:hm_m80}. Table \ref{tab:fitregion_syserr} shows the obtained W and Z boson masses obtained at these ranges. 
+The half-maximum plot with $m_W = \SI{80}{\giga\electronvolt}$ are shown in Appendix \ref{chap:appendix_figs}.
 
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|} \hline
+    Fit Region &  $m_W / \si{\giga\electronvolt}$ & $m_Z / \si{\giga\electronvolt}$\\ \hline
+    [26, 65] & $\SI{80.35 \pm 0.11 }{\giga\electronvolt}$ & $\SI{90.74 \pm 0.23}{\giga\electronvolt}$ \\ 
+    [30, 50] & $\SI{80.63 \pm 0.12}{\giga\electronvolt}$ & $\SI{90.46 \pm 0.25}{\giga\electronvolt}$ \\ \hline
+    \end{tabular}
+    \caption{Same as Table \ref{tab:qcd_syserr} but for maximal and minimal region widths in which the distribution 
+    does not significantly deviate from the initial one (shown in Fig. \ref{fig:hm_m80}).}
+    \label{tab:fitregion_syserr}
+\end{table}
 
-% \texttt{el\_pt} tells us the transverse 
-% momentum of the electron, which is the relevant distribution for the Jacobi peak. The parameters  \texttt{el\_etiso} and \texttt{njet} 
-% are the transverse energy $E_T$ within a jet and the number of jets in the data, which are relevant for 
+The systematic error is evaluated similarly to how the systematic error was evaluated for the QCD scale factor, resulting in:
+\begin{align}
+    \sigma_{m_W, \mathrm{region, max}} = \SI{80.35}{\giga\electronvolt} - \SI{80.45}{\giga\electronvolt} = -\SI{0.10}{\giga\electronvolt} \\
+    \sigma_{m_W, \mathrm{region, min}} = \SI{80.63}{\giga\electronvolt} - \SI{80.45}{\giga\electronvolt} = \SI{0.18}{\giga\electronvolt} \\
+    \sigma_{m_Z, \mathrm{region}} = \SI{90.46}{\giga\electronvolt} - \SI{90.92}{\giga\electronvolt} = -\SI{0.46}{\giga\electronvolt} \\
+\end{align}
+where the systematic error of the Z boson was set as such since the difference of the Z-boson mass between the maximal
+ region and the original region is smaller than those from the minimal and original region. Thus we observe that the impact from 
+ varying the fit region is much larger than those from the QCD scale factor. This impact is further observed for the Z-boson and 
+ this systematic error is in fact larger than the statistical error. This implies that the deviation from the literature value 
+ is more influenced by the choice of the fit region rather than the statistical uncertainty in the dataset.
 
+ 
+\subsection{Cut Selections}
 
+Finally, we investigate the effect of the cuts we applied to the obtained masses of the W and Z-boson. In order to quantify this, 
+we obtain the W and Z-boson masses for each cut that we apply. Table \ref{tab:cut_syserr} shows the resulting masses. See Appendix \ref{chap:appendix_figs}
+for the half-maximum plot for simulated mass with $m_W = \SI{80}{\giga\electronvolt}$. 
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|} \hline
+    Cut Selection &  $m_W / \si{\giga\electronvolt}$ & $m_Z / \si{\giga\electronvolt}$\\ \hline
+    None & $\SI{81.68 \pm 0.125}{\giga\electronvolt}$ & $\SI{96.21 \pm 0.52}{\giga\electronvolt}$ \\ 
+    \texttt{njet == 0} & $\SI{80.28 \pm 0.10}{\giga\electronvolt}$ & $\SI{90.91 \pm 0.17}{\giga\electronvolt}$ \\
+    \texttt{el\_etiso} $< 8$ & $\SI{80.97 \pm 0.14}{\giga\electronvolt}$ & $\SI{93.50 \pm 0.72}{\giga\electronvolt}$ \\
+    \texttt{el\_etiso} $< 8$ \& \texttt{njet == 0} & $\SI{80.45 \pm 0.10}{\giga\electronvolt} $ & $\SI{90.94 \pm 0.20}{\giga\electronvolt}$ \\ \hline
+    \end{tabular}
+    \caption{Same as Table \ref{tab:qcd_syserr} but for the different cuts applied. The last entry show the results from 
+    the cuts that we chose for our analysis.}
+    \label{tab:cut_syserr}
+\end{table}
+
+From this, we observe that selecting \texttt{njet == 0} reduces the masses of the W and Z boson. This is caused by the reduced 
+transverse momentum of the W and Z boson which in turn reduces the smearing in the Jacobi peak. Further the cut selection 
+\texttt{el\_etiso} $< 8$ increases the mass of the particle, which is attributed by identification of more isolated electrons in the 
+jets. We thus observe that applying both cuts (as we do in our analysis) reduces the masses, but not as much as applying a single 
+cut for the number of jets.
+
+\subsection{Result}
+
+Thus by including both systematic and statistical uncertainties, we obtain the mass of the W boson as follows:
+\begin{equation}
+    m_W = 80.45 \pm 0.10 (\mathrm{stat.}) \: -0.22 \: ^{+0.02}_{-0.03} \: ^{+0.10}_{-0.18} \: (\mathrm{sys.})
+\end{equation}
+
+and the mass of the Z boson is given as such: 
+\begin{equation}
+    m_Z = 90.94 \pm 0.20 (\mathrm{stat.}) \: -0.25 \: + 0.02 \: -0.46 \: (\mathrm{sys.})
+\end{equation}
+
+We observe that taking into account both systematic and statistical uncertainties, the W and Z boson mass are both 
+within one sigma of the literature values $80.433 \pm 0.009 \ \text{GeV}$ and $\SI{91.1876 \pm 0.0021}{\giga\electronvolt}$. 
+
+\chapter{Conclusion}
+
+In this report, we analyzed the real and simulated data obtained from the ATLAS detector located in the Large Hadron 
+Collider in Geneva, Switzerland. From this, we obtained the mass of the W boson after performing calibration 
+to our dataset. \par 
+
+We first explored the graphical interface \texttt{ATLANTIS} that allows us to observe the signatures from different particle 
+production from proton-proton collisions. We investigated the signatures shown by simulated datasets for the 
+electron, muon, photon, tau lepton, dijets, W and Z boson. From this, we observed that the signatures match the expected 
+behavior from their particle properties. We then explored two other datasets. \textcolor{red}{mystery dataset, 1-2 lines}
+We also observed the real ATLAS dataset that detected cosmic ray muons in the detector. We observed that the muon angular
+distribution does not yield the $\cos^2 \theta$ behaviour as observed in sea level, but rather a sharper distribution instead. \par
+
+We then performed calibration to our dataset using the Z-boson mass with the invariant $m_{ee}$ distribution. \textcolor{red}{add 
+electron calibration stuff}. \par 
+
+From this calibration, we measured the mass of the W boson. We first verified that the calibration was applied correctly by 
+comparing the invariant $m_{ee}$ distribution, yielding the Z-boson mass of $\SI{91.17 \pm 0.01}{\giga\electronvolt}$, which 
+is within one sigma to the world average value. The mass of the W-boson was measured by using the Jacobi peak from the 
+electron $p_T$ distribution. We first investigated different kinematical parameters that affect the distribution. We observed 
+that the number of jets \texttt{njet} increases the transverse momentum of the W-boson, which ideally should be zero. Thus we 
+applied a cut so that \texttt{njet == 0} in our analysis.
+
+We then set the QCD scale factor, which controls the amount of QCD background in the simulated 
+dataset, such that its amplitude reaches those from the real ATLAS data. For this, we observed the high QCD background 
+region of the \texttt{el\_etiso} distribution (\texttt{el\_etiso} $> \SI{10}{\giga\electronvolt}$), and chose a value such that 
+the amplitudes between real and simulated data match. This was set to be 0.3 for our dataset. Furthermore, we applied a cut 
+so that we are in the low QCD background regime, i.e. \texttt{el\_etiso} $> \SI{8}{\giga\electronvolt}$. \par 
+
+We then determined the half-maximum fit of the Jacobi peak for seven simulated datasets, each with different W-boson masses. 
+The half-maximum were then used to obtain a linear fit between the known W-boson masses and the half-maxima. From this, we obtained 
+the slope and intercept to be $a = 0.5214 \pm 0.0080$ and $b = \SI{1.04 \pm 0.64}{\giga\electronvolt}$ respectively. This was then 
+used to determine the mass of the W-boson using the half-maximum obtained from the real ATLAS data. From this, we obtained 
+$m_W = \SI{80.45 \pm 0.10}{\giga\electronvolt}$, which agrees with the most recent value within one sigma. \par 
+
+To cross check our analysis, we 
 
 \printbibliography
 
@@ -1320,19 +1436,19 @@ Here we present additional figures of interest.
 
 \begin{figure*}[htb!]
 	\centering
-	\subfloat[Full range, Scale Factor = 0.24]{{\includegraphics[width=0.47\columnwidth]{etiso_qcd24.pdf}}}
-	\quad
-	\centering
-	\subfloat[High QCD background region, Scale Factor = 0.24]{{\includegraphics[width=0.47\columnwidth]{etiso_qcd24_1020.pdf}}}
-	\quad
-    \centering
 	\subfloat[Full range, Scale Factor = 0.28]{{\includegraphics[width=0.47\columnwidth]{etiso_qcd28.pdf}}}
 	\quad
-    \centering
+	\centering
 	\subfloat[High QCD background region, Scale Factor = 0.28]{{\includegraphics[width=0.47\columnwidth]{etiso_qcd28_1020.pdf}}}
 	\quad
+    \centering
+	\subfloat[Full range, Scale Factor = 0.32]{{\includegraphics[width=0.47\columnwidth]{etiso_qcd32.pdf}}}
+	\quad
+    \centering
+	\subfloat[High QCD background region, Scale Factor = 0.32]{{\includegraphics[width=0.47\columnwidth]{etiso_qcd32_1020.pdf}}}
+	\quad
 	\caption{\texttt{el\_etiso} distribution for the whole distribution (left)
-    and in the region with high QCD background (right) for QCD scale factors of 0.24 (top) and 0.28 (bottom).}
+    and in the region with high QCD background (right) for QCD scale factors of 0.28 (top) and 0.32 (bottom).}
 	\label{fig:etiso_qcd_unc}
 \end{figure*}
 
