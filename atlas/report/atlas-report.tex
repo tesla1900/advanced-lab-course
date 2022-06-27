@@ -107,7 +107,7 @@
 		\begin{centering}
 			% \large
 			\textbf{Abstract}\\[0.2cm]
-            In this experiment, the aim is to determine the mass of the $W$ boson. This is done by getting familiar with particle reactions at ATLAS using the ATLANTIS program. As a part of the assignment, \texttt{mystery-035-f.zip} data set and \texttt{ATLASData-Cosmics-M5.zip} data set were studied. After that, calibration was applied to the raw data using the $Z^0$ peak. The calibrated data gave a peak at $91.198 \pm 0.0196$ GeV, which corresponds to the mass of $Z^0$ and the resolution of $2.342 \pm 0.024$. After applying the calibration to the data, the $W$ boson mass is determined by observing the position of Jacobi peak. Further, uncertainties arising due to systematic errors were considered. A mass of $ \pm $ was obtained, which is $ \sigma$ away from the literature value. Using the gauge curve, the mass of $Z^0$ was determined using real ATLAS data and a value of $ \pm $ was obtained. This value is $ \sigma$ away from the literature value. The cause for these deviations is attributed to noisy data in the peak region and statistical fluctuations. 
+            In this experiment, the aim is to determine the mass of the $W$ boson. This is done by getting familiar with particle reactions at ATLAS using the ATLANTIS program. As a part of the assignment, \texttt{mystery-035-f.zip} data set and \texttt{ATLASData-Cosmics-M5.zip} data set were studied. After that, calibration was applied to the raw data using the $Z^0$ peak. The calibrated data gave a peak at $91.198 \pm 0.0196$ GeV, which corresponds to the mass of $Z^0$ and the resolution of $2.342 \pm 0.024$. After applying the calibration to the data, the $W$ boson mass is determined by observing the position of Jacobi peak. Further, uncertainties arising due to systematic errors were considered. A mass of $80.45 \pm 0.10 (\mathrm{stat.}) \: -0.22 \: ^{+0.02}_{-0.03} \: ^{+0.10}_{-0.18} \: (\mathrm{sys.})$ GeV was obtained, which is $0.18\sigma$ away from the literature value. Using the gauge curve, the mass of $Z^0$ was determined using real ATLAS data and a value of $90.94 \pm 0.20 (\mathrm{stat.}) \: -0.25 \: + 0.02 \: -0.46 \: (\mathrm{sys.})$ GeV was obtained. This value is $1.26\sigma$ away from the literature value. The cause for these deviations is attributed to noisy data in the peak region and statistical fluctuations. 
 		\end{centering}
 	\end{minipage}
 	
@@ -1282,15 +1282,15 @@ The half-maximum plot with $m_W = \SI{80}{\giga\electronvolt}$ are shown in Appe
 \begin{table}
     \centering
     \begin{tabular}{|c|c|c|} \hline
-    Fit Region &  $m_W / \si{\giga\electronvolt}$ & $m_Z / \si{\giga\electronvolt}$\\ \hline
+    Fit Region &  $m_W / \si{\giga\electronvolt}$ & $m_Z / \si{\giga\electronvolt}$ \\ \hline
     [26, 65] & $\SI{80.35 \pm 0.11 }{\giga\electronvolt}$ & $\SI{90.74 \pm 0.23}{\giga\electronvolt}$ \\ 
-    $\left[30, 50\right]$ & $\SI{80.63 \pm 0.12}{\giga\electronvolt}$ & $\SI{90.46 \pm 0.25}{\giga\electronvolt}$ \\ \hline
+    {[}30, 50{]} & $\SI{80.63 \pm 0.12 }{\giga\electronvolt}$ & $\SI{90.46 \pm 0.25}{\giga\electronvolt}$ \\ \hline 
     \end{tabular}
     \caption{Same as Table \ref{tab:qcd_syserr} but for maximal and minimal region widths in which the distribution 
     does not significantly deviate from the initial one (shown in Fig. \ref{fig:hm_m80}).}
     \label{tab:fitregion_syserr}
 \end{table}
-
+% [30, 50] & $\SI{80.63 \pm 0.12}{\giga\electronvolt}$ & $\SI{90.46 \pm 0.25}{\giga\electronvolt}$ \\ \hline
 The systematic error is evaluated similarly to how the systematic error was evaluated for the QCD scale factor, resulting in:
 \begin{align}
     \sigma_{m_W, \mathrm{region, max}} = \SI{80.35}{\giga\electronvolt} - \SI{80.45}{\giga\electronvolt} = -\SI{0.10}{\giga\electronvolt} \\
@@ -1355,12 +1355,11 @@ to our dataset. \par
 We first explored the graphical interface \texttt{ATLANTIS} that allows us to observe the signatures from different particle 
 production from proton-proton collisions. We investigated the signatures shown by simulated datasets for the 
 electron, muon, photon, tau lepton, dijets, W and Z boson. From this, we observed that the signatures match the expected 
-behavior from their particle properties. We then explored two other datasets. \textcolor{red}{mystery dataset, 1-2 lines}
+behavior from their particle properties. We then explored two other datasets. In the mystery data set, we start from the vertex and work our way outwards. After going through each layer of the detector and looking at the possible SM processes responsible for the hits or energy deposit, we do not rule out any SM process that is not contained in the data set. 
 We also observed the real ATLAS dataset that detected cosmic ray muons in the detector. We observed that the muon angular
 distribution does not yield the $\cos^2 \theta$ behaviour as observed in sea level, but rather a sharper distribution instead. \par
 
-We then performed calibration to our dataset using the Z-boson mass with the invariant $m_{ee}$ distribution. \textcolor{red}{add 
-electron calibration stuff}. \par 
+We then performed calibration to our dataset using the Z-boson mass with the invariant $m_{ee}$ distribution. For the uncalibrated data, the mass was $89.87 \pm 0.02$ GeV and the resolution was $2.588 \pm 0.026$. After applying energy scaling in the following order for variables in different regions of its spectrum: phi, eta, mindrjet, etiso and pt, one after the other, we were able to achieve a mass of $91.198 \pm 0.0196$ GeV and a resolution of $2.342 \pm 0.024$. \par 
 
 From this calibration, we measured the mass of the W boson. We first verified that the calibration was applied correctly by 
 comparing the invariant $m_{ee}$ distribution, yielding the Z-boson mass of $\SI{91.17 \pm 0.01}{\giga\electronvolt}$, which 
