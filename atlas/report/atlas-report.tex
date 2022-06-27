@@ -1181,7 +1181,7 @@ where the error is evaluated by the following:
 \end{align}
 where $\sigma_a, \sigma_b, \sigma_h$ are the uncertainties obtained from the fit parameters and the uncertainty from the 
 half-maximum fit, and $\sigma_{ab}$ are related to the correlation coefficients from the covariance matrix of the fit as shown in Eq. \ref{eq:cov_matrix}.
-Here, the error is purely statistical. We observe that our result is $0.177\sigma$ from the 
+Here, the error is purely statistical. We observe that our result is $0.18\sigma$ from the 
  the most recent value of the W boson of $80.433 \pm 0.009 \ \text{GeV}$ \cite{CDF:2022hxs}. \par
 
 
@@ -1279,7 +1279,7 @@ The half-maximum plot with $m_W = \SI{80}{\giga\electronvolt}$ are shown in Appe
     \begin{tabular}{|c|c|c|} \hline
     Fit Region &  $m_W / \si{\giga\electronvolt}$ & $m_Z / \si{\giga\electronvolt}$\\ \hline
     [26, 65] & $\SI{80.35 \pm 0.11 }{\giga\electronvolt}$ & $\SI{90.74 \pm 0.23}{\giga\electronvolt}$ \\ 
-    [30, 50] & $\SI{80.63 \pm 0.12}{\giga\electronvolt}$ & $\SI{90.46 \pm 0.25}{\giga\electronvolt}$ \\ \hline
+    $\left[30, 50\right]$ & $\SI{80.63 \pm 0.12}{\giga\electronvolt}$ & $\SI{90.46 \pm 0.25}{\giga\electronvolt}$ \\ \hline
     \end{tabular}
     \caption{Same as Table \ref{tab:qcd_syserr} but for maximal and minimal region widths in which the distribution 
     does not significantly deviate from the initial one (shown in Fig. \ref{fig:hm_m80}).}
@@ -1329,16 +1329,17 @@ cut for the number of jets.
 
 Thus by including both systematic and statistical uncertainties, we obtain the mass of the W boson as follows:
 \begin{equation}
-    m_W = 80.45 \pm 0.10 (\mathrm{stat.}) \: -0.22 \: ^{+0.02}_{-0.03} \: ^{+0.10}_{-0.18} \: (\mathrm{sys.})
+    m_W = 80.45 \pm 0.10 (\mathrm{stat.}) \: -0.22 \: ^{+0.02}_{-0.03} \: ^{+0.10}_{-0.18} \: (\mathrm{sys.}) \si{\giga\electronvolt}
 \end{equation}
 
 and the mass of the Z boson is given as such: 
 \begin{equation}
-    m_Z = 90.94 \pm 0.20 (\mathrm{stat.}) \: -0.25 \: + 0.02 \: -0.46 \: (\mathrm{sys.})
+    m_Z = 90.94 \pm 0.20 (\mathrm{stat.}) \: -0.25 \: + 0.02 \: -0.46 \: (\mathrm{sys.}) \si{\giga\electronvolt}
 \end{equation}
 
 We observe that taking into account both systematic and statistical uncertainties, the W and Z boson mass are both 
-within one sigma of the literature values $80.433 \pm 0.009 \ \text{GeV}$ and $\SI{91.1876 \pm 0.0021}{\giga\electronvolt}$. 
+within one sigma of the most recent value $80.433 \pm 0.009 \ \text{GeV}$ and literature value 
+$\SI{91.1876 \pm 0.0021}{\giga\electronvolt}$ respectively. 
 
 \chapter{Conclusion}
 
@@ -1358,7 +1359,7 @@ electron calibration stuff}. \par
 
 From this calibration, we measured the mass of the W boson. We first verified that the calibration was applied correctly by 
 comparing the invariant $m_{ee}$ distribution, yielding the Z-boson mass of $\SI{91.17 \pm 0.01}{\giga\electronvolt}$, which 
-is within one sigma to the world average value. The mass of the W-boson was measured by using the Jacobi peak from the 
+is within one sigma to the literature value of $\SI{91.1876 \pm 0.0021}{\giga\electronvolt}$. The mass of the W-boson was measured by using the Jacobi peak from the 
 electron $p_T$ distribution. We first investigated different kinematical parameters that affect the distribution. We observed 
 that the number of jets \texttt{njet} increases the transverse momentum of the W-boson, which ideally should be zero. Thus we 
 applied a cut so that \texttt{njet == 0} in our analysis.
@@ -1373,9 +1374,24 @@ We then determined the half-maximum fit of the Jacobi peak for seven simulated d
 The half-maximum were then used to obtain a linear fit between the known W-boson masses and the half-maxima. From this, we obtained 
 the slope and intercept to be $a = 0.5214 \pm 0.0080$ and $b = \SI{1.04 \pm 0.64}{\giga\electronvolt}$ respectively. This was then 
 used to determine the mass of the W-boson using the half-maximum obtained from the real ATLAS data. From this, we obtained 
-$m_W = \SI{80.45 \pm 0.10}{\giga\electronvolt}$, which agrees with the most recent value within one sigma. \par 
+$m_W = \SI{80.45 \pm 0.10}{\giga\electronvolt}$, which agrees with the most recent value of $80.433 \pm 0.009 \ \text{GeV}$ 
+within one sigma. \par 
 
-To cross check our analysis, we 
+To cross check our analysis, we determined the mass of the Z boson using the same procedure as before, obtaining 
+$m_Z = \SI{90.94 \pm 0.20}{\giga\electronvolt}$, which was $1.26\sigma$ away from the literature value. The deviation was attributed 
+to the noisy dataset, where the noise is particularly prominent at the peak. \par 
+
+Finally, we considered the different systematic effects that could influence our measurement. The calibration process and the 
+variation of the fit region influenced the W-boson mass significantly as it yielded uncertainties that are close to or larger 
+than the statistical uncertainty. The effect on the QCD scale factor, however, was minimal as it yielded at maximal 
+uncertainty value of $0.03 \si{\giga\electronvolt}$. The different cut selections applied also strongly affected our measurement 
+as it reduced the value of the W-boson mass. \par 
+
+All in all, from this experiment we obtained the W-boson mass to be $m_W = 80.45 \pm 0.10 (\mathrm{stat.}) \: -0.22 \: 
+^{+0.02}_{-0.03} \: ^{+0.10}_{-0.18} \: (\mathrm{sys.}) \si{\giga\electronvolt}$, which was within one sigma of the most recent 
+value of  $80.433 \pm 0.009 \ \text{GeV}$. The Z-boson mass, after considering the systematic effects, was also shown to be $m_Z = 90.94 \pm 0.20 (\mathrm{stat.}) \: 
+-0.25 \: + 0.02 \: -0.46 \: (\mathrm{sys.}) \si{\giga\electronvolt}$, which is now within one sigma of the literature value 
+$\SI{91.1876 \pm 0.0021}{\giga\electronvolt}$. 
 
 \printbibliography
 
