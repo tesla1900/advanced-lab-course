@@ -107,7 +107,7 @@
 		\begin{centering}
 			% \large
 			\textbf{Abstract}\\[0.2cm]
-            In this experiment, the aim is to determine the mass of the $W$ boson. This is done by getting familiar with particle reactions at ATLAS using the ATLANTIS program. As a part of the assignment, \texttt{mystery-035-f.zip} data set and \texttt{ATLASData-Cosmics-M5.zip} data set were studied. After that, calibration was applied to the raw data using the $Z^0$ peak. The calibrated data gave a peak at $91.198 \pm 0.0196$ GeV, which corresponds to the mass of $Z^0$ and the resolution of $2.342 \pm 0.024$. After applying the calibration to the data, the $W$ boson mass is determined by observing the position of Jacobi peak. Further, uncertainties arising due to systematic errors were considered. A mass of $ \pm $ was obtained, which is $ \sigma$ away from the literature value. Using the gauge curve, the mass of $Z^0$ was determined using real ATLAS data and a value of $ \pm $ was obtained. This value is $ \sigma$ away from the literature value. The cause for these deviations is attributed to noisy data in the peak region and statistical fluctuations. 
+            
 		\end{centering}
 	\end{minipage}
 	
@@ -141,13 +141,8 @@
 
 \chapter{Introduction} \label{chap:intro}
 
-In this laboratory experiment, we are introduced to the physics of the Large Hadron Collider (LHC). At LHC, proton beams are collided at a center-of-mass energy of $14 TeV$. Such high energies allow us to probe the structure of fundamental particles and study their interactions with high precision. Studying physics at this scale allows us to answer bigger questions, about cosmology, what our universe is composed of and what happened in the events that followed the Big Bang. Further, it could hold answers to physics that has never been observed before, which would further our understanding of the universe. 
-This search for answers pushed physicists around the world to build bigger colliders that could reach higher energies. And with each of these, came the discoveries of fundamental particles, with the last of them being the Higgs Boson, discovered in the year 2012. 
-
-In this experiment, we start off by getting familiar with ATLANTIS, a program that displays particle reactions graphically. Using ATLANTIS we explore several data sets and get familiar with different kinds of decay channels at LHC. As a part of assignment, we study two different data sets in particular and do an analysis with it. This is followed by calibration of the raw data, which is done by calibrating the invariant mass distribution of electron positron pair to a well-known Standard Model (SM) parameter, the mass of $Z^0$ boson. After applying the calibration to the data, we measure the mass of the $W$ boson. This is done by observing the position of the Jacobi peak from the electron $p_T$ distribution resulting from $W \rightarrow e\nu$ 
-events. We apply the gauge curve to real ATLAS data to determine the mass of $Z^0$ boson to cross check our results. Lastly, we consider systematic errors that arise during the measurements. 
-
-In Chapter \ref{chap:theory}, we briefly go through the important theory behind the SM and the ATLAS detector. In Chapter \ref{chap:prelab}, we provide solutions to the pre-lab questions from the laboratory manual. In Chapter \ref{chap:atlantis}, we use the ATLANTIS program to look at the particle reactions of several data set. Further, we do an analysis of the \texttt{mystery-035-f.zip} data set and \texttt{ATLASData-Cosmics-M5.zip} data set. In Chapter \ref{chap:elec_calib}, we use the well-know parameter of SM, the $Z^0$ mass in order to calibrate our data. This is done by tweaking the energy scaling of different parameters in different regions of its spectrum. In Chapter \ref{chap:wboson}, we use the Jacobi peak to determine the mass of $W$ boson. Further, using simulated data, which considers different masses of $W$ boson, we obtain the parameters for gauge curve, which allows us to obtain the $W$ mass. We cross verify this result by using the curve to determine the mass of $Z^0$ boson. In Appendix \ref{chap:appendix_figs}, we include additional figures for the sake of completeness. In Appendix \ref{chap:appendix_code}, we include the code used for calibration of electrons and macro file used for obtaining half-maximum for each simulated plot. This report closely follows the student lab manual from \cite{labman}. All the constants for SM particles were obtained from \cite{ParticleDataGroup:2020ssz}. All units are in natural units, i.e., $c = \hbar = 1$. 
+...
+This report closely follows the student lab manual from \cite{labman}. All the constants for Standard Model (SM) particles were taken from \cite{ParticleDataGroup:2020ssz}. 
 
 \chapter{Theory} \label{chap:theory}
 
@@ -251,7 +246,7 @@ $1 / e$ of its initial energy. These radiation lengths in solids are typically o
 these processes?}\par 
 
 As muons have a higher mass, they do not undergo bremsstrahlung and as such not detected in the ECAL\footnote{Muons with energies TeV or higher do lose their energy via 
-bremsstrahlung significantly and show signature in the ECAL before leaving the detector.}. As such, a separate system is constructed to detect muons, which will be mentioned 
+bremsstrahlung significantly and show signature in the ECAL before leaving the detector.}. As such, a seperate system is constructed to detect muons, which will be mentioned 
 in the subsequent subsection. \\
 
 \noindent \textit{Hadronic Calorimeter (HCAL)} \\ \\
@@ -284,7 +279,7 @@ section, we highlight the signature of each particle in the detector. Fig. \ref{
 	respectively. Obtained from Ref. \cite{Gerber2019}. }
     \label{fig:detector_signatures}
 \end{figure}
-\bigbreak
+
 \noindent \textit{Electrons and Positrons} \\ 
 
 Electrons and positrons are mostly highly relativistic due to its smaller mass. They are electrically charged and thus bend when 
@@ -394,7 +389,7 @@ The $W^{\pm}$ and $Z^0$ are massive bosons which are responsible for the weak fo
 	\label{fig:weak_int}
 \end{figure*}
 
-The mass of the $Z$ boson has been measured with high precision at the LEP accelerator in the year 2006 \cite{ALEPH:2005ab}. Its mass was found to be $91.1876 \pm 0.0021$ GeV. Since the $Z$ boson decay to leptons (as shown in Fig. \ref{subfig:ztoll}) gives the cleanest signal to reconstruct its invariant mass, these events are usually studied. However, in the case of $W$ boson, which decay to $W \rightarrow e\nu_e$ or $W \rightarrow \mu \nu_{\mu}$, the invariant cannot be reconstructed directly. This is because neutrinos interact very weakly and are not detected. This makes measuring the mass of the $W$ boson a challenge and it is also one of the less known parameters of the SM. As of writing this report, a high precision measurement by the CDF collaboration of $W$ boson mass was made in April, giving a value of $80.433 \pm 0.009 \ \text{GeV}$ \cite{CDF:2022hxs}. This result has a 7$\sigma$ deviation from the SM prediction, suggesting inaccuracies in the calculations or possibility of new physics. Before this, the most precise measurement was made in 2018 and found to be $80.379 \pm 0.012 \ \text{GeV}$ \cite{PhysRevD.98.030001}. 
+The mass of the $Z$ boson has been measured with high precision at the LEP accelerator in the year 2006 \cite{ALEPH:2005ab}. Its mass was found to be $\SI[per-mode=symbol]{91.1876 \pm 0.0021}{\giga\eVperc\squared}$. Since the $Z$ boson decay to leptons (as shown in Fig. \ref{subfig:ztoll}) gives the cleanest signal to reconstruct its invariant mass, these events are usually studied. However, in the case of $W$ boson, which decay to $W \rightarrow e\nu_e$ or $W \rightarrow \mu \nu_{\mu}$, the invariant cannot be reconstructed directly. This is because neutrinos interact very weakly and are not detected. This makes measuring the mass of the $W$ boson a challenge and it is also one of the less known parameters of the SM. As of writing this report, a high precision measurement by the CDF collaboration of $W$ boson mass was made in April, giving a value of $80.433 \pm 0.009 \ \text{GeV}/c^2$ \cite{CDF:2022hxs}. This result has a 7$\sigma$ deviation from the SM prediction, suggesting inaccuracies in the calculations or possibility of new physics. Before this, the most precise measurement was made in 2018 and found to be $80.379 \pm 0.012 \ \text{GeV}/c^2$ \cite{PhysRevD.98.030001}. 
 
 There are two notable ways to measure the mass of the $W$ boson. The first utilizes the variable $\text{M}_\text{T}$, which is defined as
 
@@ -829,7 +824,7 @@ To perform this calibration, we use the library \texttt{fitZee.C}, which takes t
 fitZee z
 z.Fit("")
 \end{verbatim}
-This creates a calibration object ``z'' which will be used to calibration. The \texttt{z.Fit("")} command fills the histogram and applies the best fit and outputs the fit parameters. The output of this command is shown in Fig. \ref{fig:uncalib}. The $Z$ mass for the uncalibrated data is found to be $89.87 \pm 0.02$ GeV and resolution is $2.588 \pm 0.026$. In the calibration process, the aim is to get the mass as close as possible to the ideal value, which is $91.1876 \pm 0.0021 \ \text{GeV}$. Further, the resolution should also be decreased by at least 0.2, while trying to get a good $\chi^2 / ndf$ value (ndf stands for number of degrees of freedom). A value of approximately 1 is ideal. $\chi^2$ characterizes the characterizes the fit quality and the aim is to usually minimize it. Therefore, a high $\chi^2$ signifies a bad fit. 
+This creates a calibration object ``z'' which will be used to calibration. The \texttt{z.Fit("")} command fills the histogram and applies the best fit and outputs the fit parameters. The output of this command is shown in Fig. \ref{fig:uncalib}. The $Z$ mass for the uncalibrated data is found to be $89.87 \pm 0.02$ and resolution is $2.588 \pm 0.026$. In the calibration process, the aim is to get the mass as close as possible to the ideal value, which is $91.1876 \pm 0.0021 \text{GeV}/c^2$. Further, the resolution should also be decreased by at least 0.2, while trying to get a good $\chi^2 / ndf$ value (ndf stands for number of degrees of freedom). A value of approximately 1 is ideal. $\chi^2$ characterizes the characterizes the fit quality and the aim is to usually minimize it. Therefore, a high $\chi^2$ signifies a bad fit. 
 
 \begin{figure}[htpb]
     \centering
@@ -885,7 +880,7 @@ After applying cuts for different regions of a single variable, the calibration 
     \label{fig:final-calib}
 \end{figure}
 
-Thus, we were able to get the mass to be $91.198 \pm 0.0196$ GeV and the resolution to be $2.342 \pm 0.024$. $\chi^2/ndf$ is found to be $464.6 / 172 \approx 2.7$. Using the command \texttt{z.Compare()}, we can see the effect of calibration on the data, in Fig. \ref{fig:calib-compare}. Further, we also notice a change in the values of mass, resolution and $\chi^2/ndf$. This is because the \texttt{Compare()} function uses the ``LARGE'' argument in the Fit() function, which uses all the data. By running \texttt{z.Fit("","LARGE")}, the change in the values was confirmed. 
+Thus, we were able to get the mass to be $91.198 \pm 0.0196$ and the resolution to be $2.342 \pm 0.024$. $\chi^2/ndf$ is found to be $464.6 / 172 \approx 2.7$. Using the command \texttt{z.Compare()}, we can see the effect of calibration on the data, in Fig. \ref{fig:calib-compare}. Further, we also notice a change in the values of mass, resolution and $\chi^2/ndf$. This is because the \texttt{Compare()} function uses the ``LARGE'' argument in the Fit() function, which uses all the data. By running \texttt{z.Fit("","LARGE")}, the change in the values was confirmed. 
 
 \begin{figure}[htpb]
     \centering
@@ -1479,6 +1474,46 @@ Here we present additional figures of interest.
     \caption{Half-maximum fit of the electron $p_T$ spectrum for different values of the W boson mass.}
     \label{fig:hm_allmass}
 \end{figure}
+
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[QCD Scale Factor = 0.28]{{\includegraphics[width=0.47\columnwidth]{hm_qcd28.pdf}}}
+	\quad
+	\centering
+	\subfloat[QCD Scale Factor = 0.32]{{\includegraphics[width=0.47\columnwidth]{hm_qcd32.pdf}}}
+	\caption{The half-maximum fits for QCD scale factors of 0.28 and 0.32. This is used for determining the systematic 
+    effects of the $W$ boson mass.}
+	\label{fig:hm_qcd}
+\end{figure*}
+
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[Fit Region: [26, 65]]{{\includegraphics[width=0.47\columnwidth]{hm_fit2665.pdf}}}
+	\quad
+	\centering
+	\subfloat[Fit Region: [30, 50]]{{\includegraphics[width=0.47\columnwidth]{hm_fit3050.pdf}}}
+	\caption{Same as Fig. \ref{fig:hm_qcd} but for the fit regions [26, 65] and [30,50] GeV instead. This is used to determine 
+    the systematic effects of the variation of the fit region to the $W$ boson mass.}
+	\label{fig:hm_fit}
+\end{figure*}
+
+\begin{figure*}[htb!]
+	\centering
+	\subfloat[No cuts]{{\includegraphics[width=0.47\columnwidth]{hm_nocuts.pdf}}}
+	\quad
+	\centering
+	\subfloat[\texttt{njet == 0}]{{\includegraphics[width=0.47\columnwidth]{hm_njet0.pdf}}}
+    \quad
+	\centering
+	\subfloat[\texttt{el\_etiso} $< \SI{8}{\giga\electronvolt}$]{{\includegraphics[width=0.47\columnwidth]{hm_etiso8.pdf}}}
+    \quad
+	\centering
+	\subfloat[\texttt{el\_etiso} $< \SI{8}{\giga\electronvolt}$ and \texttt{njet == 0}]{{\includegraphics[width=0.47\columnwidth]{hm_etiso8_njet0.pdf}}}
+	\caption{Same as Fig. \ref{fig:hm_qcd} but for different cut selections: (a) no cuts, (b) with no jets, (c) with 
+    \texttt{el\_etiso} $< \SI{8}{\giga\electronvolt}$, and (d) with both cuts applied.}
+	\label{fig:hm_fit}
+\end{figure*}
+
 
 
 
