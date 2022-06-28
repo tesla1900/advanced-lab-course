@@ -107,7 +107,8 @@
 		\begin{centering}
 			% \large
 			\textbf{Abstract}\\[0.2cm]
-            In this experiment, we investigate real and simulated ATLAS data sets and determine the mass of the $W$ boson. We do this by getting familiar with particle reactions at ATLAS using the ATLANTIS program. As a part of the assignment, we studied the \texttt{mystery-035-f.zip} data set and \texttt{ATLASData-Cosmics-M5.zip} data set. After that, we applied calibration to the raw data using the $Z^0$ peak. The calibrated data gave a peak at $91.198 \pm 0.0196$ GeV, which corresponds to the mass of $Z^0$ boson, and we obtain a resolution of $2.342 \pm 0.024$. After applying the calibration to the data, we determined the $W$ boson mass by observing the position of Jacobi peak. We set the QCD background scaling factor to 0.3 and applied cuts of \texttt{el\_etiso} $< 8$ GeV and \texttt{njet} $=0$. Further, we considered uncertainties arising due to systematic errors. Using the gauge curve with half-maximum points from simulated data sets, we obtained a mass of $80.45 \pm 0.10 (\mathrm{stat.}) \: -0.22 \: ^{+0.02}_{-0.03} \: ^{+0.10}_{-0.18} \: (\mathrm{sys.})$ GeV from real ATLAS data, which is $0.18\sigma$ away from the literature value. Similarly, we determine the mass of $Z^0$ and we obtain a value of $90.94 \pm 0.20 (\mathrm{stat.}) \: -0.25 \: + 0.02 \: -0.46 \: (\mathrm{sys.})$ GeV. This value is $1.26\sigma$ away from the literature value. The cause for these deviations is attributed to noisy data in the peak region and statistical fluctuations. However, when considering systematic uncertainties we observe that varying the fit region and the calibration also strongly affected the deviation. 
+            In this experiment, we investigate real and simulated ATLAS data sets and determine the mass of the $W$ boson. We do this by getting familiar with particle reactions at ATLAS using the \texttt{ATLANTIS} program. As a part of the assignment, we studied the \texttt{mystery-035-f.zip} data set and \texttt{ATLASData-Cosmics-M5.zip} data set. After that, we applied calibration to the raw data using the $Z^0$ peak. The calibrated data gave a peak at $91.198 \pm 0.0196$ GeV, which corresponds to the mass of $Z^0$ boson, and we obtain a resolution of $2.342 \pm 0.024$. After applying the calibration to the data, we determined the $W$ boson mass by observing the position of Jacobi peak. We set the QCD background scaling factor to 0.3 and applied cuts of \texttt{el\_etiso} $< 8$ GeV and \texttt{njet} $=0$. Further, we considered uncertainties arising due to systematic errors. Using the gauge curve with half-maximum points from simulated data sets, we obtained a mass of $80.45 \pm 0.10 (\mathrm{stat.}) \: -0.22 \: ^{+0.02}_{-0.03} \: ^{+0.10}_{-0.18} \: (\mathrm{sys.})$ GeV from real ATLAS data. Similarly, we determine the mass of $Z^0$ and we obtain a value of $90.94 \pm 0.20 (\mathrm{stat.}) \: -0.25 \: + 0.02 \: -0.46 \: (\mathrm{sys.})$ GeV. 
+            When considering both statistical and systematic errors, we observe that both masses yield values that are within one sigma to the most recent and literature values respectively. 
 		\end{centering}
 	\end{minipage}
 	
@@ -144,10 +145,10 @@
 In this laboratory experiment, we are introduced to the physics of the Large Hadron Collider (LHC). At LHC, proton beams are collided at a center-of-mass energy of $14$ TeV. Such high energies allow us to probe the structure of fundamental particles and study their interactions with high precision. Studying physics at this scale allows us to answer bigger questions, about cosmology, what our universe is composed of and what happened in the events that followed the Big Bang. Further, it could hold answers to physics that has never been observed before, which would further our understanding of the universe. 
 This search for answers pushed physicists around the world to build bigger colliders that could reach higher energies. And with each of these came the discoveries of fundamental particles, with the last of them being the Higgs Boson, discovered in the year 2012. 
 
-In this experiment, we start off by getting familiar with ATLANTIS, a program that displays particle reactions graphically. Using ATLANTIS we explored several data sets and got familiar with different kinds of decay channels at LHC. As a part of assignment, we analyzed two different data sets in particular. This is followed by calibration of the raw data, which is done by calibrating the invariant mass distribution of electron positron pair to a well-known Standard Model (SM) parameter, the mass of $Z^0$ boson. After applying the calibration to the data, we measure the mass of the $W$ boson. This is done by observing the position of the Jacobi peak from the electron $p_T$ distribution resulting from $W \rightarrow e\nu$ 
+In this experiment, we start off by getting familiar with \texttt{ATLANTIS}, a program that displays particle reactions graphically. Using \texttt{ATLANTIS} we explored several data sets and got familiar with different kinds of decay channels at LHC. As a part of assignment, we analyzed two different data sets in particular. This is followed by calibration of the raw data, which is done by calibrating the invariant mass distribution of electron positron pair to a well-known Standard Model (SM) parameter, the mass of $Z^0$ boson. After applying the calibration to the data, we measure the mass of the $W$ boson. This is done by observing the position of the Jacobi peak from the electron $p_T$ distribution resulting from $W \rightarrow e\nu$ 
 events. We apply the gauge curve to real ATLAS data to determine the mass of $Z^0$ boson to cross check our results. Lastly, we consider systematic errors that arise during the measurements. 
 
-In Chapter \ref{chap:theory}, we briefly go through the important theory behind the SM and the ATLAS detector. In Chapter \ref{chap:prelab}, we provide solutions to the pre-lab questions from the laboratory manual. In Chapter \ref{chap:atlantis}, we use the ATLANTIS program to look at the particle reactions of several data set. Further, we analyze the \texttt{mystery-035-f.zip} data set and \texttt{ATLASData-Cosmics-M5.zip} data set. In Chapter \ref{chap:elec_calib}, we use the well-know parameter of SM, the $Z^0$ mass in order to calibrate our data. This is done by tweaking the energy scaling of different parameters in different regions of its spectrum. In Chapter \ref{chap:wboson}, we use the Jacobi peak to determine the mass of $W$ boson. Further, using simulated data, which considers different masses of $W$ boson, we obtain the parameters for gauge curve, which allows us to obtain the $W$ mass. We cross verify this result by using the curve to determine the mass of $Z^0$ boson. In Appendix \ref{chap:appendix_figs}, we include additional figures for the sake of completeness. In Appendix \ref{chap:appendix_code}, we include the code used for calibration of electrons and macro file used for obtaining half-maximum for each simulated plot. This report closely follows the student lab manual from \cite{labman}. All the constants for SM particles were obtained from \cite{ParticleDataGroup:2020ssz}. All units are in natural units, i.e., $c = \hbar = 1$. 
+In Chapter \ref{chap:theory}, we briefly go through the important theory behind the SM and the ATLAS detector. In Chapter \ref{chap:prelab}, we provide solutions to the pre-lab questions from the laboratory manual. In Chapter \ref{chap:atlantis}, we use the \texttt{ATLANTIS} program to look at the particle reactions of several data set. Further, we analyze the \texttt{mystery-035-f.zip} data set and \texttt{ATLASData-Cosmics-M5.zip} data set. In Chapter \ref{chap:elec_calib}, we use the well-know parameter of SM, the $Z^0$ mass in order to calibrate our data. This is done by tweaking the energy scaling of different parameters in different regions of its spectrum. In Chapter \ref{chap:wboson}, we use the Jacobi peak to determine the mass of $W$ boson. Further, using simulated data, which considers different masses of $W$ boson, we obtain the parameters for gauge curve, which allows us to obtain the $W$ mass. We cross verify this result by using the curve to determine the mass of $Z^0$ boson. In Appendix \ref{chap:appendix_figs}, we include additional figures for the sake of completeness. In Appendix \ref{chap:appendix_code}, we include the code used for calibration of electrons and macro file used for obtaining half-maximum for each simulated plot. This report closely follows the student lab manual from \cite{labman}. All the constants for SM particles were obtained from \cite{ParticleDataGroup:2020ssz}. All units are in natural units, i.e., $c = \hbar = 1$. 
 
 \chapter{Theory} \label{chap:theory}
 
@@ -378,7 +379,7 @@ strongly in the forward direction (near the beam axis).
 
 \section{The Heavy Gauge Bosons} \label{sec:gauge_bosons}
 
-The $W^{\pm}$ and $Z^0$ are massive bosons which are responsible for the weak forces. The electromagnetic and the weak interactions are unified in the SM to give the electroweak force. The electromagnetic force arises due to $U(1)_{Y}$ ($Y$ is hypercharge) gauge symmetry and the weak force arises due to $SU(2)_L$ ($L$ is left-handed chiral) gauge symmetry. After Spontaneous Symmetry Breaking (SSB), the $W^{\pm}$ and $Z$ gain mass while the photon continues to be massless. In this experiment, our aim to is learn the methods of measuring the mass of the $W$ boson. Some important vertices of weak interaction are shown in Fig. \ref{fig:weak_int}.
+The $W^{\pm}$ and $Z^0$ are massive bosons which are responsible for the weak forces. The electromagnetic and the weak interactions are unified in the SM to give the electroweak force. The electromagnetic force arises due to $U(1)_{Y}$ ($Y$ is hypercharge) gauge symmetry and the weak force arises due to $SU(2)_L$ ($L$ is left-handed chiral) gauge symmetry. After Spontaneous Symmetry Breaking (SSB), the $W^{\pm}$ and $Z^0$ gain mass while the photon continues to be massless. In this experiment, our aim to is learn the methods of measuring the mass of the $W$ boson. Some important vertices of weak interaction are shown in Fig. \ref{fig:weak_int}.
 
 \begin{figure*}[htb!]
 	\centering
@@ -491,7 +492,7 @@ $$
 \noindent 1. What is the minimum invariant 4-lepton-mass, when the four leptons originate from a $Z^0$ pair? Why do you find 4-lepton-events with invariant mass beneath this threshold?
 \bigbreak
 \noindent \underline{Solution}: \\
-\noindent In theory, the minimum invariant mass of the each lepton should be $m_Z / 2$. In addition to the lowest order Feynman diagrams, there are two higher order diagrams where the photon is radiated by initial-state quarks, called Initial State Radiation (ISR), due to which there is a shift in the energy of the ingoing particles, leading to a distortion in the shape of the $Z$ resonance curve. Therefore, the effect of ISR is reduce the effective centre-of-mass energy of the ingoing particles, which leads to some fraction of $Z^0$ boson invariant mass to be beneath this threshold. 
+\noindent In theory, the minimum invariant mass of the each lepton should be $m_Z / 2$. In addition to the lowest order Feynman diagrams, there are two higher order diagrams where the photon is radiated by initial-state quarks, called Initial State Radiation (ISR), due to which there is a shift in the energy of the ingoing particles, leading to a distortion in the shape of the $Z^0$ resonance curve. Therefore, the effect of ISR is reduce the effective centre-of-mass energy of the ingoing particles, which leads to some fraction of $Z^0$ boson invariant mass to be beneath this threshold. 
 Another possible reason can be that in the case of more than one $Z^0$ boson, the other $Z^0$ boson will not be on-shell due to kinematic reasons. Due to this, we get one $Z^0$ boson and another virtual Z* boson. Hence, the mass of the 4 leptons, would be below the threshold. 
 
 \bigbreak
@@ -771,7 +772,7 @@ shown in Sec. \ref{subsec:mystery} as the projections in such previous figures d
 \end{figure}
 
 To determine the angle in which the muon has entered the detector, we determined the azimuthal angle $\phi_0$ relative to the ATLAS detector. 
-This is obtained by using the ''pick'' option in the ATLANTIS program to select each muon track in each event in this dataset. The azimuthal 
+This is obtained by using the ''pick'' option in the \texttt{ATLANTIS} program to select each muon track in each event in this dataset. The azimuthal 
 angle was then converted into the zenith angle, i.e. the angle from the local zenith. As $\phi_0 \in [0, 2\pi]$ where $\phi_0=0$ 
 is at the positive x-axis, and $\theta \in [-\pi, \pi]$ where $\theta = 0$ is at the local zenith, an azimuthal angle of $\phi_0 = \pi / 2.$
 will be equivalent to $\theta = 0$ as the local zenith is parallel to the y-axis in the detector. Following this logic, we can derive
@@ -815,9 +816,9 @@ Before performing the measurement of the $W$ mass, the data needs to be calibrat
 	\item There could be several parts of the calorimeter which might be inactive. 
 	\item The electron loses a part of its energy in the silicon tracking region before depositing its energy in the calorimeter. 
 \end{enumerate}
-For these reasons, the raw energy values are lower than the true value. Calibration is the way to fix that. 
+For these reasons, the raw energy values are lower than the true value. As such, we apply a calibration to fix these issues.
 
-The mass of the $Z^0$ boson is a well known parameter of the SM. It has been measured to a precision of $2 \times 10^{-6}$ relative uncertainty. The width has been measured upto 1 per thousand. Further, we know that most of the electron-positron pairs in an event originate from $Z^0$. Hence, the $Z^0$ peak, which is a well known signal, can be used in order to calibrate our data. 
+The mass of the $Z^0$ boson is a well known parameter of the SM. It has been measured to a precision of $2 \times 10^{-6}$ relative uncertainty. The width has been measured up to 1 per thousand. Further, we know that most of the electron-positron pairs in an event originate from $Z^0$. Hence, the $Z^0$ peak, which is a well known signal, can be used in order to calibrate our data. 
 
 To perform this calibration, we use the library \texttt{fitZee.C}, which takes the calibration from the file \texttt{ElecCalib.C} and applies that to the data. Applying changes to the \texttt{ElecCalib.C} file and compiling \texttt{fitZee.C} also changes the \texttt{z.Fit()} command. After activating \texttt{root}, the following commands are run:
 
@@ -826,12 +827,12 @@ To perform this calibration, we use the library \texttt{fitZee.C}, which takes t
 fitZee z
 z.Fit("")
 \end{verbatim}
-This creates a calibration object ``z'' which will be used to calibration. The \texttt{z.Fit("")} command fills the histogram and applies the best fit and outputs the fit parameters. The output of this command is shown in Fig. \ref{fig:uncalib}. The $Z$ mass for the uncalibrated data is found to be $89.87 \pm 0.02$ GeV and resolution is $2.588 \pm 0.026$. In the calibration process, the aim is to get the mass as close as possible to the ideal value, which is $91.1876 \pm 0.0021 \ \text{GeV}$. Further, the resolution should also be decreased by at least 0.2, while trying to get a good $\chi^2 / ndf$ value (ndf stands for number of degrees of freedom). A value of approximately 1 is ideal. $\chi^2$ characterizes the characterizes the fit quality and the aim is to usually minimize it. Therefore, a high $\chi^2$ signifies a bad fit. 
+This creates a calibration object \texttt{z} which will be used to calibration. The \texttt{z.Fit("")} command fills the histogram and applies the best fit and outputs the fit parameters. The output of this command is shown in Fig. \ref{fig:uncalib}. The $Z^0$ mass for the uncalibrated data is found to be $89.87 \pm 0.02$ GeV and resolution is $2.588 \pm 0.026$. In the calibration process, the aim is to get the mass as close as possible to the ideal value, which is $91.1876 \pm 0.0021 \ \text{GeV}$. Further, the resolution should also be decreased by at least 0.2, while trying to get a good $\chi^2 / ndf$ value ($ndf$ stands for number of degrees of freedom). A value of approximately 1 is ideal. $\chi^2$ characterizes the fit quality and the aim is to usually minimize it. Therefore, a high $\chi^2$ signifies a bad fit. 
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.8\textwidth]{uncalib}
-    \caption{The output of the uncalibrated data. A resonance near the $Z$ mass can be seen. The red line is the fit and the legend contains the fit parameters.}
+    \caption{The output of the uncalibrated data. A resonance near the $Z^0$ mass can be seen. The red line is the fit and the legend contains the fit parameters.}
     \label{fig:uncalib}
 \end{figure}
 
@@ -840,7 +841,7 @@ One can also look at fits with cuts, i.e., looking at how the fit changes for di
 \begin{verbatim}
 z.Fit("el_phi>0. && el_phi<0.4")
 \end{verbatim}
-Thus, passing the cuts in the fit command allows us to probe different regions of the parameters. The some of the available variables are \texttt{el\_pt} (transverse momentum of electron), \texttt{el\_eta} (psuedorapidity), \texttt{el\_energy} and several others. After applying cuts in several ranges, one can run \texttt{z.List()} and looking at the numbers corresponding to different ranges, stack them in the single plot by running
+Thus, passing the cuts in the fit command allows us to probe different regions of the parameters. Some of the available variables are \texttt{el\_pt} (transverse momentum of electron), \texttt{el\_eta} (psuedorapidity), \texttt{el\_energy} and several others. After applying cuts in several ranges, one can run \texttt{z.List()} and looking at the numbers corresponding to different ranges, stack them in the single plot by running
 
 \begin{verbatim}
 z.Draw(0, 1, 2, 3)
@@ -851,14 +852,14 @@ z.Draw(0, 1, 2, 3)
 	\subfloat[Stacked reconstructed fits of different azimuthal angle, $\phi$, regions. \label{subfig:phi-range}]{{\includegraphics[width=0.47\columnwidth]{phi-range}}}
 	\quad
 	\centering
-	\subfloat[Stacked reconstructed fits of different pseudorapidity, $|\eta|$, regions. \label{subfig:eta-range}]{{\includegraphics[width=0.47\columnwidth]{eta-range}}}
+	\subfloat[Stacked reconstructed fits of different pseudorapidity, $|\eta|$, regions in {[}0, 2.5{]} in 0.5 increments. \label{subfig:eta-range}]{{\includegraphics[width=0.47\columnwidth]{eta-range}}}
 	\caption{Stacked plots of different parameters in different regions. We notice a shift in the peak for different regions.}
 	\label{fig:region-stack}
 \end{figure*}
 
 An example of this is shown in Fig. \ref{fig:region-stack}. A shift in the peak can be seen for different regions. These regions must be studied and calibration must be applied to them. After applying the calibration for several regions, the output is observed and the process is repeated for several more regions and variables. After several trail and errors, we were able to get the desired calibration. 
 
-After applying cuts for different regions of a single variable, the calibration was applied and the output was looked at. Then, with this applied calibration, different regions of another variable were compared as mentioned above and the calibration file was modified to correct for this variables. This was done for these set of variables in the following order: phi, eta, mindrjet (which is the minimum distance of the electron to the nearest jet in the $\eta \phi$ plane), etiso (transverse energy of the electron in the area surrounding it in the calorimeter) and pt (transverse momentum). The corresponding plots are shown in Fig. \ref{fig:calib-process} and the final calibration plot is shown in Fig. \ref{fig:final-calib}. The corresponding code can be found in the Appendix \ref{chap:appendix_code}. 
+After applying cuts for different regions of a single variable, the calibration was applied and the output was looked at. Then, with this applied calibration, different regions of another variable were compared as mentioned above and the calibration file was modified to correct for this variables. This was done for these set of variables in the following order: \texttt{phi, eta, mindrjet} (which is the minimum distance of the electron to the nearest jet in the $\eta \phi$ plane), \texttt{etiso} (transverse energy of the electron in the area surrounding it in the calorimeter) and \texttt{pt} (transverse momentum). The corresponding plots are shown in Fig. \ref{fig:calib-process} and the final calibration plot is shown in Fig. \ref{fig:final-calib}. The corresponding code can be found in the Appendix \ref{chap:appendix_code}. 
 \begin{figure*}[htb!]
 	\centering
 	\subfloat[Calibration for only different regions of $\phi$. \label{subfig:phi-calib}]{{\includegraphics[width=0.47\columnwidth]{phi_calib}}}
@@ -867,10 +868,10 @@ After applying cuts for different regions of a single variable, the calibration 
 	\subfloat[Calibration for $\phi$ followed by $|\eta|$. \label{subfig:eta-calib}]{{\includegraphics[width=0.47\columnwidth]{phi_eta_calib}}}
 	\quad
 	\centering
-	\subfloat[Calibration for $\phi$ and $|\eta|$ followed by mindrjet. \label{subfig:rjet-calib}]{{\includegraphics[width=0.47\columnwidth]{phi_eta_rjet}}}
+	\subfloat[Calibration for $\phi$ and $|\eta|$ followed by \texttt{mindrjet}. \label{subfig:rjet-calib}]{{\includegraphics[width=0.47\columnwidth]{phi_eta_rjet}}}
 	\quad
 	\centering
-	\subfloat[Calibration for $\phi$, $|\eta|$, mindrjet followed by etiso. \label{subfig:etiso-calib}]{{\includegraphics[width=0.47\columnwidth]{phi_eta_rjet_etiso}}}
+	\subfloat[Calibration for $\phi$, $|\eta|$, \texttt{mindrjet} followed by \texttt{etiso}. \label{subfig:etiso-calib}]{{\includegraphics[width=0.47\columnwidth]{phi_eta_rjet_etiso}}}
 	\caption{Calibration applied one after the other for different set of variables.}
 	\label{fig:calib-process}
 \end{figure*}
@@ -878,7 +879,7 @@ After applying cuts for different regions of a single variable, the calibration 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.8\textwidth]{final_calib_fit}
-    \caption{The final fit curve after applying $\phi$, $|\eta|$, mindrjet, etiso followed by $p_T$ calibrations.}
+    \caption{The final fit curve after applying $\phi$, $|\eta|$, \texttt{mindrjet}, \texttt{etiso} followed by $p_T$ calibrations.}
     \label{fig:final-calib}
 \end{figure}
 
@@ -900,7 +901,7 @@ events. \par
 
 In this experiment, we were given several datasets, mostly containing simulated $W \rightarrow e\nu$ events with 
 different $W$ boson masses and real ATLAS data for the same process. A dataset containing real ATLAS data 
-form $Z \rightarrow ee$ events are also contained, used to verify that the gauge curves retrieve the $Z^0$ boson mass accurately, which 
+from $Z \rightarrow ee$ events are also contained, used to verify that the gauge curves retrieve the $Z^0$ boson mass accurately, which 
 is known more accurately than the $W$ boson mass. A list of the datasets is shown in Table \ref{tab:datasets}. 
 
 \begin{table}
@@ -924,10 +925,10 @@ is known more accurately than the $W$ boson mass. A list of the datasets is show
     \label{tab:datasets}
 \end{table}
 
-In addition to the W and $Z^0$ boson datasets, two additional datasets relating to the QCD and non-QCD backgrounds are contained. The QCD
+In addition to the $W$ and $Z^0$ boson datasets, two additional datasets relating to the QCD and non-QCD backgrounds are contained. The QCD
 background dataset are generated from proton-proton collisions where the hard interactions are strong. As it is difficult to 
 simulate the QCD events containing electrons, this background is extracted directly from real ATLAS data instead. While this matches the 
-shape of the QCD backgrounds in the W and $Z^0$ boson datasets, the integrated luminosity are not equal and thus a proper normalization
+shape of the QCD backgrounds in the $W$ and $Z^0$ boson datasets, the integrated luminosity are not equal and thus a proper normalization
 using a scale factor is required for our analysis. The non-QCD backgrounds are extracted from simulated events \cite{labman}. \par 
 
 For all parts of the analysis, we use ROOT and use the C++ library \texttt{Wenu.C+} to load the C++ object used in the analysis. 
@@ -940,27 +941,25 @@ This is loaded with the following commands:
 
 \section{Verification of Electron Calibration}
 
-We first verify if our calibration of the electron momentum performed in Chap. \ref{chap:elec_calib}. This is done by 
-running the \texttt{FitZee} function which acts similarly to the same function in Chap. \ref{chap:elec_calib}. We observed 
+We first verify our calibration of the electron momentum performed in Chap. \ref{chap:elec_calib}. This is done by 
+running the \texttt{FitZee} function which acts similarly to the \texttt{z.Fit} function in Chap. \ref{chap:elec_calib}. We observed 
 this distribution for 4 kinematical regions of interest. The obtained histogram from applying no cuts is shown in Fig. \ref{fig:zee_calib}. 
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.9\textwidth]{zeefit.pdf}
     \caption{The invariant mass distribution of $ee$ from $Z \rightarrow ee$ decays without applying any cuts. The blue points are the 
-    real data from ATLAS, the red line is the Voight function fit, and the green histogram is the simulated data. The background 
+    real data from ATLAS, the red line is the curve fit, and the green histogram is the simulated data. The background 
     is also shown in yellow.}
     \label{fig:zee_calib}
 \end{figure}
 
 We observe that the invariant mass for the $e^+ e^-$ pair is given as $\SI{91.17 \pm 0.01}{\giga\electronvolt}$, which agrees with the 
-world average value of the $Z^0$ boson mass of $\SI{91.1876 \pm 0.0023}{\giga\electronvolt}$ within 1.76 sigma \cite{ParticleDataGroup:2020ssz}.
-While this may not be within $1\sigma$, as we did not prudently calibrate the dataset for all possible parameters, we agree that the 
-calibration is indeed properly set for our analysis. \par 
+world average value of the $Z^0$ boson mass of $\SI{91.1876 \pm 0.0023}{\giga\electronvolt}$ within $1.76\sigma$ \cite{ParticleDataGroup:2020ssz}.
+One of the reason for this deviation may be due to the fact that the scaling for the calibration was only performed to two significant digits. The mass values themselves yield similar results and thus we agree that the calibration is properly applied. \par 
 
 We also observe the invariant masses for the same distribution with different cuts: \texttt{el\_energy} $<$ 50 ($E_e < \SI{50}{\giga\electronvolt}$), \texttt{el\_eta} $<$ 1 
-($\eta < 1$), and \texttt{el\_pt} $<$ 40 ($p_{T_e} < \SI{40}{\giga\electronvolt}$). \textcolor{red}{explain why we used these energy cuts? 
-(pseudorapidity since central region -> high number of particles)}See Appendix \ref{chap:appendix_figs} for the 
+($\eta < 1$), and \texttt{el\_pt} $<$ 40 ($p_{T_e} < \SI{40}{\giga\electronvolt}$). See Appendix \ref{chap:appendix_figs} for the 
 invariant mass distributions for each cut. From these distributions, we obtain the following invariant masses for each cut 
 respectively: 
 $\SI{90.93 \pm 0.02}{\giga\electronvolt}$, $\SI{91.14 \pm 0.01}{\giga\electronvolt}$, $\SI{90.94 \pm 0.02}{\giga\electronvolt}$. 
@@ -991,7 +990,7 @@ in Fig. \ref{fig:elpt_nocuts}. See Appendix \ref{chap:appendix_figs} for the dis
 From the $p_T$ distribution of electrons, we observe that the amplitude of the simulated data (and the backgrounds) are much 
 higher than the real data. This is caused by the uncalibrated scaling of the QCD background, and as such we set a scale factor 
 so that the two data coincide. To do this, we use the function \texttt{w.SetQCDScaleFactor(VALUE)} and we set a preliminary 
-value of 0.3. See Fig. \ref{fig:elpt_qcd30} for the effect on applying such scale factor to the electron $p_T$ distribution. 
+value of 0.3. See Fig. \ref{fig:elpt_qcd30} for the effect on applying such scale factor to the electron $p_T$ distribution. In the following sections, we will refine the scaling parameter after applying cuts and setting fitting ranges. \par
 
 \begin{figure}[htpb]
     \centering
@@ -1000,7 +999,7 @@ value of 0.3. See Fig. \ref{fig:elpt_qcd30} for the effect on applying such scal
     \label{fig:elpt_qcd30}
 \end{figure}
 
-In the following sections, we will refine the scaling parameter after applying cuts and setting fitting ranges. \par 
+ 
 
 To obtain a sharp Jacobi peak, we want to reduce the smearing of the peak as much as possible. One factor that contributes 
 to such smearing is the transverse momentum of the $W$ boson $p_{T_W}$ as mentioned in Sec. \ref*{sec:gauge_bosons}. To reduce this, 
@@ -1008,8 +1007,7 @@ we filter events in which several jets are produced. The $W$ bosons obtained fro
 produced with the proton-proton collision, yielding a finite $W$ boson transverse momentum. This is shown in the $p_{T_W}$ distribution 
 for different number of jets in Figs. \ref{fig:ptw_njet0} and \ref{fig:ptw_njets}. For events with no jets, the distribution is 
 sharply peaked close to zero, however the peak shifts to $p_{T_W} \approx \SI{50}{\giga\electronvolt}$ for events with one or more jets. 
-We also observe that the number of events decrease as we increase the number of jets, indicating that the dominant events are those with 
-no jets. We further observe from these distributions that the QCD background increases as the number of jets increase due to the number of QCD processes involved. For the distributions with 
+We also observe that the number of events decrease as we increase the number of jets, indicating that most events in this dataset are those without any jets. We further observe from these distributions that the QCD background increases as the number of jets increase due to the number of QCD processes involved. For the distributions with 
 three and four jets, the QCD background overlaps the simulated data itself.  
 
 \begin{figure}[htpb]
@@ -1037,8 +1035,7 @@ three and four jets, the QCD background overlaps the simulated data itself.
 \end{figure*}
 
 From such plots, we observe that in order to reduce $p_{T_W}$ and thus reduce the smearing of the Jacobi peak,
- we should set a cut of the number of jets such that events with no jets are chosen. \textcolor{red}{if works, add 
- stuff about cut of $W$ boson momentum too}
+ we should set a cut of the number of jets such that events with no jets are chosen. 
  
 \section{QCD Scale Factor and Cut Selection}   \label{sec:qcdscale_cuts}
 
@@ -1069,8 +1066,8 @@ yields amplitudes close to the real ATLAS data. \par
 \end{figure*}
 
 To estimate the uncertainty due to the QCD scale factor, we varied the scale factor until the deviation between the real data 
-and the simulated data was significant (by eye). From this we, chose that the scale factor is acceptable between 0.28 and 
-0.30. See Appendix \ref{chap:appendix_figs} for the distributions in the full range 
+and the simulated data was significant (by eye). From this we chose that the scale factor is acceptable between 0.28 and 
+0.32. See Appendix \ref{chap:appendix_figs} for the distributions in the full range 
 and in the high QCD background region for the two scale factors mentioned. This will be important in quantifying the systematic 
 errors for the $W$ boson mass. \par 
 
@@ -1096,12 +1093,12 @@ is suppressed in higher $p_{T_W}$ values as expected.
 
 We now apply the fit provided in ROOT to obtain the half-maximum of the electron $p_T$ distribution. This was performed using the 
 command \texttt{w.GetHalfMaximum(DATASET, XMIN, XMAX)} for each simulated dataset given in Table \ref{tab:datasets}, 
-corresponding to masses $m_W = 75, 78, 79, 80, 81, 82, \mathrm{ and } 85 \si{\giga\electronvolt}$. To efficiently run this portion 
-of the analysis, a macro file \texttt{WMacro.c} was constructed (see Appendix \ref{chap:appendix_code}). The resulting half-maximum plots 
+corresponding to masses $m_W =$ 75, 78, 79, 80, 81, 82, and 85 $\si{\giga\electronvolt}$. To efficiently run this portion 
+of the analysis, a macro file \texttt{WMacro.C} was constructed (see Appendix \ref{chap:appendix_code}). The resulting half-maximum plots 
 for each mass is shown in Appendix \ref{chap:appendix_figs}. Here we show the results for $m_W = \SI{80}{\giga\electronvolt}$ as 
 an example, shown in Fig \ref{fig:hm_m80}. For this analysis, we used the fitting range of [28, 60].
 
-\begin{figure}[htpb]
+\begin{figure}[htb!]
     \centering
     \includegraphics[width=0.6\textwidth]{hm_80.pdf}
     \caption{Half-maximum fit of electron $p_T$ spectrum for simulated data with $m_W = \SI{80}{\giga\electronvolt}$.}
@@ -1115,7 +1112,7 @@ obtained half-maximum $h$ as such:
     \label{eq:half_max}
 \end{equation}
 
-\begin{figure}[htpb]
+\begin{figure}[htpb!]
     \centering
     \includegraphics[width=0.7\textwidth]{gauge_curve.pdf}
     \caption{Gauge curve between half-maximum from fit with simulated data against $W$ boson mass.}
@@ -1126,11 +1123,11 @@ This line is called the gauge curve. The corresponding gauge curve for the seven
 linear fit was evaluated by the Python module \texttt{lmfit} that utilizes the Levenberg-Marquardt method. Table \ref{tab:gauge_params} 
 shows the obtained parameters from the fitting procedure.
 
-\begin{table}
+\begin{table}[htb!]
     \centering
     \begin{tabular}{|c|c|c|} \hline
     a & b [$\si{\giga\electronvolt}$] &  $\chi^2$  \\ \hline
-    $0.5214 \pm 0.0080$ & $1.04 +- 0.64$  & 8.68  \\ \hline
+    $0.5214 \pm 0.0080$ & $1.04 \pm 0.64$  & 8.68  \\ \hline
     \end{tabular}
     \caption{Parameters obtained from fitting the gauge curve.}
     \label{tab:gauge_params}
@@ -1150,13 +1147,12 @@ The covariance matrix obtained from the fit is shown as such:
     \label{eq:cov_matrix}
 \end{equation}
 
-As the degrees of freedom is $ndof = 7 - 2 = 5$, we observe that the reduce chi-squared $\chi^2 / ndof = 1.74$, which is close to 1, 
-indicating that the fit is good.\par 
+As the degrees of freedom is $ndf = 7 - 2 = 5$, we observe that the reduce chi-squared $\chi^2 / ndf = 1.74$, which is close to 1, indicating that the fit is good.\par 
 
 Using the obtained gauge curve, we can now determine the mass of the $W$ boson from the real ATLAS data. To do this, we get the 
 half-maximum of the real ATLAS data by using the same command \texttt{w.GetHalfMaximum} for the ATLAS dataset \texttt{Wenu}. From this, 
 we obtain the half-maximum to be $h = 42.989 \pm 0.049$ GeV. See Fig. \ref{fig:hm_atlas} for the electron $p_T$ spectrum with the ATLAS data. 
-The mass of the $W$ boson is then obtained by rearranging \ref{eq:half_max} so that:
+The mass of the $W$ boson is then obtained by rearranging Eq. \ref{eq:half_max} so that:
 \begin{equation}
     m_W = \frac{h - b}{a}.
 \end{equation} 
@@ -1179,7 +1175,7 @@ where the error is evaluated by the following:
                         + \left( \frac{\partial m_W}{\partial b} \sigma_b\right)^2
                         + 2 \left( \frac{\partial m_W}{\partial a}\right) \left( \frac{\partial m_W}{\partial b}\right) \sigma_{ab} \right|} \\
             &= m_W \sqrt{\left| \left(\frac{\sigma_h}{(h - b)}\right)^2 + \left(\frac{\sigma_a}{a}\right)^2 + 
-                            \left(\frac{\sigma_b}{(h - b)}\right)^2 + 2\left(\frac{\sigma_{ab}}{a(h - b)}\right) \right|} \\
+                            \left(\frac{\sigma_b}{(h - b)}\right)^2 + 2\left(\frac{\sigma_{ab}}{a(h - b)}\right) \right|} 
 \end{align}
 where $\sigma_a, \sigma_b, \sigma_h$ are the uncertainties obtained from the fit parameters and the uncertainty from the 
 half-maximum fit, and $\sigma_{ab}$ are related to the correlation coefficients from the covariance matrix of the fit as shown in Eq. \ref{eq:cov_matrix}.
@@ -1188,7 +1184,7 @@ Here, the error is purely statistical. We observe that our result is $0.18\sigma
 
 
 To cross-check our results, we use the $Z \rightarrow ee$ distribution from real ATLAS data and find the half-maximum fit from 
-the electron $p_T$ distribution. The $Z^0$ boson is used as the mass of the $Z^0$ boson is well known to a high accuracy. 
+the electron $p_T$ distribution. 
 The procedure is identical with the $W$ boson except with replacing the dataset \texttt{Wenu} to 
 \texttt{Zee}. We obtained the half-maximum $h = \SI{48.457 \pm 0.045}{\giga\electronvolt}$, shown in Fig. \ref{fig:hm_zee}. From this, 
 we obtain the mass of the $Z^0$ boson as such: 
@@ -1197,7 +1193,7 @@ we obtain the mass of the $Z^0$ boson as such:
 \end{equation}
 which is $1.26\sigma$ from the literature value of the $Z^0$ boson mass of $\SI{91.1876 \pm 0.0021}{\giga\electronvolt}$. Thus the 
 obtained $Z^0$ boson mass is not within one sigma of the literature value. This may be attributed to the noisy dataset. We observe from 
-Fig. \ref{fig:hm_zee} that the peak in the ATLAS data has large fluctuations thus decreasing the goodness of fit for the half-maximum.
+Fig. \ref{fig:hm_zee} that the peak in the ATLAS data has large fluctuations thus decreasing the goodness of fit for the half-maximum. Furthermore, this dataset may have had a high statistical fluctuation which can contribute to the deviation. 
 
 \begin{figure}[htpb]
     \centering
@@ -1222,8 +1218,8 @@ relative uncertainty between the systematic error in the $Z^0$ boson and $W$ bos
 \end{equation} 
 As we have performed our calibration using the $Z^0$ boson mass, we can determine the systematic error from calibration in this manner. 
 The systematic error from calibration for the $Z^0$ boson is given by the difference from the obtained and 
-expected value: $\sigma_{m_Z, \mathrm{calib}} = 90.94 - 91.1876 = -\SI{0.25}{\giga\electronvolt}$ (where we have taken two 
-significant figures to match those of the statistical errors). From this, we obtain the 
+expected value: $\sigma_{m_Z, \mathrm{calib}} = 90.94 - 91.1876 = -\SI{0.25}{\giga\electronvolt}$, where we have taken two 
+significant figures to match those of the statistical errors. From this, we obtain the 
 systematic error from calibration for the $W$ boson mass as such: 
 \begin{equation}
     \sigma_{m_W, \mathrm{calib}} = (\SI{80.45}{\giga\electronvolt}) \cdot \left( \frac{\SI{-0.25}{\giga\electronvolt}}{\SI{90.94}{\giga\electronvolt}}\right) = -\SI{0.22}{\giga\electronvolt}
@@ -1240,16 +1236,15 @@ the scale factors until the deviation in the shape of the high QCD background re
 maximal and minimal scale factors that yield this deviation and determine the $W$ boson mass with the same configuration. \par 
 
 The QCD scale factors, as mentioned in Sec. \ref{sec:qcdscale_cuts} were chosen to be 0.28 and 0.32 for the minimal and maximal scale 
-factor respectively. Table \ref{tab:qcd_syserr} shows the W and $Z^0$ boson masses obtained from using the two scale factors. The half-maxima fits obtained for each 
-scale factor for the simulated $W$ boson mass for $m_W = \SI{80}{\giga\electronvolt}$ is shown in Appendix \ref{chap:appendix_figs}. \textcolor{red}{edit appendix 
-referencing for each figure (and code)!}
+factor respectively. Table \ref{tab:qcd_syserr} shows the $W$ and $Z^0$ boson masses obtained from using the two scale factors. The half-maxima fits obtained for each 
+scale factor for the simulated $W$ boson mass for $m_W = \SI{80}{\giga\electronvolt}$ is shown in Appendix \ref{chap:appendix_figs}. 
 
-\begin{table}
+\begin{table}[htb!]
     \centering
     \begin{tabular}{|c|c|c|} \hline
     QCD Scale Factor &  $m_W / \si{\giga\electronvolt}$ & $m_Z / \si{\giga\electronvolt}$\\ \hline
-    0.28 & $\SI{80.42 \pm 0.104}{\giga\electronvolt}$ & $\SI{90.92 \pm 0.20}{\giga\electronvolt}$ \\ 
-    0.32 & $\SI{80.47 \pm 0.103}{\giga\electronvolt}$ & $\SI{90.92 \pm 0.18}{\giga\electronvolt}$ \\ \hline
+    0.28 & $\num{80.42 \pm 0.104}$ & $\num{90.92 \pm 0.20}$ \\ 
+    0.32 & $\num{80.47 \pm 0.103}$ & $\num{90.92 \pm 0.18}$ \\ \hline
     \end{tabular}
     \caption{$W$ boson and $Z^0$ boson masses from QCD scale factors of 0.28 and 0.32. The variation of the QCD scale factor 
     does not show large deviation between the real and simulated data between these values.}
@@ -1261,11 +1256,11 @@ factor we have set (0.30), yielding:
 \begin{align}
     \sigma_{m_W, \mathrm{QCD, max}} = \SI{80.47}{\giga\electronvolt} - \SI{80.45}{\giga\electronvolt} = \SI{0.02}{\giga\electronvolt} \\
     \sigma_{m_W, \mathrm{QCD, min}} = \SI{80.42}{\giga\electronvolt} - \SI{80.45}{\giga\electronvolt} = -\SI{0.03}{\giga\electronvolt} \\
-    \sigma_{m_Z, \mathrm{QCD}} = \SI{90.94}{\giga\electronvolt} - \SI{90.92}{\giga\electronvolt} = \SI{0.02}{\giga\electronvolt} \\
+    \sigma_{m_Z, \mathrm{QCD}} = \SI{90.94}{\giga\electronvolt} - \SI{90.92}{\giga\electronvolt} = \SI{0.02}{\giga\electronvolt}
 \end{align}
 where the systematic error for the $Z^0$ boson was determine by subtracting the mass of either scale factor (0.28, 0.32) from our original 
 case (0.30) as both scale factors yield the same value of $m_Z$.
-As the systematic error is small, it is clear that the QCD background scale factor does not impact the analysis when compared to the other systematic
+As the systematic error is small, it is clear that the QCD background scale factor does not impact the analysis significantly when compared to the other systematic
   errors and the statistical error. 
 
 \subsection{Fit Region}
@@ -1273,18 +1268,18 @@ As the systematic error is small, it is clear that the QCD background scale fact
 The third systematic error that we need to consider is the impact of the fit region as the choice of the fitting region 
 strongly impacts the half-maximum chosen for each distribution. To quantify this, we take the maximal and minimal 
 region width of the fitting range such that the shape of the fit stays consistent with the original distribution from 
-Fig. \ref{fig:hm_m80}. Table \ref{tab:fitregion_syserr} shows the obtained W and $Z^0$ boson masses obtained at these ranges. 
+Fig. \ref{fig:hm_m80}. Table \ref{tab:fitregion_syserr} shows the obtained $W$ and $Z^0$ boson masses obtained at these ranges. 
 The half-maximum plot with $m_W = \SI{80}{\giga\electronvolt}$ are shown in Appendix \ref{chap:appendix_figs}.
 
-\begin{table}
+\begin{table}[htb!]
     \centering
     \begin{tabular}{|c|c|c|} \hline
     Fit Region &  $m_W / \si{\giga\electronvolt}$ & $m_Z / \si{\giga\electronvolt}$ \\ \hline
-    [26, 65] & $\SI{80.35 \pm 0.11 }{\giga\electronvolt}$ & $\SI{90.74 \pm 0.23}{\giga\electronvolt}$ \\ 
-    {[}30, 50{]} & $\SI{80.63 \pm 0.12 }{\giga\electronvolt}$ & $\SI{90.46 \pm 0.25}{\giga\electronvolt}$ \\ \hline 
+    [26, 65] & $80.35 \pm 0.11$ & $90.74 \pm 0.23$ \\ 
+    {[}30, 50{]} & $80.63 \pm 0.12$ & $90.46 \pm 0.25$ \\ \hline 
     \end{tabular}
     \caption{Same as Table \ref{tab:qcd_syserr} but for maximal and minimal region widths in which the distribution 
-    does not significantly deviate from the initial one (shown in Fig. \ref{fig:hm_m80}).}
+    does not significantly deviate from the initial one (Fig. \ref{fig:hm_m80}).}
     \label{tab:fitregion_syserr}
 \end{table}
 % [30, 50] & $\SI{80.63 \pm 0.12}{\giga\electronvolt}$ & $\SI{90.46 \pm 0.25}{\giga\electronvolt}$ \\ \hline
@@ -1292,7 +1287,7 @@ The systematic error is evaluated similarly to how the systematic error was eval
 \begin{align}
     \sigma_{m_W, \mathrm{region, max}} = \SI{80.35}{\giga\electronvolt} - \SI{80.45}{\giga\electronvolt} = -\SI{0.10}{\giga\electronvolt} \\
     \sigma_{m_W, \mathrm{region, min}} = \SI{80.63}{\giga\electronvolt} - \SI{80.45}{\giga\electronvolt} = \SI{0.18}{\giga\electronvolt} \\
-    \sigma_{m_Z, \mathrm{region}} = \SI{90.46}{\giga\electronvolt} - \SI{90.92}{\giga\electronvolt} = -\SI{0.46}{\giga\electronvolt} \\
+    \sigma_{m_Z, \mathrm{region}} = \SI{90.46}{\giga\electronvolt} - \SI{90.92}{\giga\electronvolt} = -\SI{0.46}{\giga\electronvolt} 
 \end{align}
 where the systematic error of the $Z^0$ boson was set as such since the difference of the $Z^0$ boson mass between the maximal
  region and the original region is smaller than those from the minimal and original region. Thus we observe that the impact from 
@@ -1303,26 +1298,26 @@ where the systematic error of the $Z^0$ boson was set as such since the differen
  
 \subsection{Cut Selections}
 
-Finally, we investigate the effect of the cuts we applied to the obtained masses of the W and $Z^0$ boson. In order to quantify this, 
-we obtain the W and $Z^0$ boson masses for each cut that we apply. Table \ref{tab:cut_syserr} shows the resulting masses. See Appendix \ref{chap:appendix_figs}
+Finally, we investigate the effect of the cuts we applied to the obtained masses of the $W$ and $Z^0$ boson. In order to quantify this, 
+we obtain the $W$ and $Z^0$ boson masses for each cut that we apply. Table \ref{tab:cut_syserr} shows the resulting masses. See Appendix \ref{chap:appendix_figs}
 for the half-maximum plot for simulated mass with $m_W = \SI{80}{\giga\electronvolt}$. 
 
-\begin{table}
+\begin{table}[htb!]
     \centering
     \begin{tabular}{|c|c|c|} \hline
     Cut Selection &  $m_W / \si{\giga\electronvolt}$ & $m_Z / \si{\giga\electronvolt}$\\ \hline
-    None & $\SI{81.68 \pm 0.125}{\giga\electronvolt}$ & $\SI{96.21 \pm 0.52}{\giga\electronvolt}$ \\ 
-    \texttt{njet == 0} & $\SI{80.28 \pm 0.10}{\giga\electronvolt}$ & $\SI{90.91 \pm 0.17}{\giga\electronvolt}$ \\
-    \texttt{el\_etiso} $< 8$ & $\SI{80.97 \pm 0.14}{\giga\electronvolt}$ & $\SI{93.50 \pm 0.72}{\giga\electronvolt}$ \\
-    \texttt{el\_etiso} $< 8$ \& \texttt{njet == 0} & $\SI{80.45 \pm 0.10}{\giga\electronvolt} $ & $\SI{90.94 \pm 0.20}{\giga\electronvolt}$ \\ \hline
+    None & $81.68 \pm 0.125$ & $96.21 \pm 0.52$ \\ 
+    \texttt{njet == 0} & $80.28 \pm 0.10$ & $90.91 \pm 0.17$ \\
+    \texttt{el\_etiso} $< 8$ & $80.97 \pm 0.14$ & $93.50 \pm 0.72$ \\
+    \texttt{el\_etiso} $< 8$ \& \texttt{njet == 0} & $80.45 \pm 0.10 $ & $90.94 \pm 0.20$ \\ \hline
     \end{tabular}
     \caption{Same as Table \ref{tab:qcd_syserr} but for the different cuts applied. The last entry show the results from 
     the cuts that we chose for our analysis.}
     \label{tab:cut_syserr}
 \end{table}
 
-From this, we observe that selecting \texttt{njet == 0} reduces the masses of the W and $Z^0$ boson. This is caused by the reduced 
-transverse momentum of the W and $Z^0$ boson which in turn reduces the smearing in the Jacobi peak. Further the cut selection 
+From this, we observe that selecting \texttt{njet == 0} reduces the masses of the $W$ and $Z^0$ boson. This is caused by the reduced 
+transverse momentum of the $W$ and $Z^0$ boson which in turn reduces the smearing in the Jacobi peak. Further the cut selection 
 \texttt{el\_etiso} $< 8$ increases the mass of the particle, which is attributed by identification of more isolated electrons in the 
 jets. We thus observe that applying both cuts (as we do in our analysis) reduces the masses, but not as much as applying a single 
 cut for the number of jets.
@@ -1339,7 +1334,7 @@ and the mass of the $Z^0$ boson is given as such:
     m_Z = 90.94 \pm 0.20 (\mathrm{stat.}) \: -0.25 \: + 0.02 \: -0.46 \: (\mathrm{sys.}) \si{\giga\electronvolt}
 \end{equation}
 
-We observe that taking into account both systematic and statistical uncertainties, the W and $Z^0$ boson mass are both 
+We observe that taking into account both systematic and statistical uncertainties, the $W$ and $Z^0$ boson mass are both 
 within one sigma of the most recent value $80.433 \pm 0.009 \ \text{GeV}$ and literature value 
 $\SI{91.1876 \pm 0.0021}{\giga\electronvolt}$ respectively. 
 
@@ -1351,12 +1346,12 @@ to our dataset. \par
 
 We first explored the graphical interface \texttt{ATLANTIS} that allows us to observe the signatures from different particle 
 production from proton-proton collisions. We investigated the signatures shown by simulated datasets for the 
-electron, muon, photon, tau lepton, dijets, W and $Z^0$ boson. From this, we observed that the signatures match the expected 
+electron, muon, photon, tau lepton, dijets, $W$ and $Z^0$ boson. From this, we observed that the signatures match the expected 
 behavior from their particle properties. We then explored two other datasets. In the mystery data set, we start from the vertex and work our way outwards. After going through each layer of the detector and looking at the possible SM processes responsible for the hits or energy deposit, we do not rule out any SM process that is not contained in the data set. 
-We also observed the real ATLAS dataset that detected cosmic ray muons in the detector. We observed that the muon angular
+We also investigated the real ATLAS dataset that detected cosmic ray muons in the detector. We observed that the muon angular
 distribution does not yield the $\cos^2 \theta$ behaviour as observed in sea level, but rather a sharper distribution instead. \par
 
-We then performed calibration to our dataset using the $Z^0$ boson mass with the invariant $m_{ee}$ distribution. For the uncalibrated data, the mass was $89.87 \pm 0.02$ GeV and the resolution was $2.588 \pm 0.026$. After applying energy scaling in the following order for variables in different regions of its spectrum: phi, eta, mindrjet, etiso and pt, one after the other, we were able to achieve a mass of $91.198 \pm 0.0196$ GeV and a resolution of $2.342 \pm 0.024$. \par 
+We then performed calibration to our dataset using the $Z^0$ boson mass with the invariant $m_{ee}$ distribution. For the uncalibrated data, the mass was $89.87 \pm 0.02$ GeV and the resolution was $2.588 \pm 0.026$. After applying energy scaling in the following order for variables in different regions of its spectrum: \texttt{phi}, \texttt{eta}, \texttt{mindrjet}, \texttt{etiso} and \texttt{pt}, one after the other, we were able to achieve a mass of $91.198 \pm 0.0196$ GeV and a resolution of $2.342 \pm 0.024$. \par 
 
 From this calibration, we measured the mass of the $W$ boson. We first verified that the calibration was applied correctly by 
 comparing the invariant $m_{ee}$ distribution, yielding the $Z^0$ boson mass of $\SI{91.17 \pm 0.01}{\giga\electronvolt}$, which 
@@ -1380,7 +1375,7 @@ within one sigma. \par
 
 To cross check our analysis, we determined the mass of the $Z^0$ boson using the same procedure as before, obtaining 
 $m_Z = \SI{90.94 \pm 0.20}{\giga\electronvolt}$, which was $1.26\sigma$ away from the literature value. The deviation was attributed 
-to the noisy dataset, where the noise is particularly prominent at the peak. \par 
+to the noisy and statistically fluctuating dataset, where the noise is particularly prominent at the peak. \par 
 
 Finally, we considered the different systematic effects that could influence our measurement. The calibration process and the 
 variation of the fit region influenced the $W$ boson mass significantly as it yielded uncertainties that are close to or larger 
@@ -1393,6 +1388,11 @@ All in all, from this experiment we obtained the $W$ boson mass to be $m_W = 80.
 value of  $80.433 \pm 0.009 \ \text{GeV}$. The $Z^0$ boson mass, after considering the systematic effects, was also shown to be $m_Z = 90.94 \pm 0.20 (\mathrm{stat.}) \: 
 -0.25 \: + 0.02 \: -0.46 \: (\mathrm{sys.}) \si{\giga\electronvolt}$, which is now within one sigma of the literature value 
 $\SI{91.1876 \pm 0.0021}{\giga\electronvolt}$. 
+
+\chapter{Acknowledgements}
+
+We would like to thank our tutor Christina Dimitriadi for guiding us throughout this experiment. We are thankful for her generous suggestions for each part of the analysis. We also appreciate the fact that despite the laboratory being entirely remotely conducted, she was ready to help us at any time during the experiment. We also thank the Advanced Laboratory Course for granting us the opportunity to develop skills in data analysis in particle physics, especially with real data from the ATLAS experiment. 
+
 
 \printbibliography
 
@@ -1599,11 +1599,11 @@ Below we show the code used to determine the half-maximum plots for each simulat
     \begin{verbatim}
         {
         Wenu w;
-        w.SetQCDScaleFactor(0.22);
+        w.SetQCDScaleFactor(0.30);
         w.SetCutSelection("el_etiso < 8 && njet == 0");
 
-        double xmin = 26.;
-        double xmax = 55.;
+        double xmin = 28.;
+        double xmax = 60.;
 
         TCanvas* c1 = new TCanvas("c1");
         c1->Clear();
