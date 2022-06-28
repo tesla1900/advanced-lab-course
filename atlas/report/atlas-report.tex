@@ -68,7 +68,7 @@
 	
 	\textsc{\large Performed on: May 23 - 24, 2022}\\[0.5cm] % Minor heading such as course title
 
-	\textsc{\large Submitted on: June 2x, 2022}\\[0.5cm] % Minor heading such as course title
+	\textsc{\large Submitted on: June 28, 2022}\\[0.5cm] % Minor heading such as course title
 	
 	%------------------------------------------------
 	%	Title
@@ -107,7 +107,7 @@
 		\begin{centering}
 			% \large
 			\textbf{Abstract}\\[0.2cm]
-            In this experiment, the aim is to determine the mass of the $W$ boson. This is done by getting familiar with particle reactions at ATLAS using the ATLANTIS program. As a part of the assignment, \texttt{mystery-035-f.zip} data set and \texttt{ATLASData-Cosmics-M5.zip} data set were studied. After that, calibration was applied to the raw data using the $Z^0$ peak. The calibrated data gave a peak at $91.198 \pm 0.0196$ GeV, which corresponds to the mass of $Z^0$ and the resolution of $2.342 \pm 0.024$. After applying the calibration to the data, the $W$ boson mass is determined by observing the position of Jacobi peak. Further, uncertainties arising due to systematic errors were considered. A mass of $80.45 \pm 0.10 (\mathrm{stat.}) \: -0.22 \: ^{+0.02}_{-0.03} \: ^{+0.10}_{-0.18} \: (\mathrm{sys.})$ GeV was obtained, which is $0.18\sigma$ away from the literature value. Using the gauge curve, the mass of $Z^0$ was determined using real ATLAS data and a value of $90.94 \pm 0.20 (\mathrm{stat.}) \: -0.25 \: + 0.02 \: -0.46 \: (\mathrm{sys.})$ GeV was obtained. This value is $1.26\sigma$ away from the literature value. The cause for these deviations is attributed to noisy data in the peak region and statistical fluctuations. 
+            In this experiment, we investigate real and simulated ATLAS data sets and determine the mass of the $W$ boson. We do this by getting familiar with particle reactions at ATLAS using the ATLANTIS program. As a part of the assignment, we studied the \texttt{mystery-035-f.zip} data set and \texttt{ATLASData-Cosmics-M5.zip} data set. After that, we applied calibration to the raw data using the $Z^0$ peak. The calibrated data gave a peak at $91.198 \pm 0.0196$ GeV, which corresponds to the mass of $Z^0$ boson, and we obtain a resolution of $2.342 \pm 0.024$. After applying the calibration to the data, we determined the $W$ boson mass by observing the position of Jacobi peak. We set the QCD background scaling factor to 0.3 and applied cuts of \texttt{el\_etiso} $< 8$ GeV and \texttt{njet} $=0$. Further, we considered uncertainties arising due to systematic errors. Using the gauge curve with half-maximum points from simulated data sets, we obtained a mass of $80.45 \pm 0.10 (\mathrm{stat.}) \: -0.22 \: ^{+0.02}_{-0.03} \: ^{+0.10}_{-0.18} \: (\mathrm{sys.})$ GeV from real ATLAS data, which is $0.18\sigma$ away from the literature value. Similarly, we determine the mass of $Z^0$ and we obtain a value of $90.94 \pm 0.20 (\mathrm{stat.}) \: -0.25 \: + 0.02 \: -0.46 \: (\mathrm{sys.})$ GeV. This value is $1.26\sigma$ away from the literature value. The cause for these deviations is attributed to noisy data in the peak region and statistical fluctuations. However, when considering systematic uncertainties we observe that varying the fit region and the calibration also strongly affected the deviation. 
 		\end{centering}
 	\end{minipage}
 	
@@ -141,18 +141,18 @@
 
 \chapter{Introduction} \label{chap:intro}
 
-In this laboratory experiment, we are introduced to the physics of the Large Hadron Collider (LHC). At LHC, proton beams are collided at a center-of-mass energy of $14 TeV$. Such high energies allow us to probe the structure of fundamental particles and study their interactions with high precision. Studying physics at this scale allows us to answer bigger questions, about cosmology, what our universe is composed of and what happened in the events that followed the Big Bang. Further, it could hold answers to physics that has never been observed before, which would further our understanding of the universe. 
-This search for answers pushed physicists around the world to build bigger colliders that could reach higher energies. And with each of these, came the discoveries of fundamental particles, with the last of them being the Higgs Boson, discovered in the year 2012. 
+In this laboratory experiment, we are introduced to the physics of the Large Hadron Collider (LHC). At LHC, proton beams are collided at a center-of-mass energy of $14$ TeV. Such high energies allow us to probe the structure of fundamental particles and study their interactions with high precision. Studying physics at this scale allows us to answer bigger questions, about cosmology, what our universe is composed of and what happened in the events that followed the Big Bang. Further, it could hold answers to physics that has never been observed before, which would further our understanding of the universe. 
+This search for answers pushed physicists around the world to build bigger colliders that could reach higher energies. And with each of these came the discoveries of fundamental particles, with the last of them being the Higgs Boson, discovered in the year 2012. 
 
-In this experiment, we start off by getting familiar with ATLANTIS, a program that displays particle reactions graphically. Using ATLANTIS we explore several data sets and get familiar with different kinds of decay channels at LHC. As a part of assignment, we study two different data sets in particular and do an analysis with it. This is followed by calibration of the raw data, which is done by calibrating the invariant mass distribution of electron positron pair to a well-known Standard Model (SM) parameter, the mass of $Z^0$ boson. After applying the calibration to the data, we measure the mass of the $W$ boson. This is done by observing the position of the Jacobi peak from the electron $p_T$ distribution resulting from $W \rightarrow e\nu$ 
+In this experiment, we start off by getting familiar with ATLANTIS, a program that displays particle reactions graphically. Using ATLANTIS we explored several data sets and got familiar with different kinds of decay channels at LHC. As a part of assignment, we analyzed two different data sets in particular. This is followed by calibration of the raw data, which is done by calibrating the invariant mass distribution of electron positron pair to a well-known Standard Model (SM) parameter, the mass of $Z^0$ boson. After applying the calibration to the data, we measure the mass of the $W$ boson. This is done by observing the position of the Jacobi peak from the electron $p_T$ distribution resulting from $W \rightarrow e\nu$ 
 events. We apply the gauge curve to real ATLAS data to determine the mass of $Z^0$ boson to cross check our results. Lastly, we consider systematic errors that arise during the measurements. 
 
-In Chapter \ref{chap:theory}, we briefly go through the important theory behind the SM and the ATLAS detector. In Chapter \ref{chap:prelab}, we provide solutions to the pre-lab questions from the laboratory manual. In Chapter \ref{chap:atlantis}, we use the ATLANTIS program to look at the particle reactions of several data set. Further, we do an analysis of the \texttt{mystery-035-f.zip} data set and \texttt{ATLASData-Cosmics-M5.zip} data set. In Chapter \ref{chap:elec_calib}, we use the well-know parameter of SM, the $Z^0$ mass in order to calibrate our data. This is done by tweaking the energy scaling of different parameters in different regions of its spectrum. In Chapter \ref{chap:wboson}, we use the Jacobi peak to determine the mass of $W$ boson. Further, using simulated data, which considers different masses of $W$ boson, we obtain the parameters for gauge curve, which allows us to obtain the $W$ mass. We cross verify this result by using the curve to determine the mass of $Z^0$ boson. In Appendix \ref{chap:appendix_figs}, we include additional figures for the sake of completeness. In Appendix \ref{chap:appendix_code}, we include the code used for calibration of electrons and macro file used for obtaining half-maximum for each simulated plot. This report closely follows the student lab manual from \cite{labman}. All the constants for SM particles were obtained from \cite{ParticleDataGroup:2020ssz}. All units are in natural units, i.e., $c = \hbar = 1$. 
+In Chapter \ref{chap:theory}, we briefly go through the important theory behind the SM and the ATLAS detector. In Chapter \ref{chap:prelab}, we provide solutions to the pre-lab questions from the laboratory manual. In Chapter \ref{chap:atlantis}, we use the ATLANTIS program to look at the particle reactions of several data set. Further, we analyze the \texttt{mystery-035-f.zip} data set and \texttt{ATLASData-Cosmics-M5.zip} data set. In Chapter \ref{chap:elec_calib}, we use the well-know parameter of SM, the $Z^0$ mass in order to calibrate our data. This is done by tweaking the energy scaling of different parameters in different regions of its spectrum. In Chapter \ref{chap:wboson}, we use the Jacobi peak to determine the mass of $W$ boson. Further, using simulated data, which considers different masses of $W$ boson, we obtain the parameters for gauge curve, which allows us to obtain the $W$ mass. We cross verify this result by using the curve to determine the mass of $Z^0$ boson. In Appendix \ref{chap:appendix_figs}, we include additional figures for the sake of completeness. In Appendix \ref{chap:appendix_code}, we include the code used for calibration of electrons and macro file used for obtaining half-maximum for each simulated plot. This report closely follows the student lab manual from \cite{labman}. All the constants for SM particles were obtained from \cite{ParticleDataGroup:2020ssz}. All units are in natural units, i.e., $c = \hbar = 1$. 
 
 \chapter{Theory} \label{chap:theory}
 
 \section{The Standard Model}
-The Standard Model (SM) is one of the most tested theories in physics. It classifies all the known elementary particles into fermions and bosons and describes three of the four known fundamental forces of nature, strong, weak and electromagnetic force \cite{ParticleDataGroup:2020ssz}. It is a gauge quantum field theory which contains the internal symmetries of the product group, $SU(3) \times SU(2) \times U(1)$. The fermions are spin-1/2 particles and are further classified into quarks and leptons, each with three generations. The bosons are categorized by their spin with gluons, photons, $Z^0$ and $W^{\pm}$ boson having spin 1 and the higgs boson with spin 0. Apart from the gluons and photons, the other bosons are massive. The elementary particles of the SM are shown in Fig. \ref{fig:sm}.
+The Standard Model (SM) is one of the most tested theories in physics. It classifies all the known elementary particles into fermions and bosons and describes three of the four known fundamental forces of nature, strong, weak and electromagnetic force \cite{ParticleDataGroup:2020ssz}. It is a gauge quantum field theory which contains the internal symmetries of the product group, $SU(3) \times SU(2) \times U(1)$. The fermions are spin-1/2 particles and are further classified into quarks and leptons, each with three generations. The bosons are categorized by their spin with gluons, photons, $Z^0$ and $W^{\pm}$ boson having spin 1 and the Higgs boson with spin 0. Apart from the gluons and photons, the other bosons are massive. The elementary particles of the SM are shown in Fig. \ref{fig:sm}.
 
 \begin{figure}[htpb]
     \centering
@@ -213,7 +213,7 @@ of the inner detector \cite{ATLASFactSheet}. \\
 This component is placed at the outermost part of the inner detector. This detector consists of both a straw tracker and a transition radiation detector. 
 The noble gas contained within each straw ionizes and produces a signal in the wire when a charged particle passes through it. The signal is further enhanced 
 by transition radiations that occur due to the materials contained between the straws. This tracker helps to distinguish the type of charged particle that
-flew into the detector, for example whether if it is an electron or a pion. \\ 
+flew into the detector, for example whether if it is an electron or a pion \cite{ATLASFactSheet}. \\ 
 
 \noindent \textit{Solenoid} \\ \\ 
 The inner solenoid is a superconducting magnet surrounding the inner detector. It provides the inner detector with a solenoidal magnetic field strength of 
@@ -230,7 +230,7 @@ have no electric charge, they show no curvature when they traverse through the i
 
 \subsubsection{(b) Calorimeter}
 
-The calorimeter, placed outside the solenoid, measures the energy loss of the particle as it passes through the detector. These particles are often entirely stopped 
+The calorimeter, placed outside the solenoid, measures the total energy of the particles. These particles are often entirely stopped 
 within the calorimeter, forcing all of their energies to be deposited in the detector. There are two types of calorimeters used. \\
 
 \noindent \textit{Presampler} \\ \\
@@ -247,8 +247,7 @@ regime, photons and electrons (and positrons) interact with matter most commonly
 These three interactions occur interchangeably, producing subsequent electrons and photons. This leads to a cascade of such particles, which is known as an 
 electromagnetic shower. The number of particles produced in this shower is proportional to the primary energy. 
 The longitudinal extension is described by its radiation length $X_0$, defined such that after one radiation length an electron only retains 
-$1 / e$ of its initial energy. These radiation lengths in solids are typically of order cm. \textcolor{red}{add feynman diagrams for 
-these processes?}\par 
+$1 / e$ of its initial energy. These radiation lengths in solids are typically of order cm. \par 
 
 As muons have a higher mass, they do not undergo bremsstrahlung and as such not detected in the ECAL\footnote{Muons with energies TeV or higher do lose their energy via 
 bremsstrahlung significantly and show signature in the ECAL before leaving the detector.}. As such, a separate system is constructed to detect muons, which will be mentioned 
@@ -321,12 +320,12 @@ of the trajectory can be observed due to additional magnetic field placed. \\
 \noindent \textit{Tau} \\
 
 Tau leptons ($\tau^\pm$) are much heavier than muons ($m_\tau \approx \SI{1}{\giga\electronvolt}$) and their range in matter is limited do millimeters 
-as they have a short lifetime. They most commonly decay weakly into hadrons ($\tau^- \rightarrow \mathrm{hadrons} + \nu_\tau$), which can be identified in the detector as collimated ''mini jets''. \\
+as they have a short lifetime. They most commonly decay weakly into hadrons ($\tau^- \rightarrow \mathrm{hadrons} + \nu_\tau$), which can be identified in the detector as collimated ``mini jets''. \\
 
 \noindent \textit{Top Quark} \\
 
 The top quark is the only quark which decays before it can form jets due to its heavy mass of approximately $\SI{170}{\giga\electronvolt}$. They 
-primarily decay weakly via $t \rightarrow W^+ b$, i.e. to a b-quark. The top quarks can be identified by the decay products of the W boson and the 
+primarily decay weakly via $t \rightarrow W^+ b$, i.e. to a b-quark. The top quarks can be identified by the decay products of the $W$ boson and the 
 jets from the b-quark, i.e. with three jets or jets with a $l\nu_l$ pair. \\
 
 \noindent \textit{Neutrinos} \\
@@ -364,7 +363,7 @@ We also define the pseudorapidity $\eta$ as such:
 \end{equation}
 where $\theta$ is the polar angle. The pseudorapidity is defined such that $\eta = \pm\infty$ is defined in the direction of the 
 $\pm \hat{z}$ axis respectively. Fig. \ref{fig:pseudorap} shows how the pseudorapidity and polar angle are related. The ATLAS 
-detector detects leptons in $|\eta| < 2.5$ and jets in $|\eta| < 5$
+detector detects leptons in $|\eta| < 2.5$ and jets in $|\eta| < 5$.
 Using the pseudorapidity is especially useful for the ATLAS experiment as the final products from proton-proton collisions increases 
 strongly in the forward direction (near the beam axis). 
 
@@ -379,29 +378,29 @@ strongly in the forward direction (near the beam axis).
 
 \section{The Heavy Gauge Bosons} \label{sec:gauge_bosons}
 
-The $W^{\pm}$ and $Z^0$ are massive bosons which are responsible for the weak forces. The electromagnetic and the weak interactions are unified in the SM to give the electroweak force. The electromagnetic force arises due to $U(1)_{Y}$ ($Y$ is hypercharge) gauge symmetry and the weak force arises due to $SU(2)_L$ gauge symmetry. After Spontaneous Symmetry Breaking (SSB), the $W^{\pm}$ and $Z$ gain mass while the photon continues to be massless. In this experiment, our aim to is learn the methods of measuring the mass of the $W$ boson. Some important vertices of weak interaction are shown in Fig. \ref{fig:weak_int}.
+The $W^{\pm}$ and $Z^0$ are massive bosons which are responsible for the weak forces. The electromagnetic and the weak interactions are unified in the SM to give the electroweak force. The electromagnetic force arises due to $U(1)_{Y}$ ($Y$ is hypercharge) gauge symmetry and the weak force arises due to $SU(2)_L$ ($L$ is left-handed chiral) gauge symmetry. After Spontaneous Symmetry Breaking (SSB), the $W^{\pm}$ and $Z$ gain mass while the photon continues to be massless. In this experiment, our aim to is learn the methods of measuring the mass of the $W$ boson. Some important vertices of weak interaction are shown in Fig. \ref{fig:weak_int}.
 
 \begin{figure*}[htb!]
 	\centering
-	\subfloat[Fermion anti-fermion going to $Z$ boson or a virtual photon to give lepton anti-lepton pair. \label{subfig:ztoll}]{{\includegraphics[width=0.47\columnwidth]{feynman(1)}}}
+	\subfloat[Fermion anti-fermion going to $Z^0$ boson or a virtual photon to give lepton anti-lepton pair. \label{subfig:ztoll}]{{\includegraphics[width=0.47\columnwidth]{feynman(1)}}}
 	\quad
 	\centering
 	\subfloat[Fermion anti-fermion going to $W^{\pm}$ to give lepton (anti-lepton) and anti-neutrino (neutrino). This process is the weak Drell-Yan process. \label{subfig:wtolnu}]{{\includegraphics[width=0.47\columnwidth]{feynman(2)}}}
 	\quad
 	\centering
-	\subfloat[Fermion anti-fermion going to $Z$ boson or a virtual photon to give $W^{\pm}$ pair. \label{subfig:ztoww}]{{\includegraphics[width=0.47\columnwidth]{feynman(3)}}}
+	\subfloat[Fermion anti-fermion going to $Z^0$ boson or a virtual photon to give $W^{\pm}$ pair. \label{subfig:ztoww}]{{\includegraphics[width=0.47\columnwidth]{feynman(3)}}}
 	\caption{Important weak interactions at LHC. Here $f$ stands for fermion and $l$ for leptons.}
 	\label{fig:weak_int}
 \end{figure*}
 
-The mass of the $Z$ boson has been measured with high precision at the LEP accelerator in the year 2006 \cite{ALEPH:2005ab}. Its mass was found to be $91.1876 \pm 0.0021$ GeV. Since the $Z$ boson decay to leptons (as shown in Fig. \ref{subfig:ztoll}) gives the cleanest signal to reconstruct its invariant mass, these events are usually studied. However, in the case of $W$ boson, which decay to $W \rightarrow e\nu_e$ or $W \rightarrow \mu \nu_{\mu}$, the invariant cannot be reconstructed directly. This is because neutrinos interact very weakly and are not detected. This makes measuring the mass of the $W$ boson a challenge and it is also one of the less known parameters of the SM. As of writing this report, a high precision measurement by the CDF collaboration of $W$ boson mass was made in April, giving a value of $80.433 \pm 0.009 \ \text{GeV}$ \cite{CDF:2022hxs}. This result has a 7$\sigma$ deviation from the SM prediction, suggesting inaccuracies in the calculations or possibility of new physics. Before this, the most precise measurement was made in 2018 and found to be $80.379 \pm 0.012 \ \text{GeV}$ \cite{PhysRevD.98.030001}. 
+The mass of the $Z^0$ boson has been measured with high precision at the LEP accelerator in the year 2006 \cite{ALEPH:2005ab}. Its mass was found to be $91.1876 \pm 0.0021$ GeV. Since the $Z^0$ boson decaying to leptons (as shown in Fig. \ref{subfig:ztoll}) gives the cleanest signal to reconstruct its invariant mass, these events are usually studied. However, in the case of $W$ boson, which decay to $W \rightarrow e\nu_e$ or $W \rightarrow \mu \nu_{\mu}$, the invariant cannot be reconstructed directly. This is because neutrinos interact weakly and are not detected. This makes measuring the mass of the $W$ boson a challenge and it is also one of the less known parameters of the SM. As of writing this report, a high precision measurement by the CDF collaboration of $W$ boson mass was made in April, giving a value of $80.433 \pm 0.009 \ \text{GeV}$ \cite{CDF:2022hxs}. This result has a 7$\sigma$ deviation from the SM prediction, suggesting inaccuracies in the calculations or possibility of new physics. Before this, the most precise measurement was made in 2018 and found to be $80.379 \pm 0.012 \ \text{GeV}$ \cite{PhysRevD.98.030001}. 
 
 There are two notable ways to measure the mass of the $W$ boson. The first utilizes the variable $\text{M}_\text{T}$, which is defined as
 
 \begin{equation}
 \mathrm{M_T} = \sqrt{2 p_{T_e} p_{T_{\nu}} (1 - \cos(\phi_e - \phi_{\nu}))},
 \end{equation}
-where $p_{T_e}$ and $p_{T_{\nu}}$ are the transverse momentum of the electron and neutrino respectively, $\phi_e$ and $\phi_{\nu}$ are the azimuthal angles. If we consider the mass of the electron to be zero, $\mathrm{M_T}$ is equal to W mass. The distribution of $\mathrm{M_T}$ gives us a Jacobi peak at the W mass. The advantage of using this method is that the transverse of momentum of the $W$ boson does not significantly affect the position of the peak. The disadvantage is the use of $p_{T_{\nu}}$, which as mentioned before, cannot be measured directly. Hence, it must be approximated using $\slashed{E}_T$, which is missing transverse momentum, given by
+where $p_{T_e}$ and $p_{T_{\nu}}$ are the transverse momentum of the electron and neutrino respectively, $\phi_e$ and $\phi_{\nu}$ are the azimuthal angles. If we consider the mass of the electron to be zero, $\mathrm{M_T}$ is equal to $W$ mass. The distribution of $\mathrm{M_T}$ gives us a Jacobi peak at the W mass. The advantage of using this method is that the transverse of momentum of the $W$ boson does not significantly affect the position of the peak. The disadvantage is the use of $p_{T_{\nu}}$, which as mentioned before, cannot be measured directly. Hence, it must be approximated using $\slashed{E}_T$, which is missing transverse momentum, given by
 
 \begin{equation}
 	\vec{\slashed{E}_T}	= - \sum_{i} E^i \sin \theta_i \vec{n}_{i, \perp},
@@ -419,7 +418,7 @@ This gives a Jacobi peak as shown in Fig. \ref{fig:jacobi}. The peak is at half 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.6\textwidth]{jacobi}
-    \caption{$p_T$ spectrum of leptons from the $W \rightarrow l \nu$ decay. We see a Jacobi peak at half the mass of W boson \cite{jacobi}.}
+    \caption{$p_T$ spectrum of leptons from the $W \rightarrow l \nu$ decay. We see a Jacobi peak at half the mass of $W$ boson \cite{jacobi}.}
     \label{fig:jacobi}
 \end{figure}
 
@@ -465,14 +464,14 @@ $$
 
 \section{Part 3.1: W-Boson Measurement}
 
-\noindent 1. As before, the analysis is based on ROOT trees. One of the tree variables is $\texttt{ptw -}$  the estimated transverse momentum of the W boson candidate. This variable can be constructed from the other tree variables. Please think about how this could be done. The tree variables are listed in section B.
+\noindent 1. As before, the analysis is based on ROOT trees. One of the tree variables is $\texttt{ptw -}$  the estimated transverse momentum of the $W$ boson candidate. This variable can be constructed from the other tree variables. Please think about how this could be done. The tree variables are listed in section B.
 \bigbreak
 \noindent \underline{Solution}: \\
-\noindent Given that the weak interaction is described by $W \rightarrow l + \bar{\nu}_l$, we can calculate the transverse momentum of the W-boson from the transverse momentum of $l$ and $\bar{\nu}_l$.  The formula to evaluate this is:
+\noindent Given that the weak interaction is described by $W \rightarrow l + \bar{\nu}_l$, we can calculate the transverse momentum of the $W$ boson from the transverse momentum of $l$ and $\bar{\nu}_l$.  The formula to evaluate this is:
 $$p_{T_W} = \sqrt{p_{T_l}^2 + p_{T_\nu}^2}  $$
 which is derived from the conservation of 3-momentum.
 
-\noindent This is defined in ROOT as $\texttt{el\_pt} \ \text{and} \ \texttt{etmis}$, so that the transverse momentum of the W boson candidate can be calculated as such: $\sqrt{\texttt{el\_{pt}}^2 + \texttt{etmis}^2}$.
+\noindent This is defined in ROOT as $\texttt{el\_pt} \ \text{and} \ \texttt{etmis}$, so that the transverse momentum of the $W$ boson candidate can be calculated as such: $\sqrt{\texttt{el\_{pt}}^2 + \texttt{etmis}^2}$.
 
 \bigbreak 
 
@@ -492,8 +491,8 @@ $$
 \noindent 1. What is the minimum invariant 4-lepton-mass, when the four leptons originate from a $Z^0$ pair? Why do you find 4-lepton-events with invariant mass beneath this threshold?
 \bigbreak
 \noindent \underline{Solution}: \\
-\noindent In theory, the minimum invariant mass of the each lepton should be $m_Z / 2$. In addition to the lowest order Feynman diagrams, there are two higher order diagrams where the photon is radiated by initial-state quarks, called Initial State Radiation (ISR), due to which there is a shift in the energy of the ingoing particles, leading to a distortion in the shape of the $Z$ resonance curve. Therefore, the effect of ISR is reduce the effective centre-of-mass energy of the ingoing particles, which leads to some fraction of $Z$ boson invariant mass to be beneath this threshold. 
-Another possible reason can be that in the case of more than one Z boson, the other Z boson will not be on-shell due to kinematic reasons. Due to this, we get one Z boson and another virtual Z* boson. Hence, the mass of the 4 leptons, would be below the threshold. 
+\noindent In theory, the minimum invariant mass of the each lepton should be $m_Z / 2$. In addition to the lowest order Feynman diagrams, there are two higher order diagrams where the photon is radiated by initial-state quarks, called Initial State Radiation (ISR), due to which there is a shift in the energy of the ingoing particles, leading to a distortion in the shape of the $Z$ resonance curve. Therefore, the effect of ISR is reduce the effective centre-of-mass energy of the ingoing particles, which leads to some fraction of $Z^0$ boson invariant mass to be beneath this threshold. 
+Another possible reason can be that in the case of more than one $Z^0$ boson, the other $Z^0$ boson will not be on-shell due to kinematic reasons. Due to this, we get one $Z^0$ boson and another virtual Z* boson. Hence, the mass of the 4 leptons, would be below the threshold. 
 
 \bigbreak
 
@@ -518,7 +517,7 @@ Another possible reason can be that in the case of more than one Z boson, the ot
 
 \bigbreak
 
-\noindent 4. The Branching ratio of $t \rightarrow W b$ is almost 100\%. If you have a top anti-top pair in an event, both particles decay instantly via $t \rightarrow W b$. If both W bosons each decay leptonically ($W \rightarrow l \nu$), one finds two leptons in the event. What could explain the occurence of four leptons in a $t \bar{t}$ event?
+\noindent 4. The Branching ratio of $t \rightarrow W b$ is almost 100\%. If you have a top anti-top pair in an event, both particles decay instantly via $t \rightarrow W b$. If both $W$ bosons each decay leptonically ($W \rightarrow l \nu$), one finds two leptons in the event. What could explain the occurence of four leptons in a $t \bar{t}$ event?
 \bigbreak
 \noindent \underline{Solution}: \\
 \begin{itemize}
@@ -535,7 +534,7 @@ Another possible reason can be that in the case of more than one Z boson, the ot
 
 \chapter{ATLANTIS} \label{chap:atlantis}
 
-In this part of the lab, we get familiar with the program \texttt{ATLANTIS}, which displays particle reactions in the ATLAS detector, graphically. 
+In this part of the lab, we get familiar with the program \texttt{ATLANTIS}, which displays particle reactions in the ATLAS detector graphically. 
 From this program, one can easily retrieve relevant quantities such as the particle's transverse momentum, azimuthal angle and pseudorapidity
 from the given datasets. 
 Before looking at the assignments for this part, we first become acquainted with all the data sets. We present our observations below. 
@@ -576,9 +575,7 @@ Fig. \ref{fig:single_muon} shows Event 7 of the single muon dataset, where the s
 
 We observe that again, the muon trajectory looks relatively straight, which is attributed to its high momentum ($p_T = \SI{-51.82 \pm 1.070}{\giga\electronvolt}$).
 We also observe that the muon shows hits in the inner detector and the tracking detectors from the muon system as expected. 
-However, we also observe some signature in the HCAL, which indicate that the muon is highly relativistic so that it 
-undergoes bremsstrahlung which is then detected in the HCAL. Such signature is observed in the HCAL rather than the ECAL most probably
-due to the larger size of the HCAL. The $\slashed{E}_T = \SI{55.792}{\giga\electronvolt}$, which is close to the $p_T$ of the muon.
+However, we also observe some signature in the HCAL, which is most likely due to a top quark decay. Since the top quark decays to $t \rightarrow W^+ b$, and this $W$ boson decays to $W^+ \rightarrow \mu^+ \nu_{\mu}$, we get a muon surrounded by jets and the neutrino going in the opposite direction to conserve momentum. Hence, we see a deposit in the HCAL followed by tracks in the muon tracker along the same path. The $\slashed{E}_T = \SI{55.792}{\giga\electronvolt}$, which is close to the $p_T$ of the muon.
 Thus the contribution from $\nu_\mu$ may be contained within $\slashed{E}_T$.
 
 \section{Photon Dataset}
@@ -616,7 +613,7 @@ most probably attributed to the photon pairs of the neutral pions produced withi
 wide, which is due to the low momentum of the mini-jet ($ p_T = \SI{26.23 \pm 0.636}{\giga\electronvolt}$). The value of the missing 
 $\slashed{E}_T$ is $\SI{ 28.298}{\giga\electronvolt}$, thus $\slashed{E}_T$ is most likely associated to the momentum of $\nu_\tau$. \par 
 
-We further observe that in Event 33, we observe a leptonic decay process which accounts for more than 40\% of the branching ratio of 
+We further observe that in Event 33, we observe a leptonic decay process which is around 35\% of the branching ratio of 
 the tau leptons. The event itself is indistinguishable from Event 7 in Fig. \ref{fig:single_muon}, thus making tau leptons that decay 
 with this process much harder to detect. 
 
@@ -635,11 +632,11 @@ relevant for our discussion.
 
 We observe two prominent jets generated opposite from each other in the transverse plane, where they are almost aligned with the y-axis.
  The two large peaks that are observed in the 2-D histogram also shows this behavior, where the azimuthal angle are approximately $180^\circ$ from each other. We can 
-identify them as jets as they produce hadronic cascades at the HCAL. They also show signature in the ECAL which is mostly from the photon
+identify them as jets as they produce hadronic cascades at the HCAL. They also show signature in the ECAL which is mostly from semi-leptonic decays coming from $\tau$ lepton or b-jets and the photon
 pairs due to neutral pion decays. We also observe two opposing trajectories (with opposing curvature) that only leave signatures
  in the ECAL. This is most probably an $e^+e^-$ pair that is generated by pair production of photons. When observing the lower plot, 
  we also observe an additional trajectory pair left to the lower jet with an energy deposition only in the ECAL.
-  Using the ''pick'' command, we observe that the pairs have opposing curvatures with similar momenta, implying that these trajectories
+  Using the ``pick'' command, we observe that the pairs have opposing curvatures with similar momenta, implying that these trajectories
   are from another $e^+e^-$ pair. 
 
 
@@ -666,11 +663,11 @@ ETMis:
  ETy-Mis = 19.716 GeV
  $\phi$ = 38.165$^{\circ}$
 \end{lstlisting}
-The branching ratio (BR) of $W$ boson decay to jets is 67.46\% \cite{CMS:2022mhs}. Because of that we see a huge number of deposits in the HCAL for this event. For comparison, the BR of $W \rightarrow e \nu$ decay is 10.83\%. 
+% The branching ratio (BR) of $W$ boson decay to jets is 67.46\% \cite{CMS:2022mhs}. Because of that we see a huge number of deposits in the HCAL for this event. For comparison, the BR of $W \rightarrow e \nu$ decay is 10.83\%. 
 
 \section{WFull Data set}
 
-Next, we study the \texttt{WFull-1-f.zip} data set. In this, all possible decays of $W$ boson can be seen. In Fig. \ref{fig:wfull}, starting from the vertex, several curved tracks emerge, indicating the presence of charged leptons and hadrons. Some cures disappear before reaching the ECAL, most likely due to their low momentum (sometimes called ``soft'' particles). The charged leptons leave their deposit in the ECAL and hadrons in the HCAL. For several deposits, we see an alignment, i.e., the jets contain leptons as well. This could be due to top quark, which decays to $t \rightarrow W^+ b$, from which we get jets from the $b$ quark and lepton and neutrino from the $W$. 
+Next, we study the \texttt{WFull-1-f.zip} data set. In this, all possible decays of $W$ boson can be seen. In Fig. \ref{fig:wfull}, starting from the vertex, several curved tracks emerge, indicating the presence of charged leptons and hadrons. Some curves disappear before reaching the ECAL, most likely due to their low momentum (sometimes called ``soft'' particles). The charged leptons leave their deposit in the ECAL and hadrons in the HCAL. For several deposits, we see an alignment, i.e., the jets contain leptons as well. This could be due to top quark, which decays to $t \rightarrow W^+ b$, from which we get jets from the $b$ quark and lepton and neutrino from the $W$. 
 
 \begin{figure}[htpb]
     \centering
@@ -695,7 +692,7 @@ which is quite high as compared to previous data set, indicating a high number o
 
 \section{Zee Data set}
 
-Now we look at the \texttt{Zee-1-f.zip} data set. In Fig. \ref{fig:zee}, we see the event 3. Similar to our previous discussion, we see several tracks followed by deposits in ECAL and HCAL, with the presence of $\vec{\slashed{E}_T}$. An interesting feature of this data set is that several ECAL deposits are often opposite to each other. This means that the mother $Z$ boson was most likely at rest when these electrons were produced, giving us this characteristic. 
+Now we look at the \texttt{Zee-1-f.zip} data set. In Fig. \ref{fig:zee}, we see the event 3. Similar to our previous discussion, we see several tracks followed by deposits in ECAL and HCAL, with the presence of $\vec{\slashed{E}_T}$. An interesting feature of this data set is that several ECAL deposits are often opposite to each other. This means that the mother $Z^0$ boson was most likely at rest when these electrons were produced, giving us this characteristic. 
 
 \begin{figure}[htpb]
     \centering
@@ -710,11 +707,11 @@ Next, we work with two of the assignments listed in the lab manual. Since we wer
 \section{Assignment 7: Mystery Data Set}  \label{subsec:mystery}
 In this data set, a pre-selection is applied, in which at least two leptons ($e$ or $\mu$) are required to be in each event. The goal of this exercise is to look at the graphics and identify various Standard-Model processes by studying them. Further, we must try to rule out certain processes, if any. In Fig. \ref{fig:mys1}, we see the graphical view of event 13. Fig. \ref{fig:mys1_2}, gives us the zoomed in view of the vertex for the same event. We start our discussion from the vertex. 
 
-A zoomed in view of the vertex shows that most tracks originate from the vertex, but some a reasonably far away from the vertex. The tracks originating far away from the vertex must come from a particle which has decayed after a certain period of time. This gives us the following three possibilities for the original particle: $\tau^{\pm}$ lepton, top quark or b-quarks (b-jet). Since $W$ and $Z$ boson decay almost immediately, the track reconstruction resolution would not be able to pick on the slight differences in the vertex due to those decays. 
+A zoomed in view of the vertex shows that most tracks originate from the vertex, but some a reasonably far away from the vertex. The tracks originating far away from the vertex must come from a particle which has decayed after a certain period of time. This gives us the following three possibilities for the original particle: $\tau^{\pm}$ lepton, top quark or b-quarks (b-jet). Since $W$ and $Z^0$ boson decay almost immediately, the track reconstruction resolution would not be able to pick on the slight differences in the vertex due to those decays. 
 
 As these particles start heading towards the detector, we see that charged particles are bent based on their momentum and leave a ``hit'' in the inner detector. Some particles are too ``soft'' and hence their tracks disappear before reaching the ECAL. Looking at the deposition at the ECAL and HCAL, we see that most depositions between them align with each other. This indicates the presence of charged electrons and photons in jets. We know that b-jets contain leptons, as in 25\% of all B decays, a lepton is produced. We can get this b-quark from the top quarks via $t \rightarrow W^+ b$. The figure in the bottom half also shows the presence of isolated jets, without leptons. Since $\tau$ leptons can decay purely to hadrons and neutrinos, one of the ways to identify them is to look for collimated ``mini'' jets. 
  
-Two other interesting tracks we see in the ECAL and HCAL are the isolated depositions in ECAL which do not have a corresponding deposition in the HCAL. This means that these charged electrons can come from the following sources: photons, $W$ bosons, $Z$ bosons and $\tau$ leptons. The presence of missing energy in the event confirms the existence of neutrinos and hence, confirms the possibility of $W$ boson decays. The other interesting track corresponds to the deposition in HCAL and then a track in the muon detector. This confirms the presence of muons in the event, which was probably surrounded by jets. Ths could be either due to top quarks or b-quarks. 
+Two other interesting tracks we see in the ECAL and HCAL are the isolated depositions in ECAL which do not have a corresponding deposition in the HCAL. This means that these charged electrons can come from the following sources: photons, $W$ bosons, $Z^0$ bosons and $\tau$ leptons. The presence of missing energy in the event confirms the existence of neutrinos and hence, confirms the possibility of $W$ boson decays. The other interesting track corresponds to the deposition in HCAL and then a track in the muon detector. This confirms the presence of muons in the event, which was probably surrounded by jets. Ths could be either due to top quarks or b-quarks. 
 
 \begin{figure}[htpb]
     \centering
@@ -894,17 +891,17 @@ Thus, we were able to get the mass to be $91.198 \pm 0.0196$ GeV and the resolut
     \label{fig:calib-compare}
 \end{figure}
 
-\chapter{Measurement of the W-boson Mass} \label{chap:wboson}
+\chapter{Measurement of the $W$ boson Mass} \label{chap:wboson}
 
-In this section, we elaborate on the methods used to determine the W boson mass using real ATLAS data. As mentioned in Sec. 
-\ref{sec:gauge_bosons}, there are several methods to determine the mass of the W boson. In this experiment, we measure this 
+In this section, we elaborate on the methods used to determine the $W$ boson mass using real ATLAS data. As mentioned in Sec. 
+\ref{sec:gauge_bosons}, there are several methods to determine the mass of the $W$ boson. In this experiment, we measure this 
 mass by observing the position of the Jacobi peak from the electron $p_T$ distribution resulting from $W \rightarrow e\nu$ 
 events. \par 
 
 In this experiment, we were given several datasets, mostly containing simulated $W \rightarrow e\nu$ events with 
-different W boson masses and real ATLAS data for the same process. A dataset containing real ATLAS data 
-form $Z \rightarrow ee$ events are also contained, used to verify that the gauge curves retrieve the Z boson mass accurately, which 
-is known more accurately than the W boson mass. A list of the datasets is shown in Table \ref{tab:datasets}. 
+different $W$ boson masses and real ATLAS data for the same process. A dataset containing real ATLAS data 
+form $Z \rightarrow ee$ events are also contained, used to verify that the gauge curves retrieve the $Z^0$ boson mass accurately, which 
+is known more accurately than the $W$ boson mass. A list of the datasets is shown in Table \ref{tab:datasets}. 
 
 \begin{table}
     \centering
@@ -927,10 +924,10 @@ is known more accurately than the W boson mass. A list of the datasets is shown 
     \label{tab:datasets}
 \end{table}
 
-In addition to the W and Z boson datasets, two additional datasets relating to the QCD and non-QCD backgrounds are contained. The QCD
+In addition to the W and $Z^0$ boson datasets, two additional datasets relating to the QCD and non-QCD backgrounds are contained. The QCD
 background dataset are generated from proton-proton collisions where the hard interactions are strong. As it is difficult to 
 simulate the QCD events containing electrons, this background is extracted directly from real ATLAS data instead. While this matches the 
-shape of the QCD backgrounds in the W and Z boson datasets, the integrated luminosity are not equal and thus a proper normalization
+shape of the QCD backgrounds in the W and $Z^0$ boson datasets, the integrated luminosity are not equal and thus a proper normalization
 using a scale factor is required for our analysis. The non-QCD backgrounds are extracted from simulated events \cite{labman}. \par 
 
 For all parts of the analysis, we use ROOT and use the C++ library \texttt{Wenu.C+} to load the C++ object used in the analysis. 
@@ -957,7 +954,7 @@ this distribution for 4 kinematical regions of interest. The obtained histogram 
 \end{figure}
 
 We observe that the invariant mass for the $e^+ e^-$ pair is given as $\SI{91.17 \pm 0.01}{\giga\electronvolt}$, which agrees with the 
-world average value of the Z-boson mass of $\SI{91.1876 \pm 0.0023}{\giga\electronvolt}$ within 1.76 sigma \cite{ParticleDataGroup:2020ssz}.
+world average value of the $Z^0$ boson mass of $\SI{91.1876 \pm 0.0023}{\giga\electronvolt}$ within 1.76 sigma \cite{ParticleDataGroup:2020ssz}.
 While this may not be within $1\sigma$, as we did not prudently calibrate the dataset for all possible parameters, we agree that the 
 calibration is indeed properly set for our analysis. \par 
 
@@ -967,8 +964,8 @@ We also observe the invariant masses for the same distribution with different cu
 invariant mass distributions for each cut. From these distributions, we obtain the following invariant masses for each cut 
 respectively: 
 $\SI{90.93 \pm 0.02}{\giga\electronvolt}$, $\SI{91.14 \pm 0.01}{\giga\electronvolt}$, $\SI{90.94 \pm 0.02}{\giga\electronvolt}$. 
-When comparing with the world average value, we observe that they are also close to the Z-boson mass, with the largest deviation 
-of $\SI{0.25}{\giga\electronvolt}$. This shows that even with cuts applied, the Z boson mass is calibrated to an acceptable range. 
+When comparing with the world average value, we observe that they are also close to the $Z^0$ boson mass, with the largest deviation 
+of $\SI{0.25}{\giga\electronvolt}$. This shows that even with cuts applied, the $Z^0$ boson mass is calibrated to an acceptable range. 
 
 \section{Kinematic Parameters and Preliminary QCD Scaling}
 
@@ -985,7 +982,7 @@ in Fig. \ref{fig:elpt_nocuts}. See Appendix \ref{chap:appendix_figs} for the dis
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.8\textwidth]{elpt_nocuts.pdf}
-    \caption{The transverse momentum distribution for electrons for the W-boson decay with no cuts applied. The blue points are the ATLAS data, 
+    \caption{The transverse momentum distribution for electrons for the $W$ boson decay with no cuts applied. The blue points are the ATLAS data, 
     the green histogram is the simulated $W \rightarrow e\nu$ decays, and the yellow and purple histograms are the QCD and 
     non-QCD backgrounds respectively.}
     \label{fig:elpt_nocuts}
@@ -1006,9 +1003,9 @@ value of 0.3. See Fig. \ref{fig:elpt_qcd30} for the effect on applying such scal
 In the following sections, we will refine the scaling parameter after applying cuts and setting fitting ranges. \par 
 
 To obtain a sharp Jacobi peak, we want to reduce the smearing of the peak as much as possible. One factor that contributes 
-to such smearing is the transverse momentum of the W-boson $p_{T_W}$ as mentioned in Sec. \ref*{sec:gauge_bosons}. To reduce this, 
-we filter events in which several jets are produced. The W-bosons obtained from such events suffer recoil from the quarks and gluons 
-produced with the proton-proton collision, yielding a finite W-boson transverse momentum. This is shown in the $p_{T_W}$ distribution 
+to such smearing is the transverse momentum of the $W$ boson $p_{T_W}$ as mentioned in Sec. \ref*{sec:gauge_bosons}. To reduce this, 
+we filter events in which several jets are produced. The $W$ bosons obtained from such events suffer recoil from the quarks and gluons 
+produced with the proton-proton collision, yielding a finite $W$ boson transverse momentum. This is shown in the $p_{T_W}$ distribution 
 for different number of jets in Figs. \ref{fig:ptw_njet0} and \ref{fig:ptw_njets}. For events with no jets, the distribution is 
 sharply peaked close to zero, however the peak shifts to $p_{T_W} \approx \SI{50}{\giga\electronvolt}$ for events with one or more jets. 
 We also observe that the number of events decrease as we increase the number of jets, indicating that the dominant events are those with 
@@ -1018,7 +1015,7 @@ three and four jets, the QCD background overlaps the simulated data itself.
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.8\textwidth]{ptw_qcd30_njet0.pdf}
-    \caption{Transverse momentum distribution for W-boson in W-boson decay with no jets. The color code follows from Fig. \ref{fig:elpt_nocuts}.}
+    \caption{Transverse momentum distribution for $W$ boson in $W$ boson decay with no jets. The color code follows from Fig. \ref{fig:elpt_nocuts}.}
     \label{fig:ptw_njet0}
 \end{figure}
 
@@ -1041,7 +1038,7 @@ three and four jets, the QCD background overlaps the simulated data itself.
 
 From such plots, we observe that in order to reduce $p_{T_W}$ and thus reduce the smearing of the Jacobi peak,
  we should set a cut of the number of jets such that events with no jets are chosen. \textcolor{red}{if works, add 
- stuff about cut of W boson momentum too}
+ stuff about cut of $W$ boson momentum too}
  
 \section{QCD Scale Factor and Cut Selection}   \label{sec:qcdscale_cuts}
 
@@ -1075,9 +1072,9 @@ To estimate the uncertainty due to the QCD scale factor, we varied the scale fac
 and the simulated data was significant (by eye). From this we, chose that the scale factor is acceptable between 0.28 and 
 0.30. See Appendix \ref{chap:appendix_figs} for the distributions in the full range 
 and in the high QCD background region for the two scale factors mentioned. This will be important in quantifying the systematic 
-errors for the W boson mass. \par 
+errors for the $W$ boson mass. \par 
 
-From the above discussion, we require that we need to have events with no jets to reduce the transverse momentum of the W boson and 
+From the above discussion, we require that we need to have events with no jets to reduce the transverse momentum of the $W$ boson and 
 to have \texttt{el\_etiso} $< \SI{10}{\giga\electronvolt}$ to reduce events from the QCD background. After investigating the optimal 
 value of \texttt{el\_etiso}, we set the following cuts: \texttt{njet == 0} and \texttt{el\_etiso $<$ 8}. Fig. \ref{fig:ptw_cuts} show 
 the $p_{T_W}$ distribution before and applying such cuts. We also verified that after applying 
@@ -1090,7 +1087,7 @@ is suppressed in higher $p_{T_W}$ values as expected.
 	\quad
 	\centering
 	\subfloat[After cuts, \texttt{njet == 0, el\_etiso $<$ 8}]{{\includegraphics[width=0.47\columnwidth]{ptw_qcd30_njet0_etiso8.pdf}}}
-	\caption{W-boson transverse momentum distribution (a) before and (b) after applying cuts. The cuts \texttt{njet == 0, el\_etiso $<$ 8}
+	\caption{$W$ boson transverse momentum distribution (a) before and (b) after applying cuts. The cuts \texttt{njet == 0, el\_etiso $<$ 8}
     was applied.}
 	\label{fig:ptw_cuts}
 \end{figure*}
@@ -1111,7 +1108,7 @@ an example, shown in Fig \ref{fig:hm_m80}. For this analysis, we used the fittin
     \label{fig:hm_m80}
 \end{figure}
 
-Once we obtain the half-maximum from each fit, we apply a linear fit to directly relate the mass of the W boson and the 
+Once we obtain the half-maximum from each fit, we apply a linear fit to directly relate the mass of the $W$ boson and the 
 obtained half-maximum $h$ as such: 
 \begin{equation}
     h = a \cdot m_W + b
@@ -1121,7 +1118,7 @@ obtained half-maximum $h$ as such:
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.7\textwidth]{gauge_curve.pdf}
-    \caption{Gauge curve between half-maximum from fit with simulated data against W boson mass.}
+    \caption{Gauge curve between half-maximum from fit with simulated data against $W$ boson mass.}
     \label{fig:gauge_curve}
 \end{figure}
 
@@ -1156,10 +1153,10 @@ The covariance matrix obtained from the fit is shown as such:
 As the degrees of freedom is $ndof = 7 - 2 = 5$, we observe that the reduce chi-squared $\chi^2 / ndof = 1.74$, which is close to 1, 
 indicating that the fit is good.\par 
 
-Using the obtained gauge curve, we can now determine the mass of the W boson from the real ATLAS data. To do this, we get the 
+Using the obtained gauge curve, we can now determine the mass of the $W$ boson from the real ATLAS data. To do this, we get the 
 half-maximum of the real ATLAS data by using the same command \texttt{w.GetHalfMaximum} for the ATLAS dataset \texttt{Wenu}. From this, 
 we obtain the half-maximum to be $h = 42.989 \pm 0.049$ GeV. See Fig. \ref{fig:hm_atlas} for the electron $p_T$ spectrum with the ATLAS data. 
-The mass of the W boson is then obtained by rearranging \ref{eq:half_max} so that:
+The mass of the $W$ boson is then obtained by rearranging \ref{eq:half_max} so that:
 \begin{equation}
     m_W = \frac{h - b}{a}.
 \end{equation} 
@@ -1171,7 +1168,7 @@ The mass of the W boson is then obtained by rearranging \ref{eq:half_max} so tha
     \label{fig:hm_atlas}
 \end{figure}
 
-From this, we obtain the mass of the W boson as such: 
+From this, we obtain the mass of the $W$ boson as such: 
 \begin{equation}
     m_W = \SI{80.45 \pm 0.10}{\giga\electronvolt} 
 \end{equation}
@@ -1187,19 +1184,19 @@ where the error is evaluated by the following:
 where $\sigma_a, \sigma_b, \sigma_h$ are the uncertainties obtained from the fit parameters and the uncertainty from the 
 half-maximum fit, and $\sigma_{ab}$ are related to the correlation coefficients from the covariance matrix of the fit as shown in Eq. \ref{eq:cov_matrix}.
 Here, the error is purely statistical. We observe that our result is $0.18\sigma$ from the 
- the most recent value of the W boson of $80.433 \pm 0.009 \ \text{GeV}$ \cite{CDF:2022hxs}. \par
+ the most recent value of the $W$ boson of $80.433 \pm 0.009 \ \text{GeV}$ \cite{CDF:2022hxs}. \par
 
 
 To cross-check our results, we use the $Z \rightarrow ee$ distribution from real ATLAS data and find the half-maximum fit from 
-the electron $p_T$ distribution. The Z-boson is used as the mass of the Z-boson is well known to a high accuracy. 
-The procedure is identical with the W-boson except with replacing the dataset \texttt{Wenu} to 
+the electron $p_T$ distribution. The $Z^0$ boson is used as the mass of the $Z^0$ boson is well known to a high accuracy. 
+The procedure is identical with the $W$ boson except with replacing the dataset \texttt{Wenu} to 
 \texttt{Zee}. We obtained the half-maximum $h = \SI{48.457 \pm 0.045}{\giga\electronvolt}$, shown in Fig. \ref{fig:hm_zee}. From this, 
-we obtain the mass of the Z-boson as such: 
+we obtain the mass of the $Z^0$ boson as such: 
 \begin{equation}
     m_Z = \SI{90.94 \pm 0.20}{\giga\electronvolt}
 \end{equation}
-which is $1.26\sigma$ from the literature value of the Z boson mass of $\SI{91.1876 \pm 0.0021}{\giga\electronvolt}$. Thus the 
-obtained Z-boson mass is not within one sigma of the literature value. This may be attributed to the noisy dataset. We observe from 
+which is $1.26\sigma$ from the literature value of the $Z^0$ boson mass of $\SI{91.1876 \pm 0.0021}{\giga\electronvolt}$. Thus the 
+obtained $Z^0$ boson mass is not within one sigma of the literature value. This may be attributed to the noisy dataset. We observe from 
 Fig. \ref{fig:hm_zee} that the peak in the ATLAS data has large fluctuations thus decreasing the goodness of fit for the half-maximum.
 
 \begin{figure}[htpb]
@@ -1211,23 +1208,23 @@ Fig. \ref{fig:hm_zee} that the peak in the ATLAS data has large fluctuations thu
 
 \section{Systematic Errors}
 
-As mentioned in the previous section, the error calculation for the W-boson mass was purely statistical. Thus we need to determine 
+As mentioned in the previous section, the error calculation for the $W$ boson mass was purely statistical. Thus we need to determine 
 the systematic uncertainties associated with the measurement. 
 
 \subsection{Calibration}
 
 The first systematic uncertainty we need to consider is from the calibration of the electrons as our calibration is inexact. 
-To quantitatively determine the systematic error, we use the Z-boson mass we have obtained from our cross-check calculations.
-As the measurement of the W boson mass contains other systematic errors, we can neglect such errors by observing the 
-relative uncertainty between the systematic error in the Z boson and W boson mass:
+To quantitatively determine the systematic error, we use the $Z^0$ boson mass we have obtained from our cross-check calculations.
+As the measurement of the $W$ boson mass contains other systematic errors, we can neglect such errors by observing the 
+relative uncertainty between the systematic error in the $Z^0$ boson and $W$ boson mass:
 \begin{equation}
     \frac{\sigma_{m_Z, \mathrm{calib}}}{m_Z} = \frac{\sigma_{m_W, \mathrm{calib}}}{m_W} \implies \sigma_{m_W, \mathrm{calib}} = m_W \frac{\sigma_{m_Z, \mathrm{calib}}}{m_Z}
 \end{equation} 
-As we have performed our calibration using the Z-boson mass, we can determine the systematic error from calibration in this manner. 
-The systematic error from calibration for the Z-boson is given by the difference from the obtained and 
+As we have performed our calibration using the $Z^0$ boson mass, we can determine the systematic error from calibration in this manner. 
+The systematic error from calibration for the $Z^0$ boson is given by the difference from the obtained and 
 expected value: $\sigma_{m_Z, \mathrm{calib}} = 90.94 - 91.1876 = -\SI{0.25}{\giga\electronvolt}$ (where we have taken two 
 significant figures to match those of the statistical errors). From this, we obtain the 
-systematic error from calibration for the W-boson mass as such: 
+systematic error from calibration for the $W$ boson mass as such: 
 \begin{equation}
     \sigma_{m_W, \mathrm{calib}} = (\SI{80.45}{\giga\electronvolt}) \cdot \left( \frac{\SI{-0.25}{\giga\electronvolt}}{\SI{90.94}{\giga\electronvolt}}\right) = -\SI{0.22}{\giga\electronvolt}
 \end{equation}
@@ -1240,11 +1237,11 @@ statistical error.
 The second systematic uncertainty we need to consider is from the QCD background scale factor. In order to determine this, we modify 
 the scale factors until the deviation in the shape of the high QCD background region in the \texttt{el\_etiso} distribution 
 (\texttt{el\_etiso} $< \SI{10}{\giga\electronvolt}$ ) between the real and simulated data is significant. We then took the 
-maximal and minimal scale factors that yield this deviation and determine the W-boson mass with the same configuration. \par 
+maximal and minimal scale factors that yield this deviation and determine the $W$ boson mass with the same configuration. \par 
 
 The QCD scale factors, as mentioned in Sec. \ref{sec:qcdscale_cuts} were chosen to be 0.28 and 0.32 for the minimal and maximal scale 
-factor respectively. Table \ref{tab:qcd_syserr} shows the W and Z-boson masses obtained from using the two scale factors. The half-maxima fits obtained for each 
-scale factor for the simulated W-boson mass for $m_W = \SI{80}{\giga\electronvolt}$ is shown in Appendix \ref{chap:appendix_figs}. \textcolor{red}{edit appendix 
+factor respectively. Table \ref{tab:qcd_syserr} shows the W and $Z^0$ boson masses obtained from using the two scale factors. The half-maxima fits obtained for each 
+scale factor for the simulated $W$ boson mass for $m_W = \SI{80}{\giga\electronvolt}$ is shown in Appendix \ref{chap:appendix_figs}. \textcolor{red}{edit appendix 
 referencing for each figure (and code)!}
 
 \begin{table}
@@ -1254,7 +1251,7 @@ referencing for each figure (and code)!}
     0.28 & $\SI{80.42 \pm 0.104}{\giga\electronvolt}$ & $\SI{90.92 \pm 0.20}{\giga\electronvolt}$ \\ 
     0.32 & $\SI{80.47 \pm 0.103}{\giga\electronvolt}$ & $\SI{90.92 \pm 0.18}{\giga\electronvolt}$ \\ \hline
     \end{tabular}
-    \caption{W-boson and Z-boson masses from QCD scale factors of 0.28 and 0.32. The variation of the QCD scale factor 
+    \caption{$W$ boson and $Z^0$ boson masses from QCD scale factors of 0.28 and 0.32. The variation of the QCD scale factor 
     does not show large deviation between the real and simulated data between these values.}
     \label{tab:qcd_syserr}
 \end{table}
@@ -1266,7 +1263,7 @@ factor we have set (0.30), yielding:
     \sigma_{m_W, \mathrm{QCD, min}} = \SI{80.42}{\giga\electronvolt} - \SI{80.45}{\giga\electronvolt} = -\SI{0.03}{\giga\electronvolt} \\
     \sigma_{m_Z, \mathrm{QCD}} = \SI{90.94}{\giga\electronvolt} - \SI{90.92}{\giga\electronvolt} = \SI{0.02}{\giga\electronvolt} \\
 \end{align}
-where the systematic error for the Z boson was determine by subtracting the mass of either scale factor (0.28, 0.32) from our original 
+where the systematic error for the $Z^0$ boson was determine by subtracting the mass of either scale factor (0.28, 0.32) from our original 
 case (0.30) as both scale factors yield the same value of $m_Z$.
 As the systematic error is small, it is clear that the QCD background scale factor does not impact the analysis when compared to the other systematic
   errors and the statistical error. 
@@ -1276,7 +1273,7 @@ As the systematic error is small, it is clear that the QCD background scale fact
 The third systematic error that we need to consider is the impact of the fit region as the choice of the fitting region 
 strongly impacts the half-maximum chosen for each distribution. To quantify this, we take the maximal and minimal 
 region width of the fitting range such that the shape of the fit stays consistent with the original distribution from 
-Fig. \ref{fig:hm_m80}. Table \ref{tab:fitregion_syserr} shows the obtained W and Z boson masses obtained at these ranges. 
+Fig. \ref{fig:hm_m80}. Table \ref{tab:fitregion_syserr} shows the obtained W and $Z^0$ boson masses obtained at these ranges. 
 The half-maximum plot with $m_W = \SI{80}{\giga\electronvolt}$ are shown in Appendix \ref{chap:appendix_figs}.
 
 \begin{table}
@@ -1297,17 +1294,17 @@ The systematic error is evaluated similarly to how the systematic error was eval
     \sigma_{m_W, \mathrm{region, min}} = \SI{80.63}{\giga\electronvolt} - \SI{80.45}{\giga\electronvolt} = \SI{0.18}{\giga\electronvolt} \\
     \sigma_{m_Z, \mathrm{region}} = \SI{90.46}{\giga\electronvolt} - \SI{90.92}{\giga\electronvolt} = -\SI{0.46}{\giga\electronvolt} \\
 \end{align}
-where the systematic error of the Z boson was set as such since the difference of the Z-boson mass between the maximal
+where the systematic error of the $Z^0$ boson was set as such since the difference of the $Z^0$ boson mass between the maximal
  region and the original region is smaller than those from the minimal and original region. Thus we observe that the impact from 
- varying the fit region is much larger than those from the QCD scale factor. This impact is further observed for the Z-boson and 
+ varying the fit region is much larger than those from the QCD scale factor. This impact is further observed for the $Z^0$ boson and 
  this systematic error is in fact larger than the statistical error. This implies that the deviation from the literature value 
  is more influenced by the choice of the fit region rather than the statistical uncertainty in the dataset.
 
  
 \subsection{Cut Selections}
 
-Finally, we investigate the effect of the cuts we applied to the obtained masses of the W and Z-boson. In order to quantify this, 
-we obtain the W and Z-boson masses for each cut that we apply. Table \ref{tab:cut_syserr} shows the resulting masses. See Appendix \ref{chap:appendix_figs}
+Finally, we investigate the effect of the cuts we applied to the obtained masses of the W and $Z^0$ boson. In order to quantify this, 
+we obtain the W and $Z^0$ boson masses for each cut that we apply. Table \ref{tab:cut_syserr} shows the resulting masses. See Appendix \ref{chap:appendix_figs}
 for the half-maximum plot for simulated mass with $m_W = \SI{80}{\giga\electronvolt}$. 
 
 \begin{table}
@@ -1324,48 +1321,48 @@ for the half-maximum plot for simulated mass with $m_W = \SI{80}{\giga\electronv
     \label{tab:cut_syserr}
 \end{table}
 
-From this, we observe that selecting \texttt{njet == 0} reduces the masses of the W and Z boson. This is caused by the reduced 
-transverse momentum of the W and Z boson which in turn reduces the smearing in the Jacobi peak. Further the cut selection 
+From this, we observe that selecting \texttt{njet == 0} reduces the masses of the W and $Z^0$ boson. This is caused by the reduced 
+transverse momentum of the W and $Z^0$ boson which in turn reduces the smearing in the Jacobi peak. Further the cut selection 
 \texttt{el\_etiso} $< 8$ increases the mass of the particle, which is attributed by identification of more isolated electrons in the 
 jets. We thus observe that applying both cuts (as we do in our analysis) reduces the masses, but not as much as applying a single 
 cut for the number of jets.
 
 \subsection{Result}
 
-Thus by including both systematic and statistical uncertainties, we obtain the mass of the W boson as follows:
+Thus by including both systematic and statistical uncertainties, we obtain the mass of the $W$ boson as follows:
 \begin{equation}
     m_W = 80.45 \pm 0.10 (\mathrm{stat.}) \: -0.22 \: ^{+0.02}_{-0.03} \: ^{+0.10}_{-0.18} \: (\mathrm{sys.}) \si{\giga\electronvolt}
 \end{equation}
 
-and the mass of the Z boson is given as such: 
+and the mass of the $Z^0$ boson is given as such: 
 \begin{equation}
     m_Z = 90.94 \pm 0.20 (\mathrm{stat.}) \: -0.25 \: + 0.02 \: -0.46 \: (\mathrm{sys.}) \si{\giga\electronvolt}
 \end{equation}
 
-We observe that taking into account both systematic and statistical uncertainties, the W and Z boson mass are both 
+We observe that taking into account both systematic and statistical uncertainties, the W and $Z^0$ boson mass are both 
 within one sigma of the most recent value $80.433 \pm 0.009 \ \text{GeV}$ and literature value 
 $\SI{91.1876 \pm 0.0021}{\giga\electronvolt}$ respectively. 
 
 \chapter{Conclusion}
 
 In this report, we analyzed the real and simulated data obtained from the ATLAS detector located in the Large Hadron 
-Collider in Geneva, Switzerland. From this, we obtained the mass of the W boson after performing calibration 
+Collider in Geneva, Switzerland. From this, we obtained the mass of the $W$ boson after performing calibration 
 to our dataset. \par 
 
 We first explored the graphical interface \texttt{ATLANTIS} that allows us to observe the signatures from different particle 
 production from proton-proton collisions. We investigated the signatures shown by simulated datasets for the 
-electron, muon, photon, tau lepton, dijets, W and Z boson. From this, we observed that the signatures match the expected 
+electron, muon, photon, tau lepton, dijets, W and $Z^0$ boson. From this, we observed that the signatures match the expected 
 behavior from their particle properties. We then explored two other datasets. In the mystery data set, we start from the vertex and work our way outwards. After going through each layer of the detector and looking at the possible SM processes responsible for the hits or energy deposit, we do not rule out any SM process that is not contained in the data set. 
 We also observed the real ATLAS dataset that detected cosmic ray muons in the detector. We observed that the muon angular
 distribution does not yield the $\cos^2 \theta$ behaviour as observed in sea level, but rather a sharper distribution instead. \par
 
-We then performed calibration to our dataset using the Z-boson mass with the invariant $m_{ee}$ distribution. For the uncalibrated data, the mass was $89.87 \pm 0.02$ GeV and the resolution was $2.588 \pm 0.026$. After applying energy scaling in the following order for variables in different regions of its spectrum: phi, eta, mindrjet, etiso and pt, one after the other, we were able to achieve a mass of $91.198 \pm 0.0196$ GeV and a resolution of $2.342 \pm 0.024$. \par 
+We then performed calibration to our dataset using the $Z^0$ boson mass with the invariant $m_{ee}$ distribution. For the uncalibrated data, the mass was $89.87 \pm 0.02$ GeV and the resolution was $2.588 \pm 0.026$. After applying energy scaling in the following order for variables in different regions of its spectrum: phi, eta, mindrjet, etiso and pt, one after the other, we were able to achieve a mass of $91.198 \pm 0.0196$ GeV and a resolution of $2.342 \pm 0.024$. \par 
 
-From this calibration, we measured the mass of the W boson. We first verified that the calibration was applied correctly by 
-comparing the invariant $m_{ee}$ distribution, yielding the Z-boson mass of $\SI{91.17 \pm 0.01}{\giga\electronvolt}$, which 
-is within one sigma to the literature value of $\SI{91.1876 \pm 0.0021}{\giga\electronvolt}$. The mass of the W-boson was measured by using the Jacobi peak from the 
+From this calibration, we measured the mass of the $W$ boson. We first verified that the calibration was applied correctly by 
+comparing the invariant $m_{ee}$ distribution, yielding the $Z^0$ boson mass of $\SI{91.17 \pm 0.01}{\giga\electronvolt}$, which 
+is within one sigma to the literature value of $\SI{91.1876 \pm 0.0021}{\giga\electronvolt}$. The mass of the $W$ boson was measured by using the Jacobi peak from the 
 electron $p_T$ distribution. We first investigated different kinematical parameters that affect the distribution. We observed 
-that the number of jets \texttt{njet} increases the transverse momentum of the W-boson, which ideally should be zero. Thus we 
+that the number of jets \texttt{njet} increases the transverse momentum of the $W$ boson, which ideally should be zero. Thus we 
 applied a cut so that \texttt{njet == 0} in our analysis.
 
 We then set the QCD scale factor, which controls the amount of QCD background in the simulated 
@@ -1374,26 +1371,26 @@ region of the \texttt{el\_etiso} distribution (\texttt{el\_etiso} $> \SI{10}{\gi
 the amplitudes between real and simulated data match. This was set to be 0.3 for our dataset. Furthermore, we applied a cut 
 so that we are in the low QCD background regime, i.e. \texttt{el\_etiso} $> \SI{8}{\giga\electronvolt}$. \par 
 
-We then determined the half-maximum fit of the Jacobi peak for seven simulated datasets, each with different W-boson masses. 
-The half-maximum were then used to obtain a linear fit between the known W-boson masses and the half-maxima. From this, we obtained 
+We then determined the half-maximum fit of the Jacobi peak for seven simulated datasets, each with different $W$ boson masses. 
+The half-maximum were then used to obtain a linear fit between the known $W$ boson masses and the half-maxima. From this, we obtained 
 the slope and intercept to be $a = 0.5214 \pm 0.0080$ and $b = \SI{1.04 \pm 0.64}{\giga\electronvolt}$ respectively. This was then 
-used to determine the mass of the W-boson using the half-maximum obtained from the real ATLAS data. From this, we obtained 
+used to determine the mass of the $W$ boson using the half-maximum obtained from the real ATLAS data. From this, we obtained 
 $m_W = \SI{80.45 \pm 0.10}{\giga\electronvolt}$, which agrees with the most recent value of $80.433 \pm 0.009 \ \text{GeV}$ 
 within one sigma. \par 
 
-To cross check our analysis, we determined the mass of the Z boson using the same procedure as before, obtaining 
+To cross check our analysis, we determined the mass of the $Z^0$ boson using the same procedure as before, obtaining 
 $m_Z = \SI{90.94 \pm 0.20}{\giga\electronvolt}$, which was $1.26\sigma$ away from the literature value. The deviation was attributed 
 to the noisy dataset, where the noise is particularly prominent at the peak. \par 
 
 Finally, we considered the different systematic effects that could influence our measurement. The calibration process and the 
-variation of the fit region influenced the W-boson mass significantly as it yielded uncertainties that are close to or larger 
+variation of the fit region influenced the $W$ boson mass significantly as it yielded uncertainties that are close to or larger 
 than the statistical uncertainty. The effect on the QCD scale factor, however, was minimal as it yielded at maximal 
 uncertainty value of $0.03 \si{\giga\electronvolt}$. The different cut selections applied also strongly affected our measurement 
-as it reduced the value of the W-boson mass. \par 
+as it reduced the value of the $W$ boson mass. \par 
 
-All in all, from this experiment we obtained the W-boson mass to be $m_W = 80.45 \pm 0.10 (\mathrm{stat.}) \: -0.22 \: 
+All in all, from this experiment we obtained the $W$ boson mass to be $m_W = 80.45 \pm 0.10 (\mathrm{stat.}) \: -0.22 \: 
 ^{+0.02}_{-0.03} \: ^{+0.10}_{-0.18} \: (\mathrm{sys.}) \si{\giga\electronvolt}$, which was within one sigma of the most recent 
-value of  $80.433 \pm 0.009 \ \text{GeV}$. The Z-boson mass, after considering the systematic effects, was also shown to be $m_Z = 90.94 \pm 0.20 (\mathrm{stat.}) \: 
+value of  $80.433 \pm 0.009 \ \text{GeV}$. The $Z^0$ boson mass, after considering the systematic effects, was also shown to be $m_Z = 90.94 \pm 0.20 (\mathrm{stat.}) \: 
 -0.25 \: + 0.02 \: -0.46 \: (\mathrm{sys.}) \si{\giga\electronvolt}$, which is now within one sigma of the literature value 
 $\SI{91.1876 \pm 0.0021}{\giga\electronvolt}$. 
 
@@ -1475,7 +1472,7 @@ Here we present additional figures of interest.
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.9\textwidth]{hw_plots.pdf}
-    \caption{Half-maximum fit of the electron $p_T$ spectrum for different values of the W boson mass.}
+    \caption{Half-maximum fit of the electron $p_T$ spectrum for different values of the $W$ boson mass.}
     \label{fig:hm_allmass}
 \end{figure}
 
@@ -1492,10 +1489,10 @@ Here we present additional figures of interest.
 
 \begin{figure*}[htb!]
 	\centering
-	\subfloat[Fit Region: \[26, 65\]]{{\includegraphics[width=0.47\columnwidth]{hm_fit2665.pdf}}}
+	\subfloat[Fit Region: {[}26, 65{]}]{{\includegraphics[width=0.47\columnwidth]{hm_fit2665.pdf}}}
 	\quad
 	\centering
-	\subfloat[Fit Region: \[30, 50\]]{{\includegraphics[width=0.47\columnwidth]{hm_fit3050.pdf}}}
+	\subfloat[Fit Region: {[}30, 50{]}]{{\includegraphics[width=0.47\columnwidth]{hm_fit3050.pdf}}}
 	\caption{Same as Fig. \ref{fig:hm_qcd} but for the fit regions [26, 65] and [30,50] GeV instead. This is used to determine 
     the systematic effects of the variation of the fit region to the $W$ boson mass.}
 	\label{fig:hm_fit}
